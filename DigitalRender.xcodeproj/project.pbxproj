@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0461C5B8256B3E9D00980618 /* cubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C5B7256B3E9D00980618 /* cubes.cpp */; };
+		0461C5D1256B442400980618 /* helloworld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C5C0256B439300980618 /* helloworld.cpp */; };
 		04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CC9256AB173004BE0A6 /* shader_spirv.h */; };
 		04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */; };
 		04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCB256AB173004BE0A6 /* nvapi.h */; };
@@ -240,37 +240,6 @@
 		04EB8054256ABCFC004BE0A6 /* stb_textedit.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB804E256ABCFB004BE0A6 /* stb_textedit.h */; };
 		04EB8055256ABCFC004BE0A6 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB804F256ABCFC004BE0A6 /* stb_truetype.h */; };
 		04EB8056256ABCFC004BE0A6 /* stb_rect_pack.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB8050256ABCFC004BE0A6 /* stb_rect_pack.h */; };
-		04EB80A0256ABF39004BE0A6 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8098256ABF39004BE0A6 /* imgui.cpp */; };
-		04EB80A1256ABF39004BE0A6 /* imgui_widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8099256ABF39004BE0A6 /* imgui_widgets.cpp */; };
-		04EB80A2256ABF39004BE0A6 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB809D256ABF39004BE0A6 /* imgui_demo.cpp */; };
-		04EB80A3256ABF39004BE0A6 /* imgui_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB809E256ABF39004BE0A6 /* imgui_draw.cpp */; };
-		04EB80B5256ABF66004BE0A6 /* cube_atlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80A6256ABF66004BE0A6 /* cube_atlas.cpp */; };
-		04EB80B6256ABF66004BE0A6 /* bgfx_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80A7256ABF66004BE0A6 /* bgfx_utils.cpp */; };
-		04EB80B7256ABF66004BE0A6 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80AE256ABF66004BE0A6 /* bounds.cpp */; };
-		04EB80B8256ABF66004BE0A6 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80B0256ABF66004BE0A6 /* example-glue.cpp */; };
-		04EB80B9256ABF66004BE0A6 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80B1256ABF66004BE0A6 /* camera.cpp */; };
-		04EB80C1256ABF93004BE0A6 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80C0256ABF93004BE0A6 /* imgui.cpp */; };
-		04EB80D5256ABFB7004BE0A6 /* overdrawanalyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80C5256ABFB6004BE0A6 /* overdrawanalyzer.cpp */; };
-		04EB80D6256ABFB7004BE0A6 /* vertexcodec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80C6256ABFB6004BE0A6 /* vertexcodec.cpp */; };
-		04EB80D7256ABFB7004BE0A6 /* vfetchanalyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80C7256ABFB6004BE0A6 /* vfetchanalyzer.cpp */; };
-		04EB80D8256ABFB7004BE0A6 /* indexgenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80C8256ABFB6004BE0A6 /* indexgenerator.cpp */; };
-		04EB80D9256ABFB7004BE0A6 /* stripifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80C9256ABFB6004BE0A6 /* stripifier.cpp */; };
-		04EB80DA256ABFB7004BE0A6 /* vfetchoptimizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80CA256ABFB6004BE0A6 /* vfetchoptimizer.cpp */; };
-		04EB80DB256ABFB7004BE0A6 /* allocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80CB256ABFB6004BE0A6 /* allocator.cpp */; };
-		04EB80DC256ABFB7004BE0A6 /* indexcodec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80CC256ABFB6004BE0A6 /* indexcodec.cpp */; };
-		04EB80DD256ABFB7004BE0A6 /* spatialorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80CE256ABFB7004BE0A6 /* spatialorder.cpp */; };
-		04EB80DE256ABFB7004BE0A6 /* simplifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80CF256ABFB7004BE0A6 /* simplifier.cpp */; };
-		04EB80DF256ABFB7004BE0A6 /* vcacheanalyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80D0256ABFB7004BE0A6 /* vcacheanalyzer.cpp */; };
-		04EB80E0256ABFB7004BE0A6 /* overdrawoptimizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80D1256ABFB7004BE0A6 /* overdrawoptimizer.cpp */; };
-		04EB80E1256ABFB7004BE0A6 /* vcacheoptimizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80D2256ABFB7004BE0A6 /* vcacheoptimizer.cpp */; };
-		04EB80E2256ABFB7004BE0A6 /* vertexfilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80D3256ABFB7004BE0A6 /* vertexfilter.cpp */; };
-		04EB80E3256ABFB7004BE0A6 /* clusterizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80D4256ABFB7004BE0A6 /* clusterizer.cpp */; };
-		04EB80F2256ABFE0004BE0A6 /* cmd.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80E7256ABFE0004BE0A6 /* cmd.cpp */; };
-		04EB80F3256ABFE0004BE0A6 /* dialog_darwin.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80E8256ABFE0004BE0A6 /* dialog_darwin.mm */; };
-		04EB80F4256ABFE0004BE0A6 /* dialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80E9256ABFE0004BE0A6 /* dialog.cpp */; };
-		04EB80F5256ABFE0004BE0A6 /* entry_osx.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80EB256ABFE0004BE0A6 /* entry_osx.mm */; };
-		04EB80F6256ABFE0004BE0A6 /* input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80EF256ABFE0004BE0A6 /* input.cpp */; };
-		04EB80F7256ABFE0004BE0A6 /* entry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB80F0256ABFE0004BE0A6 /* entry.cpp */; };
 		04EB80FC256AC008004BE0A6 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EB800C256ABB07004BE0A6 /* AppKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -297,7 +266,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0461C5B7256B3E9D00980618 /* cubes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cubes.cpp; sourceTree = "<group>"; };
+		0461C5BF256B439300980618 /* logo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logo.h; sourceTree = "<group>"; };
+		0461C5C0256B439300980618 /* helloworld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = helloworld.cpp; sourceTree = "<group>"; };
+		0461C5D4256B443100980618 /* DigitalRender.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DigitalRender.entitlements; sourceTree = "<group>"; };
 		04EB7BCE256AB022004BE0A6 /* DigitalRender */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DigitalRender; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7BDD256AB03B004BE0A6 /* libsrc.bgfx.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsrc.bgfx.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7CC9256AB173004BE0A6 /* shader_spirv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shader_spirv.h; path = bgfx/shader_spirv.h; sourceTree = "<group>"; };
@@ -539,67 +510,12 @@
 		04EB8006256ABABE004BE0A6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		04EB800C256ABB07004BE0A6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		04EB8010256ABB55004BE0A6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		04EB8023256ABC25004BE0A6 /* drawstress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = drawstress.cpp; sourceTree = "<group>"; };
 		04EB804B256ABCFB004BE0A6 /* stb_image_resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_image_resize.h; path = 3rdparty/stb/stb_image_resize.h; sourceTree = SOURCE_ROOT; };
 		04EB804C256ABCFB004BE0A6 /* stb_image_write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_image_write.h; path = 3rdparty/stb/stb_image_write.h; sourceTree = SOURCE_ROOT; };
 		04EB804D256ABCFB004BE0A6 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_image.h; path = 3rdparty/stb/stb_image.h; sourceTree = SOURCE_ROOT; };
 		04EB804E256ABCFB004BE0A6 /* stb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_textedit.h; path = 3rdparty/stb/stb_textedit.h; sourceTree = SOURCE_ROOT; };
 		04EB804F256ABCFC004BE0A6 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_truetype.h; path = 3rdparty/stb/stb_truetype.h; sourceTree = SOURCE_ROOT; };
 		04EB8050256ABCFC004BE0A6 /* stb_rect_pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_rect_pack.h; path = 3rdparty/stb/stb_rect_pack.h; sourceTree = SOURCE_ROOT; };
-		04EB8094256ABF39004BE0A6 /* imconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imconfig.h; path = "3rdparty/dear-imgui/imconfig.h"; sourceTree = SOURCE_ROOT; };
-		04EB8095256ABF39004BE0A6 /* imgui_user.inl */ = {isa = PBXFileReference; lastKnownFileType = text; name = imgui_user.inl; path = "3rdparty/dear-imgui/imgui_user.inl"; sourceTree = SOURCE_ROOT; };
-		04EB8096256ABF39004BE0A6 /* imstb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imstb_textedit.h; path = "3rdparty/dear-imgui/imstb_textedit.h"; sourceTree = SOURCE_ROOT; };
-		04EB8097256ABF39004BE0A6 /* imstb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imstb_truetype.h; path = "3rdparty/dear-imgui/imstb_truetype.h"; sourceTree = SOURCE_ROOT; };
-		04EB8098256ABF39004BE0A6 /* imgui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui.cpp; path = "3rdparty/dear-imgui/imgui.cpp"; sourceTree = SOURCE_ROOT; };
-		04EB8099256ABF39004BE0A6 /* imgui_widgets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_widgets.cpp; path = "3rdparty/dear-imgui/imgui_widgets.cpp"; sourceTree = SOURCE_ROOT; };
-		04EB809A256ABF39004BE0A6 /* imstb_rectpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imstb_rectpack.h; path = "3rdparty/dear-imgui/imstb_rectpack.h"; sourceTree = SOURCE_ROOT; };
-		04EB809B256ABF39004BE0A6 /* imgui_user.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui_user.h; path = "3rdparty/dear-imgui/imgui_user.h"; sourceTree = SOURCE_ROOT; };
-		04EB809C256ABF39004BE0A6 /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui.h; path = "3rdparty/dear-imgui/imgui.h"; sourceTree = SOURCE_ROOT; };
-		04EB809D256ABF39004BE0A6 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_demo.cpp; path = "3rdparty/dear-imgui/imgui_demo.cpp"; sourceTree = SOURCE_ROOT; };
-		04EB809E256ABF39004BE0A6 /* imgui_draw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_draw.cpp; path = "3rdparty/dear-imgui/imgui_draw.cpp"; sourceTree = SOURCE_ROOT; };
-		04EB809F256ABF39004BE0A6 /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui_internal.h; path = "3rdparty/dear-imgui/imgui_internal.h"; sourceTree = SOURCE_ROOT; };
-		04EB80A6256ABF66004BE0A6 /* cube_atlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cube_atlas.cpp; sourceTree = "<group>"; };
-		04EB80A7256ABF66004BE0A6 /* bgfx_utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bgfx_utils.cpp; sourceTree = "<group>"; };
-		04EB80A9256ABF66004BE0A6 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
-		04EB80AB256ABF66004BE0A6 /* cube_atlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cube_atlas.h; sourceTree = "<group>"; };
-		04EB80AC256ABF66004BE0A6 /* common.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = common.sh; sourceTree = "<group>"; };
-		04EB80AD256ABF66004BE0A6 /* aviwriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aviwriter.h; sourceTree = "<group>"; };
-		04EB80AE256ABF66004BE0A6 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bounds.cpp; sourceTree = "<group>"; };
-		04EB80AF256ABF66004BE0A6 /* packrect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packrect.h; sourceTree = "<group>"; };
-		04EB80B0256ABF66004BE0A6 /* example-glue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "example-glue.cpp"; sourceTree = "<group>"; };
-		04EB80B1256ABF66004BE0A6 /* camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = camera.cpp; sourceTree = "<group>"; };
-		04EB80B2256ABF66004BE0A6 /* bounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bounds.h; sourceTree = "<group>"; };
-		04EB80B3256ABF66004BE0A6 /* bgfx_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bgfx_utils.h; sourceTree = "<group>"; };
-		04EB80B4256ABF66004BE0A6 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
-		04EB80BF256ABF93004BE0A6 /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui.h; path = imgui/imgui.h; sourceTree = "<group>"; };
-		04EB80C0256ABF93004BE0A6 /* imgui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui.cpp; path = imgui/imgui.cpp; sourceTree = "<group>"; };
-		04EB80C5256ABFB6004BE0A6 /* overdrawanalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = overdrawanalyzer.cpp; path = 3rdparty/meshoptimizer/src/overdrawanalyzer.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80C6256ABFB6004BE0A6 /* vertexcodec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vertexcodec.cpp; path = 3rdparty/meshoptimizer/src/vertexcodec.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80C7256ABFB6004BE0A6 /* vfetchanalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vfetchanalyzer.cpp; path = 3rdparty/meshoptimizer/src/vfetchanalyzer.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80C8256ABFB6004BE0A6 /* indexgenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = indexgenerator.cpp; path = 3rdparty/meshoptimizer/src/indexgenerator.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80C9256ABFB6004BE0A6 /* stripifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stripifier.cpp; path = 3rdparty/meshoptimizer/src/stripifier.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80CA256ABFB6004BE0A6 /* vfetchoptimizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vfetchoptimizer.cpp; path = 3rdparty/meshoptimizer/src/vfetchoptimizer.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80CB256ABFB6004BE0A6 /* allocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = allocator.cpp; path = 3rdparty/meshoptimizer/src/allocator.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80CC256ABFB6004BE0A6 /* indexcodec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = indexcodec.cpp; path = 3rdparty/meshoptimizer/src/indexcodec.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80CD256ABFB6004BE0A6 /* meshoptimizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = meshoptimizer.h; path = 3rdparty/meshoptimizer/src/meshoptimizer.h; sourceTree = SOURCE_ROOT; };
-		04EB80CE256ABFB7004BE0A6 /* spatialorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = spatialorder.cpp; path = 3rdparty/meshoptimizer/src/spatialorder.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80CF256ABFB7004BE0A6 /* simplifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = simplifier.cpp; path = 3rdparty/meshoptimizer/src/simplifier.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80D0256ABFB7004BE0A6 /* vcacheanalyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vcacheanalyzer.cpp; path = 3rdparty/meshoptimizer/src/vcacheanalyzer.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80D1256ABFB7004BE0A6 /* overdrawoptimizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = overdrawoptimizer.cpp; path = 3rdparty/meshoptimizer/src/overdrawoptimizer.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80D2256ABFB7004BE0A6 /* vcacheoptimizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vcacheoptimizer.cpp; path = 3rdparty/meshoptimizer/src/vcacheoptimizer.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80D3256ABFB7004BE0A6 /* vertexfilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vertexfilter.cpp; path = 3rdparty/meshoptimizer/src/vertexfilter.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80D4256ABFB7004BE0A6 /* clusterizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = clusterizer.cpp; path = 3rdparty/meshoptimizer/src/clusterizer.cpp; sourceTree = SOURCE_ROOT; };
-		04EB80E7256ABFE0004BE0A6 /* cmd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cmd.cpp; path = entry/cmd.cpp; sourceTree = "<group>"; };
-		04EB80E8256ABFE0004BE0A6 /* dialog_darwin.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = dialog_darwin.mm; path = entry/dialog_darwin.mm; sourceTree = "<group>"; };
-		04EB80E9256ABFE0004BE0A6 /* dialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dialog.cpp; path = entry/dialog.cpp; sourceTree = "<group>"; };
-		04EB80EA256ABFE0004BE0A6 /* dbg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dbg.h; path = entry/dbg.h; sourceTree = "<group>"; };
-		04EB80EB256ABFE0004BE0A6 /* entry_osx.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = entry_osx.mm; path = entry/entry_osx.mm; sourceTree = "<group>"; };
-		04EB80EC256ABFE0004BE0A6 /* dialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dialog.h; path = entry/dialog.h; sourceTree = "<group>"; };
-		04EB80ED256ABFE0004BE0A6 /* cmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cmd.h; path = entry/cmd.h; sourceTree = "<group>"; };
-		04EB80EE256ABFE0004BE0A6 /* entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = entry.h; path = entry/entry.h; sourceTree = "<group>"; };
-		04EB80EF256ABFE0004BE0A6 /* input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = input.cpp; path = entry/input.cpp; sourceTree = "<group>"; };
-		04EB80F0256ABFE0004BE0A6 /* entry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = entry.cpp; path = entry/entry.cpp; sourceTree = "<group>"; };
-		04EB80F1256ABFE0004BE0A6 /* input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = input.h; path = entry/input.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -647,24 +563,9 @@
 		04EB7BD0256AB022004BE0A6 /* DigitalRender */ = {
 			isa = PBXGroup;
 			children = (
-				04EB80E6256ABFBF004BE0A6 /* entry */,
-				04EB80BE256ABF76004BE0A6 /* imgui */,
-				04EB80AD256ABF66004BE0A6 /* aviwriter.h */,
-				04EB80A7256ABF66004BE0A6 /* bgfx_utils.cpp */,
-				04EB80B3256ABF66004BE0A6 /* bgfx_utils.h */,
-				04EB80AE256ABF66004BE0A6 /* bounds.cpp */,
-				04EB80B2256ABF66004BE0A6 /* bounds.h */,
-				04EB80B1256ABF66004BE0A6 /* camera.cpp */,
-				04EB80B4256ABF66004BE0A6 /* camera.h */,
-				04EB80A9256ABF66004BE0A6 /* common.h */,
-				04EB80AC256ABF66004BE0A6 /* common.sh */,
-				04EB80A6256ABF66004BE0A6 /* cube_atlas.cpp */,
-				04EB80AB256ABF66004BE0A6 /* cube_atlas.h */,
-				04EB80B0256ABF66004BE0A6 /* example-glue.cpp */,
-				04EB80AF256ABF66004BE0A6 /* packrect.h */,
-				04EB8092256ABF1C004BE0A6 /* external */,
-				04EB8023256ABC25004BE0A6 /* drawstress.cpp */,
-				0461C5B7256B3E9D00980618 /* cubes.cpp */,
+				0461C5D4256B443100980618 /* DigitalRender.entitlements */,
+				0461C5C0256B439300980618 /* helloworld.cpp */,
+				0461C5BF256B439300980618 /* logo.h */,
 			);
 			path = DigitalRender;
 			sourceTree = "<group>";
@@ -1056,84 +957,6 @@
 			name = stb;
 			sourceTree = "<group>";
 		};
-		04EB8092256ABF1C004BE0A6 /* external */ = {
-			isa = PBXGroup;
-			children = (
-				04EB80C4256ABFA6004BE0A6 /* meshopt */,
-				04EB8093256ABF21004BE0A6 /* imgui */,
-			);
-			name = external;
-			sourceTree = "<group>";
-		};
-		04EB8093256ABF21004BE0A6 /* imgui */ = {
-			isa = PBXGroup;
-			children = (
-				04EB8094256ABF39004BE0A6 /* imconfig.h */,
-				04EB809D256ABF39004BE0A6 /* imgui_demo.cpp */,
-				04EB809E256ABF39004BE0A6 /* imgui_draw.cpp */,
-				04EB809F256ABF39004BE0A6 /* imgui_internal.h */,
-				04EB809B256ABF39004BE0A6 /* imgui_user.h */,
-				04EB8095256ABF39004BE0A6 /* imgui_user.inl */,
-				04EB8099256ABF39004BE0A6 /* imgui_widgets.cpp */,
-				04EB8098256ABF39004BE0A6 /* imgui.cpp */,
-				04EB809C256ABF39004BE0A6 /* imgui.h */,
-				04EB809A256ABF39004BE0A6 /* imstb_rectpack.h */,
-				04EB8096256ABF39004BE0A6 /* imstb_textedit.h */,
-				04EB8097256ABF39004BE0A6 /* imstb_truetype.h */,
-			);
-			name = imgui;
-			sourceTree = "<group>";
-		};
-		04EB80BE256ABF76004BE0A6 /* imgui */ = {
-			isa = PBXGroup;
-			children = (
-				04EB80C0256ABF93004BE0A6 /* imgui.cpp */,
-				04EB80BF256ABF93004BE0A6 /* imgui.h */,
-			);
-			name = imgui;
-			sourceTree = "<group>";
-		};
-		04EB80C4256ABFA6004BE0A6 /* meshopt */ = {
-			isa = PBXGroup;
-			children = (
-				04EB80CB256ABFB6004BE0A6 /* allocator.cpp */,
-				04EB80D4256ABFB7004BE0A6 /* clusterizer.cpp */,
-				04EB80CC256ABFB6004BE0A6 /* indexcodec.cpp */,
-				04EB80C8256ABFB6004BE0A6 /* indexgenerator.cpp */,
-				04EB80CD256ABFB6004BE0A6 /* meshoptimizer.h */,
-				04EB80C5256ABFB6004BE0A6 /* overdrawanalyzer.cpp */,
-				04EB80D1256ABFB7004BE0A6 /* overdrawoptimizer.cpp */,
-				04EB80CF256ABFB7004BE0A6 /* simplifier.cpp */,
-				04EB80CE256ABFB7004BE0A6 /* spatialorder.cpp */,
-				04EB80C9256ABFB6004BE0A6 /* stripifier.cpp */,
-				04EB80D0256ABFB7004BE0A6 /* vcacheanalyzer.cpp */,
-				04EB80D2256ABFB7004BE0A6 /* vcacheoptimizer.cpp */,
-				04EB80C6256ABFB6004BE0A6 /* vertexcodec.cpp */,
-				04EB80D3256ABFB7004BE0A6 /* vertexfilter.cpp */,
-				04EB80C7256ABFB6004BE0A6 /* vfetchanalyzer.cpp */,
-				04EB80CA256ABFB6004BE0A6 /* vfetchoptimizer.cpp */,
-			);
-			name = meshopt;
-			sourceTree = "<group>";
-		};
-		04EB80E6256ABFBF004BE0A6 /* entry */ = {
-			isa = PBXGroup;
-			children = (
-				04EB80E7256ABFE0004BE0A6 /* cmd.cpp */,
-				04EB80ED256ABFE0004BE0A6 /* cmd.h */,
-				04EB80EA256ABFE0004BE0A6 /* dbg.h */,
-				04EB80E8256ABFE0004BE0A6 /* dialog_darwin.mm */,
-				04EB80E9256ABFE0004BE0A6 /* dialog.cpp */,
-				04EB80EC256ABFE0004BE0A6 /* dialog.h */,
-				04EB80EB256ABFE0004BE0A6 /* entry_osx.mm */,
-				04EB80F0256ABFE0004BE0A6 /* entry.cpp */,
-				04EB80EE256ABFE0004BE0A6 /* entry.h */,
-				04EB80EF256ABFE0004BE0A6 /* input.cpp */,
-				04EB80F1256ABFE0004BE0A6 /* input.h */,
-			);
-			name = entry;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1324,38 +1147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04EB80D9256ABFB7004BE0A6 /* stripifier.cpp in Sources */,
-				04EB80B5256ABF66004BE0A6 /* cube_atlas.cpp in Sources */,
-				04EB80E3256ABFB7004BE0A6 /* clusterizer.cpp in Sources */,
-				04EB80DE256ABFB7004BE0A6 /* simplifier.cpp in Sources */,
-				04EB80F3256ABFE0004BE0A6 /* dialog_darwin.mm in Sources */,
-				04EB80D7256ABFB7004BE0A6 /* vfetchanalyzer.cpp in Sources */,
-				04EB80DD256ABFB7004BE0A6 /* spatialorder.cpp in Sources */,
-				04EB80DC256ABFB7004BE0A6 /* indexcodec.cpp in Sources */,
-				04EB80D6256ABFB7004BE0A6 /* vertexcodec.cpp in Sources */,
-				04EB80F4256ABFE0004BE0A6 /* dialog.cpp in Sources */,
-				04EB80E2256ABFB7004BE0A6 /* vertexfilter.cpp in Sources */,
-				0461C5B8256B3E9D00980618 /* cubes.cpp in Sources */,
-				04EB80F7256ABFE0004BE0A6 /* entry.cpp in Sources */,
-				04EB80F6256ABFE0004BE0A6 /* input.cpp in Sources */,
-				04EB80B6256ABF66004BE0A6 /* bgfx_utils.cpp in Sources */,
-				04EB80A1256ABF39004BE0A6 /* imgui_widgets.cpp in Sources */,
-				04EB80D8256ABFB7004BE0A6 /* indexgenerator.cpp in Sources */,
-				04EB80B9256ABF66004BE0A6 /* camera.cpp in Sources */,
-				04EB80DB256ABFB7004BE0A6 /* allocator.cpp in Sources */,
-				04EB80F2256ABFE0004BE0A6 /* cmd.cpp in Sources */,
-				04EB80D5256ABFB7004BE0A6 /* overdrawanalyzer.cpp in Sources */,
-				04EB80E0256ABFB7004BE0A6 /* overdrawoptimizer.cpp in Sources */,
-				04EB80C1256ABF93004BE0A6 /* imgui.cpp in Sources */,
-				04EB80A2256ABF39004BE0A6 /* imgui_demo.cpp in Sources */,
-				04EB80E1256ABFB7004BE0A6 /* vcacheoptimizer.cpp in Sources */,
-				04EB80A3256ABF39004BE0A6 /* imgui_draw.cpp in Sources */,
-				04EB80B8256ABF66004BE0A6 /* example-glue.cpp in Sources */,
-				04EB80F5256ABFE0004BE0A6 /* entry_osx.mm in Sources */,
-				04EB80B7256ABF66004BE0A6 /* bounds.cpp in Sources */,
-				04EB80DF256ABFB7004BE0A6 /* vcacheanalyzer.cpp in Sources */,
-				04EB80DA256ABFB7004BE0A6 /* vfetchoptimizer.cpp in Sources */,
-				04EB80A0256ABF39004BE0A6 /* imgui.cpp in Sources */,
+				0461C5D1256B442400980618 /* helloworld.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1618,6 +1410,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_ENTITLEMENTS = DigitalRender/DigitalRender.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SL5L673UU;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1635,6 +1428,7 @@
 					/Users/yangfeng/Desktop/DigitalRender/src.bgfx/bx/compat/osx,
 					/Users/yangfeng/Desktop/DigitalRender/DigitalRender,
 				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_CFLAGS = (
 					"-ffast-math",
 					"-fomit-frame-pointer",
@@ -1657,8 +1451,12 @@
 					"-target",
 					"x86_64-apple-macos10.11",
 				);
+				OTHER_LDFLAGS = "-lglfw";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYSTEM_HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalRender/3rdparty;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					/Users/yangfeng/Desktop/DigitalRender/3rdparty,
+					/usr/local/include,
+				);
 			};
 			name = Debug;
 		};
@@ -1666,6 +1464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_ENTITLEMENTS = DigitalRender/DigitalRender.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4SL5L673UU;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1683,6 +1482,7 @@
 					/Users/yangfeng/Desktop/DigitalRender/src.bgfx/bx/compat/osx,
 					/Users/yangfeng/Desktop/DigitalRender/DigitalRender,
 				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				OTHER_CFLAGS = (
 					"-ffast-math",
 					"-fomit-frame-pointer",
@@ -1705,8 +1505,12 @@
 					"-target",
 					"x86_64-apple-macos10.11",
 				);
+				OTHER_LDFLAGS = "-lglfw";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYSTEM_HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalRender/3rdparty;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					/Users/yangfeng/Desktop/DigitalRender/3rdparty,
+					/usr/local/include,
+				);
 			};
 			name = Release;
 		};

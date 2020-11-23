@@ -8,8 +8,8 @@
 
 #include "common.h"
 #include "bgfx_utils.h"
-#include "imgui/imgui.h"
-#include "nanovg/nanovg.h"
+#include "common/imgui/imgui.h"
+#include "common/nanovg/nanovg.h"
 
 #include <bx/readerwriter.h>
 #include <bx/string.h>
@@ -159,10 +159,10 @@ struct LightProbe
 	{
 		char filePath[512];
 
-		bx::snprintf(filePath, BX_COUNTOF(filePath), "textures/%s_lod.dds", _name);
+		bx::snprintf(filePath, BX_COUNTOF(filePath), "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/%s_lod.dds", _name);
 		m_tex = loadTexture(filePath, BGFX_SAMPLER_U_CLAMP|BGFX_SAMPLER_V_CLAMP|BGFX_SAMPLER_W_CLAMP);
 
-		bx::snprintf(filePath, BX_COUNTOF(filePath), "textures/%s_irr.dds", _name);
+		bx::snprintf(filePath, BX_COUNTOF(filePath), "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/%s_irr.dds", _name);
 		m_texIrr = loadTexture(filePath, BGFX_SAMPLER_U_CLAMP|BGFX_SAMPLER_V_CLAMP|BGFX_SAMPLER_W_CLAMP);
 	}
 
@@ -457,8 +457,8 @@ public:
 		m_programMesh  = loadProgram("vs_ibl_mesh",   "fs_ibl_mesh");
 		m_programSky   = loadProgram("vs_ibl_skybox", "fs_ibl_skybox");
 
-		m_meshBunny = meshLoad("meshes/bunny.bin");
-		m_meshOrb = meshLoad("meshes/orb.bin");
+		m_meshBunny = meshLoad("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/bunny.bin");
+		m_meshOrb = meshLoad("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/orb.bin");
 	}
 
 	virtual int shutdown() override

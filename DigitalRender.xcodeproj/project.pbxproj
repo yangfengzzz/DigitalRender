@@ -38,7 +38,9 @@
 		0461C7C3256B683400980618 /* clusterizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7B4256B683400980618 /* clusterizer.cpp */; };
 		0461C7C4256B683400980618 /* indexgenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7B5256B683400980618 /* indexgenerator.cpp */; };
 		0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7B6256B683400980618 /* vfetchoptimizer.cpp */; };
-		0461C7D4256B68A200980618 /* cubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7D3256B68A200980618 /* cubes.cpp */; };
+		0461C7DB256B697700980618 /* ibl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7DA256B697700980618 /* ibl.cpp */; };
+		0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7E2256B69B000980618 /* nanovg_bgfx.cpp */; };
+		0461C7E7256B69B000980618 /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7E3256B69B000980618 /* nanovg.cpp */; };
 		04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CC9256AB173004BE0A6 /* shader_spirv.h */; };
 		04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */; };
 		04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCB256AB173004BE0A6 /* nvapi.h */; };
@@ -354,6 +356,12 @@
 		0461C7CB256B686900980618 /* helloworld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = helloworld.cpp; path = "00-helloworld/helloworld.cpp"; sourceTree = "<group>"; };
 		0461C7CF256B686F00980618 /* logo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = logo.h; path = "00-helloworld/logo.h"; sourceTree = "<group>"; };
 		0461C7D3256B68A200980618 /* cubes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cubes.cpp; path = "01-cubes/cubes.cpp"; sourceTree = "<group>"; };
+		0461C7DA256B697700980618 /* ibl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ibl.cpp; path = "18-ibl/ibl.cpp"; sourceTree = "<group>"; };
+		0461C7E1256B69B000980618 /* nanovg_bgfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nanovg_bgfx.h; path = common/nanovg/nanovg_bgfx.h; sourceTree = "<group>"; };
+		0461C7E2256B69B000980618 /* nanovg_bgfx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nanovg_bgfx.cpp; path = common/nanovg/nanovg_bgfx.cpp; sourceTree = "<group>"; };
+		0461C7E3256B69B000980618 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nanovg.cpp; path = common/nanovg/nanovg.cpp; sourceTree = "<group>"; };
+		0461C7E4256B69B000980618 /* nanovg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nanovg.h; path = common/nanovg/nanovg.h; sourceTree = "<group>"; };
+		0461C7E5256B69B000980618 /* fontstash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fontstash.h; path = common/nanovg/fontstash.h; sourceTree = "<group>"; };
 		04EB7BCE256AB022004BE0A6 /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7BDD256AB03B004BE0A6 /* libsrc.bgfx.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsrc.bgfx.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7CC9256AB173004BE0A6 /* shader_spirv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shader_spirv.h; path = bgfx/shader_spirv.h; sourceTree = "<group>"; };
@@ -629,6 +637,7 @@
 		0461C761256B679800980618 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				0461C7E0256B699C00980618 /* nanovg */,
 				0461C77B256B67CC00980618 /* entry */,
 				0461C775256B67B100980618 /* imgui */,
 				0461C769256B67AD00980618 /* aviwriter.h */,
@@ -743,6 +752,26 @@
 			name = "01-cubes";
 			sourceTree = "<group>";
 		};
+		0461C7D9256B696A00980618 /* 18-ibl */ = {
+			isa = PBXGroup;
+			children = (
+				0461C7DA256B697700980618 /* ibl.cpp */,
+			);
+			name = "18-ibl";
+			sourceTree = "<group>";
+		};
+		0461C7E0256B699C00980618 /* nanovg */ = {
+			isa = PBXGroup;
+			children = (
+				0461C7E5256B69B000980618 /* fontstash.h */,
+				0461C7E2256B69B000980618 /* nanovg_bgfx.cpp */,
+				0461C7E1256B69B000980618 /* nanovg_bgfx.h */,
+				0461C7E3256B69B000980618 /* nanovg.cpp */,
+				0461C7E4256B69B000980618 /* nanovg.h */,
+			);
+			name = nanovg;
+			sourceTree = "<group>";
+		};
 		04EB7BC5256AB022004BE0A6 = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +794,7 @@
 		04EB7BD0256AB022004BE0A6 /* apps */ = {
 			isa = PBXGroup;
 			children = (
+				0461C7D9256B696A00980618 /* 18-ibl */,
 				0461C7D2256B689A00980618 /* 01-cubes */,
 				0461C7CA256B686300980618 /* 00-helloworld */,
 				0461C791256B67F700980618 /* external */,
@@ -1352,6 +1382,7 @@
 			files = (
 				0461C7BF256B683400980618 /* vcacheanalyzer.cpp in Sources */,
 				0461C79F256B681300980618 /* imgui_draw.cpp in Sources */,
+				0461C7E7256B69B000980618 /* nanovg.cpp in Sources */,
 				0461C7C3256B683400980618 /* clusterizer.cpp in Sources */,
 				0461C7B9256B683400980618 /* simplifier.cpp in Sources */,
 				0461C78D256B67F100980618 /* cmd.cpp in Sources */,
@@ -1362,15 +1393,16 @@
 				0461C7A0256B681300980618 /* imgui.cpp in Sources */,
 				0461C76E256B67AD00980618 /* bounds.cpp in Sources */,
 				0461C770256B67AD00980618 /* camera.cpp in Sources */,
-				0461C7D4256B68A200980618 /* cubes.cpp in Sources */,
 				0461C7BA256B683400980618 /* overdrawanalyzer.cpp in Sources */,
 				0461C7C0256B683400980618 /* indexcodec.cpp in Sources */,
 				0461C771256B67AD00980618 /* cube_atlas.cpp in Sources */,
 				0461C7BD256B683400980618 /* vfetchanalyzer.cpp in Sources */,
+				0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */,
 				0461C7BC256B683400980618 /* overdrawoptimizer.cpp in Sources */,
 				0461C7B7256B683400980618 /* vertexcodec.cpp in Sources */,
 				0461C76F256B67AD00980618 /* example-glue.cpp in Sources */,
 				0461C772256B67AD00980618 /* bgfx_utils.cpp in Sources */,
+				0461C7DB256B697700980618 /* ibl.cpp in Sources */,
 				0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */,
 				0461C778256B67CA00980618 /* imgui.cpp in Sources */,
 				0461C7BE256B683400980618 /* vcacheoptimizer.cpp in Sources */,

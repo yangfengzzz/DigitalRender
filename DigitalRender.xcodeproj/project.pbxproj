@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0461C5B8256B3E9D00980618 /* cubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C5B7256B3E9D00980618 /* cubes.cpp */; };
 		04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CC9256AB173004BE0A6 /* shader_spirv.h */; };
 		04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */; };
 		04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCB256AB173004BE0A6 /* nvapi.h */; };
@@ -232,7 +233,6 @@
 		04EB7FF3256AB9CE004BE0A6 /* etc1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB7FF1256AB9CE004BE0A6 /* etc1.cpp */; };
 		04EB7FF4256AB9CE004BE0A6 /* etc1.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7FF2256AB9CE004BE0A6 /* etc1.h */; };
 		04EB8011256ABB55004BE0A6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EB8010256ABB55004BE0A6 /* QuartzCore.framework */; };
-		04EB8024256ABC25004BE0A6 /* drawstress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8023256ABC25004BE0A6 /* drawstress.cpp */; };
 		04EB802B256ABC48004BE0A6 /* libsrc.bgfx.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EB7BDD256AB03B004BE0A6 /* libsrc.bgfx.dylib */; };
 		04EB8051256ABCFC004BE0A6 /* stb_image_resize.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB804B256ABCFB004BE0A6 /* stb_image_resize.h */; };
 		04EB8052256ABCFC004BE0A6 /* stb_image_write.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB804C256ABCFB004BE0A6 /* stb_image_write.h */; };
@@ -297,6 +297,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0461C5B7256B3E9D00980618 /* cubes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cubes.cpp; sourceTree = "<group>"; };
 		04EB7BCE256AB022004BE0A6 /* DigitalRender */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DigitalRender; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7BDD256AB03B004BE0A6 /* libsrc.bgfx.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsrc.bgfx.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7CC9256AB173004BE0A6 /* shader_spirv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shader_spirv.h; path = bgfx/shader_spirv.h; sourceTree = "<group>"; };
@@ -525,7 +526,7 @@
 		04EB7FD1256AB9B2004BE0A6 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = 3rdparty/libsquish/config.h; sourceTree = SOURCE_ROOT; };
 		04EB7FD2256AB9B2004BE0A6 /* alpha.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = alpha.cpp; path = 3rdparty/libsquish/alpha.cpp; sourceTree = SOURCE_ROOT; };
 		04EB7FD3256AB9B2004BE0A6 /* rangefit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rangefit.cpp; path = 3rdparty/libsquish/rangefit.cpp; sourceTree = SOURCE_ROOT; };
-		04EB7FD4256AB9B2004BE0A6 /* singlecolourlookup.inl */ = {isa = PBXFileReference; lastKnownFileType = file; name = singlecolourlookup.inl; path = 3rdparty/libsquish/singlecolourlookup.inl; sourceTree = SOURCE_ROOT; };
+		04EB7FD4256AB9B2004BE0A6 /* singlecolourlookup.inl */ = {isa = PBXFileReference; lastKnownFileType = text; name = singlecolourlookup.inl; path = 3rdparty/libsquish/singlecolourlookup.inl; sourceTree = SOURCE_ROOT; };
 		04EB7FD5256AB9B2004BE0A6 /* colourblock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = colourblock.h; path = 3rdparty/libsquish/colourblock.h; sourceTree = SOURCE_ROOT; };
 		04EB7FD6256AB9B2004BE0A6 /* maths.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = maths.cpp; path = 3rdparty/libsquish/maths.cpp; sourceTree = SOURCE_ROOT; };
 		04EB7FD7256AB9B2004BE0A6 /* simd_float.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = simd_float.h; path = 3rdparty/libsquish/simd_float.h; sourceTree = SOURCE_ROOT; };
@@ -546,7 +547,7 @@
 		04EB804F256ABCFC004BE0A6 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_truetype.h; path = 3rdparty/stb/stb_truetype.h; sourceTree = SOURCE_ROOT; };
 		04EB8050256ABCFC004BE0A6 /* stb_rect_pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stb_rect_pack.h; path = 3rdparty/stb/stb_rect_pack.h; sourceTree = SOURCE_ROOT; };
 		04EB8094256ABF39004BE0A6 /* imconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imconfig.h; path = "3rdparty/dear-imgui/imconfig.h"; sourceTree = SOURCE_ROOT; };
-		04EB8095256ABF39004BE0A6 /* imgui_user.inl */ = {isa = PBXFileReference; lastKnownFileType = file; name = imgui_user.inl; path = "3rdparty/dear-imgui/imgui_user.inl"; sourceTree = SOURCE_ROOT; };
+		04EB8095256ABF39004BE0A6 /* imgui_user.inl */ = {isa = PBXFileReference; lastKnownFileType = text; name = imgui_user.inl; path = "3rdparty/dear-imgui/imgui_user.inl"; sourceTree = SOURCE_ROOT; };
 		04EB8096256ABF39004BE0A6 /* imstb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imstb_textedit.h; path = "3rdparty/dear-imgui/imstb_textedit.h"; sourceTree = SOURCE_ROOT; };
 		04EB8097256ABF39004BE0A6 /* imstb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imstb_truetype.h; path = "3rdparty/dear-imgui/imstb_truetype.h"; sourceTree = SOURCE_ROOT; };
 		04EB8098256ABF39004BE0A6 /* imgui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui.cpp; path = "3rdparty/dear-imgui/imgui.cpp"; sourceTree = SOURCE_ROOT; };
@@ -663,6 +664,7 @@
 				04EB80AF256ABF66004BE0A6 /* packrect.h */,
 				04EB8092256ABF1C004BE0A6 /* external */,
 				04EB8023256ABC25004BE0A6 /* drawstress.cpp */,
+				0461C5B7256B3E9D00980618 /* cubes.cpp */,
 			);
 			path = DigitalRender;
 			sourceTree = "<group>";
@@ -1333,7 +1335,7 @@
 				04EB80D6256ABFB7004BE0A6 /* vertexcodec.cpp in Sources */,
 				04EB80F4256ABFE0004BE0A6 /* dialog.cpp in Sources */,
 				04EB80E2256ABFB7004BE0A6 /* vertexfilter.cpp in Sources */,
-				04EB8024256ABC25004BE0A6 /* drawstress.cpp in Sources */,
+				0461C5B8256B3E9D00980618 /* cubes.cpp in Sources */,
 				04EB80F7256ABFE0004BE0A6 /* entry.cpp in Sources */,
 				04EB80F6256ABFE0004BE0A6 /* input.cpp in Sources */,
 				04EB80B6256ABF66004BE0A6 /* bgfx_utils.cpp in Sources */,

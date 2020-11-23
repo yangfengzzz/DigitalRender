@@ -38,9 +38,52 @@
 		0461C7C3256B683400980618 /* clusterizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7B4256B683400980618 /* clusterizer.cpp */; };
 		0461C7C4256B683400980618 /* indexgenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7B5256B683400980618 /* indexgenerator.cpp */; };
 		0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7B6256B683400980618 /* vfetchoptimizer.cpp */; };
-		0461C7DB256B697700980618 /* ibl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7DA256B697700980618 /* ibl.cpp */; };
 		0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7E2256B69B000980618 /* nanovg_bgfx.cpp */; };
 		0461C7E7256B69B000980618 /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7E3256B69B000980618 /* nanovg.cpp */; };
+		0461C7FC256B914900980618 /* metaballs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7FA256B914900980618 /* metaballs.cpp */; };
+		0461C825256B928600980618 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C801256B928500980618 /* hash.h */; };
+		0461C826256B928600980618 /* commandline.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C802256B928500980618 /* commandline.h */; };
+		0461C827256B928600980618 /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C803256B928500980618 /* thread.h */; };
+		0461C828256B928600980618 /* platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C804256B928500980618 /* platform.h */; };
+		0461C829256B928600980618 /* settings.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C805256B928500980618 /* settings.h */; };
+		0461C82A256B928600980618 /* bx.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C806256B928500980618 /* bx.h */; };
+		0461C82B256B928600980618 /* cpu.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C807256B928500980618 /* cpu.h */; };
+		0461C82C256B928600980618 /* ringbuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C808256B928500980618 /* ringbuffer.h */; };
+		0461C82D256B928600980618 /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C809256B928500980618 /* easing.h */; };
+		0461C82E256B928600980618 /* mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80A256B928500980618 /* mutex.h */; };
+		0461C82F256B928600980618 /* semaphore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80B256B928500980618 /* semaphore.h */; };
+		0461C830256B928600980618 /* pixelformat.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80C256B928500980618 /* pixelformat.h */; };
+		0461C831256B928600980618 /* string.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80D256B928500980618 /* string.h */; };
+		0461C832256B928600980618 /* float4x4_t.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80E256B928500980618 /* float4x4_t.h */; };
+		0461C833256B928600980618 /* error.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80F256B928500980618 /* error.h */; };
+		0461C834256B928600980618 /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C810256B928500980618 /* debug.h */; };
+		0461C835256B928600980618 /* spscqueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C811256B928500980618 /* spscqueue.h */; };
+		0461C836256B928600980618 /* url.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C812256B928500980618 /* url.h */; };
+		0461C837256B928600980618 /* filepath.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C813256B928500980618 /* filepath.h */; };
+		0461C838256B928600980618 /* handlealloc.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C814256B928500980618 /* handlealloc.h */; };
+		0461C839256B928600980618 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C815256B928500980618 /* config.h */; };
+		0461C83A256B928600980618 /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C816256B928600980618 /* timer.h */; };
+		0461C83B256B928600980618 /* uint32_t.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C817256B928600980618 /* uint32_t.h */; };
+		0461C83C256B928600980618 /* sort.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C818256B928600980618 /* sort.h */; };
+		0461C83D256B928600980618 /* process.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C819256B928600980618 /* process.h */; };
+		0461C83E256B928600980618 /* os.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C81A256B928600980618 /* os.h */; };
+		0461C83F256B928600980618 /* file.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C81B256B928600980618 /* file.h */; };
+		0461C840256B928600980618 /* endian.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C81C256B928600980618 /* endian.h */; };
+		0461C841256B928600980618 /* readerwriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C81D256B928600980618 /* readerwriter.h */; };
+		0461C842256B928600980618 /* rng.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C81E256B928600980618 /* rng.h */; };
+		0461C843256B928600980618 /* macros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C81F256B928600980618 /* macros.h */; };
+		0461C844256B928600980618 /* allocator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C820256B928600980618 /* allocator.h */; };
+		0461C845256B928600980618 /* mpscqueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C821256B928600980618 /* mpscqueue.h */; };
+		0461C846256B928600980618 /* maputil.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C822256B928600980618 /* maputil.h */; };
+		0461C847256B928600980618 /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C823256B928600980618 /* math.h */; };
+		0461C848256B928600980618 /* simd_t.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C824256B928600980618 /* simd_t.h */; };
+		0461C88B256B93CE00980618 /* defines.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C887256B93CD00980618 /* defines.h */; };
+		0461C88C256B93CE00980618 /* embedded_shader.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C888256B93CD00980618 /* embedded_shader.h */; };
+		0461C88D256B93CE00980618 /* bgfx.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C889256B93CE00980618 /* bgfx.h */; };
+		0461C88E256B93CE00980618 /* platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C88A256B93CE00980618 /* platform.h */; };
+		0461C89D256B94F300980618 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C89A256B94F300980618 /* decode.h */; };
+		0461C89E256B94F300980618 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C89B256B94F300980618 /* encode.h */; };
+		0461C89F256B94F300980618 /* bimg.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C89C256B94F300980618 /* bimg.h */; };
 		04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CC9256AB173004BE0A6 /* shader_spirv.h */; };
 		04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */; };
 		04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCB256AB173004BE0A6 /* nvapi.h */; };
@@ -362,6 +405,83 @@
 		0461C7E3256B69B000980618 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nanovg.cpp; path = common/nanovg/nanovg.cpp; sourceTree = "<group>"; };
 		0461C7E4256B69B000980618 /* nanovg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nanovg.h; path = common/nanovg/nanovg.h; sourceTree = "<group>"; };
 		0461C7E5256B69B000980618 /* fontstash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fontstash.h; path = common/nanovg/fontstash.h; sourceTree = "<group>"; };
+		0461C7F4256B8F7F00980618 /* fs_cubes.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_cubes.sc; path = "01-cubes/fs_cubes.sc"; sourceTree = "<group>"; };
+		0461C7F5256B8F7F00980618 /* vs_cubes.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_cubes.sc; path = "01-cubes/vs_cubes.sc"; sourceTree = "<group>"; };
+		0461C7F9256B914900980618 /* fs_metaballs.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_metaballs.sc; path = "02-metaballs/fs_metaballs.sc"; sourceTree = "<group>"; };
+		0461C7FA256B914900980618 /* metaballs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = metaballs.cpp; path = "02-metaballs/metaballs.cpp"; sourceTree = "<group>"; };
+		0461C7FB256B914900980618 /* vs_metaballs.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_metaballs.sc; path = "02-metaballs/vs_metaballs.sc"; sourceTree = "<group>"; };
+		0461C801256B928500980618 /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hash.h; path = bx/bx/hash.h; sourceTree = "<group>"; };
+		0461C802256B928500980618 /* commandline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = commandline.h; path = bx/bx/commandline.h; sourceTree = "<group>"; };
+		0461C803256B928500980618 /* thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = thread.h; path = bx/bx/thread.h; sourceTree = "<group>"; };
+		0461C804256B928500980618 /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = platform.h; path = bx/bx/platform.h; sourceTree = "<group>"; };
+		0461C805256B928500980618 /* settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = settings.h; path = bx/bx/settings.h; sourceTree = "<group>"; };
+		0461C806256B928500980618 /* bx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bx.h; path = bx/bx/bx.h; sourceTree = "<group>"; };
+		0461C807256B928500980618 /* cpu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cpu.h; path = bx/bx/cpu.h; sourceTree = "<group>"; };
+		0461C808256B928500980618 /* ringbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ringbuffer.h; path = bx/bx/ringbuffer.h; sourceTree = "<group>"; };
+		0461C809256B928500980618 /* easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = easing.h; path = bx/bx/easing.h; sourceTree = "<group>"; };
+		0461C80A256B928500980618 /* mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mutex.h; path = bx/bx/mutex.h; sourceTree = "<group>"; };
+		0461C80B256B928500980618 /* semaphore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = semaphore.h; path = bx/bx/semaphore.h; sourceTree = "<group>"; };
+		0461C80C256B928500980618 /* pixelformat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pixelformat.h; path = bx/bx/pixelformat.h; sourceTree = "<group>"; };
+		0461C80D256B928500980618 /* string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = string.h; path = bx/bx/string.h; sourceTree = "<group>"; };
+		0461C80E256B928500980618 /* float4x4_t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = float4x4_t.h; path = bx/bx/float4x4_t.h; sourceTree = "<group>"; };
+		0461C80F256B928500980618 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = error.h; path = bx/bx/error.h; sourceTree = "<group>"; };
+		0461C810256B928500980618 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = debug.h; path = bx/bx/debug.h; sourceTree = "<group>"; };
+		0461C811256B928500980618 /* spscqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = spscqueue.h; path = bx/bx/spscqueue.h; sourceTree = "<group>"; };
+		0461C812256B928500980618 /* url.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = url.h; path = bx/bx/url.h; sourceTree = "<group>"; };
+		0461C813256B928500980618 /* filepath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = filepath.h; path = bx/bx/filepath.h; sourceTree = "<group>"; };
+		0461C814256B928500980618 /* handlealloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = handlealloc.h; path = bx/bx/handlealloc.h; sourceTree = "<group>"; };
+		0461C815256B928500980618 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = bx/bx/config.h; sourceTree = "<group>"; };
+		0461C816256B928600980618 /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = timer.h; path = bx/bx/timer.h; sourceTree = "<group>"; };
+		0461C817256B928600980618 /* uint32_t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uint32_t.h; path = bx/bx/uint32_t.h; sourceTree = "<group>"; };
+		0461C818256B928600980618 /* sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sort.h; path = bx/bx/sort.h; sourceTree = "<group>"; };
+		0461C819256B928600980618 /* process.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = process.h; path = bx/bx/process.h; sourceTree = "<group>"; };
+		0461C81A256B928600980618 /* os.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = os.h; path = bx/bx/os.h; sourceTree = "<group>"; };
+		0461C81B256B928600980618 /* file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = file.h; path = bx/bx/file.h; sourceTree = "<group>"; };
+		0461C81C256B928600980618 /* endian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = endian.h; path = bx/bx/endian.h; sourceTree = "<group>"; };
+		0461C81D256B928600980618 /* readerwriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = readerwriter.h; path = bx/bx/readerwriter.h; sourceTree = "<group>"; };
+		0461C81E256B928600980618 /* rng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rng.h; path = bx/bx/rng.h; sourceTree = "<group>"; };
+		0461C81F256B928600980618 /* macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = macros.h; path = bx/bx/macros.h; sourceTree = "<group>"; };
+		0461C820256B928600980618 /* allocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = allocator.h; path = bx/bx/allocator.h; sourceTree = "<group>"; };
+		0461C821256B928600980618 /* mpscqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mpscqueue.h; path = bx/bx/mpscqueue.h; sourceTree = "<group>"; };
+		0461C822256B928600980618 /* maputil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = maputil.h; path = bx/bx/maputil.h; sourceTree = "<group>"; };
+		0461C823256B928600980618 /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = math.h; path = bx/bx/math.h; sourceTree = "<group>"; };
+		0461C824256B928600980618 /* simd_t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = simd_t.h; path = bx/bx/simd_t.h; sourceTree = "<group>"; };
+		0461C84C256B92FD00980618 /* error.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = error.inl; path = bx/bx/inline/error.inl; sourceTree = "<group>"; };
+		0461C84D256B92FD00980618 /* cpu.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cpu.inl; path = bx/bx/inline/cpu.inl; sourceTree = "<group>"; };
+		0461C84E256B92FD00980618 /* math.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = math.inl; path = bx/bx/inline/math.inl; sourceTree = "<group>"; };
+		0461C84F256B92FE00980618 /* simd128_swizzle.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = simd128_swizzle.inl; path = bx/bx/inline/simd128_swizzle.inl; sourceTree = "<group>"; };
+		0461C850256B92FE00980618 /* os.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = os.inl; path = bx/bx/inline/os.inl; sourceTree = "<group>"; };
+		0461C851256B92FE00980618 /* simd128_sse.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = simd128_sse.inl; path = bx/bx/inline/simd128_sse.inl; sourceTree = "<group>"; };
+		0461C852256B92FE00980618 /* simd256_avx.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = simd256_avx.inl; path = bx/bx/inline/simd256_avx.inl; sourceTree = "<group>"; };
+		0461C853256B92FE00980618 /* hash.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = hash.inl; path = bx/bx/inline/hash.inl; sourceTree = "<group>"; };
+		0461C854256B92FE00980618 /* rng.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rng.inl; path = bx/bx/inline/rng.inl; sourceTree = "<group>"; };
+		0461C855256B92FE00980618 /* handlealloc.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = handlealloc.inl; path = bx/bx/inline/handlealloc.inl; sourceTree = "<group>"; };
+		0461C856256B92FE00980618 /* simd128_ref.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = simd128_ref.inl; path = bx/bx/inline/simd128_ref.inl; sourceTree = "<group>"; };
+		0461C857256B92FE00980618 /* mpscqueue.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mpscqueue.inl; path = bx/bx/inline/mpscqueue.inl; sourceTree = "<group>"; };
+		0461C858256B92FE00980618 /* endian.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = endian.inl; path = bx/bx/inline/endian.inl; sourceTree = "<group>"; };
+		0461C859256B92FE00980618 /* simd128_neon.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = simd128_neon.inl; path = bx/bx/inline/simd128_neon.inl; sourceTree = "<group>"; };
+		0461C85A256B92FE00980618 /* uint32_t.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = uint32_t.inl; path = bx/bx/inline/uint32_t.inl; sourceTree = "<group>"; };
+		0461C85B256B92FE00980618 /* readerwriter.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = readerwriter.inl; path = bx/bx/inline/readerwriter.inl; sourceTree = "<group>"; };
+		0461C85C256B92FE00980618 /* spscqueue.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = spscqueue.inl; path = bx/bx/inline/spscqueue.inl; sourceTree = "<group>"; };
+		0461C85D256B92FE00980618 /* simd256_ref.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = simd256_ref.inl; path = bx/bx/inline/simd256_ref.inl; sourceTree = "<group>"; };
+		0461C85E256B92FE00980618 /* pixelformat.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pixelformat.inl; path = bx/bx/inline/pixelformat.inl; sourceTree = "<group>"; };
+		0461C85F256B92FE00980618 /* allocator.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = allocator.inl; path = bx/bx/inline/allocator.inl; sourceTree = "<group>"; };
+		0461C860256B92FE00980618 /* float4x4_t.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = float4x4_t.inl; path = bx/bx/inline/float4x4_t.inl; sourceTree = "<group>"; };
+		0461C861256B92FE00980618 /* ringbuffer.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ringbuffer.inl; path = bx/bx/inline/ringbuffer.inl; sourceTree = "<group>"; };
+		0461C862256B92FE00980618 /* mutex.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = mutex.inl; path = bx/bx/inline/mutex.inl; sourceTree = "<group>"; };
+		0461C863256B92FE00980618 /* simd128_langext.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = simd128_langext.inl; path = bx/bx/inline/simd128_langext.inl; sourceTree = "<group>"; };
+		0461C864256B92FE00980618 /* sort.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sort.inl; path = bx/bx/inline/sort.inl; sourceTree = "<group>"; };
+		0461C865256B92FE00980618 /* easing.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = easing.inl; path = bx/bx/inline/easing.inl; sourceTree = "<group>"; };
+		0461C866256B92FF00980618 /* bx.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = bx.inl; path = bx/bx/inline/bx.inl; sourceTree = "<group>"; };
+		0461C867256B92FF00980618 /* simd_ni.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = simd_ni.inl; path = bx/bx/inline/simd_ni.inl; sourceTree = "<group>"; };
+		0461C868256B92FF00980618 /* string.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = string.inl; path = bx/bx/inline/string.inl; sourceTree = "<group>"; };
+		0461C887256B93CD00980618 /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defines.h; path = bgfx/bgfx/defines.h; sourceTree = "<group>"; };
+		0461C888256B93CD00980618 /* embedded_shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = embedded_shader.h; path = bgfx/bgfx/embedded_shader.h; sourceTree = "<group>"; };
+		0461C889256B93CE00980618 /* bgfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bgfx.h; path = bgfx/bgfx/bgfx.h; sourceTree = "<group>"; };
+		0461C88A256B93CE00980618 /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = platform.h; path = bgfx/bgfx/platform.h; sourceTree = "<group>"; };
+		0461C89A256B94F300980618 /* decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = decode.h; path = bimg/bimg/decode.h; sourceTree = "<group>"; };
+		0461C89B256B94F300980618 /* encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = encode.h; path = bimg/bimg/encode.h; sourceTree = "<group>"; };
+		0461C89C256B94F300980618 /* bimg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bimg.h; path = bimg/bimg/bimg.h; sourceTree = "<group>"; };
 		04EB7BCE256AB022004BE0A6 /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7BDD256AB03B004BE0A6 /* libsrc.bgfx.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsrc.bgfx.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7CC9256AB173004BE0A6 /* shader_spirv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shader_spirv.h; path = bgfx/shader_spirv.h; sourceTree = "<group>"; };
@@ -376,7 +496,6 @@
 		04EB7CD5256AB173004BE0A6 /* bgfx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bgfx.cpp; path = bgfx/bgfx.cpp; sourceTree = "<group>"; };
 		04EB7CD6256AB173004BE0A6 /* amalgamated.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = amalgamated.cpp; path = bgfx/amalgamated.cpp; sourceTree = "<group>"; };
 		04EB7CD8256AB173004BE0A6 /* renderer_d3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = renderer_d3d.h; path = bgfx/renderer_d3d.h; sourceTree = "<group>"; };
-		04EB7CDB256AB173004BE0A6 /* bgfx_shader.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = bgfx_shader.sh; path = bgfx/bgfx_shader.sh; sourceTree = "<group>"; };
 		04EB7CDF256AB173004BE0A6 /* topology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = topology.h; path = bgfx/topology.h; sourceTree = "<group>"; };
 		04EB7CE0256AB173004BE0A6 /* amalgamated.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = amalgamated.mm; path = bgfx/amalgamated.mm; sourceTree = "<group>"; };
 		04EB7CE1256AB173004BE0A6 /* glcontext_glx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = glcontext_glx.cpp; path = bgfx/glcontext_glx.cpp; sourceTree = "<group>"; };
@@ -394,7 +513,6 @@
 		04EB7CF2256AB173004BE0A6 /* renderer_mtl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = renderer_mtl.h; path = bgfx/renderer_mtl.h; sourceTree = "<group>"; };
 		04EB7CF4256AB173004BE0A6 /* bgfx_p.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bgfx_p.h; path = bgfx/bgfx_p.h; sourceTree = "<group>"; };
 		04EB7CF5256AB173004BE0A6 /* glcontext_egl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = glcontext_egl.cpp; path = bgfx/glcontext_egl.cpp; sourceTree = "<group>"; };
-		04EB7CF6256AB173004BE0A6 /* bgfx_compute.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = bgfx_compute.sh; path = bgfx/bgfx_compute.sh; sourceTree = "<group>"; };
 		04EB7CF7256AB174004BE0A6 /* renderer_d3d12.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = renderer_d3d12.cpp; path = bgfx/renderer_d3d12.cpp; sourceTree = "<group>"; };
 		04EB7CF9256AB174004BE0A6 /* renderer_d3d9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = renderer_d3d9.h; path = bgfx/renderer_d3d9.h; sourceTree = "<group>"; };
 		04EB7CFA256AB174004BE0A6 /* renderer_d3d11.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = renderer_d3d11.cpp; path = bgfx/renderer_d3d11.cpp; sourceTree = "<group>"; };
@@ -419,7 +537,6 @@
 		04EB7D13256AB174004BE0A6 /* emscripten.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = emscripten.h; path = bgfx/emscripten.h; sourceTree = "<group>"; };
 		04EB7D14256AB174004BE0A6 /* renderer_nvn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = renderer_nvn.cpp; path = bgfx/renderer_nvn.cpp; sourceTree = "<group>"; };
 		04EB7D15256AB174004BE0A6 /* shader_dx9bc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shader_dx9bc.h; path = bgfx/shader_dx9bc.h; sourceTree = "<group>"; };
-		04EB7D16256AB174004BE0A6 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = bgfx/varying.def.sc; sourceTree = "<group>"; };
 		04EB7D17256AB174004BE0A6 /* glcontext_wgl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glcontext_wgl.h; path = bgfx/glcontext_wgl.h; sourceTree = "<group>"; };
 		04EB7D18256AB174004BE0A6 /* renderer_d3d12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = renderer_d3d12.h; path = bgfx/renderer_d3d12.h; sourceTree = "<group>"; };
 		04EB7D19256AB174004BE0A6 /* renderer_gl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = renderer_gl.cpp; path = bgfx/renderer_gl.cpp; sourceTree = "<group>"; };
@@ -747,6 +864,8 @@
 		0461C7D2256B689A00980618 /* 01-cubes */ = {
 			isa = PBXGroup;
 			children = (
+				0461C7F4256B8F7F00980618 /* fs_cubes.sc */,
+				0461C7F5256B8F7F00980618 /* vs_cubes.sc */,
 				0461C7D3256B68A200980618 /* cubes.cpp */,
 			);
 			name = "01-cubes";
@@ -772,6 +891,73 @@
 			name = nanovg;
 			sourceTree = "<group>";
 		};
+		0461C7F8256B913700980618 /* 02-metaballs */ = {
+			isa = PBXGroup;
+			children = (
+				0461C7F9256B914900980618 /* fs_metaballs.sc */,
+				0461C7FB256B914900980618 /* vs_metaballs.sc */,
+				0461C7FA256B914900980618 /* metaballs.cpp */,
+			);
+			name = "02-metaballs";
+			sourceTree = "<group>";
+		};
+		0461C84B256B92EC00980618 /* inline */ = {
+			isa = PBXGroup;
+			children = (
+				0461C85F256B92FE00980618 /* allocator.inl */,
+				0461C866256B92FF00980618 /* bx.inl */,
+				0461C84D256B92FD00980618 /* cpu.inl */,
+				0461C865256B92FE00980618 /* easing.inl */,
+				0461C858256B92FE00980618 /* endian.inl */,
+				0461C84C256B92FD00980618 /* error.inl */,
+				0461C860256B92FE00980618 /* float4x4_t.inl */,
+				0461C855256B92FE00980618 /* handlealloc.inl */,
+				0461C853256B92FE00980618 /* hash.inl */,
+				0461C84E256B92FD00980618 /* math.inl */,
+				0461C857256B92FE00980618 /* mpscqueue.inl */,
+				0461C862256B92FE00980618 /* mutex.inl */,
+				0461C850256B92FE00980618 /* os.inl */,
+				0461C85E256B92FE00980618 /* pixelformat.inl */,
+				0461C85B256B92FE00980618 /* readerwriter.inl */,
+				0461C861256B92FE00980618 /* ringbuffer.inl */,
+				0461C854256B92FE00980618 /* rng.inl */,
+				0461C867256B92FF00980618 /* simd_ni.inl */,
+				0461C863256B92FE00980618 /* simd128_langext.inl */,
+				0461C859256B92FE00980618 /* simd128_neon.inl */,
+				0461C856256B92FE00980618 /* simd128_ref.inl */,
+				0461C851256B92FE00980618 /* simd128_sse.inl */,
+				0461C84F256B92FE00980618 /* simd128_swizzle.inl */,
+				0461C852256B92FE00980618 /* simd256_avx.inl */,
+				0461C85D256B92FE00980618 /* simd256_ref.inl */,
+				0461C864256B92FE00980618 /* sort.inl */,
+				0461C85C256B92FE00980618 /* spscqueue.inl */,
+				0461C868256B92FF00980618 /* string.inl */,
+				0461C85A256B92FE00980618 /* uint32_t.inl */,
+			);
+			name = inline;
+			sourceTree = "<group>";
+		};
+		0461C891256B945B00980618 /* render */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = render;
+			sourceTree = "<group>";
+		};
+		0461C892256B946300980618 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = shader;
+			sourceTree = "<group>";
+		};
+		0461C893256B948100980618 /* glcontext */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = glcontext;
+			sourceTree = "<group>";
+		};
 		04EB7BC5256AB022004BE0A6 = {
 			isa = PBXGroup;
 			children = (
@@ -795,6 +981,7 @@
 			isa = PBXGroup;
 			children = (
 				0461C7D9256B696A00980618 /* 18-ibl */,
+				0461C7F8256B913700980618 /* 02-metaballs */,
 				0461C7D2256B689A00980618 /* 01-cubes */,
 				0461C7CA256B686300980618 /* 00-helloworld */,
 				0461C791256B67F700980618 /* external */,
@@ -806,10 +993,10 @@
 		04EB7BDE256AB03B004BE0A6 /* src.bgfx */ = {
 			isa = PBXGroup;
 			children = (
-				04EB7EB6256AB7B4004BE0A6 /* external */,
-				04EB7D90256AB30C004BE0A6 /* bimg */,
-				04EB7D7F256AB2D5004BE0A6 /* bx */,
 				04EB7CC8256AB15F004BE0A6 /* bgfx */,
+				04EB7D7F256AB2D5004BE0A6 /* bx */,
+				04EB7D90256AB30C004BE0A6 /* bimg */,
+				04EB7EB6256AB7B4004BE0A6 /* external */,
 			);
 			path = src.bgfx;
 			sourceTree = "<group>";
@@ -817,68 +1004,72 @@
 		04EB7CC8256AB15F004BE0A6 /* bgfx */ = {
 			isa = PBXGroup;
 			children = (
+				04EB7CE4256AB173004BE0A6 /* config.h */,
+				04EB7CD4256AB173004BE0A6 /* version.h */,
+				0461C887256B93CD00980618 /* defines.h */,
+				0461C88A256B93CE00980618 /* platform.h */,
+				04EB7D13256AB174004BE0A6 /* emscripten.h */,
+				0461C889256B93CE00980618 /* bgfx.h */,
+				04EB7CD5256AB173004BE0A6 /* bgfx.cpp */,
 				04EB7CD6256AB173004BE0A6 /* amalgamated.cpp */,
 				04EB7CE0256AB173004BE0A6 /* amalgamated.mm */,
-				04EB7CF6256AB173004BE0A6 /* bgfx_compute.sh */,
 				04EB7CF4256AB173004BE0A6 /* bgfx_p.h */,
-				04EB7CDB256AB173004BE0A6 /* bgfx_shader.sh */,
-				04EB7CD5256AB173004BE0A6 /* bgfx.cpp */,
 				04EB7CEB256AB173004BE0A6 /* bgfx.idl.inl */,
 				04EB7D02256AB174004BE0A6 /* charset.h */,
-				04EB7CE4256AB173004BE0A6 /* config.h */,
-				04EB7D10256AB174004BE0A6 /* debug_renderdoc.cpp */,
 				04EB7CE3256AB173004BE0A6 /* debug_renderdoc.h */,
-				04EB7CEA256AB173004BE0A6 /* dxgi.cpp */,
+				04EB7D10256AB174004BE0A6 /* debug_renderdoc.cpp */,
 				04EB7CEC256AB173004BE0A6 /* dxgi.h */,
-				04EB7D13256AB174004BE0A6 /* emscripten.h */,
+				04EB7CEA256AB173004BE0A6 /* dxgi.cpp */,
+				04EB7CCB256AB173004BE0A6 /* nvapi.h */,
+				04EB7CD1256AB173004BE0A6 /* nvapi.cpp */,
+				04EB7CDF256AB173004BE0A6 /* topology.h */,
+				04EB7CE9256AB173004BE0A6 /* topology.cpp */,
+				04EB7D0A256AB174004BE0A6 /* vertexlayout.h */,
+				04EB7D01256AB174004BE0A6 /* vertexlayout.cpp */,
+				0461C893256B948100980618 /* glcontext */,
+				04EB7CFD256AB174004BE0A6 /* glimports.h */,
 				04EB7CD3256AB173004BE0A6 /* glcontext_eagl.h */,
 				04EB7CE7256AB173004BE0A6 /* glcontext_eagl.mm */,
-				04EB7CF5256AB173004BE0A6 /* glcontext_egl.cpp */,
 				04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */,
-				04EB7CE1256AB173004BE0A6 /* glcontext_glx.cpp */,
+				04EB7CF5256AB173004BE0A6 /* glcontext_egl.cpp */,
 				04EB7CF1256AB173004BE0A6 /* glcontext_glx.h */,
-				04EB7CE5256AB173004BE0A6 /* glcontext_html5.cpp */,
+				04EB7CE1256AB173004BE0A6 /* glcontext_glx.cpp */,
 				04EB7CCE256AB173004BE0A6 /* glcontext_html5.h */,
+				04EB7CE5256AB173004BE0A6 /* glcontext_html5.cpp */,
 				04EB7D05256AB174004BE0A6 /* glcontext_nsgl.h */,
 				04EB7D03256AB174004BE0A6 /* glcontext_nsgl.mm */,
-				04EB7D12256AB174004BE0A6 /* glcontext_wgl.cpp */,
 				04EB7D17256AB174004BE0A6 /* glcontext_wgl.h */,
-				04EB7CFD256AB174004BE0A6 /* glimports.h */,
-				04EB7CD1256AB173004BE0A6 /* nvapi.cpp */,
-				04EB7CCB256AB173004BE0A6 /* nvapi.h */,
-				04EB7CD8256AB173004BE0A6 /* renderer_d3d.h */,
-				04EB7D0F256AB174004BE0A6 /* renderer_d3d9.cpp */,
-				04EB7CF9256AB174004BE0A6 /* renderer_d3d9.h */,
-				04EB7CFA256AB174004BE0A6 /* renderer_d3d11.cpp */,
-				04EB7CE2256AB173004BE0A6 /* renderer_d3d11.h */,
-				04EB7CF7256AB174004BE0A6 /* renderer_d3d12.cpp */,
-				04EB7D18256AB174004BE0A6 /* renderer_d3d12.h */,
-				04EB7D19256AB174004BE0A6 /* renderer_gl.cpp */,
-				04EB7D04256AB174004BE0A6 /* renderer_gl.h */,
-				04EB7D0C256AB174004BE0A6 /* renderer_gnm.cpp */,
+				04EB7D12256AB174004BE0A6 /* glcontext_wgl.cpp */,
+				0461C891256B945B00980618 /* render */,
+				04EB7D0D256AB174004BE0A6 /* renderer.h */,
 				04EB7CF2256AB173004BE0A6 /* renderer_mtl.h */,
 				04EB7D1C256AB174004BE0A6 /* renderer_mtl.mm */,
+				04EB7CD8256AB173004BE0A6 /* renderer_d3d.h */,
+				04EB7CF9256AB174004BE0A6 /* renderer_d3d9.h */,
+				04EB7D0F256AB174004BE0A6 /* renderer_d3d9.cpp */,
+				04EB7CE2256AB173004BE0A6 /* renderer_d3d11.h */,
+				04EB7CFA256AB174004BE0A6 /* renderer_d3d11.cpp */,
+				04EB7D18256AB174004BE0A6 /* renderer_d3d12.h */,
+				04EB7CF7256AB174004BE0A6 /* renderer_d3d12.cpp */,
+				04EB7D04256AB174004BE0A6 /* renderer_gl.h */,
+				04EB7D19256AB174004BE0A6 /* renderer_gl.cpp */,
+				04EB7CFE256AB174004BE0A6 /* renderer_vk.h */,
+				04EB7CFB256AB174004BE0A6 /* renderer_vk.cpp */,
+				04EB7CFF256AB174004BE0A6 /* renderer_webgpu.h */,
+				04EB7D0E256AB174004BE0A6 /* renderer_webgpu.cpp */,
+				04EB7D0C256AB174004BE0A6 /* renderer_gnm.cpp */,
 				04EB7D09256AB174004BE0A6 /* renderer_noop.cpp */,
 				04EB7D14256AB174004BE0A6 /* renderer_nvn.cpp */,
-				04EB7CFB256AB174004BE0A6 /* renderer_vk.cpp */,
-				04EB7CFE256AB174004BE0A6 /* renderer_vk.h */,
-				04EB7D0E256AB174004BE0A6 /* renderer_webgpu.cpp */,
-				04EB7CFF256AB174004BE0A6 /* renderer_webgpu.h */,
-				04EB7D0D256AB174004BE0A6 /* renderer.h */,
-				04EB7CD2256AB173004BE0A6 /* shader_dx9bc.cpp */,
-				04EB7D15256AB174004BE0A6 /* shader_dx9bc.h */,
-				04EB7CCC256AB173004BE0A6 /* shader_dxbc.cpp */,
-				04EB7D11256AB174004BE0A6 /* shader_dxbc.h */,
-				04EB7CED256AB173004BE0A6 /* shader_spirv.cpp */,
-				04EB7CC9256AB173004BE0A6 /* shader_spirv.h */,
-				04EB7D1D256AB174004BE0A6 /* shader.cpp */,
+				0461C892256B946300980618 /* shader */,
 				04EB7D1A256AB174004BE0A6 /* shader.h */,
-				04EB7CE9256AB173004BE0A6 /* topology.cpp */,
-				04EB7CDF256AB173004BE0A6 /* topology.h */,
-				04EB7D16256AB174004BE0A6 /* varying.def.sc */,
-				04EB7CD4256AB173004BE0A6 /* version.h */,
-				04EB7D01256AB174004BE0A6 /* vertexlayout.cpp */,
-				04EB7D0A256AB174004BE0A6 /* vertexlayout.h */,
+				04EB7D1D256AB174004BE0A6 /* shader.cpp */,
+				04EB7D15256AB174004BE0A6 /* shader_dx9bc.h */,
+				04EB7CD2256AB173004BE0A6 /* shader_dx9bc.cpp */,
+				04EB7D11256AB174004BE0A6 /* shader_dxbc.h */,
+				04EB7CCC256AB173004BE0A6 /* shader_dxbc.cpp */,
+				04EB7CC9256AB173004BE0A6 /* shader_spirv.h */,
+				04EB7CED256AB173004BE0A6 /* shader_spirv.cpp */,
+				0461C888256B93CD00980618 /* embedded_shader.h */,
 			);
 			name = bgfx;
 			sourceTree = "<group>";
@@ -886,29 +1077,66 @@
 		04EB7D7F256AB2D5004BE0A6 /* bx */ = {
 			isa = PBXGroup;
 			children = (
+				0461C820256B928600980618 /* allocator.h */,
 				04EB7DAA256AB33C004BE0A6 /* allocator.cpp */,
-				04EB7DB8256AB33C004BE0A6 /* amalgamated.cpp */,
-				04EB7DAE256AB33C004BE0A6 /* bx_p.h */,
+				0461C806256B928500980618 /* bx.h */,
 				04EB7DBD256AB33C004BE0A6 /* bx.cpp */,
-				04EB7DAC256AB33C004BE0A6 /* commandline.cpp */,
-				04EB7DA8256AB33C004BE0A6 /* crtnone.cpp */,
-				04EB7DAF256AB33C004BE0A6 /* debug.cpp */,
-				04EB7DA9256AB33C004BE0A6 /* dtoa.cpp */,
+				0461C807256B928500980618 /* cpu.h */,
+				0461C809256B928500980618 /* easing.h */,
 				04EB7DAB256AB33C004BE0A6 /* easing.cpp */,
-				04EB7DB1256AB33C004BE0A6 /* file.cpp */,
-				04EB7DAD256AB33C004BE0A6 /* filepath.cpp */,
+				0461C81C256B928600980618 /* endian.h */,
+				0461C80F256B928500980618 /* error.h */,
+				0461C80E256B928500980618 /* float4x4_t.h */,
+				0461C814256B928500980618 /* handlealloc.h */,
+				0461C801256B928500980618 /* hash.h */,
 				04EB7DB7256AB33C004BE0A6 /* hash.cpp */,
+				0461C823256B928600980618 /* math.h */,
 				04EB7DBC256AB33C004BE0A6 /* math.cpp */,
+				0461C821256B928600980618 /* mpscqueue.h */,
+				0461C80A256B928500980618 /* mutex.h */,
 				04EB7DB0256AB33C004BE0A6 /* mutex.cpp */,
+				0461C81A256B928600980618 /* os.h */,
 				04EB7DB9256AB33C004BE0A6 /* os.cpp */,
-				04EB7DB2256AB33C004BE0A6 /* process.cpp */,
-				04EB7DB3256AB33C004BE0A6 /* semaphore.cpp */,
-				04EB7DB4256AB33C004BE0A6 /* settings.cpp */,
+				0461C80C256B928500980618 /* pixelformat.h */,
+				0461C81D256B928600980618 /* readerwriter.h */,
+				0461C808256B928500980618 /* ringbuffer.h */,
+				0461C81E256B928600980618 /* rng.h */,
+				0461C824256B928600980618 /* simd_t.h */,
+				0461C818256B928600980618 /* sort.h */,
 				04EB7DB5256AB33C004BE0A6 /* sort.cpp */,
+				0461C811256B928500980618 /* spscqueue.h */,
+				0461C80D256B928500980618 /* string.h */,
 				04EB7DB6256AB33C004BE0A6 /* string.cpp */,
+				0461C817256B928600980618 /* uint32_t.h */,
+				0461C84B256B92EC00980618 /* inline */,
+				04EB7DAE256AB33C004BE0A6 /* bx_p.h */,
+				0461C815256B928500980618 /* config.h */,
+				0461C81F256B928600980618 /* macros.h */,
+				0461C804256B928500980618 /* platform.h */,
+				04EB7DB8256AB33C004BE0A6 /* amalgamated.cpp */,
+				0461C802256B928500980618 /* commandline.h */,
+				04EB7DAC256AB33C004BE0A6 /* commandline.cpp */,
+				0461C810256B928500980618 /* debug.h */,
+				04EB7DAF256AB33C004BE0A6 /* debug.cpp */,
+				0461C81B256B928600980618 /* file.h */,
+				04EB7DB1256AB33C004BE0A6 /* file.cpp */,
+				0461C813256B928500980618 /* filepath.h */,
+				04EB7DAD256AB33C004BE0A6 /* filepath.cpp */,
+				0461C819256B928600980618 /* process.h */,
+				04EB7DB2256AB33C004BE0A6 /* process.cpp */,
+				0461C80B256B928500980618 /* semaphore.h */,
+				04EB7DB3256AB33C004BE0A6 /* semaphore.cpp */,
+				0461C805256B928500980618 /* settings.h */,
+				04EB7DB4256AB33C004BE0A6 /* settings.cpp */,
+				0461C803256B928500980618 /* thread.h */,
 				04EB7DA7256AB33C004BE0A6 /* thread.cpp */,
+				0461C816256B928600980618 /* timer.h */,
 				04EB7DBA256AB33C004BE0A6 /* timer.cpp */,
+				0461C812256B928500980618 /* url.h */,
 				04EB7DBB256AB33C004BE0A6 /* url.cpp */,
+				0461C822256B928600980618 /* maputil.h */,
+				04EB7DA8256AB33C004BE0A6 /* crtnone.cpp */,
+				04EB7DA9256AB33C004BE0A6 /* dtoa.cpp */,
 			);
 			name = bx;
 			sourceTree = "<group>";
@@ -917,12 +1145,15 @@
 			isa = PBXGroup;
 			children = (
 				04EB7D98256AB326004BE0A6 /* config.h */,
-				04EB7D97256AB326004BE0A6 /* bimg_p.h */,
-				04EB7D95256AB326004BE0A6 /* image_cubemap_filter.cpp */,
-				04EB7D99256AB326004BE0A6 /* image_decode.cpp */,
-				04EB7D9A256AB326004BE0A6 /* image_encode.cpp */,
-				04EB7D96256AB326004BE0A6 /* image_gnf.cpp */,
+				0461C89C256B94F300980618 /* bimg.h */,
 				04EB7D9B256AB326004BE0A6 /* image.cpp */,
+				0461C89A256B94F300980618 /* decode.h */,
+				04EB7D99256AB326004BE0A6 /* image_decode.cpp */,
+				0461C89B256B94F300980618 /* encode.h */,
+				04EB7D9A256AB326004BE0A6 /* image_encode.cpp */,
+				04EB7D97256AB326004BE0A6 /* bimg_p.h */,
+				04EB7D96256AB326004BE0A6 /* image_gnf.cpp */,
+				04EB7D95256AB326004BE0A6 /* image_cubemap_filter.cpp */,
 			);
 			name = bimg;
 			sourceTree = "<group>";
@@ -1201,12 +1432,17 @@
 				04EB7EEC256AB817004BE0A6 /* zoh.h in Headers */,
 				04EB7FA4256AB97D004BE0A6 /* astc_lib.h in Headers */,
 				04EB7D58256AB174004BE0A6 /* shader_dxbc.h in Headers */,
+				0461C82D256B928600980618 /* easing.h in Headers */,
+				0461C88B256B93CE00980618 /* defines.h in Headers */,
 				04EB7FE7256AB9B3004BE0A6 /* config.h in Headers */,
+				0461C836256B928600980618 /* url.h in Headers */,
+				0461C82F256B928600980618 /* semaphore.h in Headers */,
 				04EB7EEB256AB817004BE0A6 /* zoh_utils.h in Headers */,
 				04EB8055256ABCFC004BE0A6 /* stb_truetype.h in Headers */,
 				04EB8056256ABCFC004BE0A6 /* stb_rect_pack.h in Headers */,
 				04EB7F2D256AB87E004BE0A6 /* codec.h in Headers */,
 				04EB7F63256AB911004BE0A6 /* Point2.h in Headers */,
+				0461C837256B928600980618 /* filepath.h in Headers */,
 				04EB7D3D256AB174004BE0A6 /* renderer_mtl.h in Headers */,
 				04EB7F5D256AB910004BE0A6 /* PvrTcDecoder.h in Headers */,
 				04EB7FE6256AB9B3004BE0A6 /* alpha.h in Headers */,
@@ -1219,26 +1455,32 @@
 				04EB7F59256AB910004BE0A6 /* ColorRgba.h in Headers */,
 				04EB7F67256AB911004BE0A6 /* PvrTcEncoder.h in Headers */,
 				04EB7FEC256AB9B3004BE0A6 /* simd_float.h in Headers */,
+				0461C835256B928600980618 /* spscqueue.h in Headers */,
 				04EB7F7E256AB95A004BE0A6 /* ProcessRGB.hpp in Headers */,
 				04EB7D9E256AB326004BE0A6 /* bimg_p.h in Headers */,
 				04EB7D27256AB174004BE0A6 /* version.h in Headers */,
 				04EB7D42256AB174004BE0A6 /* renderer_d3d9.h in Headers */,
+				0461C841256B928600980618 /* readerwriter.h in Headers */,
 				04EB7D5C256AB174004BE0A6 /* shader_dx9bc.h in Headers */,
 				04EB7D5D256AB174004BE0A6 /* glcontext_wgl.h in Headers */,
 				04EB7F1F256AB87E004BE0A6 /* partition.h in Headers */,
 				04EB7D3C256AB174004BE0A6 /* glcontext_glx.h in Headers */,
+				0461C89D256B94F300980618 /* decode.h in Headers */,
 				04EB7F2B256AB87E004BE0A6 /* footprint.h in Headers */,
 				04EB7F83256AB95A004BE0A6 /* Types.hpp in Headers */,
+				0461C89F256B94F300980618 /* bimg.h in Headers */,
 				04EB7F2A256AB87E004BE0A6 /* endpoint_codec.h in Headers */,
 				04EB7FB1256AB97D004BE0A6 /* mathlib.h in Headers */,
 				04EB7D60256AB174004BE0A6 /* shader.h in Headers */,
 				04EB7FB7256AB97D004BE0A6 /* softfloat.h in Headers */,
+				0461C839256B928600980618 /* config.h in Headers */,
 				04EB7D22256AB174004BE0A6 /* glcontext_html5.h in Headers */,
 				04EB7F1A256AB87E004BE0A6 /* types.h in Headers */,
 				04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */,
 				04EB7F28256AB87E004BE0A6 /* logical_astc_block.h in Headers */,
 				04EB7F2F256AB87E004BE0A6 /* intermediate_astc_block.h in Headers */,
 				04EB7FDB256AB9B3004BE0A6 /* singlecolourfit.h in Headers */,
+				0461C83B256B928600980618 /* uint32_t.h in Headers */,
 				04EB7F66256AB911004BE0A6 /* RgbBitmap.h in Headers */,
 				04EB7F6A256AB911004BE0A6 /* AlphaBitmap.h in Headers */,
 				04EB7FAD256AB97D004BE0A6 /* astc_codec_internals.h in Headers */,
@@ -1250,55 +1492,87 @@
 				04EB7F62256AB911004BE0A6 /* RgbaBitmap.h in Headers */,
 				04EB7F20256AB87E004BE0A6 /* quantization.h in Headers */,
 				04EB7DC5256AB33C004BE0A6 /* bx_p.h in Headers */,
+				0461C83E256B928600980618 /* os.h in Headers */,
 				04EB7FBD256AB97D004BE0A6 /* vectypes.h in Headers */,
 				04EB7FEA256AB9B3004BE0A6 /* colourblock.h in Headers */,
+				0461C829256B928600980618 /* settings.h in Headers */,
+				0461C834256B928600980618 /* debug.h in Headers */,
+				0461C88E256B93CE00980618 /* platform.h in Headers */,
+				0461C842256B928600980618 /* rng.h in Headers */,
 				04EB7FDA256AB9B3004BE0A6 /* simd.h in Headers */,
+				0461C832256B928600980618 /* float4x4_t.h in Headers */,
 				04EB7ED2256AB7DC004BE0A6 /* avpcl.h in Headers */,
+				0461C827256B928600980618 /* thread.h in Headers */,
 				04EB7D5E256AB174004BE0A6 /* renderer_d3d12.h in Headers */,
+				0461C833256B928600980618 /* error.h in Headers */,
 				04EB7ECC256AB7DC004BE0A6 /* endpts.h in Headers */,
+				0461C83A256B928600980618 /* timer.h in Headers */,
 				04EB7F26256AB87E004BE0A6 /* physical_astc_block.h in Headers */,
 				04EB7ED8256AB7DD004BE0A6 /* avpcl_utils.h in Headers */,
+				0461C82E256B928600980618 /* mutex.h in Headers */,
 				04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */,
 				04EB7D3F256AB174004BE0A6 /* bgfx_p.h in Headers */,
 				04EB7D32256AB174004BE0A6 /* renderer_d3d11.h in Headers */,
 				04EB7FE0256AB9B3004BE0A6 /* colourfit.h in Headers */,
+				0461C838256B928600980618 /* handlealloc.h in Headers */,
 				04EB7FE2256AB9B3004BE0A6 /* maths.h in Headers */,
 				04EB7D4B256AB174004BE0A6 /* charset.h in Headers */,
+				0461C83C256B928600980618 /* sort.h in Headers */,
 				04EB7F5C256AB910004BE0A6 /* Interval.h in Headers */,
 				04EB7F61256AB911004BE0A6 /* BitScale.h in Headers */,
 				04EB7EFC256AB840004BE0A6 /* nvtt.h in Headers */,
+				0461C89E256B94F300980618 /* encode.h in Headers */,
 				04EB7D39256AB174004BE0A6 /* dxgi.h in Headers */,
+				0461C848256B928600980618 /* simd_t.h in Headers */,
 				04EB7D9F256AB326004BE0A6 /* config.h in Headers */,
 				04EB7F80256AB95A004BE0A6 /* Math.hpp in Headers */,
+				0461C83D256B928600980618 /* process.h in Headers */,
 				04EB7EF3256AB817004BE0A6 /* shapes_two.h in Headers */,
+				0461C82A256B928600980618 /* bx.h in Headers */,
 				04EB7F7F256AB95A004BE0A6 /* Tables.hpp in Headers */,
 				04EB7D4D256AB174004BE0A6 /* renderer_gl.h in Headers */,
 				04EB7FF4256AB9CE004BE0A6 /* etc1.h in Headers */,
+				0461C82C256B928600980618 /* ringbuffer.h in Headers */,
 				04EB7D54256AB174004BE0A6 /* renderer.h in Headers */,
 				04EB8054256ABCFC004BE0A6 /* stb_textedit.h in Headers */,
 				04EB7EED256AB817004BE0A6 /* bits.h in Headers */,
 				04EB7F30256AB87E004BE0A6 /* astc_file.h in Headers */,
 				04EB7D47256AB174004BE0A6 /* renderer_vk.h in Headers */,
 				04EB7FED256AB9B3004BE0A6 /* squish.h in Headers */,
+				0461C830256B928600980618 /* pixelformat.h in Headers */,
 				04EB7D2B256AB174004BE0A6 /* renderer_d3d.h in Headers */,
+				0461C846256B928600980618 /* maputil.h in Headers */,
 				04EB7EDC256AB7DD004BE0A6 /* bits.h in Headers */,
+				0461C847256B928600980618 /* math.h in Headers */,
 				04EB7EF0256AB817004BE0A6 /* tile.h in Headers */,
+				0461C843256B928600980618 /* macros.h in Headers */,
+				0461C831256B928600980618 /* string.h in Headers */,
 				04EB7D48256AB174004BE0A6 /* renderer_webgpu.h in Headers */,
 				04EB8052256ABCFC004BE0A6 /* stb_image_write.h in Headers */,
 				04EB7F2C256AB87E004BE0A6 /* integer_sequence_codec.h in Headers */,
+				0461C83F256B928600980618 /* file.h in Headers */,
 				04EB7D46256AB174004BE0A6 /* glimports.h in Headers */,
+				0461C826256B928600980618 /* commandline.h in Headers */,
 				04EB7F5E256AB910004BE0A6 /* MortonTable.h in Headers */,
+				0461C844256B928600980618 /* allocator.h in Headers */,
 				04EB7FDC256AB9B3004BE0A6 /* rangefit.h in Headers */,
+				0461C82B256B928600980618 /* cpu.h in Headers */,
 				04EB7ED6256AB7DD004BE0A6 /* shapes_two.h in Headers */,
 				04EB7F5F256AB911004BE0A6 /* PvrTcPacket.h in Headers */,
 				04EB8053256ABCFC004BE0A6 /* stb_image.h in Headers */,
 				04EB7D33256AB174004BE0A6 /* debug_renderdoc.h in Headers */,
+				0461C825256B928600980618 /* hash.h in Headers */,
 				04EB7D5A256AB174004BE0A6 /* emscripten.h in Headers */,
 				04EB7D26256AB174004BE0A6 /* glcontext_eagl.h in Headers */,
+				0461C828256B928600980618 /* platform.h in Headers */,
 				04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */,
 				04EB7ECD256AB7DC004BE0A6 /* shapes_three.h in Headers */,
+				0461C88D256B93CE00980618 /* bgfx.h in Headers */,
+				0461C845256B928600980618 /* mpscqueue.h in Headers */,
+				0461C840256B928600980618 /* endian.h in Headers */,
 				04EB7D34256AB174004BE0A6 /* config.h in Headers */,
 				04EB7F69256AB911004BE0A6 /* Bitmap.h in Headers */,
+				0461C88C256B93CE00980618 /* embedded_shader.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1395,6 +1669,7 @@
 				0461C770256B67AD00980618 /* camera.cpp in Sources */,
 				0461C7BA256B683400980618 /* overdrawanalyzer.cpp in Sources */,
 				0461C7C0256B683400980618 /* indexcodec.cpp in Sources */,
+				0461C7FC256B914900980618 /* metaballs.cpp in Sources */,
 				0461C771256B67AD00980618 /* cube_atlas.cpp in Sources */,
 				0461C7BD256B683400980618 /* vfetchanalyzer.cpp in Sources */,
 				0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */,
@@ -1402,7 +1677,6 @@
 				0461C7B7256B683400980618 /* vertexcodec.cpp in Sources */,
 				0461C76F256B67AD00980618 /* example-glue.cpp in Sources */,
 				0461C772256B67AD00980618 /* bgfx_utils.cpp in Sources */,
-				0461C7DB256B697700980618 /* ibl.cpp in Sources */,
 				0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */,
 				0461C778256B67CA00980618 /* imgui.cpp in Sources */,
 				0461C7BE256B683400980618 /* vcacheoptimizer.cpp in Sources */,

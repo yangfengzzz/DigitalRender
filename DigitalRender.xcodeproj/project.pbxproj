@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040322FD256CBD190078D5C4 /* hdr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040322EE256CBD190078D5C4 /* hdr.cpp */; };
+		04032309256CC45E0078D5C4 /* hello_texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04032308256CC45E0078D5C4 /* hello_texture.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -381,6 +381,10 @@
 		040322FA256CBD190078D5C4 /* vs_hdr_blur.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_blur.sc; path = "09-hdr/vs_hdr_blur.sc"; sourceTree = "<group>"; };
 		040322FB256CBD190078D5C4 /* fs_hdr_lumavg.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_hdr_lumavg.sc; path = "09-hdr/fs_hdr_lumavg.sc"; sourceTree = "<group>"; };
 		040322FC256CBD190078D5C4 /* vs_hdr_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_mesh.sc; path = "09-hdr/vs_hdr_mesh.sc"; sourceTree = "<group>"; };
+		04032308256CC45E0078D5C4 /* hello_texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hello_texture.cpp; sourceTree = "<group>"; };
+		0403230C256CC7030078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
+		0403230D256CC7030078D5C4 /* vs_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_texture.sc; sourceTree = "<group>"; };
+		0403230E256CC7030078D5C4 /* fs_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_texture.sc; sourceTree = "<group>"; };
 		0461C762256B67AD00980618 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bounds.cpp; path = common/bounds.cpp; sourceTree = "<group>"; };
 		0461C763256B67AD00980618 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = camera.h; path = common/camera.h; sourceTree = "<group>"; };
 		0461C764256B67AD00980618 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = common/common.h; sourceTree = "<group>"; };
@@ -819,9 +823,9 @@
 		040322C7256CBB950078D5C4 /* 06-bump */ = {
 			isa = PBXGroup;
 			children = (
+				040322C9256CBBAE0078D5C4 /* vs_bump_instanced.sc */,
 				040322CA256CBBAE0078D5C4 /* varying.def.sc */,
 				040322C8256CBBAE0078D5C4 /* fs_bump.sc */,
-				040322C9256CBBAE0078D5C4 /* vs_bump_instanced.sc */,
 				040322CC256CBBAF0078D5C4 /* vs_bump.sc */,
 				040322CB256CBBAF0078D5C4 /* bump.cpp */,
 			);
@@ -875,6 +879,17 @@
 				040322EE256CBD190078D5C4 /* hdr.cpp */,
 			);
 			name = "09-hdr";
+			sourceTree = "<group>";
+		};
+		04032307256CC4030078D5C4 /* hello_texture */ = {
+			isa = PBXGroup;
+			children = (
+				0403230C256CC7030078D5C4 /* varying.def.sc */,
+				0403230E256CC7030078D5C4 /* fs_texture.sc */,
+				0403230D256CC7030078D5C4 /* vs_texture.sc */,
+				04032308256CC45E0078D5C4 /* hello_texture.cpp */,
+			);
+			path = hello_texture;
 			sourceTree = "<group>";
 		};
 		0461C761256B679800980618 /* common */ = {
@@ -1140,6 +1155,7 @@
 				0461C791256B67F700980618 /* external */,
 				0461C761256B679800980618 /* common */,
 				040322B5256CA1D20078D5C4 /* hello_triangle */,
+				04032307256CC4030078D5C4 /* hello_texture */,
 			);
 			path = apps;
 			sourceTree = "<group>";
@@ -1824,10 +1840,10 @@
 				0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */,
 				0461C7BC256B683400980618 /* overdrawoptimizer.cpp in Sources */,
 				0461C7B7256B683400980618 /* vertexcodec.cpp in Sources */,
-				040322FD256CBD190078D5C4 /* hdr.cpp in Sources */,
 				0461C76F256B67AD00980618 /* example-glue.cpp in Sources */,
 				0461C772256B67AD00980618 /* bgfx_utils.cpp in Sources */,
 				0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */,
+				04032309256CC45E0078D5C4 /* hello_texture.cpp in Sources */,
 				0461C778256B67CA00980618 /* imgui.cpp in Sources */,
 				0461C7BE256B683400980618 /* vcacheoptimizer.cpp in Sources */,
 				0461C7B8256B683400980618 /* vertexfilter.cpp in Sources */,

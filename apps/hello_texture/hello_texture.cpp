@@ -8,6 +8,10 @@
 #include "common.h"
 #include "bgfx_utils.h"
 #include "common/imgui/imgui.h"
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <iostream>
 
 namespace
 {
@@ -195,6 +199,8 @@ public:
             
             imguiEndFrame();
             
+            float time = (float)( (bx::getHPCounter()-m_timeOffset)/double(bx::getHPFrequency() ) );
+            
             const bx::Vec3 at  = { 0.0f, 0.0f,   0.0f };
             const bx::Vec3 eye = { 0.0f, 0.0f, -35.0f };
             
@@ -206,7 +212,7 @@ public:
                 float proj[16];
                 bx::mtxProj(proj, 60.0f, float(m_width)/float(m_height),
                             0.1f, 100.0f, bgfx::getCaps()->homogeneousDepth);
-                bgfx::setViewTransform(0, view, proj);
+//                bgfx::setViewTransform(0, view, proj);
                 
                 // Set view 0 default viewport.
                 bgfx::setViewRect(0, 0, 0, uint16_t(m_width), uint16_t(m_height) );
@@ -230,6 +236,13 @@ public:
             ;
             
             // Submit Triangle.
+            glm::mat4 trans = glm::mat4(1.0f);
+            trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
+            trans = glm::rotate(trans, time, glm::vec3(0.0f, 0.0f, 1.0f));
+
+            // Set model matrix for rendering.
+            bgfx::setTransform(glm::value_ptr(trans));
+            
             // Set vertex and index buffer.
             bgfx::setVertexBuffer(0, m_vbh);
             bgfx::setIndexBuffer(ibh);

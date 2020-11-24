@@ -2156,7 +2156,10 @@
 					"x86_64-apple-macos10.11",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYSTEM_HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalRender/3rdparty;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					/Users/yangfeng/Desktop/DigitalRender/3rdparty,
+					/usr/local/include,
+				);
 			};
 			name = Debug;
 		};
@@ -2204,7 +2207,10 @@
 					"x86_64-apple-macos10.11",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SYSTEM_HEADER_SEARCH_PATHS = /Users/yangfeng/Desktop/DigitalRender/3rdparty;
+				SYSTEM_HEADER_SEARCH_PATHS = (
+					/Users/yangfeng/Desktop/DigitalRender/3rdparty,
+					/usr/local/include,
+				);
 			};
 			name = Release;
 		};

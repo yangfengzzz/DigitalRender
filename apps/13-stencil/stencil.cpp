@@ -11,7 +11,7 @@
 #include <bx/file.h>
 
 #include "camera.h"
-#include "imgui/imgui.h"
+#include "common/imgui/imgui.h"
 
 namespace bgfx
 {
@@ -830,15 +830,15 @@ public:
 		m_programColorBlack      = loadProgram("vs_stencil_color",            "fs_stencil_color_black"     );
 		m_programTexture         = loadProgram("vs_stencil_texture",          "fs_stencil_texture"         );
 
-		m_bunnyMesh.load("meshes/bunny.bin");
-		m_columnMesh.load("meshes/column.bin");
+		m_bunnyMesh.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/bunny.bin");
+		m_columnMesh.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/column.bin");
 		m_cubeMesh.load(s_cubeVertices, BX_COUNTOF(s_cubeVertices), PosNormalTexcoordVertex::ms_layout, s_cubeIndices, BX_COUNTOF(s_cubeIndices) );
 		m_hplaneMesh.load(s_hplaneVertices, BX_COUNTOF(s_hplaneVertices), PosNormalTexcoordVertex::ms_layout, s_planeIndices, BX_COUNTOF(s_planeIndices) );
 		m_vplaneMesh.load(s_vplaneVertices, BX_COUNTOF(s_vplaneVertices), PosNormalTexcoordVertex::ms_layout, s_planeIndices, BX_COUNTOF(s_planeIndices) );
 
-		m_figureTex     = loadTexture("textures/figure-rgba.dds");
-		m_flareTex      = loadTexture("textures/flare.dds");
-		m_fieldstoneTex = loadTexture("textures/fieldstone-rgba.dds");
+		m_figureTex     = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/figure-rgba.dds");
+		m_flareTex      = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/flare.dds");
+		m_fieldstoneTex = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/fieldstone-rgba.dds");
 
 		// Setup lights.
 		const float rgbInnerR[][4] =

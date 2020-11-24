@@ -7,6 +7,7 @@
 
 #include "common.h"
 #include "bgfx_utils.h"
+#include "camera.h"
 #include "common/imgui/imgui.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -197,6 +198,11 @@ public:
         m_textureColor1 = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_texture/wall.jpg");
         m_textureColor2 = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_texture/awesomeface.png");
         
+        // Set view and projection matrices.
+        cameraCreate();
+        cameraSetPosition({ 0.0f, 0.0f,  3.0f });
+        cameraSetVerticalAngle(-0.35f);
+        
         m_timeOffset = bx::getHPCounter();
         
         imguiCreate();
@@ -204,6 +210,7 @@ public:
     
     virtual int shutdown() override
     {
+        cameraDestroy();
         imguiDestroy();
         
         // Cleanup.
@@ -265,17 +272,30 @@ public:
             ImGui::End();
             
             imguiEndFrame();
-                        
+            
+            // Scale
+            scroll_callback(double(m_mouseState.m_mz - m_lastScroll));
+            m_lastScroll = m_mouseState.m_mz;
+            
+            // Time.
+            int64_t now = bx::getHPCounter();
+            static int64_t last = now;
+            const int64_t frameTime = now - last;
+            last = now;
+            const double freq = double(bx::getHPFrequency() );
+            const float deltaTime = float(frameTime/freq);
+            
             // Set view and projection matrix for view 0.
             {
-                glm::mat4 view = glm::mat4(1.0f);
-                // 注意，我们将矩阵向我们要进行移动场景的反方向移动。
-                view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+                // Update camera.
+                float m_view[16];
+                cameraUpdate(deltaTime, m_mouseState);
+                cameraGetViewMtx(m_view);
                 
                 glm::mat4 projection = glm::mat4(1.0f);
-                projection = glm::perspective(glm::radians(45.0f), float(m_width) / float(m_height), 0.1f, 100.0f);
+                projection = glm::perspective(glm::radians(fov), float(m_width) / float(m_height), 0.1f, 100.0f);
                 
-                bgfx::setViewTransform(0, glm::value_ptr(view), glm::value_ptr(projection));
+                bgfx::setViewTransform(0, m_view, glm::value_ptr(projection));
                 
                 // Set view 0 default viewport.
                 bgfx::setViewRect(0, 0, 0, uint16_t(m_width), uint16_t(m_height) );
@@ -355,6 +375,18 @@ public:
     bool m_g;
     bool m_b;
     bool m_a;
+    
+    int32_t m_lastScroll = 0;
+    float fov   =  45.0f;
+    void scroll_callback(double yoffset)
+    {
+      if(fov >= 1.0f && fov <= 45.0f)
+        fov -= yoffset;
+      if(fov <= 1.0f)
+        fov = 1.0f;
+      if(fov >= 45.0f)
+        fov = 45.0f;
+    }
 };
 
 } // namespace

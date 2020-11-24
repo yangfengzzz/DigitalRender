@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04032309256CC45E0078D5C4 /* hello_texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04032308256CC45E0078D5C4 /* hello_texture.cpp */; };
+		0403234B256D01C00078D5C4 /* hello_texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04032308256CC45E0078D5C4 /* hello_texture.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -385,6 +385,18 @@
 		0403230C256CC7030078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
 		0403230D256CC7030078D5C4 /* vs_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_texture.sc; sourceTree = "<group>"; };
 		0403230E256CC7030078D5C4 /* fs_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_texture.sc; sourceTree = "<group>"; };
+		0403233A256CFF130078D5C4 /* fs_stencil_color_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_stencil_color_texture.sc; path = "13-stencil/fs_stencil_color_texture.sc"; sourceTree = "<group>"; };
+		0403233B256CFF130078D5C4 /* fs_stencil_color_black.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_stencil_color_black.sc; path = "13-stencil/fs_stencil_color_black.sc"; sourceTree = "<group>"; };
+		0403233C256CFF130078D5C4 /* vs_stencil_color_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_stencil_color_lighting.sc; path = "13-stencil/vs_stencil_color_lighting.sc"; sourceTree = "<group>"; };
+		0403233D256CFF130078D5C4 /* vs_stencil_color.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_stencil_color.sc; path = "13-stencil/vs_stencil_color.sc"; sourceTree = "<group>"; };
+		0403233E256CFF130078D5C4 /* vs_stencil_color_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_stencil_color_texture.sc; path = "13-stencil/vs_stencil_color_texture.sc"; sourceTree = "<group>"; };
+		0403233F256CFF140078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "13-stencil/varying.def.sc"; sourceTree = "<group>"; };
+		04032340256CFF140078D5C4 /* vs_stencil_texture_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_stencil_texture_lighting.sc; path = "13-stencil/vs_stencil_texture_lighting.sc"; sourceTree = "<group>"; };
+		04032341256CFF140078D5C4 /* vs_stencil_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_stencil_texture.sc; path = "13-stencil/vs_stencil_texture.sc"; sourceTree = "<group>"; };
+		04032342256CFF140078D5C4 /* fs_stencil_texture_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_stencil_texture_lighting.sc; path = "13-stencil/fs_stencil_texture_lighting.sc"; sourceTree = "<group>"; };
+		04032343256CFF140078D5C4 /* fs_stencil_color_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_stencil_color_lighting.sc; path = "13-stencil/fs_stencil_color_lighting.sc"; sourceTree = "<group>"; };
+		04032344256CFF140078D5C4 /* fs_stencil_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_stencil_texture.sc; path = "13-stencil/fs_stencil_texture.sc"; sourceTree = "<group>"; };
+		04032345256CFF140078D5C4 /* stencil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stencil.cpp; path = "13-stencil/stencil.cpp"; sourceTree = "<group>"; };
 		0461C762256B67AD00980618 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bounds.cpp; path = common/bounds.cpp; sourceTree = "<group>"; };
 		0461C763256B67AD00980618 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = camera.h; path = common/camera.h; sourceTree = "<group>"; };
 		0461C764256B67AD00980618 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = common/common.h; sourceTree = "<group>"; };
@@ -892,6 +904,25 @@
 			path = hello_texture;
 			sourceTree = "<group>";
 		};
+		04032339256CFEFE0078D5C4 /* 13-stencil */ = {
+			isa = PBXGroup;
+			children = (
+				0403233F256CFF140078D5C4 /* varying.def.sc */,
+				0403233B256CFF130078D5C4 /* fs_stencil_color_black.sc */,
+				04032343256CFF140078D5C4 /* fs_stencil_color_lighting.sc */,
+				0403233A256CFF130078D5C4 /* fs_stencil_color_texture.sc */,
+				04032342256CFF140078D5C4 /* fs_stencil_texture_lighting.sc */,
+				04032344256CFF140078D5C4 /* fs_stencil_texture.sc */,
+				0403233C256CFF130078D5C4 /* vs_stencil_color_lighting.sc */,
+				0403233E256CFF130078D5C4 /* vs_stencil_color_texture.sc */,
+				0403233D256CFF130078D5C4 /* vs_stencil_color.sc */,
+				04032340256CFF140078D5C4 /* vs_stencil_texture_lighting.sc */,
+				04032341256CFF140078D5C4 /* vs_stencil_texture.sc */,
+				04032345256CFF140078D5C4 /* stencil.cpp */,
+			);
+			name = "13-stencil";
+			sourceTree = "<group>";
+		};
 		0461C761256B679800980618 /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1142,6 +1173,7 @@
 			isa = PBXGroup;
 			children = (
 				0461C7D9256B696A00980618 /* 18-ibl */,
+				04032339256CFEFE0078D5C4 /* 13-stencil */,
 				040322EB256CBD080078D5C4 /* 09-hdr */,
 				040322DE256CBCBA0078D5C4 /* 08-update */,
 				040322D2256CBC7B0078D5C4 /* 07-callback */,
@@ -1842,8 +1874,8 @@
 				0461C7B7256B683400980618 /* vertexcodec.cpp in Sources */,
 				0461C76F256B67AD00980618 /* example-glue.cpp in Sources */,
 				0461C772256B67AD00980618 /* bgfx_utils.cpp in Sources */,
+				0403234B256D01C00078D5C4 /* hello_texture.cpp in Sources */,
 				0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */,
-				04032309256CC45E0078D5C4 /* hello_texture.cpp in Sources */,
 				0461C778256B67CA00980618 /* imgui.cpp in Sources */,
 				0461C7BE256B683400980618 /* vcacheoptimizer.cpp in Sources */,
 				0461C7B8256B683400980618 /* vertexfilter.cpp in Sources */,

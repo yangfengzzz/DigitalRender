@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040322B2256CA0C70078D5C4 /* hello_triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040322A1256C9E780078D5C4 /* hello_triangle.cpp */; };
+		040322CD256CBBAF0078D5C4 /* bump.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040322CB256CBBAF0078D5C4 /* bump.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -344,6 +344,15 @@
 		040322B8256CA7510078D5C4 /* vs_triangle.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_triangle.sc; sourceTree = "<group>"; };
 		040322B9256CA7510078D5C4 /* fs_triangle.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_triangle.sc; sourceTree = "<group>"; };
 		040322BA256CA7510078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
+		040322BE256CBB6B0078D5C4 /* vs_instancing.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_instancing.sc; path = "05-instancing/vs_instancing.sc"; sourceTree = "<group>"; };
+		040322BF256CBB6B0078D5C4 /* fs_instancing.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_instancing.sc; path = "05-instancing/fs_instancing.sc"; sourceTree = "<group>"; };
+		040322C0256CBB6C0078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "05-instancing/varying.def.sc"; sourceTree = "<group>"; };
+		040322C1256CBB6C0078D5C4 /* instancing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = instancing.cpp; path = "05-instancing/instancing.cpp"; sourceTree = "<group>"; };
+		040322C8256CBBAE0078D5C4 /* fs_bump.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_bump.sc; path = "06-bump/fs_bump.sc"; sourceTree = "<group>"; };
+		040322C9256CBBAE0078D5C4 /* vs_bump_instanced.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_bump_instanced.sc; path = "06-bump/vs_bump_instanced.sc"; sourceTree = "<group>"; };
+		040322CA256CBBAE0078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "06-bump/varying.def.sc"; sourceTree = "<group>"; };
+		040322CB256CBBAF0078D5C4 /* bump.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bump.cpp; path = "06-bump/bump.cpp"; sourceTree = "<group>"; };
+		040322CC256CBBAF0078D5C4 /* vs_bump.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_bump.sc; path = "06-bump/vs_bump.sc"; sourceTree = "<group>"; };
 		0461C762256B67AD00980618 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bounds.cpp; path = common/bounds.cpp; sourceTree = "<group>"; };
 		0461C763256B67AD00980618 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = camera.h; path = common/camera.h; sourceTree = "<group>"; };
 		0461C764256B67AD00980618 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = common/common.h; sourceTree = "<group>"; };
@@ -768,6 +777,29 @@
 			path = hello_triangle;
 			sourceTree = "<group>";
 		};
+		040322BD256CBB600078D5C4 /* 05-instancing */ = {
+			isa = PBXGroup;
+			children = (
+				040322C0256CBB6C0078D5C4 /* varying.def.sc */,
+				040322BF256CBB6B0078D5C4 /* fs_instancing.sc */,
+				040322BE256CBB6B0078D5C4 /* vs_instancing.sc */,
+				040322C1256CBB6C0078D5C4 /* instancing.cpp */,
+			);
+			name = "05-instancing";
+			sourceTree = "<group>";
+		};
+		040322C7256CBB950078D5C4 /* 06-bump */ = {
+			isa = PBXGroup;
+			children = (
+				040322CA256CBBAE0078D5C4 /* varying.def.sc */,
+				040322C8256CBBAE0078D5C4 /* fs_bump.sc */,
+				040322C9256CBBAE0078D5C4 /* vs_bump_instanced.sc */,
+				040322CC256CBBAF0078D5C4 /* vs_bump.sc */,
+				040322CB256CBBAF0078D5C4 /* bump.cpp */,
+			);
+			name = "06-bump";
+			sourceTree = "<group>";
+		};
 		0461C761256B679800980618 /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1018,6 +1050,8 @@
 			isa = PBXGroup;
 			children = (
 				0461C7D9256B696A00980618 /* 18-ibl */,
+				040322C7256CBB950078D5C4 /* 06-bump */,
+				040322BD256CBB600078D5C4 /* 05-instancing */,
 				0461C8AD256B9A9400980618 /* 04-mesh */,
 				0461C8A4256B962F00980618 /* 03-raymarch */,
 				0461C7F8256B913700980618 /* 02-metaballs */,
@@ -1696,8 +1730,8 @@
 				0461C7C3256B683400980618 /* clusterizer.cpp in Sources */,
 				0461C7B9256B683400980618 /* simplifier.cpp in Sources */,
 				0461C78D256B67F100980618 /* cmd.cpp in Sources */,
-				040322B2256CA0C70078D5C4 /* hello_triangle.cpp in Sources */,
 				0461C78C256B67F100980618 /* entry.cpp in Sources */,
+				040322CD256CBBAF0078D5C4 /* bump.cpp in Sources */,
 				0461C7C4256B683400980618 /* indexgenerator.cpp in Sources */,
 				0461C78E256B67F100980618 /* input.cpp in Sources */,
 				0461C78B256B67F100980618 /* dialog_darwin.mm in Sources */,

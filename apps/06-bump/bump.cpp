@@ -5,7 +5,7 @@
 
 #include "common.h"
 #include "bgfx_utils.h"
-#include "imgui/imgui.h"
+#include "common/imgui/imgui.h"
 
 namespace
 {
@@ -153,10 +153,10 @@ public:
 		m_program = loadProgram(m_instancingSupported ? "vs_bump_instanced" : "vs_bump", "fs_bump");
 
 		// Load diffuse texture.
-		m_textureColor = loadTexture("textures/fieldstone-rgba.dds");
+		m_textureColor = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/fieldstone-rgba.dds");
 
 		// Load normal texture.
-		m_textureNormal = loadTexture("textures/fieldstone-n.dds");
+		m_textureNormal = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/fieldstone-n.dds");
 
 		m_timeOffset = bx::getHPCounter();
 

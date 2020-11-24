@@ -1,4 +1,4 @@
-$input v_color0, v_texcoord0
+$input v_texcoord0
 
 /*
  * Copyright 2011-2020 Branimir Karadzic. All rights reserved.

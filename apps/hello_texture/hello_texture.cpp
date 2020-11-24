@@ -21,7 +21,6 @@ struct PosColorVertex
     float m_x;
     float m_y;
     float m_z;
-    uint32_t m_abgr;
     int16_t m_u;
     int16_t m_v;
     
@@ -30,7 +29,6 @@ struct PosColorVertex
         ms_layout
         .begin()
         .add(bgfx::Attrib::Position, 3, bgfx::AttribType::Float)
-        .add(bgfx::Attrib::Color0,   4, bgfx::AttribType::Uint8, true)
         .add(bgfx::Attrib::TexCoord0, 2, bgfx::AttribType::Int16, true, true)
         .end();
     };
@@ -42,16 +40,68 @@ bgfx::VertexLayout PosColorVertex::ms_layout;
 
 static PosColorVertex s_cubeVertices[] =
 {
-    {0.5f,  0.5f, 0.0f, 0xff000000, 0x7fff, 0x7fff },
-    {0.5f, -0.5f, 0.0f, 0xff0000ff, 0x7fff, 0 },
-    {-0.5f, -0.5f, 0.0f, 0xff00ff00, 0, 0 },
-    {-0.5f,  0.5f, 0.0f, 0xff000000, 0, 0x7fff },
+    {-0.5f, -0.5f, -0.5f,  0, 0},
+    { 0.5f, -0.5f, -0.5f,  0x7fff, 0},
+    { 0.5f,  0.5f, -0.5f,  0x7fff, 0x7fff},
+    { 0.5f,  0.5f, -0.5f,  0x7fff, 0x7fff},
+    {-0.5f,  0.5f, -0.5f,  0, 0x7fff},
+    {-0.5f, -0.5f, -0.5f,  0, 0},
+
+    {-0.5f, -0.5f,  0.5f,  0, 0},
+    { 0.5f, -0.5f,  0.5f,  0x7fff, 0},
+    { 0.5f,  0.5f,  0.5f,  0x7fff, 0x7fff},
+    { 0.5f,  0.5f,  0.5f,  0x7fff, 0x7fff},
+    {-0.5f,  0.5f,  0.5f,  0, 0x7fff},
+    {-0.5f, -0.5f,  0.5f,  0, 0},
+
+    {-0.5f,  0.5f,  0.5f,  0x7fff, 0},
+    { -0.5f,  0.5f, -0.5f,  0x7fff, 0x7fff},
+    { -0.5f, -0.5f, -0.5f,  0, 0x7fff},
+    { -0.5f, -0.5f, -0.5f,  0, 0x7fff},
+    { -0.5f, -0.5f,  0.5f,  0, 0},
+    { -0.5f,  0.5f,  0.5f,  0x7fff, 0},
+
+    {0.5f,  0.5f,  0.5f,  0x7fff, 0},
+    {0.5f,  0.5f, -0.5f,  0x7fff, 0x7fff},
+    {0.5f, -0.5f, -0.5f,  0, 0x7fff},
+    {0.5f, -0.5f, -0.5f,  0, 0x7fff},
+    {0.5f, -0.5f,  0.5f,  0, 0},
+    {0.5f,  0.5f,  0.5f,  0x7fff, 0},
+
+    {-0.5f, -0.5f, -0.5f,  0, 0x7fff},
+    {0.5f, -0.5f, -0.5f,  0x7fff, 0x7fff},
+    {0.5f, -0.5f,  0.5f,  0x7fff, 0},
+    {0.5f, -0.5f,  0.5f,  0x7fff, 0},
+    {-0.5f, -0.5f,  0.5f,  0, 0},
+    {-0.5f, -0.5f, -0.5f,  0, 0x7fff},
+
+    {-0.5f,  0.5f, -0.5f,  0, 0x7fff},
+    {0.5f,  0.5f, -0.5f,  0x7fff, 0x7fff},
+    {0.5f,  0.5f,  0.5f,  0x7fff, 0},
+    {0.5f,  0.5f,  0.5f,  0x7fff, 0},
+    {-0.5f,  0.5f,  0.5f,  0, 0},
+    {-0.5f,  0.5f, -0.5f,  0, 0x7fff}
 };
 
 static const uint16_t s_cubeTriList[] =
 {
-    0,  2,  1, // 第一个三角形
-    0,  3,  2, // 第二个三角形
+    2,  1,  0,
+    5,  4,  3,
+
+    6,  7,  8,
+    9,  10,  11,
+
+    12,  13,  14,
+    15,  16,  17,
+
+    20,  19,  18,
+    23,  22,  21,
+
+    24,  25,  26,
+    27,  28,  29,
+
+    32,  31,  30,
+    35,  34,  33,
 };
 
 static const char* s_ptNames[]
@@ -202,6 +252,8 @@ public:
             ImGui::End();
             
             imguiEndFrame();
+            
+            float time = (float)( (bx::getHPCounter()-m_timeOffset)/double(bx::getHPFrequency() ) );
                         
             // Set view and projection matrix for view 0.
             {
@@ -237,7 +289,7 @@ public:
             
             // Submit Triangle.
             glm::mat4 model = glm::mat4(1.0f);
-            model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+            model = glm::rotate(model, time * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
             // Set model matrix for rendering.
             bgfx::setTransform(glm::value_ptr(model));

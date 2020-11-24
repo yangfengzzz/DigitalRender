@@ -1,5 +1,5 @@
 //
-//  hello_texture.cpp
+//  hello_box.cpp
 //  apps
 //
 //  Created by 杨丰 on 2020/11/24.
@@ -129,10 +129,10 @@ static const uint64_t s_ptState[]
 };
 BX_STATIC_ASSERT(BX_COUNTOF(s_ptState) == BX_COUNTOF(s_ptNames) );
 
-class ExampleTexture : public entry::AppI
+class ExampleBox : public entry::AppI
 {
 public:
-    ExampleTexture(const char* _name, const char* _description, const char* _url)
+    ExampleBox(const char* _name, const char* _description, const char* _url)
     : entry::AppI(_name, _description, _url)
     , m_pt(0)
     , m_r(true)
@@ -187,16 +187,16 @@ public:
                                            );
         
         // Create program from shaders.
-        m_program = loadProgram("../../../hello_texture/vs_texture",
-                                "../../../hello_texture/fs_texture");
+        m_program = loadProgram("../../../hello_box/vs_box",
+                                "../../../hello_box/fs_box");
         
         // Create texture sampler uniforms.
         s_texColor1  = bgfx::createUniform("s_texColor1",  bgfx::UniformType::Sampler);
         s_texColor2  = bgfx::createUniform("s_texColor2",  bgfx::UniformType::Sampler);
         
         // Load diffuse texture.
-        m_textureColor1 = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_texture/wall.jpg");
-        m_textureColor2 = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_texture/awesomeface.png");
+        m_textureColor1 = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_box/wall.jpg");
+        m_textureColor2 = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_box/awesomeface.png");
         
         // Set view and projection matrices.
         cameraCreate();
@@ -392,8 +392,8 @@ public:
 } // namespace
 
 ENTRY_IMPLEMENT_MAIN(
-                     ExampleTexture
-                     , "01-cubes"
+                     ExampleBox
+                     , "hello-box"
                      , "Rendering simple static mesh."
                      , "https://bkaradzic.github.io/bgfx/examples.html#cubes"
                      );

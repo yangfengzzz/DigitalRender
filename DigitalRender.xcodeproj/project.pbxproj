@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0403234B256D01C00078D5C4 /* hello_texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04032308256CC45E0078D5C4 /* hello_texture.cpp */; };
+		0403234B256D01C00078D5C4 /* hello_box.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04032308256CC45E0078D5C4 /* hello_box.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -381,10 +381,10 @@
 		040322FA256CBD190078D5C4 /* vs_hdr_blur.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_blur.sc; path = "09-hdr/vs_hdr_blur.sc"; sourceTree = "<group>"; };
 		040322FB256CBD190078D5C4 /* fs_hdr_lumavg.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_hdr_lumavg.sc; path = "09-hdr/fs_hdr_lumavg.sc"; sourceTree = "<group>"; };
 		040322FC256CBD190078D5C4 /* vs_hdr_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_mesh.sc; path = "09-hdr/vs_hdr_mesh.sc"; sourceTree = "<group>"; };
-		04032308256CC45E0078D5C4 /* hello_texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hello_texture.cpp; sourceTree = "<group>"; };
+		04032308256CC45E0078D5C4 /* hello_box.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hello_box.cpp; sourceTree = "<group>"; };
 		0403230C256CC7030078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
-		0403230D256CC7030078D5C4 /* vs_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_texture.sc; sourceTree = "<group>"; };
-		0403230E256CC7030078D5C4 /* fs_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_texture.sc; sourceTree = "<group>"; };
+		0403230D256CC7030078D5C4 /* vs_box.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_box.sc; sourceTree = "<group>"; };
+		0403230E256CC7030078D5C4 /* fs_box.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_box.sc; sourceTree = "<group>"; };
 		0403233A256CFF130078D5C4 /* fs_stencil_color_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_stencil_color_texture.sc; path = "13-stencil/fs_stencil_color_texture.sc"; sourceTree = "<group>"; };
 		0403233B256CFF130078D5C4 /* fs_stencil_color_black.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_stencil_color_black.sc; path = "13-stencil/fs_stencil_color_black.sc"; sourceTree = "<group>"; };
 		0403233C256CFF130078D5C4 /* vs_stencil_color_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_stencil_color_lighting.sc; path = "13-stencil/vs_stencil_color_lighting.sc"; sourceTree = "<group>"; };
@@ -893,15 +893,15 @@
 			name = "09-hdr";
 			sourceTree = "<group>";
 		};
-		04032307256CC4030078D5C4 /* hello_texture */ = {
+		04032307256CC4030078D5C4 /* hello_box */ = {
 			isa = PBXGroup;
 			children = (
 				0403230C256CC7030078D5C4 /* varying.def.sc */,
-				0403230E256CC7030078D5C4 /* fs_texture.sc */,
-				0403230D256CC7030078D5C4 /* vs_texture.sc */,
-				04032308256CC45E0078D5C4 /* hello_texture.cpp */,
+				0403230E256CC7030078D5C4 /* fs_box.sc */,
+				0403230D256CC7030078D5C4 /* vs_box.sc */,
+				04032308256CC45E0078D5C4 /* hello_box.cpp */,
 			);
-			path = hello_texture;
+			path = hello_box;
 			sourceTree = "<group>";
 		};
 		04032339256CFEFE0078D5C4 /* 13-stencil */ = {
@@ -1187,7 +1187,7 @@
 				0461C791256B67F700980618 /* external */,
 				0461C761256B679800980618 /* common */,
 				040322B5256CA1D20078D5C4 /* hello_triangle */,
-				04032307256CC4030078D5C4 /* hello_texture */,
+				04032307256CC4030078D5C4 /* hello_box */,
 			);
 			path = apps;
 			sourceTree = "<group>";
@@ -1874,7 +1874,7 @@
 				0461C7B7256B683400980618 /* vertexcodec.cpp in Sources */,
 				0461C76F256B67AD00980618 /* example-glue.cpp in Sources */,
 				0461C772256B67AD00980618 /* bgfx_utils.cpp in Sources */,
-				0403234B256D01C00078D5C4 /* hello_texture.cpp in Sources */,
+				0403234B256D01C00078D5C4 /* hello_box.cpp in Sources */,
 				0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */,
 				0461C778256B67CA00980618 /* imgui.cpp in Sources */,
 				0461C7BE256B683400980618 /* vcacheoptimizer.cpp in Sources */,

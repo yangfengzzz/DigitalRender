@@ -127,10 +127,12 @@ public:
                                 "../../../hello_texture/fs_texture");
         
         // Create texture sampler uniforms.
-        s_texColor  = bgfx::createUniform("s_texColor",  bgfx::UniformType::Sampler);
+        s_texColor1  = bgfx::createUniform("s_texColor1",  bgfx::UniformType::Sampler);
+        s_texColor2  = bgfx::createUniform("s_texColor2",  bgfx::UniformType::Sampler);
         
         // Load diffuse texture.
-        m_textureColor = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_texture/wall.jpg");
+        m_textureColor1 = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_texture/wall.jpg");
+        m_textureColor2 = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_texture/awesomeface.png");
         
         m_timeOffset = bx::getHPCounter();
         
@@ -149,8 +151,10 @@ public:
         
         bgfx::destroy(m_vbh);
         bgfx::destroy(m_program);
-        bgfx::destroy(m_textureColor);
-        bgfx::destroy(s_texColor);
+        bgfx::destroy(m_textureColor1);
+        bgfx::destroy(m_textureColor2);
+        bgfx::destroy(s_texColor1);
+        bgfx::destroy(s_texColor2);
         
         // Shutdown bgfx.
         bgfx::shutdown();
@@ -198,21 +202,17 @@ public:
             ImGui::End();
             
             imguiEndFrame();
-            
-            float time = (float)( (bx::getHPCounter()-m_timeOffset)/double(bx::getHPFrequency() ) );
-            
-            const bx::Vec3 at  = { 0.0f, 0.0f,   0.0f };
-            const bx::Vec3 eye = { 0.0f, 0.0f, -35.0f };
-            
+                        
             // Set view and projection matrix for view 0.
             {
-                float view[16];
-                bx::mtxLookAt(view, eye, at);
+                glm::mat4 view = glm::mat4(1.0f);
+                // 注意，我们将矩阵向我们要进行移动场景的反方向移动。
+                view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
                 
-                float proj[16];
-                bx::mtxProj(proj, 60.0f, float(m_width)/float(m_height),
-                            0.1f, 100.0f, bgfx::getCaps()->homogeneousDepth);
-//                bgfx::setViewTransform(0, view, proj);
+                glm::mat4 projection = glm::mat4(1.0f);
+                projection = glm::perspective(glm::radians(45.0f), float(m_width) / float(m_height), 0.1f, 100.0f);
+                
+                bgfx::setViewTransform(0, glm::value_ptr(view), glm::value_ptr(projection));
                 
                 // Set view 0 default viewport.
                 bgfx::setViewRect(0, 0, 0, uint16_t(m_width), uint16_t(m_height) );
@@ -236,19 +236,19 @@ public:
             ;
             
             // Submit Triangle.
-            glm::mat4 trans = glm::mat4(1.0f);
-            trans = glm::translate(trans, glm::vec3(0.5f, -0.5f, 0.0f));
-            trans = glm::rotate(trans, time, glm::vec3(0.0f, 0.0f, 1.0f));
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
             // Set model matrix for rendering.
-            bgfx::setTransform(glm::value_ptr(trans));
+            bgfx::setTransform(glm::value_ptr(model));
             
             // Set vertex and index buffer.
             bgfx::setVertexBuffer(0, m_vbh);
             bgfx::setIndexBuffer(ibh);
             
             // Bind textures.
-            bgfx::setTexture(0, s_texColor,  m_textureColor);
+            bgfx::setTexture(0, s_texColor1,  m_textureColor1);
+            bgfx::setTexture(1, s_texColor2,  m_textureColor2);
             
             // Set render states.
             bgfx::setState(state);
@@ -276,8 +276,10 @@ public:
     bgfx::IndexBufferHandle m_ibh[BX_COUNTOF(s_ptState)];
     bgfx::ProgramHandle m_program;
     
-    bgfx::UniformHandle s_texColor;
-    bgfx::TextureHandle m_textureColor;
+    bgfx::UniformHandle s_texColor1;
+    bgfx::TextureHandle m_textureColor1;
+    bgfx::UniformHandle s_texColor2;
+    bgfx::TextureHandle m_textureColor2;
     
     int64_t m_timeOffset;
     int32_t m_pt;

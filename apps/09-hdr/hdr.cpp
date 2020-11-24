@@ -5,7 +5,7 @@
 
 #include "common.h"
 #include "bgfx_utils.h"
-#include "imgui/imgui.h"
+#include "common/imgui/imgui.h"
 #include <bx/rng.h>
 
 namespace
@@ -168,7 +168,7 @@ public:
 		// Create vertex stream declaration.
 		PosColorTexCoord0Vertex::init();
 
-		m_uffizi = loadTexture("textures/uffizi.ktx"
+		m_uffizi = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/uffizi.ktx"
 				, 0
 				| BGFX_SAMPLER_U_CLAMP
 				| BGFX_SAMPLER_V_CLAMP
@@ -191,7 +191,7 @@ public:
 		u_tonemap   = bgfx::createUniform("u_tonemap",  bgfx::UniformType::Vec4);
 		u_offset    = bgfx::createUniform("u_offset",   bgfx::UniformType::Vec4, 16);
 
-		m_mesh = meshLoad("meshes/bunny.bin");
+		m_mesh = meshLoad("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/bunny.bin");
 
 		m_fbh.idx = bgfx::kInvalidHandle;
 

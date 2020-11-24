@@ -6,8 +6,8 @@
 #include "common.h"
 #include "bgfx_utils.h"
 #include "packrect.h"
-#include "imgui/imgui.h"
-#include "entry/entry.h"
+#include "common/imgui/imgui.h"
+#include "common/entry/entry.h"
 #include <bimg/decode.h>
 
 #include <bx/rng.h>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040322CD256CBBAF0078D5C4 /* bump.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040322CB256CBBAF0078D5C4 /* bump.cpp */; };
+		040322FD256CBD190078D5C4 /* hdr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040322EE256CBD190078D5C4 /* hdr.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -353,6 +353,34 @@
 		040322CA256CBBAE0078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "06-bump/varying.def.sc"; sourceTree = "<group>"; };
 		040322CB256CBBAF0078D5C4 /* bump.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bump.cpp; path = "06-bump/bump.cpp"; sourceTree = "<group>"; };
 		040322CC256CBBAF0078D5C4 /* vs_bump.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_bump.sc; path = "06-bump/vs_bump.sc"; sourceTree = "<group>"; };
+		040322D3256CBC850078D5C4 /* callback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = callback.cpp; path = "07-callback/callback.cpp"; sourceTree = "<group>"; };
+		040322D4256CBC850078D5C4 /* fs_callback.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_callback.sc; path = "07-callback/fs_callback.sc"; sourceTree = "<group>"; };
+		040322D5256CBC850078D5C4 /* vs_callback.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_callback.sc; path = "07-callback/vs_callback.sc"; sourceTree = "<group>"; };
+		040322D6256CBC850078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "07-callback/varying.def.sc"; sourceTree = "<group>"; };
+		040322DF256CBCC90078D5C4 /* vs_update.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_update.sc; path = "08-update/vs_update.sc"; sourceTree = "<group>"; };
+		040322E0256CBCC90078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "08-update/varying.def.sc"; sourceTree = "<group>"; };
+		040322E1256CBCC90078D5C4 /* update.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = update.cpp; path = "08-update/update.cpp"; sourceTree = "<group>"; };
+		040322E2256CBCC90078D5C4 /* fs_update_3d.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_update_3d.sc; path = "08-update/fs_update_3d.sc"; sourceTree = "<group>"; };
+		040322E3256CBCC90078D5C4 /* fs_update.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_update.sc; path = "08-update/fs_update.sc"; sourceTree = "<group>"; };
+		040322E4256CBCC90078D5C4 /* fs_update_cmp.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_update_cmp.sc; path = "08-update/fs_update_cmp.sc"; sourceTree = "<group>"; };
+		040322E5256CBCC90078D5C4 /* cs_update.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cs_update.sc; path = "08-update/cs_update.sc"; sourceTree = "<group>"; };
+		040322EC256CBD190078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "09-hdr/varying.def.sc"; sourceTree = "<group>"; };
+		040322ED256CBD190078D5C4 /* fs_hdr_bright.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_hdr_bright.sc; path = "09-hdr/fs_hdr_bright.sc"; sourceTree = "<group>"; };
+		040322EE256CBD190078D5C4 /* hdr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = hdr.cpp; path = "09-hdr/hdr.cpp"; sourceTree = "<group>"; };
+		040322EF256CBD190078D5C4 /* vs_hdr_bright.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_bright.sc; path = "09-hdr/vs_hdr_bright.sc"; sourceTree = "<group>"; };
+		040322F0256CBD190078D5C4 /* fs_hdr_lum.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_hdr_lum.sc; path = "09-hdr/fs_hdr_lum.sc"; sourceTree = "<group>"; };
+		040322F1256CBD190078D5C4 /* fs_hdr_blur.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_hdr_blur.sc; path = "09-hdr/fs_hdr_blur.sc"; sourceTree = "<group>"; };
+		040322F2256CBD190078D5C4 /* vs_hdr_tonemap.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_tonemap.sc; path = "09-hdr/vs_hdr_tonemap.sc"; sourceTree = "<group>"; };
+		040322F3256CBD190078D5C4 /* fs_hdr_skybox.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_hdr_skybox.sc; path = "09-hdr/fs_hdr_skybox.sc"; sourceTree = "<group>"; };
+		040322F4256CBD190078D5C4 /* common.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = common.sh; path = "09-hdr/common.sh"; sourceTree = "<group>"; };
+		040322F5256CBD190078D5C4 /* fs_hdr_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_hdr_mesh.sc; path = "09-hdr/fs_hdr_mesh.sc"; sourceTree = "<group>"; };
+		040322F6256CBD190078D5C4 /* fs_hdr_tonemap.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_hdr_tonemap.sc; path = "09-hdr/fs_hdr_tonemap.sc"; sourceTree = "<group>"; };
+		040322F7256CBD190078D5C4 /* vs_hdr_lum.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_lum.sc; path = "09-hdr/vs_hdr_lum.sc"; sourceTree = "<group>"; };
+		040322F8256CBD190078D5C4 /* vs_hdr_skybox.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_skybox.sc; path = "09-hdr/vs_hdr_skybox.sc"; sourceTree = "<group>"; };
+		040322F9256CBD190078D5C4 /* vs_hdr_lumavg.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_lumavg.sc; path = "09-hdr/vs_hdr_lumavg.sc"; sourceTree = "<group>"; };
+		040322FA256CBD190078D5C4 /* vs_hdr_blur.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_blur.sc; path = "09-hdr/vs_hdr_blur.sc"; sourceTree = "<group>"; };
+		040322FB256CBD190078D5C4 /* fs_hdr_lumavg.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_hdr_lumavg.sc; path = "09-hdr/fs_hdr_lumavg.sc"; sourceTree = "<group>"; };
+		040322FC256CBD190078D5C4 /* vs_hdr_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_hdr_mesh.sc; path = "09-hdr/vs_hdr_mesh.sc"; sourceTree = "<group>"; };
 		0461C762256B67AD00980618 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bounds.cpp; path = common/bounds.cpp; sourceTree = "<group>"; };
 		0461C763256B67AD00980618 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = camera.h; path = common/camera.h; sourceTree = "<group>"; };
 		0461C764256B67AD00980618 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = common/common.h; sourceTree = "<group>"; };
@@ -800,6 +828,55 @@
 			name = "06-bump";
 			sourceTree = "<group>";
 		};
+		040322D2256CBC7B0078D5C4 /* 07-callback */ = {
+			isa = PBXGroup;
+			children = (
+				040322D6256CBC850078D5C4 /* varying.def.sc */,
+				040322D4256CBC850078D5C4 /* fs_callback.sc */,
+				040322D5256CBC850078D5C4 /* vs_callback.sc */,
+				040322D3256CBC850078D5C4 /* callback.cpp */,
+			);
+			name = "07-callback";
+			sourceTree = "<group>";
+		};
+		040322DE256CBCBA0078D5C4 /* 08-update */ = {
+			isa = PBXGroup;
+			children = (
+				040322E0256CBCC90078D5C4 /* varying.def.sc */,
+				040322E5256CBCC90078D5C4 /* cs_update.sc */,
+				040322E2256CBCC90078D5C4 /* fs_update_3d.sc */,
+				040322E4256CBCC90078D5C4 /* fs_update_cmp.sc */,
+				040322E3256CBCC90078D5C4 /* fs_update.sc */,
+				040322DF256CBCC90078D5C4 /* vs_update.sc */,
+				040322E1256CBCC90078D5C4 /* update.cpp */,
+			);
+			name = "08-update";
+			sourceTree = "<group>";
+		};
+		040322EB256CBD080078D5C4 /* 09-hdr */ = {
+			isa = PBXGroup;
+			children = (
+				040322F4256CBD190078D5C4 /* common.sh */,
+				040322EC256CBD190078D5C4 /* varying.def.sc */,
+				040322F1256CBD190078D5C4 /* fs_hdr_blur.sc */,
+				040322ED256CBD190078D5C4 /* fs_hdr_bright.sc */,
+				040322F0256CBD190078D5C4 /* fs_hdr_lum.sc */,
+				040322FB256CBD190078D5C4 /* fs_hdr_lumavg.sc */,
+				040322F5256CBD190078D5C4 /* fs_hdr_mesh.sc */,
+				040322F3256CBD190078D5C4 /* fs_hdr_skybox.sc */,
+				040322F6256CBD190078D5C4 /* fs_hdr_tonemap.sc */,
+				040322FA256CBD190078D5C4 /* vs_hdr_blur.sc */,
+				040322EF256CBD190078D5C4 /* vs_hdr_bright.sc */,
+				040322F7256CBD190078D5C4 /* vs_hdr_lum.sc */,
+				040322F9256CBD190078D5C4 /* vs_hdr_lumavg.sc */,
+				040322FC256CBD190078D5C4 /* vs_hdr_mesh.sc */,
+				040322F8256CBD190078D5C4 /* vs_hdr_skybox.sc */,
+				040322F2256CBD190078D5C4 /* vs_hdr_tonemap.sc */,
+				040322EE256CBD190078D5C4 /* hdr.cpp */,
+			);
+			name = "09-hdr";
+			sourceTree = "<group>";
+		};
 		0461C761256B679800980618 /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1050,6 +1127,9 @@
 			isa = PBXGroup;
 			children = (
 				0461C7D9256B696A00980618 /* 18-ibl */,
+				040322EB256CBD080078D5C4 /* 09-hdr */,
+				040322DE256CBCBA0078D5C4 /* 08-update */,
+				040322D2256CBC7B0078D5C4 /* 07-callback */,
 				040322C7256CBB950078D5C4 /* 06-bump */,
 				040322BD256CBB600078D5C4 /* 05-instancing */,
 				0461C8AD256B9A9400980618 /* 04-mesh */,
@@ -1731,7 +1811,6 @@
 				0461C7B9256B683400980618 /* simplifier.cpp in Sources */,
 				0461C78D256B67F100980618 /* cmd.cpp in Sources */,
 				0461C78C256B67F100980618 /* entry.cpp in Sources */,
-				040322CD256CBBAF0078D5C4 /* bump.cpp in Sources */,
 				0461C7C4256B683400980618 /* indexgenerator.cpp in Sources */,
 				0461C78E256B67F100980618 /* input.cpp in Sources */,
 				0461C78B256B67F100980618 /* dialog_darwin.mm in Sources */,
@@ -1745,6 +1824,7 @@
 				0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */,
 				0461C7BC256B683400980618 /* overdrawoptimizer.cpp in Sources */,
 				0461C7B7256B683400980618 /* vertexcodec.cpp in Sources */,
+				040322FD256CBD190078D5C4 /* hdr.cpp in Sources */,
 				0461C76F256B67AD00980618 /* example-glue.cpp in Sources */,
 				0461C772256B67AD00980618 /* bgfx_utils.cpp in Sources */,
 				0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */,

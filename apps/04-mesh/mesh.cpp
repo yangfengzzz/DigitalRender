@@ -5,7 +5,7 @@
 
 #include "common.h"
 #include "bgfx_utils.h"
-#include "imgui/imgui.h"
+#include "common/imgui/imgui.h"
 
 namespace
 {
@@ -51,7 +51,7 @@ public:
 		// Create program from shaders.
 		m_program = loadProgram("vs_mesh", "fs_mesh");
 
-		m_mesh = meshLoad("meshes/bunny.bin");
+		m_mesh = meshLoad("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/bunny.bin");
 
 		m_timeOffset = bx::getHPCounter();
 

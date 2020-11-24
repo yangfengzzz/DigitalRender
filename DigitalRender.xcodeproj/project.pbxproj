@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040322B2256CA0C70078D5C4 /* hello_triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040322A1256C9E780078D5C4 /* hello_triangle.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -40,7 +41,6 @@
 		0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7B6256B683400980618 /* vfetchoptimizer.cpp */; };
 		0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7E2256B69B000980618 /* nanovg_bgfx.cpp */; };
 		0461C7E7256B69B000980618 /* nanovg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7E3256B69B000980618 /* nanovg.cpp */; };
-		0461C7FC256B914900980618 /* metaballs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C7FA256B914900980618 /* metaballs.cpp */; };
 		0461C825256B928600980618 /* hash.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C801256B928500980618 /* hash.h */; };
 		0461C826256B928600980618 /* commandline.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C802256B928500980618 /* commandline.h */; };
 		0461C827256B928600980618 /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C803256B928500980618 /* thread.h */; };
@@ -53,7 +53,6 @@
 		0461C82E256B928600980618 /* mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80A256B928500980618 /* mutex.h */; };
 		0461C82F256B928600980618 /* semaphore.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80B256B928500980618 /* semaphore.h */; };
 		0461C830256B928600980618 /* pixelformat.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80C256B928500980618 /* pixelformat.h */; };
-		0461C831256B928600980618 /* string.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80D256B928500980618 /* string.h */; };
 		0461C832256B928600980618 /* float4x4_t.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80E256B928500980618 /* float4x4_t.h */; };
 		0461C833256B928600980618 /* error.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C80F256B928500980618 /* error.h */; };
 		0461C834256B928600980618 /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C810256B928500980618 /* debug.h */; };
@@ -75,7 +74,6 @@
 		0461C844256B928600980618 /* allocator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C820256B928600980618 /* allocator.h */; };
 		0461C845256B928600980618 /* mpscqueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C821256B928600980618 /* mpscqueue.h */; };
 		0461C846256B928600980618 /* maputil.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C822256B928600980618 /* maputil.h */; };
-		0461C847256B928600980618 /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C823256B928600980618 /* math.h */; };
 		0461C848256B928600980618 /* simd_t.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C824256B928600980618 /* simd_t.h */; };
 		0461C88B256B93CE00980618 /* defines.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C887256B93CD00980618 /* defines.h */; };
 		0461C88C256B93CE00980618 /* embedded_shader.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C888256B93CD00980618 /* embedded_shader.h */; };
@@ -342,6 +340,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		040322A1256C9E780078D5C4 /* hello_triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hello_triangle.cpp; sourceTree = "<group>"; };
+		040322B8256CA7510078D5C4 /* vs_triangle.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_triangle.sc; sourceTree = "<group>"; };
+		040322B9256CA7510078D5C4 /* fs_triangle.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_triangle.sc; sourceTree = "<group>"; };
+		040322BA256CA7510078D5C4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
 		0461C762256B67AD00980618 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bounds.cpp; path = common/bounds.cpp; sourceTree = "<group>"; };
 		0461C763256B67AD00980618 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = camera.h; path = common/camera.h; sourceTree = "<group>"; };
 		0461C764256B67AD00980618 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = common/common.h; sourceTree = "<group>"; };
@@ -376,10 +378,10 @@
 		0461C799256B681300980618 /* imgui_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui_internal.h; path = "3rdparty/dear-imgui/imgui_internal.h"; sourceTree = SOURCE_ROOT; };
 		0461C79A256B681300980618 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_demo.cpp; path = "3rdparty/dear-imgui/imgui_demo.cpp"; sourceTree = SOURCE_ROOT; };
 		0461C79B256B681300980618 /* imgui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imgui.h; path = "3rdparty/dear-imgui/imgui.h"; sourceTree = SOURCE_ROOT; };
-		0461C79C256B681300980618 /* imgui_user.inl */ = {isa = PBXFileReference; lastKnownFileType = file; name = imgui_user.inl; path = "3rdparty/dear-imgui/imgui_user.inl"; sourceTree = SOURCE_ROOT; };
+		0461C79C256B681300980618 /* imgui_user.inl */ = {isa = PBXFileReference; lastKnownFileType = text; name = imgui_user.inl; path = "3rdparty/dear-imgui/imgui_user.inl"; sourceTree = SOURCE_ROOT; };
 		0461C79D256B681300980618 /* imstb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imstb_truetype.h; path = "3rdparty/dear-imgui/imstb_truetype.h"; sourceTree = SOURCE_ROOT; };
 		0461C79E256B681300980618 /* imstb_rectpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imstb_rectpack.h; path = "3rdparty/dear-imgui/imstb_rectpack.h"; sourceTree = SOURCE_ROOT; };
-		0461C7A5256B682200980618 /* file_list.inl */ = {isa = PBXFileReference; lastKnownFileType = file; name = file_list.inl; path = "3rdparty/dear-imgui/widgets/file_list.inl"; sourceTree = SOURCE_ROOT; };
+		0461C7A5256B682200980618 /* file_list.inl */ = {isa = PBXFileReference; lastKnownFileType = text; name = file_list.inl; path = "3rdparty/dear-imgui/widgets/file_list.inl"; sourceTree = SOURCE_ROOT; };
 		0461C7A7256B683400980618 /* vertexcodec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vertexcodec.cpp; path = 3rdparty/meshoptimizer/src/vertexcodec.cpp; sourceTree = SOURCE_ROOT; };
 		0461C7A8256B683400980618 /* vertexfilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vertexfilter.cpp; path = 3rdparty/meshoptimizer/src/vertexfilter.cpp; sourceTree = SOURCE_ROOT; };
 		0461C7A9256B683400980618 /* simplifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = simplifier.cpp; path = 3rdparty/meshoptimizer/src/simplifier.cpp; sourceTree = SOURCE_ROOT; };
@@ -422,7 +424,6 @@
 		0461C80A256B928500980618 /* mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mutex.h; path = bx/bx/mutex.h; sourceTree = "<group>"; };
 		0461C80B256B928500980618 /* semaphore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = semaphore.h; path = bx/bx/semaphore.h; sourceTree = "<group>"; };
 		0461C80C256B928500980618 /* pixelformat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pixelformat.h; path = bx/bx/pixelformat.h; sourceTree = "<group>"; };
-		0461C80D256B928500980618 /* string.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = string.h; path = bx/bx/string.h; sourceTree = "<group>"; };
 		0461C80E256B928500980618 /* float4x4_t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = float4x4_t.h; path = bx/bx/float4x4_t.h; sourceTree = "<group>"; };
 		0461C80F256B928500980618 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = error.h; path = bx/bx/error.h; sourceTree = "<group>"; };
 		0461C810256B928500980618 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = debug.h; path = bx/bx/debug.h; sourceTree = "<group>"; };
@@ -444,7 +445,6 @@
 		0461C820256B928600980618 /* allocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = allocator.h; path = bx/bx/allocator.h; sourceTree = "<group>"; };
 		0461C821256B928600980618 /* mpscqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mpscqueue.h; path = bx/bx/mpscqueue.h; sourceTree = "<group>"; };
 		0461C822256B928600980618 /* maputil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = maputil.h; path = bx/bx/maputil.h; sourceTree = "<group>"; };
-		0461C823256B928600980618 /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = math.h; path = bx/bx/math.h; sourceTree = "<group>"; };
 		0461C824256B928600980618 /* simd_t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = simd_t.h; path = bx/bx/simd_t.h; sourceTree = "<group>"; };
 		0461C84C256B92FD00980618 /* error.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = error.inl; path = bx/bx/inline/error.inl; sourceTree = "<group>"; };
 		0461C84D256B92FD00980618 /* cpu.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = cpu.inl; path = bx/bx/inline/cpu.inl; sourceTree = "<group>"; };
@@ -482,6 +482,12 @@
 		0461C89A256B94F300980618 /* decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = decode.h; path = bimg/bimg/decode.h; sourceTree = "<group>"; };
 		0461C89B256B94F300980618 /* encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = encode.h; path = bimg/bimg/encode.h; sourceTree = "<group>"; };
 		0461C89C256B94F300980618 /* bimg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bimg.h; path = bimg/bimg/bimg.h; sourceTree = "<group>"; };
+		0461C8A5256B963C00980618 /* raymarch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = raymarch.cpp; path = "03-raymarch/raymarch.cpp"; sourceTree = "<group>"; };
+		0461C8A6256B963C00980618 /* vs_raymarching.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_raymarching.sc; path = "03-raymarch/vs_raymarching.sc"; sourceTree = "<group>"; };
+		0461C8A7256B963C00980618 /* fs_raymarching.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_raymarching.sc; path = "03-raymarch/fs_raymarching.sc"; sourceTree = "<group>"; };
+		0461C8AE256B9A9E00980618 /* mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mesh.cpp; path = "04-mesh/mesh.cpp"; sourceTree = "<group>"; };
+		0461C8AF256B9A9E00980618 /* fs_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_mesh.sc; path = "04-mesh/fs_mesh.sc"; sourceTree = "<group>"; };
+		0461C8B0256B9A9E00980618 /* vs_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_mesh.sc; path = "04-mesh/vs_mesh.sc"; sourceTree = "<group>"; };
 		04EB7BCE256AB022004BE0A6 /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7BDD256AB03B004BE0A6 /* libsrc.bgfx.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsrc.bgfx.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7CC9256AB173004BE0A6 /* shader_spirv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shader_spirv.h; path = bgfx/shader_spirv.h; sourceTree = "<group>"; };
@@ -751,6 +757,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040322B5256CA1D20078D5C4 /* hello_triangle */ = {
+			isa = PBXGroup;
+			children = (
+				040322B9256CA7510078D5C4 /* fs_triangle.sc */,
+				040322B8256CA7510078D5C4 /* vs_triangle.sc */,
+				040322BA256CA7510078D5C4 /* varying.def.sc */,
+				040322A1256C9E780078D5C4 /* hello_triangle.cpp */,
+			);
+			path = hello_triangle;
+			sourceTree = "<group>";
+		};
 		0461C761256B679800980618 /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -958,6 +975,26 @@
 			name = glcontext;
 			sourceTree = "<group>";
 		};
+		0461C8A4256B962F00980618 /* 03-raymarch */ = {
+			isa = PBXGroup;
+			children = (
+				0461C8A7256B963C00980618 /* fs_raymarching.sc */,
+				0461C8A6256B963C00980618 /* vs_raymarching.sc */,
+				0461C8A5256B963C00980618 /* raymarch.cpp */,
+			);
+			name = "03-raymarch";
+			sourceTree = "<group>";
+		};
+		0461C8AD256B9A9400980618 /* 04-mesh */ = {
+			isa = PBXGroup;
+			children = (
+				0461C8B0256B9A9E00980618 /* vs_mesh.sc */,
+				0461C8AF256B9A9E00980618 /* fs_mesh.sc */,
+				0461C8AE256B9A9E00980618 /* mesh.cpp */,
+			);
+			name = "04-mesh";
+			sourceTree = "<group>";
+		};
 		04EB7BC5256AB022004BE0A6 = {
 			isa = PBXGroup;
 			children = (
@@ -981,11 +1018,14 @@
 			isa = PBXGroup;
 			children = (
 				0461C7D9256B696A00980618 /* 18-ibl */,
+				0461C8AD256B9A9400980618 /* 04-mesh */,
+				0461C8A4256B962F00980618 /* 03-raymarch */,
 				0461C7F8256B913700980618 /* 02-metaballs */,
 				0461C7D2256B689A00980618 /* 01-cubes */,
 				0461C7CA256B686300980618 /* 00-helloworld */,
 				0461C791256B67F700980618 /* external */,
 				0461C761256B679800980618 /* common */,
+				040322B5256CA1D20078D5C4 /* hello_triangle */,
 			);
 			path = apps;
 			sourceTree = "<group>";
@@ -1090,7 +1130,6 @@
 				0461C814256B928500980618 /* handlealloc.h */,
 				0461C801256B928500980618 /* hash.h */,
 				04EB7DB7256AB33C004BE0A6 /* hash.cpp */,
-				0461C823256B928600980618 /* math.h */,
 				04EB7DBC256AB33C004BE0A6 /* math.cpp */,
 				0461C821256B928600980618 /* mpscqueue.h */,
 				0461C80A256B928500980618 /* mutex.h */,
@@ -1105,7 +1144,6 @@
 				0461C818256B928600980618 /* sort.h */,
 				04EB7DB5256AB33C004BE0A6 /* sort.cpp */,
 				0461C811256B928500980618 /* spscqueue.h */,
-				0461C80D256B928500980618 /* string.h */,
 				04EB7DB6256AB33C004BE0A6 /* string.cpp */,
 				0461C817256B928600980618 /* uint32_t.h */,
 				0461C84B256B92EC00980618 /* inline */,
@@ -1543,10 +1581,8 @@
 				04EB7D2B256AB174004BE0A6 /* renderer_d3d.h in Headers */,
 				0461C846256B928600980618 /* maputil.h in Headers */,
 				04EB7EDC256AB7DD004BE0A6 /* bits.h in Headers */,
-				0461C847256B928600980618 /* math.h in Headers */,
 				04EB7EF0256AB817004BE0A6 /* tile.h in Headers */,
 				0461C843256B928600980618 /* macros.h in Headers */,
-				0461C831256B928600980618 /* string.h in Headers */,
 				04EB7D48256AB174004BE0A6 /* renderer_webgpu.h in Headers */,
 				04EB8052256ABCFC004BE0A6 /* stb_image_write.h in Headers */,
 				04EB7F2C256AB87E004BE0A6 /* integer_sequence_codec.h in Headers */,
@@ -1660,6 +1696,7 @@
 				0461C7C3256B683400980618 /* clusterizer.cpp in Sources */,
 				0461C7B9256B683400980618 /* simplifier.cpp in Sources */,
 				0461C78D256B67F100980618 /* cmd.cpp in Sources */,
+				040322B2256CA0C70078D5C4 /* hello_triangle.cpp in Sources */,
 				0461C78C256B67F100980618 /* entry.cpp in Sources */,
 				0461C7C4256B683400980618 /* indexgenerator.cpp in Sources */,
 				0461C78E256B67F100980618 /* input.cpp in Sources */,
@@ -1669,7 +1706,6 @@
 				0461C770256B67AD00980618 /* camera.cpp in Sources */,
 				0461C7BA256B683400980618 /* overdrawanalyzer.cpp in Sources */,
 				0461C7C0256B683400980618 /* indexcodec.cpp in Sources */,
-				0461C7FC256B914900980618 /* metaballs.cpp in Sources */,
 				0461C771256B67AD00980618 /* cube_atlas.cpp in Sources */,
 				0461C7BD256B683400980618 /* vfetchanalyzer.cpp in Sources */,
 				0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */,

@@ -176,10 +176,11 @@ public:
                                            );
         
         objectColor = bgfx::createUniform("objectColor", bgfx::UniformType::Vec4);
-        lightColor = bgfx::createUniform("lightColor", bgfx::UniformType::Vec4);
-        lightPos = bgfx::createUniform("lightPos", bgfx::UniformType::Vec4);
         viewPos = bgfx::createUniform("viewPos", bgfx::UniformType::Vec4);
         normal_matrix = bgfx::createUniform("normal_matrix", bgfx::UniformType::Mat4);
+        
+        material = bgfx::createUniform("material", bgfx::UniformType::Vec4, 4);
+        light = bgfx::createUniform("light", bgfx::UniformType::Vec4, 4);
         
         // Create program from shaders.
         m_program_box = loadProgram("../../../hello_light/vs_light",
@@ -213,10 +214,11 @@ public:
         bgfx::destroy(m_program_light);
         
         bgfx::destroy(objectColor);
-        bgfx::destroy(lightColor);
-        bgfx::destroy(lightPos);
         bgfx::destroy(viewPos);
         bgfx::destroy(normal_matrix);
+        
+        bgfx::destroy(material);
+        bgfx::destroy(light);
         
         // Shutdown bgfx.
         bgfx::shutdown();
@@ -314,10 +316,6 @@ public:
             {
                 glm::vec4 u_objectColor = glm::vec4(1.0f, 0.5f, 0.31f, 1.0f);
                 bgfx::setUniform(objectColor, &u_objectColor);
-                glm::vec4 u_lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
-                bgfx::setUniform(lightColor, &u_lightColor);
-                glm::vec4 lightPos_tmp = glm::vec4(u_lightPos, 0);
-                bgfx::setUniform(lightPos, &lightPos_tmp);
                 bx::Vec3 viewPos_tmp = cameraGetPosition();
                 glm::vec4 u_viewPos = glm::vec4(viewPos_tmp.x, viewPos_tmp.y, viewPos_tmp.z, 0);
                 bgfx::setUniform(viewPos, &u_viewPos);
@@ -328,6 +326,73 @@ public:
                 bgfx::setTransform(glm::value_ptr(model));
                 glm::mat4 u_normal_matrix = glm::transpose(glm::inverse(model));
                 bgfx::setUniform(normal_matrix, &u_normal_matrix);
+                
+                //Materials
+                {
+                    float material_data[4][4];
+                    //material.ambient
+                    material_data[0][0] = 1.0f;
+                    material_data[0][1] = 0.5f;
+                    material_data[0][2] = 0.31f;
+                    material_data[0][3] = 0.0f;
+                    
+                    //material.diffuse
+                    material_data[1][0] = 1.0f;
+                    material_data[1][1] = 0.5f;
+                    material_data[1][2] = 0.31f;
+                    material_data[1][3] = 0.0f;
+                    
+                    //material.specular
+                    material_data[2][0] = 0.5f;
+                    material_data[2][1] = 0.5f;
+                    material_data[2][2] = 0.5f;
+                    material_data[2][3] = 0.0f;
+                    
+                    //material.shininess
+                    material_data[3][0] = 32.0f;
+                    material_data[3][1] = 0.0f;
+                    material_data[3][2] = 0.0f;
+                    material_data[3][3] = 0.0f;
+                    bgfx::setUniform(material, material_data, 4);
+                }
+                
+                //Lights
+                {
+                    float time = (float)( (bx::getHPCounter()-m_timeOffset)/double(bx::getHPFrequency() ));
+                    glm::vec3 lightColor;
+                    lightColor.x = sin(time * 2.0f);
+                    lightColor.y = sin(time * 0.7f);
+                    lightColor.z = sin(time * 1.3f);
+
+                    glm::vec3 diffuseColor = lightColor   * glm::vec3(0.5f);
+                    glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f);
+                    
+                    float light_data[4][4];
+                    //light.position
+                    light_data[0][0] = u_lightPos.x;
+                    light_data[0][1] = u_lightPos.y;
+                    light_data[0][2] = u_lightPos.z;
+                    light_data[0][3] = 0.0f;
+                    
+                    //light.ambient
+                    light_data[1][0] = ambientColor.x;
+                    light_data[1][1] = ambientColor.y;
+                    light_data[1][2] = ambientColor.z;
+                    light_data[1][3] = 0.0f;
+                    
+                    //light.diffuse
+                    light_data[2][0] = diffuseColor.x;
+                    light_data[2][1] = diffuseColor.y;
+                    light_data[2][2] = diffuseColor.z;
+                    light_data[2][3] = 0.0f;
+                    
+                    //light.specular
+                    light_data[3][0] = 1.0f;
+                    light_data[3][1] = 1.0f;
+                    light_data[3][2] = 1.0f;
+                    light_data[3][3] = 0.0f;
+                    bgfx::setUniform(light, &light_data, 4);                    
+                }
                 
                 // Set vertex and index buffer.
                 bgfx::setVertexBuffer(0, m_vbh);
@@ -404,10 +469,11 @@ public:
     // lighting
     glm::vec3 u_lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
     bgfx::UniformHandle objectColor;
-    bgfx::UniformHandle lightColor;
-    bgfx::UniformHandle lightPos;
     bgfx::UniformHandle viewPos;
     bgfx::UniformHandle normal_matrix;
+    
+    bgfx::UniformHandle material;
+    bgfx::UniformHandle light;
 };
 
 } // namespace

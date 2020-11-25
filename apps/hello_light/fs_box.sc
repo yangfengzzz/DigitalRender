@@ -18,20 +18,26 @@ uniform vec4 material[2];
 #define material_ambient  material[0]
 #define material_shininess   material[1]
 
-uniform vec4 light[4];
-#define light_direction  light[0]
+uniform vec4 light[7];
+#define lightPos  light[0]
 #define light_ambient light[1]
 #define light_diffuse   light[2]
 #define light_specular   light[3]
+#define light_constant   light[4]
+#define light_linear   light[5]
+#define light_quadratic   light[6]
 
 void main()
 {
+    float distance    = length(lightPos - v_FragPos);
+    float attenuation = 1.0 / (light_constant.x + light_linear.x * distance + light_quadratic.x * (distance * distance));
+                
     //Ambient
     vec4 ambient =  texture2D(s_diffuse, v_texcoord0) * light_ambient;
     
     //Diffuse
     vec3 norm = normalize(v_normal);
-    vec3 lightDir = normalize(-light_direction);
+    vec3 lightDir = normalize(vec3(lightPos) - v_FragPos);
     
     float diff = max(dot(norm, lightDir), 0.0);
     vec4 diffuse = (diff * texture2D(s_diffuse, v_texcoord0)) * light_diffuse;
@@ -42,5 +48,5 @@ void main()
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material_shininess.x);
     vec4 specular = texture2D(s_specular, v_texcoord0) * spec * light_specular;
 
-    gl_FragColor = ambient + diffuse + specular;
+    gl_FragColor = (ambient + diffuse + specular) * attenuation;
 }

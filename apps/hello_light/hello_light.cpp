@@ -192,7 +192,7 @@ public:
         normal_matrix = bgfx::createUniform("normal_matrix", bgfx::UniformType::Mat4);
         
         material = bgfx::createUniform("material", bgfx::UniformType::Vec4, 2);
-        light = bgfx::createUniform("light", bgfx::UniformType::Vec4, 4);
+        light = bgfx::createUniform("light", bgfx::UniformType::Vec4, 7);
         
         // Create program from shaders.
         m_program_box = loadProgram("../../../hello_light/vs_light",
@@ -374,8 +374,8 @@ public:
                     glm::vec3 diffuseColor = lightColor   * glm::vec3(0.5f);
                     glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f);
                     
-                    float light_data[4][4];
-                    //light.direction
+                    float light_data[7][4];
+                    //light.position
                     light_data[0][0] = -0.2f;
                     light_data[0][1] = -1.0f;
                     light_data[0][2] = -0.3f;
@@ -398,7 +398,25 @@ public:
                     light_data[3][1] = 1.0f;
                     light_data[3][2] = 1.0f;
                     light_data[3][3] = 0.0f;
-                    bgfx::setUniform(light, &light_data, 4);
+                    
+                    //light.constant
+                    light_data[4][0] = 1.0f;
+                    light_data[4][1] = 0.0f;
+                    light_data[4][2] = 0.0f;
+                    light_data[4][3] = 0.0f;
+                    
+                    //light.linear
+                    light_data[5][0] = 0.09f;
+                    light_data[5][1] = 0.0f;
+                    light_data[5][2] = 0.0f;
+                    light_data[5][3] = 0.0f;
+                    
+                    //light.quadratic
+                    light_data[6][0] = 0.032f;
+                    light_data[6][1] = 0.0f;
+                    light_data[6][2] = 0.0f;
+                    light_data[6][3] = 0.0f;
+                    bgfx::setUniform(light, &light_data, 7);
                 }
                 
                 for(unsigned int i = 0; i < 10; i++)

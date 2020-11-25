@@ -22,6 +22,7 @@ struct PosColorVertex
     float m_x;
     float m_y;
     float m_z;
+    uint32_t m_normal;
     int16_t m_u;
     int16_t m_v;
     
@@ -30,6 +31,7 @@ struct PosColorVertex
         ms_layout
         .begin()
         .add(bgfx::Attrib::Position, 3, bgfx::AttribType::Float)
+        .add(bgfx::Attrib::Normal,   4, bgfx::AttribType::Uint8, true, true)
         .add(bgfx::Attrib::TexCoord0, 2, bgfx::AttribType::Int16, true, true)
         .end();
     };
@@ -41,47 +43,47 @@ bgfx::VertexLayout PosColorVertex::ms_layout;
 
 static PosColorVertex s_cubeVertices[] =
 {
-    {-0.5f, -0.5f, -0.5f,  0, 0},
-    { 0.5f, -0.5f, -0.5f,  0x7fff, 0},
-    { 0.5f,  0.5f, -0.5f,  0x7fff, 0x7fff},
-    { 0.5f,  0.5f, -0.5f,  0x7fff, 0x7fff},
-    {-0.5f,  0.5f, -0.5f,  0, 0x7fff},
-    {-0.5f, -0.5f, -0.5f,  0, 0},
+    {-0.5f, -0.5f, -0.5f, encodeNormalRgba8( 0.0f,  0.0f,  -1.0f),  0, 0},
+    { 0.5f, -0.5f, -0.5f, encodeNormalRgba8( 0.0f,  0.0f,  -1.0f),  0x7fff, 0},
+    { 0.5f,  0.5f, -0.5f, encodeNormalRgba8( 0.0f,  0.0f,  -1.0f),  0x7fff, 0x7fff},
+    { 0.5f,  0.5f, -0.5f, encodeNormalRgba8( 0.0f,  0.0f,  -1.0f),  0x7fff, 0x7fff},
+    {-0.5f,  0.5f, -0.5f, encodeNormalRgba8( 0.0f,  0.0f,  -1.0f),  0, 0x7fff},
+    {-0.5f, -0.5f, -0.5f, encodeNormalRgba8( 0.0f,  0.0f,  -1.0f),  0, 0},
     
-    {-0.5f, -0.5f,  0.5f,  0, 0},
-    { 0.5f, -0.5f,  0.5f,  0x7fff, 0},
-    { 0.5f,  0.5f,  0.5f,  0x7fff, 0x7fff},
-    { 0.5f,  0.5f,  0.5f,  0x7fff, 0x7fff},
-    {-0.5f,  0.5f,  0.5f,  0, 0x7fff},
-    {-0.5f, -0.5f,  0.5f,  0, 0},
+    {-0.5f, -0.5f,  0.5f, encodeNormalRgba8( 0.0f,  0.0f,  1.0f),  0, 0},
+    { 0.5f, -0.5f,  0.5f, encodeNormalRgba8( 0.0f,  0.0f,  1.0f),  0x7fff, 0},
+    { 0.5f,  0.5f,  0.5f, encodeNormalRgba8( 0.0f,  0.0f,  1.0f),  0x7fff, 0x7fff},
+    { 0.5f,  0.5f,  0.5f, encodeNormalRgba8( 0.0f,  0.0f,  1.0f),  0x7fff, 0x7fff},
+    {-0.5f,  0.5f,  0.5f, encodeNormalRgba8( 0.0f,  0.0f,  1.0f),  0, 0x7fff},
+    {-0.5f, -0.5f,  0.5f, encodeNormalRgba8( 0.0f,  0.0f,  1.0f),  0, 0},
     
-    {-0.5f,  0.5f,  0.5f,  0x7fff, 0},
-    { -0.5f,  0.5f, -0.5f,  0x7fff, 0x7fff},
-    { -0.5f, -0.5f, -0.5f,  0, 0x7fff},
-    { -0.5f, -0.5f, -0.5f,  0, 0x7fff},
-    { -0.5f, -0.5f,  0.5f,  0, 0},
-    { -0.5f,  0.5f,  0.5f,  0x7fff, 0},
+    {-0.5f,  0.5f,  0.5f, encodeNormalRgba8( -1.0f,  0.0f,  0.0f),  0x7fff, 0},
+    { -0.5f,  0.5f, -0.5f, encodeNormalRgba8( -1.0f,  0.0f,  0.0f),  0x7fff, 0x7fff},
+    { -0.5f, -0.5f, -0.5f, encodeNormalRgba8( -1.0f,  0.0f,  0.0f),  0, 0x7fff},
+    { -0.5f, -0.5f, -0.5f, encodeNormalRgba8( -1.0f,  0.0f,  0.0f),  0, 0x7fff},
+    { -0.5f, -0.5f,  0.5f, encodeNormalRgba8( -1.0f,  0.0f,  0.0f),  0, 0},
+    { -0.5f,  0.5f,  0.5f, encodeNormalRgba8( -1.0f,  0.0f,  0.0f),  0x7fff, 0},
     
-    {0.5f,  0.5f,  0.5f,  0x7fff, 0},
-    {0.5f,  0.5f, -0.5f,  0x7fff, 0x7fff},
-    {0.5f, -0.5f, -0.5f,  0, 0x7fff},
-    {0.5f, -0.5f, -0.5f,  0, 0x7fff},
-    {0.5f, -0.5f,  0.5f,  0, 0},
-    {0.5f,  0.5f,  0.5f,  0x7fff, 0},
+    {0.5f,  0.5f,  0.5f, encodeNormalRgba8( 1.0f,  0.0f,  0.0f),  0x7fff, 0},
+    {0.5f,  0.5f, -0.5f, encodeNormalRgba8( 1.0f,  0.0f,  0.0f),  0x7fff, 0x7fff},
+    {0.5f, -0.5f, -0.5f, encodeNormalRgba8( 1.0f,  0.0f,  0.0f),  0, 0x7fff},
+    {0.5f, -0.5f, -0.5f, encodeNormalRgba8( 1.0f,  0.0f,  0.0f),  0, 0x7fff},
+    {0.5f, -0.5f,  0.5f, encodeNormalRgba8( 1.0f,  0.0f,  0.0f),  0, 0},
+    {0.5f,  0.5f,  0.5f, encodeNormalRgba8( 1.0f,  0.0f,  0.0f),  0x7fff, 0},
     
-    {-0.5f, -0.5f, -0.5f,  0, 0x7fff},
-    {0.5f, -0.5f, -0.5f,  0x7fff, 0x7fff},
-    {0.5f, -0.5f,  0.5f,  0x7fff, 0},
-    {0.5f, -0.5f,  0.5f,  0x7fff, 0},
-    {-0.5f, -0.5f,  0.5f,  0, 0},
-    {-0.5f, -0.5f, -0.5f,  0, 0x7fff},
+    {-0.5f, -0.5f, -0.5f, encodeNormalRgba8( 0.0f,  -1.0f,  0.0f),  0, 0x7fff},
+    {0.5f, -0.5f, -0.5f, encodeNormalRgba8( 0.0f,  -1.0f,  0.0f),  0x7fff, 0x7fff},
+    {0.5f, -0.5f,  0.5f, encodeNormalRgba8( 0.0f,  -1.0f,  0.0f),  0x7fff, 0},
+    {0.5f, -0.5f,  0.5f, encodeNormalRgba8( 0.0f,  -1.0f,  0.0f),  0x7fff, 0},
+    {-0.5f, -0.5f,  0.5f, encodeNormalRgba8( 0.0f,  -1.0f,  0.0f),  0, 0},
+    {-0.5f, -0.5f, -0.5f, encodeNormalRgba8( 0.0f,  -1.0f,  0.0f),  0, 0x7fff},
     
-    {-0.5f,  0.5f, -0.5f,  0, 0x7fff},
-    {0.5f,  0.5f, -0.5f,  0x7fff, 0x7fff},
-    {0.5f,  0.5f,  0.5f,  0x7fff, 0},
-    {0.5f,  0.5f,  0.5f,  0x7fff, 0},
-    {-0.5f,  0.5f,  0.5f,  0, 0},
-    {-0.5f,  0.5f, -0.5f,  0, 0x7fff}
+    {-0.5f,  0.5f, -0.5f, encodeNormalRgba8( 0.0f,  1.0f,  0.0f),  0, 0x7fff},
+    {0.5f,  0.5f, -0.5f, encodeNormalRgba8( 0.0f,  1.0f,  0.0f),  0x7fff, 0x7fff},
+    {0.5f,  0.5f,  0.5f, encodeNormalRgba8( 0.0f,  1.0f,  0.0f),  0x7fff, 0},
+    {0.5f,  0.5f,  0.5f, encodeNormalRgba8( 0.0f,  1.0f,  0.0f),  0x7fff, 0},
+    {-0.5f,  0.5f,  0.5f, encodeNormalRgba8( 0.0f,  1.0f,  0.0f),  0, 0},
+    {-0.5f,  0.5f, -0.5f, encodeNormalRgba8( 0.0f,  1.0f,  0.0f),  0, 0x7fff}
 };
 
 static const uint16_t s_cubeTriList[] =
@@ -175,6 +177,7 @@ public:
         
         objectColor = bgfx::createUniform("objectColor", bgfx::UniformType::Vec4);
         lightColor = bgfx::createUniform("lightColor", bgfx::UniformType::Vec4);
+        lightPos = bgfx::createUniform("lightPos", bgfx::UniformType::Vec4);
         
         // Create program from shaders.
         m_program_box = loadProgram("../../../hello_light/vs_light",
@@ -209,6 +212,7 @@ public:
         
         bgfx::destroy(objectColor);
         bgfx::destroy(lightColor);
+        bgfx::destroy(lightPos);
         
         // Shutdown bgfx.
         bgfx::shutdown();
@@ -308,6 +312,8 @@ public:
                 bgfx::setUniform(objectColor, &u_objectColor);
                 glm::vec4 u_lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
                 bgfx::setUniform(lightColor, &u_lightColor);
+                glm::vec4 lightColor_tmp = glm::vec4(u_lightPos, 0);
+                bgfx::setUniform(lightPos, &lightColor_tmp);
                 
                 // Submit Triangle.
                 glm::mat4 model = glm::mat4(1.0f);
@@ -329,7 +335,7 @@ public:
             {
                 // Submit Triangle.
                 glm::mat4 model = glm::mat4(1.0f);
-                model = glm::translate(model, lightPos);
+                model = glm::translate(model, u_lightPos);
                 model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
                 // Set model matrix for rendering.
                 bgfx::setTransform(glm::value_ptr(model));
@@ -387,9 +393,10 @@ public:
     }
     
     // lighting
-    glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
+    glm::vec3 u_lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
     bgfx::UniformHandle objectColor;
     bgfx::UniformHandle lightColor;
+    bgfx::UniformHandle lightPos;
 };
 
 } // namespace

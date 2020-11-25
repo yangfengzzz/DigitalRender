@@ -200,10 +200,10 @@ public:
         
         material = bgfx::createUniform("material", bgfx::UniformType::Vec4, 2);
         dirLight = bgfx::createUniform("dirLight", bgfx::UniformType::Vec4, 4);
-        pointLights[0] = bgfx::createUniform("pointLights[0]", bgfx::UniformType::Vec4, 7);
-        pointLights[1] = bgfx::createUniform("pointLights[1]", bgfx::UniformType::Vec4, 7);
-        pointLights[2] = bgfx::createUniform("pointLights[2]", bgfx::UniformType::Vec4, 7);
-        pointLights[3] = bgfx::createUniform("pointLights[3]", bgfx::UniformType::Vec4, 7);
+        pointLights[0] = bgfx::createUniform("pointLights0", bgfx::UniformType::Vec4, 7);
+        pointLights[1] = bgfx::createUniform("pointLights1", bgfx::UniformType::Vec4, 7);
+        pointLights[2] = bgfx::createUniform("pointLights2", bgfx::UniformType::Vec4, 7);
+        pointLights[3] = bgfx::createUniform("pointLights3", bgfx::UniformType::Vec4, 7);
         spotLight = bgfx::createUniform("spotLight", bgfx::UniformType::Vec4, 10);
         
         // Create program from shaders.
@@ -413,40 +413,40 @@ public:
                     
                     float pointLights_data[7][4];
                     {
-                        //pointLights[0].ambient
-                        pointLights_data[1][0] = 0.05f;
-                        pointLights_data[1][1] = 0.05f;
-                        pointLights_data[1][2] = 0.05f;
+                        //pointLights[0].constant
+                        pointLights_data[1][0] = 1.0f;
+                        pointLights_data[1][1] = 0.0f;
+                        pointLights_data[1][2] = 0.0f;
                         pointLights_data[1][3] = 0.0f;
                         
-                        //pointLights[0].diffuse
-                        pointLights_data[2][0] = 0.8f;
-                        pointLights_data[2][1] = 0.8f;
-                        pointLights_data[2][2] = 0.8f;
+                        //pointLights[0].linear
+                        pointLights_data[2][0] = 0.09f;
+                        pointLights_data[2][1] = 0.0f;
+                        pointLights_data[2][2] = 0.0f;
                         pointLights_data[2][3] = 0.0f;
                         
-                        //pointLights[0].specular
-                        pointLights_data[3][0] = 1.0f;
-                        pointLights_data[3][1] = 1.0f;
-                        pointLights_data[3][2] = 1.0f;
+                        //pointLights[0].quadratic
+                        pointLights_data[3][0] = 0.032f;
+                        pointLights_data[3][1] = 0.0f;
+                        pointLights_data[3][2] = 0.0f;
                         pointLights_data[3][3] = 0.0f;
                         
-                        //pointLights[0].constant
-                        pointLights_data[4][0] = 1.0f;
-                        pointLights_data[4][1] = 0.0f;
-                        pointLights_data[4][2] = 0.0f;
+                        //pointLights[0].ambient
+                        pointLights_data[4][0] = 0.05f;
+                        pointLights_data[4][1] = 0.05f;
+                        pointLights_data[4][2] = 0.05f;
                         pointLights_data[4][3] = 0.0f;
                         
-                        //pointLights[0].linear
-                        pointLights_data[5][0] = 0.09f;
-                        pointLights_data[5][1] = 0.0f;
-                        pointLights_data[5][2] = 0.0f;
+                        //pointLights[0].diffuse
+                        pointLights_data[5][0] = 0.8f;
+                        pointLights_data[5][1] = 0.8f;
+                        pointLights_data[5][2] = 0.8f;
                         pointLights_data[5][3] = 0.0f;
                         
-                        //pointLights[0].quadratic
-                        pointLights_data[6][0] = 0.032f;
-                        pointLights_data[6][1] = 0.0f;
-                        pointLights_data[6][2] = 0.0f;
+                        //pointLights[0].specular
+                        pointLights_data[6][0] = 1.0f;
+                        pointLights_data[6][1] = 1.0f;
+                        pointLights_data[6][2] = 1.0f;
                         pointLights_data[6][3] = 0.0f;
                         
                         for (int i = 0; i < 4; i++) {
@@ -475,52 +475,52 @@ public:
                         spotLight_data[1][2] = viewPos_tmp.z - camera_front.z;
                         spotLight_data[1][3] = 0.0f;
                         
-                        //spotLight.ambient
-                        spotLight_data[2][0] = 0.0f;
+                        //spotLight.cutOff
+                        spotLight_data[2][0] = glm::cos(glm::radians(12.5f));
                         spotLight_data[2][1] = 0.0f;
                         spotLight_data[2][2] = 0.0f;
                         spotLight_data[2][3] = 0.0f;
                         
-                        //spotLight.diffuse
-                        spotLight_data[3][0] = 1.0f;
-                        spotLight_data[3][1] = 1.0f;
-                        spotLight_data[3][2] = 1.0f;
+                        //spotLight.outerCutOff
+                        spotLight_data[3][0] = glm::cos(glm::radians(15.0f));
+                        spotLight_data[3][1] = 0.0f;
+                        spotLight_data[3][2] = 0.0f;
                         spotLight_data[3][3] = 0.0f;
                         
-                        //spotLight.specular
+                        //spotLight.constant
                         spotLight_data[4][0] = 1.0f;
-                        spotLight_data[4][1] = 1.0f;
-                        spotLight_data[4][2] = 1.0f;
+                        spotLight_data[4][1] = 0.0f;
+                        spotLight_data[4][2] = 0.0f;
                         spotLight_data[4][3] = 0.0f;
                         
-                        //spotLight.constant
-                        spotLight_data[5][0] = 1.0f;
+                        //spotLight.linear
+                        spotLight_data[5][0] = 0.09f;
                         spotLight_data[5][1] = 0.0f;
                         spotLight_data[5][2] = 0.0f;
                         spotLight_data[5][3] = 0.0f;
                         
-                        //spotLight.linear
-                        spotLight_data[6][0] = 0.09f;
+                        //spotLight.quadratic
+                        spotLight_data[6][0] = 0.032f;
                         spotLight_data[6][1] = 0.0f;
                         spotLight_data[6][2] = 0.0f;
                         spotLight_data[6][3] = 0.0f;
                         
-                        //spotLight.quadratic
-                        spotLight_data[7][0] = 0.032f;
+                        //spotLight.ambient
+                        spotLight_data[7][0] = 0.0f;
                         spotLight_data[7][1] = 0.0f;
                         spotLight_data[7][2] = 0.0f;
                         spotLight_data[7][3] = 0.0f;
                         
-                        //spotLight.cutOff
-                        spotLight_data[8][0] = glm::cos(glm::radians(12.5f));
-                        spotLight_data[8][1] = 0.0f;
-                        spotLight_data[8][2] = 0.0f;
+                        //spotLight.diffuse
+                        spotLight_data[8][0] = 1.0f;
+                        spotLight_data[8][1] = 1.0f;
+                        spotLight_data[8][2] = 1.0f;
                         spotLight_data[8][3] = 0.0f;
                         
-                        //spotLight.cutOff
-                        spotLight_data[9][0] = glm::cos(glm::radians(15.0f));
-                        spotLight_data[9][1] = 0.0f;
-                        spotLight_data[9][2] = 0.0f;
+                        //spotLight.specular
+                        spotLight_data[9][0] = 1.0f;
+                        spotLight_data[9][1] = 1.0f;
+                        spotLight_data[9][2] = 1.0f;
                         spotLight_data[9][3] = 0.0f;
                         
                         bgfx::setUniform(spotLight, &spotLight_data, 10);

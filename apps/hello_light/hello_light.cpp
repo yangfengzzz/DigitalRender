@@ -120,6 +120,13 @@ glm::vec3 cubePositions[] = {
     glm::vec3(-1.3f,  1.0f, -1.5f)
 };
 
+glm::vec3 pointLightPositions[] = {
+    glm::vec3( 0.7f,  0.2f,  2.0f),
+    glm::vec3( 2.3f, -3.3f, -4.0f),
+    glm::vec3(-4.0f,  2.0f, -12.0f),
+    glm::vec3( 0.0f,  0.0f, -3.0f)
+};
+
 static const char* s_ptNames[]
 {
     "Triangle List",
@@ -192,7 +199,12 @@ public:
         normal_matrix = bgfx::createUniform("normal_matrix", bgfx::UniformType::Mat4);
         
         material = bgfx::createUniform("material", bgfx::UniformType::Vec4, 2);
-        light = bgfx::createUniform("light", bgfx::UniformType::Vec4, 10);
+        dirLight = bgfx::createUniform("dirLight", bgfx::UniformType::Vec4, 4);
+        pointLights[0] = bgfx::createUniform("pointLights[0]", bgfx::UniformType::Vec4, 7);
+        pointLights[1] = bgfx::createUniform("pointLights[1]", bgfx::UniformType::Vec4, 7);
+        pointLights[2] = bgfx::createUniform("pointLights[2]", bgfx::UniformType::Vec4, 7);
+        pointLights[3] = bgfx::createUniform("pointLights[3]", bgfx::UniformType::Vec4, 7);
+        spotLight = bgfx::createUniform("spotLight", bgfx::UniformType::Vec4, 10);
         
         // Create program from shaders.
         m_program_box = loadProgram("../../../hello_light/vs_light",
@@ -237,7 +249,12 @@ public:
         bgfx::destroy(normal_matrix);
         
         bgfx::destroy(material);
-        bgfx::destroy(light);
+        bgfx::destroy(dirLight);
+        bgfx::destroy(pointLights[0]);
+        bgfx::destroy(pointLights[1]);
+        bgfx::destroy(pointLights[2]);
+        bgfx::destroy(pointLights[3]);
+        bgfx::destroy(spotLight);
         
         bgfx::destroy(m_diffuse);
         bgfx::destroy(m_specular);
@@ -365,78 +382,149 @@ public:
                 
                 //Lights
                 {
-                    float time = (float)( (bx::getHPCounter()-m_timeOffset)/double(bx::getHPFrequency() ));
-                    glm::vec3 lightColor;
-                    lightColor.x = sin(time * 2.0f);
-                    lightColor.y = sin(time * 0.7f);
-                    lightColor.z = sin(time * 1.3f);
+                    float dirLight_data[4][4];
+                    {
+                        //dirLight.direction
+                        dirLight_data[0][0] = -0.2f;
+                        dirLight_data[0][1] = -1.0f;
+                        dirLight_data[0][2] = -0.3f;
+                        dirLight_data[0][3] = 0.0f;
+                        
+                        //dirLight.ambient
+                        dirLight_data[1][0] = 0.05f;
+                        dirLight_data[1][1] = 0.05f;
+                        dirLight_data[1][2] = 0.05f;
+                        dirLight_data[1][3] = 0.0f;
+                        
+                        //dirLight.diffuse
+                        dirLight_data[2][0] = 0.4f;
+                        dirLight_data[2][1] = 0.4f;
+                        dirLight_data[2][2] = 0.4f;
+                        dirLight_data[2][3] = 0.0f;
+                        
+                        //dirLight.specular
+                        dirLight_data[3][0] = 0.5f;
+                        dirLight_data[3][1] = 0.5f;
+                        dirLight_data[3][2] = 0.5f;
+                        dirLight_data[3][3] = 0.0f;
+                        
+                        bgfx::setUniform(dirLight, &dirLight_data, 4);
+                    }
                     
-                    glm::vec3 diffuseColor = lightColor   * glm::vec3(0.5f);
-                    glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f);
+                    float pointLights_data[7][4];
+                    {
+                        //pointLights[0].ambient
+                        pointLights_data[1][0] = 0.05f;
+                        pointLights_data[1][1] = 0.05f;
+                        pointLights_data[1][2] = 0.05f;
+                        pointLights_data[1][3] = 0.0f;
+                        
+                        //pointLights[0].diffuse
+                        pointLights_data[2][0] = 0.8f;
+                        pointLights_data[2][1] = 0.8f;
+                        pointLights_data[2][2] = 0.8f;
+                        pointLights_data[2][3] = 0.0f;
+                        
+                        //pointLights[0].specular
+                        pointLights_data[3][0] = 1.0f;
+                        pointLights_data[3][1] = 1.0f;
+                        pointLights_data[3][2] = 1.0f;
+                        pointLights_data[3][3] = 0.0f;
+                        
+                        //pointLights[0].constant
+                        pointLights_data[4][0] = 1.0f;
+                        pointLights_data[4][1] = 0.0f;
+                        pointLights_data[4][2] = 0.0f;
+                        pointLights_data[4][3] = 0.0f;
+                        
+                        //pointLights[0].linear
+                        pointLights_data[5][0] = 0.09f;
+                        pointLights_data[5][1] = 0.0f;
+                        pointLights_data[5][2] = 0.0f;
+                        pointLights_data[5][3] = 0.0f;
+                        
+                        //pointLights[0].quadratic
+                        pointLights_data[6][0] = 0.032f;
+                        pointLights_data[6][1] = 0.0f;
+                        pointLights_data[6][2] = 0.0f;
+                        pointLights_data[6][3] = 0.0f;
+                        
+                        for (int i = 0; i < 4; i++) {
+                            //pointLights[0].position
+                            pointLights_data[0][0] = pointLightPositions[i].x;
+                            pointLights_data[0][1] = pointLightPositions[i].y;
+                            pointLights_data[0][2] = pointLightPositions[i].z;
+                            pointLights_data[0][3] = 0.0f;
+                            
+                            bgfx::setUniform(pointLights[i], &pointLights_data, 7);
+                        }
+                    }
                     
                     bx::Vec3 camera_front = cameraGetAt();
-                    
-                    float light_data[10][4];
-                    //light.position
-                    light_data[0][0] = viewPos_tmp.x;
-                    light_data[0][1] = viewPos_tmp.y;
-                    light_data[0][2] = viewPos_tmp.z;
-                    light_data[0][3] = 0.0f;
-                    
-                    //light.ambient
-                    light_data[1][0] = 0.1f;
-                    light_data[1][1] = 0.1f;
-                    light_data[1][2] = 0.1f;
-                    light_data[1][3] = 0.0f;
-                    
-                    //light.diffuse
-                    light_data[2][0] = 0.8f;
-                    light_data[2][1] = 0.8f;
-                    light_data[2][2] = 0.8f;
-                    light_data[2][3] = 0.0f;
-                    
-                    //light.specular
-                    light_data[3][0] = 1.0f;
-                    light_data[3][1] = 1.0f;
-                    light_data[3][2] = 1.0f;
-                    light_data[3][3] = 0.0f;
-                    
-                    //light.constant
-                    light_data[4][0] = 1.0f;
-                    light_data[4][1] = 0.0f;
-                    light_data[4][2] = 0.0f;
-                    light_data[4][3] = 0.0f;
-                    
-                    //light.linear
-                    light_data[5][0] = 0.09f;
-                    light_data[5][1] = 0.0f;
-                    light_data[5][2] = 0.0f;
-                    light_data[5][3] = 0.0f;
-                    
-                    //light.quadratic
-                    light_data[6][0] = 0.032f;
-                    light_data[6][1] = 0.0f;
-                    light_data[6][2] = 0.0f;
-                    light_data[6][3] = 0.0f;
-                    
-                    //light.direction
-                    light_data[7][0] = viewPos_tmp.x - camera_front.x;
-                    light_data[7][1] = viewPos_tmp.y - camera_front.y;
-                    light_data[7][2] = viewPos_tmp.z - camera_front.z;
-                    light_data[7][3] = 0.0f;
-                    
-                    //light.cutOff
-                    light_data[8][0] = glm::cos(glm::radians(12.5f));
-                    light_data[8][1] = 0.0f;
-                    light_data[8][2] = 0.0f;
-                    light_data[8][3] = 0.0f;
-                    
-                    //light.outerCutOff
-                    light_data[9][0] = glm::cos(glm::radians(17.5f));
-                    light_data[9][1] = 0.0f;
-                    light_data[9][2] = 0.0f;
-                    light_data[9][3] = 0.0f;
-                    bgfx::setUniform(light, &light_data, 10);
+                    float spotLight_data[10][4];
+                    {
+                        //spotLight.position
+                        spotLight_data[0][0] = viewPos_tmp.x;
+                        spotLight_data[0][1] = viewPos_tmp.y;
+                        spotLight_data[0][2] = viewPos_tmp.z;
+                        spotLight_data[0][3] = 0.0f;
+                        
+                        //spotLight.direction
+                        spotLight_data[1][0] = viewPos_tmp.x - camera_front.x;
+                        spotLight_data[1][1] = viewPos_tmp.y - camera_front.y;
+                        spotLight_data[1][2] = viewPos_tmp.z - camera_front.z;
+                        spotLight_data[1][3] = 0.0f;
+                        
+                        //spotLight.ambient
+                        spotLight_data[2][0] = 0.0f;
+                        spotLight_data[2][1] = 0.0f;
+                        spotLight_data[2][2] = 0.0f;
+                        spotLight_data[2][3] = 0.0f;
+                        
+                        //spotLight.diffuse
+                        spotLight_data[3][0] = 1.0f;
+                        spotLight_data[3][1] = 1.0f;
+                        spotLight_data[3][2] = 1.0f;
+                        spotLight_data[3][3] = 0.0f;
+                        
+                        //spotLight.specular
+                        spotLight_data[4][0] = 1.0f;
+                        spotLight_data[4][1] = 1.0f;
+                        spotLight_data[4][2] = 1.0f;
+                        spotLight_data[4][3] = 0.0f;
+                        
+                        //spotLight.constant
+                        spotLight_data[5][0] = 1.0f;
+                        spotLight_data[5][1] = 0.0f;
+                        spotLight_data[5][2] = 0.0f;
+                        spotLight_data[5][3] = 0.0f;
+                        
+                        //spotLight.linear
+                        spotLight_data[6][0] = 0.09f;
+                        spotLight_data[6][1] = 0.0f;
+                        spotLight_data[6][2] = 0.0f;
+                        spotLight_data[6][3] = 0.0f;
+                        
+                        //spotLight.quadratic
+                        spotLight_data[7][0] = 0.032f;
+                        spotLight_data[7][1] = 0.0f;
+                        spotLight_data[7][2] = 0.0f;
+                        spotLight_data[7][3] = 0.0f;
+                        
+                        //spotLight.cutOff
+                        spotLight_data[8][0] = glm::cos(glm::radians(12.5f));
+                        spotLight_data[8][1] = 0.0f;
+                        spotLight_data[8][2] = 0.0f;
+                        spotLight_data[8][3] = 0.0f;
+                        
+                        //spotLight.cutOff
+                        spotLight_data[9][0] = glm::cos(glm::radians(15.0f));
+                        spotLight_data[9][1] = 0.0f;
+                        spotLight_data[9][2] = 0.0f;
+                        spotLight_data[9][3] = 0.0f;
+                        
+                        bgfx::setUniform(spotLight, &spotLight_data, 10);
+                    }
                 }
                 
                 for(unsigned int i = 0; i < 10; i++)
@@ -466,22 +554,24 @@ public:
             
             //Main Light
             {
-                // Submit Triangle.
-                glm::mat4 model = glm::mat4(1.0f);
-                model = glm::translate(model, u_lightPos);
-                model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
-                // Set model matrix for rendering.
-                bgfx::setTransform(glm::value_ptr(model));
-                
-                // Set vertex and index buffer.
-                bgfx::setVertexBuffer(0, m_vbh);
-                bgfx::setIndexBuffer(ibh);
-                
-                // Set render states.
-                bgfx::setState(state);
-                
-                // Submit primitive for rendering to view 0.
-                bgfx::submit(0, m_program_light);
+                for (int i = 0; i < 4; i++) {
+                    // Submit Triangle.
+                    glm::mat4 model = glm::mat4(1.0f);
+                    model = glm::translate(model, pointLightPositions[i]);
+                    model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
+                    // Set model matrix for rendering.
+                    bgfx::setTransform(glm::value_ptr(model));
+                    
+                    // Set vertex and index buffer.
+                    bgfx::setVertexBuffer(0, m_vbh);
+                    bgfx::setIndexBuffer(ibh);
+                    
+                    // Set render states.
+                    bgfx::setState(state);
+                    
+                    // Submit primitive for rendering to view 0.
+                    bgfx::submit(0, m_program_light);
+                }
             }
             
             // Advance to next frame. Rendering thread will be kicked to
@@ -526,7 +616,6 @@ public:
     }
     
     // lighting
-    glm::vec3 u_lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
     bgfx::UniformHandle viewPos;
     bgfx::UniformHandle normal_matrix;
     
@@ -535,7 +624,10 @@ public:
     bgfx::UniformHandle s_specular;
     bgfx::TextureHandle m_specular;
     bgfx::UniformHandle material;
-    bgfx::UniformHandle light;
+    
+    bgfx::UniformHandle dirLight;
+    bgfx::UniformHandle pointLights[4];
+    bgfx::UniformHandle spotLight;
 };
 
 } // namespace

@@ -192,7 +192,7 @@ public:
         normal_matrix = bgfx::createUniform("normal_matrix", bgfx::UniformType::Mat4);
         
         material = bgfx::createUniform("material", bgfx::UniformType::Vec4, 2);
-        light = bgfx::createUniform("light", bgfx::UniformType::Vec4, 7);
+        light = bgfx::createUniform("light", bgfx::UniformType::Vec4, 10);
         
         // Create program from shaders.
         m_program_box = loadProgram("../../../hello_light/vs_light",
@@ -374,23 +374,25 @@ public:
                     glm::vec3 diffuseColor = lightColor   * glm::vec3(0.5f);
                     glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f);
                     
-                    float light_data[7][4];
+                    bx::Vec3 camera_front = cameraGetAt();
+                    
+                    float light_data[10][4];
                     //light.position
-                    light_data[0][0] = -0.2f;
-                    light_data[0][1] = -1.0f;
-                    light_data[0][2] = -0.3f;
+                    light_data[0][0] = viewPos_tmp.x;
+                    light_data[0][1] = viewPos_tmp.y;
+                    light_data[0][2] = viewPos_tmp.z;
                     light_data[0][3] = 0.0f;
                     
                     //light.ambient
-                    light_data[1][0] = 0.2f;
-                    light_data[1][1] = 0.2f;
-                    light_data[1][2] = 0.2f;
+                    light_data[1][0] = 0.1f;
+                    light_data[1][1] = 0.1f;
+                    light_data[1][2] = 0.1f;
                     light_data[1][3] = 0.0f;
                     
                     //light.diffuse
-                    light_data[2][0] = 0.5f;
-                    light_data[2][1] = 0.5f;
-                    light_data[2][2] = 0.5f;
+                    light_data[2][0] = 0.8f;
+                    light_data[2][1] = 0.8f;
+                    light_data[2][2] = 0.8f;
                     light_data[2][3] = 0.0f;
                     
                     //light.specular
@@ -416,7 +418,25 @@ public:
                     light_data[6][1] = 0.0f;
                     light_data[6][2] = 0.0f;
                     light_data[6][3] = 0.0f;
-                    bgfx::setUniform(light, &light_data, 7);
+                    
+                    //light.direction
+                    light_data[7][0] = viewPos_tmp.x - camera_front.x;
+                    light_data[7][1] = viewPos_tmp.y - camera_front.y;
+                    light_data[7][2] = viewPos_tmp.z - camera_front.z;
+                    light_data[7][3] = 0.0f;
+                    
+                    //light.cutOff
+                    light_data[8][0] = glm::cos(glm::radians(12.5f));
+                    light_data[8][1] = 0.0f;
+                    light_data[8][2] = 0.0f;
+                    light_data[8][3] = 0.0f;
+                    
+                    //light.outerCutOff
+                    light_data[9][0] = glm::cos(glm::radians(17.5f));
+                    light_data[9][1] = 0.0f;
+                    light_data[9][2] = 0.0f;
+                    light_data[9][3] = 0.0f;
+                    bgfx::setUniform(light, &light_data, 10);
                 }
                 
                 for(unsigned int i = 0; i < 10; i++)

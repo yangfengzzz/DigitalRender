@@ -8,10 +8,14 @@ $output v_texcoord0, v_normal, v_FragPos
 
 #include "../common/common.sh"
 
+uniform mat4 normal_matrix;
+
 void main()
 {
     gl_Position = mul(u_modelViewProj, vec4(a_position, 1.0) );
     v_FragPos = mul(u_model[0], vec4(a_position.xyz, 1.0) ).xyz;
-    v_normal = a_normal;
+    
+    vec4 normal = a_normal * 2.0 - 1.0;
+    v_normal = mul(normal_matrix, vec4(normal.xyz, 0.0) ).xyz;
     v_texcoord0 = vec2(a_texcoord0.x, 1.0 - a_texcoord0.y);
 }

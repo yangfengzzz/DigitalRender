@@ -178,6 +178,7 @@ public:
         objectColor = bgfx::createUniform("objectColor", bgfx::UniformType::Vec4);
         lightColor = bgfx::createUniform("lightColor", bgfx::UniformType::Vec4);
         lightPos = bgfx::createUniform("lightPos", bgfx::UniformType::Vec4);
+        normal_matrix = bgfx::createUniform("normal_matrix", bgfx::UniformType::Mat4);
         
         // Create program from shaders.
         m_program_box = loadProgram("../../../hello_light/vs_light",
@@ -213,6 +214,7 @@ public:
         bgfx::destroy(objectColor);
         bgfx::destroy(lightColor);
         bgfx::destroy(lightPos);
+        bgfx::destroy(normal_matrix);
         
         // Shutdown bgfx.
         bgfx::shutdown();
@@ -312,13 +314,15 @@ public:
                 bgfx::setUniform(objectColor, &u_objectColor);
                 glm::vec4 u_lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
                 bgfx::setUniform(lightColor, &u_lightColor);
-                glm::vec4 lightColor_tmp = glm::vec4(u_lightPos, 0);
-                bgfx::setUniform(lightPos, &lightColor_tmp);
+                glm::vec4 lightPos_tmp = glm::vec4(u_lightPos, 0);
+                bgfx::setUniform(lightPos, &lightPos_tmp);
                 
                 // Submit Triangle.
                 glm::mat4 model = glm::mat4(1.0f);
                 // Set model matrix for rendering.
                 bgfx::setTransform(glm::value_ptr(model));
+                glm::mat4 u_normal_matrix = glm::transpose(glm::inverse(model));
+                bgfx::setUniform(normal_matrix, &u_normal_matrix);
                 
                 // Set vertex and index buffer.
                 bgfx::setVertexBuffer(0, m_vbh);
@@ -397,6 +401,7 @@ public:
     bgfx::UniformHandle objectColor;
     bgfx::UniformHandle lightColor;
     bgfx::UniformHandle lightPos;
+    bgfx::UniformHandle normal_matrix;
 };
 
 } // namespace

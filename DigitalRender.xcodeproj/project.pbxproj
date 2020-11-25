@@ -546,6 +546,11 @@
 		04CE762F256DE82B0033C25A /* vs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_light.sc; sourceTree = "<group>"; };
 		04CE7630256DE82B0033C25A /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
 		04CE763D256DEAC90033C25A /* fs_box.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_box.sc; sourceTree = "<group>"; };
+		04CE7640256E06990033C25A /* fs_ibl_skybox.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_ibl_skybox.sc; path = "18-ibl/fs_ibl_skybox.sc"; sourceTree = "<group>"; };
+		04CE7641256E06990033C25A /* fs_ibl_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_ibl_mesh.sc; path = "18-ibl/fs_ibl_mesh.sc"; sourceTree = "<group>"; };
+		04CE7642256E06990033C25A /* vs_ibl_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_ibl_mesh.sc; path = "18-ibl/vs_ibl_mesh.sc"; sourceTree = "<group>"; };
+		04CE7643256E06990033C25A /* vs_ibl_skybox.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_ibl_skybox.sc; path = "18-ibl/vs_ibl_skybox.sc"; sourceTree = "<group>"; };
+		04CE7644256E06990033C25A /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "18-ibl/varying.def.sc"; sourceTree = "<group>"; };
 		04EB7BCE256AB022004BE0A6 /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7BDD256AB03B004BE0A6 /* libsrc.bgfx.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsrc.bgfx.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7CC9256AB173004BE0A6 /* shader_spirv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shader_spirv.h; path = bgfx/shader_spirv.h; sourceTree = "<group>"; };
@@ -1051,6 +1056,11 @@
 		0461C7D9256B696A00980618 /* 18-ibl */ = {
 			isa = PBXGroup;
 			children = (
+				04CE7644256E06990033C25A /* varying.def.sc */,
+				04CE7641256E06990033C25A /* fs_ibl_mesh.sc */,
+				04CE7640256E06990033C25A /* fs_ibl_skybox.sc */,
+				04CE7642256E06990033C25A /* vs_ibl_mesh.sc */,
+				04CE7643256E06990033C25A /* vs_ibl_skybox.sc */,
 				0461C7DA256B697700980618 /* ibl.cpp */,
 			);
 			name = "18-ibl";

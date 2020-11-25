@@ -545,6 +545,7 @@
 		04CE762E256DE82B0033C25A /* hello_light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hello_light.cpp; sourceTree = "<group>"; };
 		04CE762F256DE82B0033C25A /* vs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_light.sc; sourceTree = "<group>"; };
 		04CE7630256DE82B0033C25A /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
+		04CE763D256DEAC90033C25A /* fs_box.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_box.sc; sourceTree = "<group>"; };
 		04EB7BCE256AB022004BE0A6 /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7BDD256AB03B004BE0A6 /* libsrc.bgfx.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsrc.bgfx.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7CC9256AB173004BE0A6 /* shader_spirv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shader_spirv.h; path = bgfx/shader_spirv.h; sourceTree = "<group>"; };
@@ -1158,6 +1159,7 @@
 			isa = PBXGroup;
 			children = (
 				04CE7630256DE82B0033C25A /* varying.def.sc */,
+				04CE763D256DEAC90033C25A /* fs_box.sc */,
 				04CE762D256DE82B0033C25A /* fs_light.sc */,
 				04CE762F256DE82B0033C25A /* vs_light.sc */,
 				04CE762E256DE82B0033C25A /* hello_light.cpp */,

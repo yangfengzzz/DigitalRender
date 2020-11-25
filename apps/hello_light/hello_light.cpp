@@ -105,19 +105,6 @@ static const uint16_t s_cubeTriList[] =
     35,  34,  33,
 };
 
-glm::vec3 cubePositions[] = {
-    glm::vec3( 0.0f,  0.0f,  0.0f),
-    glm::vec3( 2.0f,  5.0f, -15.0f),
-    glm::vec3(-1.5f, -2.2f, -2.5f),
-    glm::vec3(-3.8f, -2.0f, -12.3f),
-    glm::vec3( 2.4f, -0.4f, -3.5f),
-    glm::vec3(-1.7f,  3.0f, -7.5f),
-    glm::vec3( 1.3f, -2.0f, -2.5f),
-    glm::vec3( 1.5f,  2.0f, -2.5f),
-    glm::vec3( 1.5f,  0.2f, -1.5f),
-    glm::vec3(-1.3f,  1.0f, -1.5f)
-};
-
 static const char* s_ptNames[]
 {
     "Triangle List",
@@ -186,17 +173,14 @@ public:
                                            bgfx::makeRef(s_cubeTriList, sizeof(s_cubeTriList) )
                                            );
         
+        objectColor = bgfx::createUniform("objectColor", bgfx::UniformType::Vec4);
+        lightColor = bgfx::createUniform("lightColor", bgfx::UniformType::Vec4);
+        
         // Create program from shaders.
-        m_program = loadProgram("../../../hello_light/vs_light",
-                                "../../../hello_light/fs_light");
-        
-        // Create texture sampler uniforms.
-        s_texColor1  = bgfx::createUniform("s_texColor1",  bgfx::UniformType::Sampler);
-        s_texColor2  = bgfx::createUniform("s_texColor2",  bgfx::UniformType::Sampler);
-        
-        // Load diffuse texture.
-        m_textureColor1 = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_box/wall.jpg");
-        m_textureColor2 = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_box/awesomeface.png");
+        m_program_box = loadProgram("../../../hello_light/vs_light",
+                                    "../../../hello_light/fs_box");
+        m_program_light = loadProgram("../../../hello_light/vs_light",
+                                      "../../../hello_light/fs_light");
         
         // Set view and projection matrices.
         cameraCreate();
@@ -220,11 +204,11 @@ public:
         }
         
         bgfx::destroy(m_vbh);
-        bgfx::destroy(m_program);
-        bgfx::destroy(m_textureColor1);
-        bgfx::destroy(m_textureColor2);
-        bgfx::destroy(s_texColor1);
-        bgfx::destroy(s_texColor2);
+        bgfx::destroy(m_program_box);
+        bgfx::destroy(m_program_light);
+        
+        bgfx::destroy(objectColor);
+        bgfx::destroy(lightColor);
         
         // Shutdown bgfx.
         bgfx::shutdown();
@@ -318,13 +302,15 @@ public:
             | s_ptState[m_pt]
             ;
             
-            // Submit Triangle.
-            for (int i = 0; i < 10; i++) {
-                glm::mat4 model = glm::mat4(1.0f);
-                model = glm::translate(model, cubePositions[i]);
-                float angle = 20.0f * i;
-                model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+            //Main Box
+            {
+                glm::vec4 u_objectColor = glm::vec4(1.0f, 0.5f, 0.31f, 1.0f);
+                bgfx::setUniform(objectColor, &u_objectColor);
+                glm::vec4 u_lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+                bgfx::setUniform(lightColor, &u_lightColor);
                 
+                // Submit Triangle.
+                glm::mat4 model = glm::mat4(1.0f);
                 // Set model matrix for rendering.
                 bgfx::setTransform(glm::value_ptr(model));
                 
@@ -332,15 +318,31 @@ public:
                 bgfx::setVertexBuffer(0, m_vbh);
                 bgfx::setIndexBuffer(ibh);
                 
-                // Bind textures.
-                bgfx::setTexture(0, s_texColor1,  m_textureColor1);
-                bgfx::setTexture(1, s_texColor2,  m_textureColor2);
+                // Set render states.
+                bgfx::setState(state);
+                
+                // Submit primitive for rendering to view 0.
+                bgfx::submit(0, m_program_box);
+            }
+            
+            //Main Light
+            {
+                // Submit Triangle.
+                glm::mat4 model = glm::mat4(1.0f);
+                model = glm::translate(model, lightPos);
+                model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
+                // Set model matrix for rendering.
+                bgfx::setTransform(glm::value_ptr(model));
+                
+                // Set vertex and index buffer.
+                bgfx::setVertexBuffer(0, m_vbh);
+                bgfx::setIndexBuffer(ibh);
                 
                 // Set render states.
                 bgfx::setState(state);
                 
                 // Submit primitive for rendering to view 0.
-                bgfx::submit(0, m_program);
+                bgfx::submit(0, m_program_light);
             }
             
             // Advance to next frame. Rendering thread will be kicked to
@@ -361,12 +363,8 @@ public:
     uint32_t m_reset;
     bgfx::VertexBufferHandle m_vbh;
     bgfx::IndexBufferHandle m_ibh[BX_COUNTOF(s_ptState)];
-    bgfx::ProgramHandle m_program;
-    
-    bgfx::UniformHandle s_texColor1;
-    bgfx::TextureHandle m_textureColor1;
-    bgfx::UniformHandle s_texColor2;
-    bgfx::TextureHandle m_textureColor2;
+    bgfx::ProgramHandle m_program_box;
+    bgfx::ProgramHandle m_program_light;
     
     int64_t m_timeOffset;
     int32_t m_pt;
@@ -380,13 +378,18 @@ public:
     float fov   =  45.0f;
     void scroll_callback(double yoffset)
     {
-      if(fov >= 1.0f && fov <= 45.0f)
-        fov -= yoffset;
-      if(fov <= 1.0f)
-        fov = 1.0f;
-      if(fov >= 45.0f)
-        fov = 45.0f;
+        if(fov >= 1.0f && fov <= 45.0f)
+            fov -= yoffset;
+        if(fov <= 1.0f)
+            fov = 1.0f;
+        if(fov >= 45.0f)
+            fov = 45.0f;
     }
+    
+    // lighting
+    glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
+    bgfx::UniformHandle objectColor;
+    bgfx::UniformHandle lightColor;
 };
 
 } // namespace

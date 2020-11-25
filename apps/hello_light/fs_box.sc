@@ -7,7 +7,10 @@ $input v_texcoord0
 
 #include "../common/common.sh"
 
+uniform vec4 objectColor;
+uniform vec4 lightColor;
+
 void main()
 {
-	gl_FragColor = vec4(1.0);
+	gl_FragColor = lightColor * objectColor;
 }

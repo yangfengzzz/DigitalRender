@@ -9,14 +9,14 @@ $input v_FragPos
 
 #include "../common/common.sh"
 
-uniform vec4 objectColor;
 uniform vec4 viewPos;
 
-uniform vec4 material[4];
+SAMPLER2D(s_diffuse,  0);
+SAMPLER2D(s_specular, 1);
+
+uniform vec4 material[2];
 #define material_ambient  material[0]
-#define material_diffuse material[1]
-#define material_specular   material[2]
-#define material_shininess   material[3]
+#define material_shininess   material[1]
 
 uniform vec4 light[4];
 #define lightPos  light[0]
@@ -27,21 +27,20 @@ uniform vec4 light[4];
 void main()
 {
     //Ambient
-    vec4 ambient =  material_ambient * light_ambient;
+    vec4 ambient =  texture2D(s_diffuse, v_texcoord0) * light_ambient;
     
     //Diffuse
     vec3 norm = normalize(v_normal);
     vec3 lightDir = normalize(vec3(lightPos) - v_FragPos);
     
     float diff = max(dot(norm, lightDir), 0.0);
-    vec4 diffuse = (diff * material_diffuse) * light_diffuse;
+    vec4 diffuse = (diff * texture2D(s_diffuse, v_texcoord0)) * light_diffuse;
     
     //Specular
     vec3 viewDir = normalize(vec3(viewPos) - v_FragPos);
     vec3 reflectDir = reflect(-lightDir, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material_shininess.x);
-    vec4 specular = material_specular * spec * light_specular;
+    vec4 specular = texture2D(s_specular, v_texcoord0) * spec * light_specular;
 
-    vec3 result = (ambient + diffuse + specular) * objectColor;
-    gl_FragColor = vec4(result, 1.0);
+    gl_FragColor = ambient + diffuse + specular;
 }

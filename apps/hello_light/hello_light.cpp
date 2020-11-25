@@ -175,11 +175,10 @@ public:
                                            bgfx::makeRef(s_cubeTriList, sizeof(s_cubeTriList) )
                                            );
         
-        objectColor = bgfx::createUniform("objectColor", bgfx::UniformType::Vec4);
         viewPos = bgfx::createUniform("viewPos", bgfx::UniformType::Vec4);
         normal_matrix = bgfx::createUniform("normal_matrix", bgfx::UniformType::Mat4);
         
-        material = bgfx::createUniform("material", bgfx::UniformType::Vec4, 4);
+        material = bgfx::createUniform("material", bgfx::UniformType::Vec4, 2);
         light = bgfx::createUniform("light", bgfx::UniformType::Vec4, 4);
         
         // Create program from shaders.
@@ -187,6 +186,14 @@ public:
                                     "../../../hello_light/fs_box");
         m_program_light = loadProgram("../../../hello_light/vs_light",
                                       "../../../hello_light/fs_light");
+        
+        // Create texture sampler uniforms.
+        s_diffuse  = bgfx::createUniform("s_diffuse",  bgfx::UniformType::Sampler);
+        s_specular  = bgfx::createUniform("s_specular",  bgfx::UniformType::Sampler);
+        
+        // Load diffuse texture.
+        m_diffuse = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_light/container2.png");
+        m_specular = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_light/container2_specular.png");
         
         // Set view and projection matrices.
         cameraCreate();
@@ -213,12 +220,16 @@ public:
         bgfx::destroy(m_program_box);
         bgfx::destroy(m_program_light);
         
-        bgfx::destroy(objectColor);
         bgfx::destroy(viewPos);
         bgfx::destroy(normal_matrix);
         
         bgfx::destroy(material);
         bgfx::destroy(light);
+        
+        bgfx::destroy(m_diffuse);
+        bgfx::destroy(m_specular);
+        bgfx::destroy(s_diffuse);
+        bgfx::destroy(s_specular);
         
         // Shutdown bgfx.
         bgfx::shutdown();
@@ -314,8 +325,6 @@ public:
             
             //Main Box
             {
-                glm::vec4 u_objectColor = glm::vec4(1.0f, 0.5f, 0.31f, 1.0f);
-                bgfx::setUniform(objectColor, &u_objectColor);
                 bx::Vec3 viewPos_tmp = cameraGetPosition();
                 glm::vec4 u_viewPos = glm::vec4(viewPos_tmp.x, viewPos_tmp.y, viewPos_tmp.z, 0);
                 bgfx::setUniform(viewPos, &u_viewPos);
@@ -329,31 +338,23 @@ public:
                 
                 //Materials
                 {
-                    float material_data[4][4];
+                    // Bind textures.
+                    bgfx::setTexture(0, s_diffuse,  m_diffuse);
+                    bgfx::setTexture(1, s_specular,  m_specular);
+                    
+                    float material_data[2][4];
                     //material.ambient
                     material_data[0][0] = 1.0f;
                     material_data[0][1] = 0.5f;
                     material_data[0][2] = 0.31f;
                     material_data[0][3] = 0.0f;
                     
-                    //material.diffuse
-                    material_data[1][0] = 1.0f;
-                    material_data[1][1] = 0.5f;
-                    material_data[1][2] = 0.31f;
-                    material_data[1][3] = 0.0f;
-                    
-                    //material.specular
-                    material_data[2][0] = 0.5f;
-                    material_data[2][1] = 0.5f;
-                    material_data[2][2] = 0.5f;
-                    material_data[2][3] = 0.0f;
-                    
                     //material.shininess
-                    material_data[3][0] = 32.0f;
-                    material_data[3][1] = 0.0f;
-                    material_data[3][2] = 0.0f;
-                    material_data[3][3] = 0.0f;
-                    bgfx::setUniform(material, material_data, 4);
+                    material_data[1][0] = 32.0f;
+                    material_data[1][1] = 0.0f;
+                    material_data[1][2] = 0.0f;
+                    material_data[1][3] = 0.0f;
+                    bgfx::setUniform(material, material_data, 2);
                 }
                 
                 //Lights
@@ -375,15 +376,15 @@ public:
                     light_data[0][3] = 0.0f;
                     
                     //light.ambient
-                    light_data[1][0] = ambientColor.x;
-                    light_data[1][1] = ambientColor.y;
-                    light_data[1][2] = ambientColor.z;
+                    light_data[1][0] = 0.2f;
+                    light_data[1][1] = 0.2f;
+                    light_data[1][2] = 0.2f;
                     light_data[1][3] = 0.0f;
                     
                     //light.diffuse
-                    light_data[2][0] = diffuseColor.x;
-                    light_data[2][1] = diffuseColor.y;
-                    light_data[2][2] = diffuseColor.z;
+                    light_data[2][0] = 0.5f;
+                    light_data[2][1] = 0.5f;
+                    light_data[2][2] = 0.5f;
                     light_data[2][3] = 0.0f;
                     
                     //light.specular
@@ -468,10 +469,13 @@ public:
     
     // lighting
     glm::vec3 u_lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
-    bgfx::UniformHandle objectColor;
     bgfx::UniformHandle viewPos;
     bgfx::UniformHandle normal_matrix;
     
+    bgfx::UniformHandle s_diffuse;
+    bgfx::TextureHandle m_diffuse;
+    bgfx::UniformHandle s_specular;
+    bgfx::TextureHandle m_specular;
     bgfx::UniformHandle material;
     bgfx::UniformHandle light;
 };

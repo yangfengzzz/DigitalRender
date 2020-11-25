@@ -19,7 +19,7 @@ uniform vec4 material[2];
 #define material_shininess   material[1]
 
 uniform vec4 light[4];
-#define lightPos  light[0]
+#define light_direction  light[0]
 #define light_ambient light[1]
 #define light_diffuse   light[2]
 #define light_specular   light[3]
@@ -31,7 +31,7 @@ void main()
     
     //Diffuse
     vec3 norm = normalize(v_normal);
-    vec3 lightDir = normalize(vec3(lightPos) - v_FragPos);
+    vec3 lightDir = normalize(-light_direction);
     
     float diff = max(dot(norm, lightDir), 0.0);
     vec4 diffuse = (diff * texture2D(s_diffuse, v_texcoord0)) * light_diffuse;

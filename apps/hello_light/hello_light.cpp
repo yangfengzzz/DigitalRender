@@ -107,6 +107,19 @@ static const uint16_t s_cubeTriList[] =
     35,  34,  33,
 };
 
+glm::vec3 cubePositions[] = {
+    glm::vec3( 0.0f,  0.0f,  0.0f),
+    glm::vec3( 2.0f,  5.0f, -15.0f),
+    glm::vec3(-1.5f, -2.2f, -2.5f),
+    glm::vec3(-3.8f, -2.0f, -12.3f),
+    glm::vec3( 2.4f, -0.4f, -3.5f),
+    glm::vec3(-1.7f,  3.0f, -7.5f),
+    glm::vec3( 1.3f, -2.0f, -2.5f),
+    glm::vec3( 1.5f,  2.0f, -2.5f),
+    glm::vec3( 1.5f,  0.2f, -1.5f),
+    glm::vec3(-1.3f,  1.0f, -1.5f)
+};
+
 static const char* s_ptNames[]
 {
     "Triangle List",
@@ -329,13 +342,6 @@ public:
                 glm::vec4 u_viewPos = glm::vec4(viewPos_tmp.x, viewPos_tmp.y, viewPos_tmp.z, 0);
                 bgfx::setUniform(viewPos, &u_viewPos);
                 
-                // Submit Triangle.
-                glm::mat4 model = glm::mat4(1.0f);
-                // Set model matrix for rendering.
-                bgfx::setTransform(glm::value_ptr(model));
-                glm::mat4 u_normal_matrix = glm::transpose(glm::inverse(model));
-                bgfx::setUniform(normal_matrix, &u_normal_matrix);
-                
                 //Materials
                 {
                     // Bind textures.
@@ -364,15 +370,15 @@ public:
                     lightColor.x = sin(time * 2.0f);
                     lightColor.y = sin(time * 0.7f);
                     lightColor.z = sin(time * 1.3f);
-
+                    
                     glm::vec3 diffuseColor = lightColor   * glm::vec3(0.5f);
                     glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f);
                     
                     float light_data[4][4];
-                    //light.position
-                    light_data[0][0] = u_lightPos.x;
-                    light_data[0][1] = u_lightPos.y;
-                    light_data[0][2] = u_lightPos.z;
+                    //light.direction
+                    light_data[0][0] = -0.2f;
+                    light_data[0][1] = -1.0f;
+                    light_data[0][2] = -0.3f;
                     light_data[0][3] = 0.0f;
                     
                     //light.ambient
@@ -392,18 +398,32 @@ public:
                     light_data[3][1] = 1.0f;
                     light_data[3][2] = 1.0f;
                     light_data[3][3] = 0.0f;
-                    bgfx::setUniform(light, &light_data, 4);                    
+                    bgfx::setUniform(light, &light_data, 4);
                 }
                 
-                // Set vertex and index buffer.
-                bgfx::setVertexBuffer(0, m_vbh);
-                bgfx::setIndexBuffer(ibh);
-                
-                // Set render states.
-                bgfx::setState(state);
-                
-                // Submit primitive for rendering to view 0.
-                bgfx::submit(0, m_program_box);
+                for(unsigned int i = 0; i < 10; i++)
+                {
+                    // Submit Triangle.
+                    glm::mat4 model = glm::mat4(1.0f);
+                    model = glm::translate(model, cubePositions[i]);
+                    float angle = 20.0f * i;
+                    model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+                    
+                    // Set model matrix for rendering.
+                    bgfx::setTransform(glm::value_ptr(model));
+                    glm::mat4 u_normal_matrix = glm::transpose(glm::inverse(model));
+                    bgfx::setUniform(normal_matrix, &u_normal_matrix);
+                    
+                    // Set vertex and index buffer.
+                    bgfx::setVertexBuffer(0, m_vbh);
+                    bgfx::setIndexBuffer(ibh);
+                    
+                    // Set render states.
+                    bgfx::setState(state);
+                    
+                    // Submit primitive for rendering to view 0.
+                    bgfx::submit(0, m_program_box);
+                }
             }
             
             //Main Light

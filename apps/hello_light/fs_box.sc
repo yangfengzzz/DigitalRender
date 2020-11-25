@@ -12,6 +12,7 @@ $input v_FragPos
 uniform vec4 objectColor;
 uniform vec4 lightColor;
 uniform vec4 lightPos;
+uniform vec4 viewPos;
 
 void main()
 {
@@ -25,7 +26,14 @@ void main()
     //Ambient
     float ambientStrength = 0.1;
     vec4 ambient = ambientStrength * lightColor;
+    
+    //Specular
+    float specularStrength = 0.5;
+    vec3 viewDir = normalize(vec3(viewPos) - v_FragPos);
+    vec3 reflectDir = reflect(-lightDir, norm);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+    vec4 specular = specularStrength * spec * lightColor;
 
-    vec3 result = (ambient + diffuse) * objectColor;
+    vec3 result = (ambient + diffuse + specular) * objectColor;
     gl_FragColor = vec4(result, 1.0);
 }

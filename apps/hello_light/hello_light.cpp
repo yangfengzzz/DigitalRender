@@ -178,6 +178,7 @@ public:
         objectColor = bgfx::createUniform("objectColor", bgfx::UniformType::Vec4);
         lightColor = bgfx::createUniform("lightColor", bgfx::UniformType::Vec4);
         lightPos = bgfx::createUniform("lightPos", bgfx::UniformType::Vec4);
+        viewPos = bgfx::createUniform("viewPos", bgfx::UniformType::Vec4);
         normal_matrix = bgfx::createUniform("normal_matrix", bgfx::UniformType::Mat4);
         
         // Create program from shaders.
@@ -214,6 +215,7 @@ public:
         bgfx::destroy(objectColor);
         bgfx::destroy(lightColor);
         bgfx::destroy(lightPos);
+        bgfx::destroy(viewPos);
         bgfx::destroy(normal_matrix);
         
         // Shutdown bgfx.
@@ -316,6 +318,9 @@ public:
                 bgfx::setUniform(lightColor, &u_lightColor);
                 glm::vec4 lightPos_tmp = glm::vec4(u_lightPos, 0);
                 bgfx::setUniform(lightPos, &lightPos_tmp);
+                bx::Vec3 viewPos_tmp = cameraGetPosition();
+                glm::vec4 u_viewPos = glm::vec4(viewPos_tmp.x, viewPos_tmp.y, viewPos_tmp.z, 0);
+                bgfx::setUniform(viewPos, &u_viewPos);
                 
                 // Submit Triangle.
                 glm::mat4 model = glm::mat4(1.0f);
@@ -401,6 +406,7 @@ public:
     bgfx::UniformHandle objectColor;
     bgfx::UniformHandle lightColor;
     bgfx::UniformHandle lightPos;
+    bgfx::UniformHandle viewPos;
     bgfx::UniformHandle normal_matrix;
 };
 

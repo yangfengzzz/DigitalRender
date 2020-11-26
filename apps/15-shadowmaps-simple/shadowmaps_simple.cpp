@@ -13,9 +13,9 @@
 #include <bx/timer.h>
 #include <bx/readerwriter.h>
 #include <bx/math.h>
-#include "entry/entry.h"
+#include "common/entry/entry.h"
 #include "bgfx_utils.h"
-#include "imgui/imgui.h"
+#include "common/imgui/imgui.h"
 
 namespace
 {
@@ -112,9 +112,9 @@ public:
 		PosNormalVertex::init();
 
 		// Meshes.
-		m_bunny      = meshLoad("meshes/bunny.bin");
-		m_cube       = meshLoad("meshes/cube.bin");
-		m_hollowcube = meshLoad("meshes/hollowcube.bin");
+		m_bunny      = meshLoad("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/bunny.bin");
+		m_cube       = meshLoad("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/cube.bin");
+		m_hollowcube = meshLoad("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/hollowcube.bin");
 
 		m_vbh = bgfx::createVertexBuffer(
 			  bgfx::makeRef(s_hplaneVertices, sizeof(s_hplaneVertices) )

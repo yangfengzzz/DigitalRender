@@ -66,7 +66,7 @@ public:
         
         // Create program from shaders.
         m_mesh = meshLoad("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/nanosuit.bin");
-        m_progLeg = loadProgram("../../../hello_model/vs_leg",
+        m_progLeg = loadProgram("../../../hello_model/vs_model",
                                 "../../../hello_model/fs_leg");
         m_state[0] = meshStateCreate();
         m_state[0]->m_state = state;
@@ -92,7 +92,7 @@ public:
         m_state[0]->m_textures[2].m_sampler = s_leg_spec;
         m_state[0]->m_textures[2].m_texture = m_leg_spec;
         
-        m_progHelmet = loadProgram("../../../hello_model/vs_helmet",
+        m_progHelmet = loadProgram("../../../hello_model/vs_model",
                                 "../../../hello_model/fs_helmet");
         m_state[1] = meshStateCreate();
         m_state[1]->m_state = state;
@@ -118,7 +118,7 @@ public:
         m_state[1]->m_textures[2].m_sampler = s_helmet_spec;
         m_state[1]->m_textures[2].m_texture = m_helmet_spec;
         
-        m_progHand = loadProgram("../../../hello_model/vs_hand",
+        m_progHand = loadProgram("../../../hello_model/vs_model",
                                 "../../../hello_model/fs_hand");
         m_state[2] = meshStateCreate();
         m_state[2]->m_state = state;
@@ -144,7 +144,7 @@ public:
         m_state[2]->m_textures[2].m_sampler = s_hand_spec;
         m_state[2]->m_textures[2].m_texture = m_hand_spec;
         
-        m_progGlass = loadProgram("../../../hello_model/vs_glass",
+        m_progGlass = loadProgram("../../../hello_model/vs_model",
                                 "../../../hello_model/fs_glass");
         m_state[3] = meshStateCreate();
         m_state[3]->m_state = state;
@@ -164,7 +164,7 @@ public:
         m_state[3]->m_textures[1].m_sampler = s_glass_bump;
         m_state[3]->m_textures[1].m_texture = m_glass_bump;
         
-        m_progBody = loadProgram("../../../hello_model/vs_body",
+        m_progBody = loadProgram("../../../hello_model/vs_model",
                                 "../../../hello_model/fs_body");
         m_state[4] = meshStateCreate();
         m_state[4]->m_state = state;
@@ -190,7 +190,7 @@ public:
         m_state[4]->m_textures[2].m_sampler = s_body_spec;
         m_state[4]->m_textures[2].m_texture = m_body_spec;
         
-        m_progArm = loadProgram("../../../hello_model/vs_arm",
+        m_progArm = loadProgram("../../../hello_model/vs_model",
                                 "../../../hello_model/fs_arm");
         m_state[5] = meshStateCreate();
         m_state[5]->m_state = state;
@@ -220,6 +220,10 @@ public:
         cameraCreate();
         cameraSetPosition({ 0.0f, 0.0f,  3.0f });
         cameraSetVerticalAngle(-0.35f);
+        
+        viewPos = bgfx::createUniform("viewPos", bgfx::UniformType::Vec4);
+        normal_matrix = bgfx::createUniform("normal_matrix", bgfx::UniformType::Mat4);
+        spotLight = bgfx::createUniform("spotLight", bgfx::UniformType::Vec4, 7);
         
         m_timeOffset = bx::getHPCounter();
         
@@ -281,6 +285,10 @@ public:
         bgfx::destroy(m_leg_bump);
         bgfx::destroy(s_leg_bump);
         
+        bgfx::destroy(viewPos);
+        bgfx::destroy(normal_matrix);
+        bgfx::destroy(spotLight);
+        
         bgfx::destroy(u_time);
         
         // Shutdown bgfx.
@@ -335,6 +343,58 @@ public:
                 bgfx::setViewRect(0, 0, 0, uint16_t(m_width), uint16_t(m_height) );
             }
             
+            bx::Vec3 viewPos_tmp = cameraGetPosition();
+            glm::vec4 u_viewPos = glm::vec4(viewPos_tmp.x, viewPos_tmp.y, viewPos_tmp.z, 0);
+            bgfx::setUniform(viewPos, &u_viewPos);
+            
+            bx::Vec3 camera_front = cameraGetAt();
+            float spotLight_data[7][4];
+            {
+                //spotLight.position
+                spotLight_data[0][0] = viewPos_tmp.x;
+                spotLight_data[0][1] = viewPos_tmp.y;
+                spotLight_data[0][2] = viewPos_tmp.z;
+                spotLight_data[0][3] = 0.0f;
+                
+                //spotLight.direction
+                spotLight_data[1][0] = viewPos_tmp.x - camera_front.x;
+                spotLight_data[1][1] = viewPos_tmp.y - camera_front.y;
+                spotLight_data[1][2] = viewPos_tmp.z - camera_front.z;
+                spotLight_data[1][3] = 0.0f;
+                
+                //spotLight.cutOff, outerCutOff
+                spotLight_data[2][0] = glm::cos(glm::radians(12.5f));
+                spotLight_data[2][1] = glm::cos(glm::radians(15.0f));
+                spotLight_data[2][2] = 0.0f;
+                spotLight_data[2][3] = 0.0f;
+                
+                //spotLight.paras(constant, linear, quadratic)
+                spotLight_data[3][0] = 1.0f;
+                spotLight_data[3][1] = 0.09f;
+                spotLight_data[3][2] = 0.032f;
+                spotLight_data[3][3] = 0.0f;
+                
+                //spotLight.ambient
+                spotLight_data[4][0] = 0.0f;
+                spotLight_data[4][1] = 0.0f;
+                spotLight_data[4][2] = 0.0f;
+                spotLight_data[4][3] = 0.0f;
+                
+                //spotLight.diffuse
+                spotLight_data[5][0] = 1.0f;
+                spotLight_data[5][1] = 1.0f;
+                spotLight_data[5][2] = 1.0f;
+                spotLight_data[5][3] = 0.0f;
+                
+                //spotLight.specular
+                spotLight_data[6][0] = 1.0f;
+                spotLight_data[6][1] = 1.0f;
+                spotLight_data[6][2] = 1.0f;
+                spotLight_data[6][3] = 0.0f;
+                
+                bgfx::setUniform(spotLight, &spotLight_data, 7);
+            }
+            
             // This dummy draw call is here to make sure that view 0 is cleared
             // if no other draw calls are submitted to view 0.
             bgfx::touch(0);
@@ -346,6 +406,9 @@ public:
             model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
             model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));    // it's a bit too big for our scene, so scale it down
             model = glm::rotate(model, time*0.37f, glm::vec3(0.0f, 1.0f, 0.0f) );
+            
+            glm::mat4 u_normal_matrix = glm::transpose(glm::inverse(model));
+            bgfx::setUniform(normal_matrix, &u_normal_matrix);
             
             for (GroupArray::const_iterator it = m_mesh->m_groups.begin(), itEnd = m_mesh->m_groups.end(); it != itEnd; ++it)
             {
@@ -446,6 +509,10 @@ public:
         if(fov >= 45.0f)
             fov = 45.0f;
     }
+    
+    bgfx::UniformHandle viewPos;
+    bgfx::UniformHandle normal_matrix;
+    bgfx::UniformHandle spotLight;
 };
 
 } // namespace

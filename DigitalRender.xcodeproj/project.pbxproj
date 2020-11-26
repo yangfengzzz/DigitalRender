@@ -541,6 +541,7 @@
 		0461C8AE256B9A9E00980618 /* mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mesh.cpp; path = "04-mesh/mesh.cpp"; sourceTree = "<group>"; };
 		0461C8AF256B9A9E00980618 /* fs_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_mesh.sc; path = "04-mesh/fs_mesh.sc"; sourceTree = "<group>"; };
 		0461C8B0256B9A9E00980618 /* vs_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_mesh.sc; path = "04-mesh/vs_mesh.sc"; sourceTree = "<group>"; };
+		04C171A9256EBA7A00C07290 /* uniforms.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = uniforms.sh; path = "18-ibl/uniforms.sh"; sourceTree = "<group>"; };
 		04CE762D256DE82B0033C25A /* fs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_light.sc; sourceTree = "<group>"; };
 		04CE762E256DE82B0033C25A /* hello_light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hello_light.cpp; sourceTree = "<group>"; };
 		04CE762F256DE82B0033C25A /* vs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_light.sc; sourceTree = "<group>"; };
@@ -1056,6 +1057,7 @@
 		0461C7D9256B696A00980618 /* 18-ibl */ = {
 			isa = PBXGroup;
 			children = (
+				04C171A9256EBA7A00C07290 /* uniforms.sh */,
 				04CE7644256E06990033C25A /* varying.def.sc */,
 				04CE7641256E06990033C25A /* fs_ibl_mesh.sc */,
 				04CE7640256E06990033C25A /* fs_ibl_skybox.sc */,

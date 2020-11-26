@@ -224,6 +224,7 @@ public:
         viewPos = bgfx::createUniform("viewPos", bgfx::UniformType::Vec4);
         normal_matrix = bgfx::createUniform("normal_matrix", bgfx::UniformType::Mat4);
         spotLight = bgfx::createUniform("spotLight", bgfx::UniformType::Vec4, 7);
+        dirLight = bgfx::createUniform("dirLight", bgfx::UniformType::Vec4, 4);
         
         m_timeOffset = bx::getHPCounter();
         
@@ -288,6 +289,7 @@ public:
         bgfx::destroy(viewPos);
         bgfx::destroy(normal_matrix);
         bgfx::destroy(spotLight);
+        bgfx::destroy(dirLight);
         
         bgfx::destroy(u_time);
         
@@ -346,6 +348,35 @@ public:
             bx::Vec3 viewPos_tmp = cameraGetPosition();
             glm::vec4 u_viewPos = glm::vec4(viewPos_tmp.x, viewPos_tmp.y, viewPos_tmp.z, 0);
             bgfx::setUniform(viewPos, &u_viewPos);
+            
+            float dirLight_data[4][4];
+            {
+                //dirLight.direction
+                dirLight_data[0][0] = 0.2f;
+                dirLight_data[0][1] = 0.0f;
+                dirLight_data[0][2] = -1.0f;
+                dirLight_data[0][3] = 0.0f;
+                
+                //dirLight.ambient
+                dirLight_data[1][0] = 0.5f;
+                dirLight_data[1][1] = 0.5f;
+                dirLight_data[1][2] = 0.5f;
+                dirLight_data[1][3] = 0.0f;
+                
+                //dirLight.diffuse
+                dirLight_data[2][0] = 0.4f;
+                dirLight_data[2][1] = 0.4f;
+                dirLight_data[2][2] = 0.4f;
+                dirLight_data[2][3] = 0.4f;
+                
+                //dirLight.specular
+                dirLight_data[3][0] = 0.5f;
+                dirLight_data[3][1] = 0.5f;
+                dirLight_data[3][2] = 0.5f;
+                dirLight_data[3][3] = 0.0f;
+                
+                bgfx::setUniform(dirLight, &dirLight_data, 4);
+            }
             
             bx::Vec3 camera_front = cameraGetAt();
             float spotLight_data[7][4];
@@ -513,6 +544,7 @@ public:
     bgfx::UniformHandle viewPos;
     bgfx::UniformHandle normal_matrix;
     bgfx::UniformHandle spotLight;
+    bgfx::UniformHandle dirLight;
 };
 
 } // namespace

@@ -9,7 +9,7 @@ $input v_texcoord0
 
 uniform vec4 u_time;
 SAMPLER2D(s_body_diff, 0);
-SAMPLER2D(s_body_spec, 1);
+SAMPLER2D(s_body_spec, 2);
 
 void main()
 {

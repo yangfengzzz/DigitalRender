@@ -52,157 +52,159 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
+        uint64_t state = 0;
+        
         // Create program from shaders.
         m_mesh = meshLoad("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/nanosuit.bin");
+        m_progArm = loadProgram("../../../hello_model/vs_arm",
+                                "../../../hello_model/fs_arm");
         m_state[0] = meshStateCreate();
-        m_state[0]->m_state = 0;
+        m_state[0]->m_state = state;
         m_state[0]->m_program = m_progArm;
         m_state[0]->m_viewId  = 0;
         m_state[0]->m_numTextures = 3;
-        m_progArm = loadProgram("../../../hello_model/vs_arm",
-                                "../../../hello_model/fs_arm");
+        s_arm_diff  = bgfx::createUniform("s_arm_diff",  bgfx::UniformType::Sampler);
+        m_arm_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/arm_dif.png");
         m_state[0]->m_textures[0].m_flags = UINT32_MAX;
         m_state[0]->m_textures[0].m_stage = 0;
         m_state[0]->m_textures[0].m_sampler = s_arm_diff;
         m_state[0]->m_textures[0].m_texture = m_arm_diff;
-        s_arm_diff  = bgfx::createUniform("s_arm_diff",  bgfx::UniformType::Sampler);
-        m_arm_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/arm_dif.png");
-        m_state[0]->m_textures[1].m_flags = UINT32_MAX;
-        m_state[0]->m_textures[1].m_stage = 0;
-        m_state[0]->m_textures[1].m_sampler = s_arm_bump;
-        m_state[0]->m_textures[1].m_texture = m_arm_bump;
         s_arm_bump  = bgfx::createUniform("s_arm_bump",  bgfx::UniformType::Sampler);
         m_arm_bump = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/arm_showroom_ddn.png");
-        m_state[0]->m_textures[2].m_flags = UINT32_MAX;
-        m_state[0]->m_textures[2].m_stage = 1;
-        m_state[0]->m_textures[2].m_sampler = s_arm_spec;
-        m_state[0]->m_textures[2].m_texture = m_arm_spec;
+        m_state[0]->m_textures[1].m_flags = UINT32_MAX;
+        m_state[0]->m_textures[1].m_stage = 1;
+        m_state[0]->m_textures[1].m_sampler = s_arm_bump;
+        m_state[0]->m_textures[1].m_texture = m_arm_bump;
         s_arm_spec  = bgfx::createUniform("s_arm_spec",  bgfx::UniformType::Sampler);
         m_arm_spec = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/arm_showroom_spec.png");
-        
+        m_state[0]->m_textures[2].m_flags = UINT32_MAX;
+        m_state[0]->m_textures[2].m_stage = 2;
+        m_state[0]->m_textures[2].m_sampler = s_arm_spec;
+        m_state[0]->m_textures[2].m_texture = m_arm_spec;
+
+        m_progBody = loadProgram("../../../hello_model/vs_body",
+                                "../../../hello_model/fs_body");
         m_state[1] = meshStateCreate();
-        m_state[1]->m_state = 0;
+        m_state[1]->m_state = state;
         m_state[1]->m_program = m_progBody;
         m_state[1]->m_viewId  = 0;
         m_state[1]->m_numTextures = 3;
-        m_progBody = loadProgram("../../../hello_model/vs_body",
-                                "../../../hello_model/fs_body");
+        s_body_diff  = bgfx::createUniform("s_body_diff",  bgfx::UniformType::Sampler);
+        m_body_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/body_dif.png");
         m_state[1]->m_textures[0].m_flags = UINT32_MAX;
         m_state[1]->m_textures[0].m_stage = 0;
         m_state[1]->m_textures[0].m_sampler = s_body_diff;
         m_state[1]->m_textures[0].m_texture = m_body_diff;
-        s_body_diff  = bgfx::createUniform("s_body_diff",  bgfx::UniformType::Sampler);
-        m_body_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/body_dif.png");
-        m_state[1]->m_textures[1].m_flags = UINT32_MAX;
-        m_state[1]->m_textures[1].m_stage = 0;
-        m_state[1]->m_textures[1].m_sampler = s_body_bump;
-        m_state[1]->m_textures[1].m_texture = m_body_bump;
         s_body_bump  = bgfx::createUniform("s_body_bump",  bgfx::UniformType::Sampler);
         m_body_bump = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/body_showroom_ddn.png");
-        m_state[1]->m_textures[2].m_flags = UINT32_MAX;
-        m_state[1]->m_textures[2].m_stage = 1;
-        m_state[1]->m_textures[2].m_sampler = s_body_spec;
-        m_state[1]->m_textures[2].m_texture = m_body_spec;
+        m_state[1]->m_textures[1].m_flags = UINT32_MAX;
+        m_state[1]->m_textures[1].m_stage = 1;
+        m_state[1]->m_textures[1].m_sampler = s_body_bump;
+        m_state[1]->m_textures[1].m_texture = m_body_bump;
         s_body_spec  = bgfx::createUniform("s_body_spec",  bgfx::UniformType::Sampler);
         m_body_spec = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/body_showroom_spec.png");
-        
+        m_state[1]->m_textures[2].m_flags = UINT32_MAX;
+        m_state[1]->m_textures[2].m_stage = 2;
+        m_state[1]->m_textures[2].m_sampler = s_body_spec;
+        m_state[1]->m_textures[2].m_texture = m_body_spec;
+
+        m_progGlass = loadProgram("../../../hello_model/vs_glass",
+                                "../../../hello_model/fs_glass");
         m_state[2] = meshStateCreate();
-        m_state[2]->m_state = 0;
+        m_state[2]->m_state = state;
         m_state[2]->m_program = m_progGlass;
         m_state[2]->m_viewId  = 0;
         m_state[2]->m_numTextures = 2;
-        m_progGlass = loadProgram("../../../hello_model/vs_glass",
-                                "../../../hello_model/fs_glass");
+        s_glass_diff  = bgfx::createUniform("s_glass_diff",  bgfx::UniformType::Sampler);
+        m_glass_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/glass_dif.png");
         m_state[2]->m_textures[0].m_flags = UINT32_MAX;
         m_state[2]->m_textures[0].m_stage = 0;
         m_state[2]->m_textures[0].m_sampler = s_glass_diff;
         m_state[2]->m_textures[0].m_texture = m_glass_diff;
-        s_glass_diff  = bgfx::createUniform("s_glass_diff",  bgfx::UniformType::Sampler);
-        m_glass_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/glass_dif.png");
-        m_state[2]->m_textures[1].m_flags = UINT32_MAX;
-        m_state[2]->m_textures[1].m_stage = 0;
-        m_state[2]->m_textures[1].m_sampler = s_glass_bump;
-        m_state[2]->m_textures[1].m_texture = m_glass_bump;
         s_glass_bump  = bgfx::createUniform("s_glass_bump",  bgfx::UniformType::Sampler);
         m_glass_bump = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/glass_ddn.png");
-        
+        m_state[2]->m_textures[1].m_flags = UINT32_MAX;
+        m_state[2]->m_textures[1].m_stage = 1;
+        m_state[2]->m_textures[1].m_sampler = s_glass_bump;
+        m_state[2]->m_textures[1].m_texture = m_glass_bump;
+
+        m_progHand = loadProgram("../../../hello_model/vs_hand",
+                                "../../../hello_model/fs_hand");
         m_state[3] = meshStateCreate();
-        m_state[3]->m_state = 0;
+        m_state[3]->m_state = state;
         m_state[3]->m_program = m_progHand;
         m_state[3]->m_viewId  = 0;
         m_state[3]->m_numTextures = 3;
-        m_progHand = loadProgram("../../../hello_model/vs_hand",
-                                "../../../hello_model/fs_hand");
+        s_hand_diff  = bgfx::createUniform("s_hand_diff",  bgfx::UniformType::Sampler);
+        m_hand_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/hand_dif.png");
         m_state[3]->m_textures[0].m_flags = UINT32_MAX;
         m_state[3]->m_textures[0].m_stage = 0;
         m_state[3]->m_textures[0].m_sampler = s_hand_diff;
         m_state[3]->m_textures[0].m_texture = m_hand_diff;
-        s_hand_diff  = bgfx::createUniform("s_hand_diff",  bgfx::UniformType::Sampler);
-        m_hand_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/hand_dif.png");
-        m_state[3]->m_textures[1].m_flags = UINT32_MAX;
-        m_state[3]->m_textures[1].m_stage = 0;
-        m_state[3]->m_textures[1].m_sampler = s_hand_bump;
-        m_state[3]->m_textures[1].m_texture = m_hand_bump;
         s_hand_bump  = bgfx::createUniform("s_hand_bump",  bgfx::UniformType::Sampler);
         m_hand_bump = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/hand_showroom_ddn.png");
-        m_state[3]->m_textures[2].m_flags = UINT32_MAX;
-        m_state[3]->m_textures[2].m_stage = 1;
-        m_state[3]->m_textures[2].m_sampler = s_hand_spec;
-        m_state[3]->m_textures[2].m_texture = m_hand_spec;
+        m_state[3]->m_textures[1].m_flags = UINT32_MAX;
+        m_state[3]->m_textures[1].m_stage = 1;
+        m_state[3]->m_textures[1].m_sampler = s_hand_bump;
+        m_state[3]->m_textures[1].m_texture = m_hand_bump;
         s_hand_spec  = bgfx::createUniform("s_hand_spec",  bgfx::UniformType::Sampler);
         m_hand_spec = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/hand_showroom_spec.png");
-        
+        m_state[3]->m_textures[2].m_flags = UINT32_MAX;
+        m_state[3]->m_textures[2].m_stage = 2;
+        m_state[3]->m_textures[2].m_sampler = s_hand_spec;
+        m_state[3]->m_textures[2].m_texture = m_hand_spec;
+
+        m_progHelmet = loadProgram("../../../hello_model/vs_helmet",
+                                "../../../hello_model/fs_helmet");
         m_state[4] = meshStateCreate();
-        m_state[4]->m_state = 0;
+        m_state[4]->m_state = state;
         m_state[4]->m_program = m_progHelmet;
         m_state[4]->m_viewId  = 0;
         m_state[4]->m_numTextures = 3;
-        m_progHelmet = loadProgram("../../../hello_model/vs_helmet",
-                                "../../../hello_model/fs_helmet");
+        s_helmet_diff  = bgfx::createUniform("s_helmet_diff",  bgfx::UniformType::Sampler);
+        m_helmet_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/helmet_dif.png");
         m_state[4]->m_textures[0].m_flags = UINT32_MAX;
         m_state[4]->m_textures[0].m_stage = 0;
         m_state[4]->m_textures[0].m_sampler = s_helmet_diff;
         m_state[4]->m_textures[0].m_texture = m_helmet_diff;
-        s_helmet_diff  = bgfx::createUniform("s_helmet_diff",  bgfx::UniformType::Sampler);
-        m_helmet_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/helmet_dif.png");
-        m_state[4]->m_textures[1].m_flags = UINT32_MAX;
-        m_state[4]->m_textures[1].m_stage = 0;
-        m_state[4]->m_textures[1].m_sampler = s_helmet_bump;
-        m_state[4]->m_textures[1].m_texture = m_helmet_bump;
         s_helmet_bump  = bgfx::createUniform("s_helmet_bump",  bgfx::UniformType::Sampler);
         m_helmet_bump = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/helmet_showroom_ddn.png");
-        m_state[4]->m_textures[2].m_flags = UINT32_MAX;
-        m_state[4]->m_textures[2].m_stage = 1;
-        m_state[4]->m_textures[2].m_sampler = s_helmet_spec;
-        m_state[4]->m_textures[2].m_texture = m_helmet_spec;
+        m_state[4]->m_textures[1].m_flags = UINT32_MAX;
+        m_state[4]->m_textures[1].m_stage = 1;
+        m_state[4]->m_textures[1].m_sampler = s_helmet_bump;
+        m_state[4]->m_textures[1].m_texture = m_helmet_bump;
         s_helmet_spec  = bgfx::createUniform("s_helmet_spec",  bgfx::UniformType::Sampler);
         m_helmet_spec = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/helmet_showroom_spec.png");
-        
+        m_state[4]->m_textures[2].m_flags = UINT32_MAX;
+        m_state[4]->m_textures[2].m_stage = 2;
+        m_state[4]->m_textures[2].m_sampler = s_helmet_spec;
+        m_state[4]->m_textures[2].m_texture = m_helmet_spec;
+
+        m_progLeg = loadProgram("../../../hello_model/vs_leg",
+                                "../../../hello_model/fs_leg");
         m_state[5] = meshStateCreate();
-        m_state[5]->m_state = 0;
+        m_state[5]->m_state = state;
         m_state[5]->m_program = m_progLeg;
         m_state[5]->m_viewId  = 0;
         m_state[5]->m_numTextures = 3;
-        m_progLeg = loadProgram("../../../hello_model/vs_leg",
-                                "../../../hello_model/fs_leg");
+        s_leg_diff  = bgfx::createUniform("s_leg_diff",  bgfx::UniformType::Sampler);
+        m_leg_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/leg_dif.png");
         m_state[5]->m_textures[0].m_flags = UINT32_MAX;
         m_state[5]->m_textures[0].m_stage = 0;
         m_state[5]->m_textures[0].m_sampler = s_leg_diff;
         m_state[5]->m_textures[0].m_texture = m_leg_diff;
-        s_leg_diff  = bgfx::createUniform("s_leg_diff",  bgfx::UniformType::Sampler);
-        m_leg_diff = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/leg_dif.png");
-        m_state[5]->m_textures[1].m_flags = UINT32_MAX;
-        m_state[5]->m_textures[1].m_stage = 0;
-        m_state[5]->m_textures[1].m_sampler = s_leg_bump;
-        m_state[5]->m_textures[1].m_texture = m_leg_bump;
         s_leg_bump  = bgfx::createUniform("s_leg_bump",  bgfx::UniformType::Sampler);
         m_leg_bump = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/leg_showroom_ddn.png");
-        m_state[5]->m_textures[2].m_flags = UINT32_MAX;
-        m_state[5]->m_textures[2].m_stage = 1;
-        m_state[5]->m_textures[2].m_sampler = s_leg_spec;
-        m_state[5]->m_textures[2].m_texture = m_leg_spec;
+        m_state[5]->m_textures[1].m_flags = UINT32_MAX;
+        m_state[5]->m_textures[1].m_stage = 1;
+        m_state[5]->m_textures[1].m_sampler = s_leg_bump;
+        m_state[5]->m_textures[1].m_texture = m_leg_bump;
         s_leg_spec  = bgfx::createUniform("s_leg_spec",  bgfx::UniformType::Sampler);
         m_leg_spec = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/leg_showroom_spec.png");
+        m_state[5]->m_textures[2].m_flags = UINT32_MAX;
+        m_state[5]->m_textures[2].m_stage = 2;
+        m_state[5]->m_textures[2].m_sampler = s_leg_spec;
+        m_state[5]->m_textures[2].m_texture = m_leg_spec;
         
         // Set view and projection matrices.
         cameraCreate();
@@ -334,7 +336,7 @@ public:
             model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
             model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));    // it's a bit too big for our scene, so scale it down
             model = glm::rotate(model, time*0.37f, glm::vec3(0.0f, 1.0f, 0.0f) );
-            meshSubmit(m_mesh, m_state, 1, glm::value_ptr(model));
+            meshSubmit(m_mesh, m_state, 6, glm::value_ptr(model));
             
             // Advance to next frame. Rendering thread will be kicked to
             // process submitted rendering primitives.

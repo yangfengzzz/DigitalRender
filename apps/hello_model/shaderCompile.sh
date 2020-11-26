@@ -1,3 +1,5 @@
+../../../bgfx/tools/bin/darwin/geometrycRelease -f /Users/yangfeng/Desktop/DigitalRender/apps/hello_model/nanosuit.obj -o nanosuit
+
 ../../../bgfx/.build/osx64_clang/bin/shadercRelease -f vs_model.sc -o vs_model.bin -i ../../src.bgfx/bgfx --type v --platform osx -p metal
 
 ../../../bgfx/.build/osx64_clang/bin/shadercRelease -f fs_arm.sc -o fs_arm.bin -i ../../src.bgfx/bgfx --type f --platform osx -p metal

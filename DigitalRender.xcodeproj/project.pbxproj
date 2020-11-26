@@ -566,10 +566,20 @@
 		04DFB4C9256F3ACD00E54C67 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "02-metaballs/varying.def.sc"; sourceTree = "<group>"; };
 		04DFB4CA256F3AD700E54C67 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "03-raymarch/varying.def.sc"; sourceTree = "<group>"; };
 		04DFB4CB256F3AFE00E54C67 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "04-mesh/varying.def.sc"; sourceTree = "<group>"; };
-		04DFB4CD256F3F5700E54C67 /* vs_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_mesh.sc; sourceTree = "<group>"; };
-		04DFB4CE256F3F5700E54C67 /* fs_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_mesh.sc; sourceTree = "<group>"; };
 		04DFB4CF256F3F5700E54C67 /* mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mesh.cpp; sourceTree = "<group>"; };
 		04DFB4D0256F3F5700E54C67 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
+		04DFB4D6256F5B5A00E54C67 /* fs_body.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_body.sc; sourceTree = "<group>"; };
+		04DFB4D7256F5B5A00E54C67 /* vs_glass.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_glass.sc; sourceTree = "<group>"; };
+		04DFB4D8256F5B5A00E54C67 /* fs_hand.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_hand.sc; sourceTree = "<group>"; };
+		04DFB4D9256F5B5A00E54C67 /* vs_hand.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_hand.sc; sourceTree = "<group>"; };
+		04DFB4DA256F5B5A00E54C67 /* fs_helmet.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_helmet.sc; sourceTree = "<group>"; };
+		04DFB4DB256F5B5A00E54C67 /* vs_helmet.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_helmet.sc; sourceTree = "<group>"; };
+		04DFB4DC256F5B5A00E54C67 /* vs_body.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_body.sc; sourceTree = "<group>"; };
+		04DFB4DD256F5B5A00E54C67 /* vs_leg.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_leg.sc; sourceTree = "<group>"; };
+		04DFB4DE256F5B5A00E54C67 /* fs_glass.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_glass.sc; sourceTree = "<group>"; };
+		04DFB4DF256F5B5A00E54C67 /* fs_leg.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_leg.sc; sourceTree = "<group>"; };
+		04DFB4E0256F5B5A00E54C67 /* fs_arm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_arm.sc; sourceTree = "<group>"; };
+		04DFB4E1256F5B5A00E54C67 /* vs_arm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_arm.sc; sourceTree = "<group>"; };
 		04EB7BCE256AB022004BE0A6 /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7BDD256AB03B004BE0A6 /* libsrc.bgfx.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsrc.bgfx.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7CC9256AB173004BE0A6 /* shader_spirv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shader_spirv.h; path = bgfx/shader_spirv.h; sourceTree = "<group>"; };
@@ -1221,9 +1231,19 @@
 		04DFB4CC256F3BD900E54C67 /* hello_model */ = {
 			isa = PBXGroup;
 			children = (
+				04DFB4E0256F5B5A00E54C67 /* fs_arm.sc */,
+				04DFB4D6256F5B5A00E54C67 /* fs_body.sc */,
+				04DFB4DE256F5B5A00E54C67 /* fs_glass.sc */,
+				04DFB4D8256F5B5A00E54C67 /* fs_hand.sc */,
+				04DFB4DA256F5B5A00E54C67 /* fs_helmet.sc */,
+				04DFB4DF256F5B5A00E54C67 /* fs_leg.sc */,
+				04DFB4E1256F5B5A00E54C67 /* vs_arm.sc */,
+				04DFB4DC256F5B5A00E54C67 /* vs_body.sc */,
+				04DFB4D7256F5B5A00E54C67 /* vs_glass.sc */,
+				04DFB4D9256F5B5A00E54C67 /* vs_hand.sc */,
+				04DFB4DB256F5B5A00E54C67 /* vs_helmet.sc */,
+				04DFB4DD256F5B5A00E54C67 /* vs_leg.sc */,
 				04DFB4D0256F3F5700E54C67 /* varying.def.sc */,
-				04DFB4CE256F3F5700E54C67 /* fs_mesh.sc */,
-				04DFB4CD256F3F5700E54C67 /* vs_mesh.sc */,
 				04DFB4CF256F3F5700E54C67 /* mesh.cpp */,
 			);
 			path = hello_model;

@@ -346,7 +346,25 @@ public:
             model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
             model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));    // it's a bit too big for our scene, so scale it down
             model = glm::rotate(model, time*0.37f, glm::vec3(0.0f, 1.0f, 0.0f) );
-            meshSubmit(m_mesh, m_state, 6, glm::value_ptr(model));
+            
+            for (GroupArray::const_iterator it = m_mesh->m_groups.begin(), itEnd = m_mesh->m_groups.end(); it != itEnd; ++it)
+            {
+                bgfx::setTransform(glm::value_ptr(model));
+                ssize_t state_index = it - m_mesh->m_groups.begin();
+                bgfx::setState(m_state[state_index]->m_state);
+                
+                for (int i = 0; i < m_state[state_index]->m_numTextures; i++) {
+                    bgfx::setTexture(i, m_state[state_index]->m_textures[i].m_sampler,
+                                     m_state[state_index]->m_textures[i].m_texture);
+                }
+                
+                const Group& group = *it;
+
+                bgfx::setIndexBuffer(group.m_ibh);
+                bgfx::setVertexBuffer(0, group.m_vbh);
+                bgfx::submit(m_state[state_index]->m_viewId,
+                             m_state[state_index]->m_program);
+            }
             
             // Advance to next frame. Rendering thread will be kicked to
             // process submitted rendering primitives.

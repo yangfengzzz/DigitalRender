@@ -562,6 +562,10 @@
 		04DFB4C0256F38FF00E54C67 /* vs_sms_shadow_pd.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_sms_shadow_pd.sc; path = "15-shadowmaps-simple/vs_sms_shadow_pd.sc"; sourceTree = "<group>"; };
 		04DFB4C1256F38FF00E54C67 /* fs_sms_mesh_pd.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_sms_mesh_pd.sc; path = "15-shadowmaps-simple/fs_sms_mesh_pd.sc"; sourceTree = "<group>"; };
 		04DFB4C2256F38FF00E54C67 /* fs_sms_shadow.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = fs_sms_shadow.sh; path = "15-shadowmaps-simple/fs_sms_shadow.sh"; sourceTree = "<group>"; };
+		04DFB4C8256F3ABD00E54C67 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "01-cubes/varying.def.sc"; sourceTree = "<group>"; };
+		04DFB4C9256F3ACD00E54C67 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "02-metaballs/varying.def.sc"; sourceTree = "<group>"; };
+		04DFB4CA256F3AD700E54C67 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "03-raymarch/varying.def.sc"; sourceTree = "<group>"; };
+		04DFB4CB256F3AFE00E54C67 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "04-mesh/varying.def.sc"; sourceTree = "<group>"; };
 		04EB7BCE256AB022004BE0A6 /* apps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = apps; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7BDD256AB03B004BE0A6 /* libsrc.bgfx.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsrc.bgfx.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		04EB7CC9256AB173004BE0A6 /* shader_spirv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shader_spirv.h; path = bgfx/shader_spirv.h; sourceTree = "<group>"; };
@@ -1057,6 +1061,7 @@
 		0461C7D2256B689A00980618 /* 01-cubes */ = {
 			isa = PBXGroup;
 			children = (
+				04DFB4C8256F3ABD00E54C67 /* varying.def.sc */,
 				0461C7F4256B8F7F00980618 /* fs_cubes.sc */,
 				0461C7F5256B8F7F00980618 /* vs_cubes.sc */,
 				0461C7D3256B68A200980618 /* cubes.cpp */,
@@ -1093,6 +1098,7 @@
 		0461C7F8256B913700980618 /* 02-metaballs */ = {
 			isa = PBXGroup;
 			children = (
+				04DFB4C9256F3ACD00E54C67 /* varying.def.sc */,
 				0461C7F9256B914900980618 /* fs_metaballs.sc */,
 				0461C7FB256B914900980618 /* vs_metaballs.sc */,
 				0461C7FA256B914900980618 /* metaballs.cpp */,
@@ -1160,6 +1166,7 @@
 		0461C8A4256B962F00980618 /* 03-raymarch */ = {
 			isa = PBXGroup;
 			children = (
+				04DFB4CA256F3AD700E54C67 /* varying.def.sc */,
 				0461C8A7256B963C00980618 /* fs_raymarching.sc */,
 				0461C8A6256B963C00980618 /* vs_raymarching.sc */,
 				0461C8A5256B963C00980618 /* raymarch.cpp */,
@@ -1170,6 +1177,7 @@
 		0461C8AD256B9A9400980618 /* 04-mesh */ = {
 			isa = PBXGroup;
 			children = (
+				04DFB4CB256F3AFE00E54C67 /* varying.def.sc */,
 				0461C8B0256B9A9E00980618 /* vs_mesh.sc */,
 				0461C8AF256B9A9E00980618 /* fs_mesh.sc */,
 				0461C8AE256B9A9E00980618 /* mesh.cpp */,
@@ -1204,6 +1212,13 @@
 				04DFB4B9256F38FF00E54C67 /* shadowmaps_simple.cpp */,
 			);
 			name = "15-shadowmaps-simple";
+			sourceTree = "<group>";
+		};
+		04DFB4CC256F3BD900E54C67 /* hello_model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = hello_model;
 			sourceTree = "<group>";
 		};
 		04EB7BC5256AB022004BE0A6 = {
@@ -1246,6 +1261,7 @@
 				040322B5256CA1D20078D5C4 /* hello_triangle */,
 				04032307256CC4030078D5C4 /* hello_box */,
 				04CE762C256DE7F40033C25A /* hello_light */,
+				04DFB4CC256F3BD900E54C67 /* hello_model */,
 			);
 			path = apps;
 			sourceTree = "<group>";

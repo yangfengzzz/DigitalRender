@@ -14,10 +14,10 @@
 #include <bx/timer.h>
 #include <bx/math.h>
 #include <bx/file.h>
-#include "entry/entry.h"
-#include "camera.h"
+#include "common/entry/entry.h"
+#include "common/camera.h"
 #include "bgfx_utils.h"
-#include "imgui/imgui.h"
+#include "common/imgui/imgui.h"
 
 namespace bgfx
 {
@@ -1211,15 +1211,15 @@ public:
 		PosColorTexCoord0Vertex::init();
 
 		// Textures.
-		m_texFigure     = loadTexture("textures/figure-rgba.dds");
-		m_texFlare      = loadTexture("textures/flare.dds");
-		m_texFieldstone = loadTexture("textures/fieldstone-rgba.dds");
+		m_texFigure     = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/figure-rgba.dds");
+		m_texFlare      = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/flare.dds");
+		m_texFieldstone = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/fieldstone-rgba.dds");
 
 		// Meshes.
-		m_bunnyMesh.load("meshes/bunny.bin");
-		m_treeMesh.load("meshes/tree.bin");
-		m_cubeMesh.load("meshes/cube.bin");
-		m_hollowcubeMesh.load("meshes/hollowcube.bin");
+		m_bunnyMesh.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/bunny.bin");
+		m_treeMesh.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/tree.bin");
+		m_cubeMesh.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/cube.bin");
+		m_hollowcubeMesh.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/hollowcube.bin");
 		m_hplaneMesh.load(s_hplaneVertices, BX_COUNTOF(s_hplaneVertices), PosNormalTexcoordLayout, s_planeIndices, BX_COUNTOF(s_planeIndices) );
 		m_vplaneMesh.load(s_vplaneVertices, BX_COUNTOF(s_vplaneVertices), PosNormalTexcoordLayout, s_planeIndices, BX_COUNTOF(s_planeIndices) );
 

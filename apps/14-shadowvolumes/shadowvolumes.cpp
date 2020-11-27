@@ -20,9 +20,9 @@ namespace stl = tinystl;
 #include <bx/simd_t.h>
 #include <bx/math.h>
 #include <bx/file.h>
-#include "entry/entry.h"
-#include "camera.h"
-#include "imgui/imgui.h"
+#include "common/entry/entry.h"
+#include "common/camera.h"
+#include "common/imgui/imgui.h"
 
 namespace bgfx
 {
@@ -1800,9 +1800,9 @@ public:
 
 		s_uniforms.init();
 
-		m_figureTex     = loadTexture("textures/figure-rgba.dds");
-		m_flareTex      = loadTexture("textures/flare.dds");
-		m_fieldstoneTex = loadTexture("textures/fieldstone-rgba.dds");
+		m_figureTex     = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/figure-rgba.dds");
+		m_flareTex      = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/flare.dds");
+		m_fieldstoneTex = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/fieldstone-rgba.dds");
 
 		bgfx::TextureHandle fbtextures[] =
 		{
@@ -1843,20 +1843,20 @@ public:
 		};
 		bx::memCopy(m_svProgs, svProgs, sizeof(svProgs));
 
-		m_bunnyHighPolyModel.load("meshes/bunny_patched.bin");
+		m_bunnyHighPolyModel.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/bunny_patched.bin");
 		m_bunnyHighPolyModel.m_program = m_programColorLighting;
 
-		m_bunnyLowPolyModel.load("meshes/bunny_decimated.bin");
+		m_bunnyLowPolyModel.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/bunny_decimated.bin");
 		m_bunnyLowPolyModel.m_program = m_programColorLighting;
 
-		m_columnModel.load("meshes/column.bin");
+		m_columnModel.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/column.bin");
 		m_columnModel.m_program = m_programColorLighting;
 
-		m_platformModel.load("meshes/platform.bin");
+		m_platformModel.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/platform.bin");
 		m_platformModel.m_program = m_programTextureLighting;
 		m_platformModel.m_texture = m_figureTex;
 
-		m_cubeModel.load("meshes/cube.bin");
+		m_cubeModel.load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/cube.bin");
 		m_cubeModel.m_program = m_programTextureLighting;
 		m_cubeModel.m_texture = m_figureTex;
 

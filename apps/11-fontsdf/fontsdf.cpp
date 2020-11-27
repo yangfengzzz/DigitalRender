@@ -10,10 +10,10 @@
 #include <bx/timer.h>
 #include <bx/math.h>
 
-#include "font/font_manager.h"
-#include "font/text_metrics.h"
-#include "font/text_buffer_manager.h"
-#include "imgui/imgui.h"
+#include "common/font/font_manager.h"
+#include "common/font/text_metrics.h"
+#include "common/font/text_buffer_manager.h"
+#include "common/imgui/imgui.h"
 
 namespace
 {
@@ -75,14 +75,14 @@ public:
 		imguiCreate();
 
 		uint32_t size;
-		m_txtFile = load("text/sherlock_holmes_a_scandal_in_bohemia_arthur_conan_doyle.txt", &size);
+		m_txtFile = load("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/text/sherlock_holmes_a_scandal_in_bohemia_arthur_conan_doyle.txt", &size);
 		m_bigText = bx::StringView( (const char*)m_txtFile, size);
 
 		// Init the text rendering system.
 		m_fontManager = new FontManager(512);
 		m_textBufferManager = new TextBufferManager(m_fontManager);
 
-		m_font = loadTtf(m_fontManager, "font/special_elite.ttf");
+		m_font = loadTtf(m_fontManager, "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/special_elite.ttf");
 
 		// Create a distance field font.
 		m_fontSdf = m_fontManager->createFontByPixelSize(m_font, 0, 48, FONT_TYPE_DISTANCE);

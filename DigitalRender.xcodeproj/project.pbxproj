@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0424591F2570B34100DDA3B0 /* font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424591E2570B34100DDA3B0 /* font.cpp */; };
 		042459342570B3B600DDA3B0 /* text_buffer_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 042459252570B3B500DDA3B0 /* text_buffer_manager.cpp */; };
 		042459352570B3B600DDA3B0 /* font_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592A2570B3B500DDA3B0 /* font_manager.cpp */; };
 		042459362570B3B600DDA3B0 /* text_metrics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592E2570B3B500DDA3B0 /* text_metrics.cpp */; };
 		042459372570B3B600DDA3B0 /* utf8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592F2570B3B500DDA3B0 /* utf8.cpp */; };
+		042459A42570B69B00DDA3B0 /* shadowmaps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 042459942570B69B00DDA3B0 /* shadowmaps.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -417,6 +417,90 @@
 		042459312570B3B600DDA3B0 /* vs_font_distance_field_subpixel.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_font_distance_field_subpixel.sc; path = common/font/vs_font_distance_field_subpixel.sc; sourceTree = "<group>"; };
 		042459322570B3B600DDA3B0 /* fs_font_distance_field_subpixel.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_font_distance_field_subpixel.sc; path = common/font/fs_font_distance_field_subpixel.sc; sourceTree = "<group>"; };
 		042459332570B3B600DDA3B0 /* fs_font_basic.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_font_basic.sc; path = common/font/fs_font_basic.sc; sourceTree = "<group>"; };
+		0424593D2570B48D00DDA3B0 /* fontsdf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fontsdf.cpp; path = "11-fontsdf/fontsdf.cpp"; sourceTree = "<group>"; };
+		042459462570B58900DDA3B0 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "14-shadowvolumes/varying.def.sc"; sourceTree = "<group>"; };
+		042459472570B58900DDA3B0 /* fs_shadowvolume_svfrontblank.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svfrontblank.sc; path = "14-shadowvolumes/fs_shadowvolume_svfrontblank.sc"; sourceTree = "<group>"; };
+		042459482570B58A00DDA3B0 /* fs_shadowvolume_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_texture.sc; path = "14-shadowvolumes/fs_shadowvolume_texture.sc"; sourceTree = "<group>"; };
+		042459492570B58A00DDA3B0 /* fs_shadowvolume_svfronttex1.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svfronttex1.sc; path = "14-shadowvolumes/fs_shadowvolume_svfronttex1.sc"; sourceTree = "<group>"; };
+		0424594A2570B58A00DDA3B0 /* fs_shadowvolume_svbackblank.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svbackblank.sc; path = "14-shadowvolumes/fs_shadowvolume_svbackblank.sc"; sourceTree = "<group>"; };
+		0424594B2570B58A00DDA3B0 /* fs_shadowvolume_svfronttex2.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svfronttex2.sc; path = "14-shadowvolumes/fs_shadowvolume_svfronttex2.sc"; sourceTree = "<group>"; };
+		0424594C2570B58A00DDA3B0 /* vs_shadowvolume_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowvolume_texture.sc; path = "14-shadowvolumes/vs_shadowvolume_texture.sc"; sourceTree = "<group>"; };
+		0424594D2570B58A00DDA3B0 /* fs_shadowvolume_color_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_color_texture.sc; path = "14-shadowvolumes/fs_shadowvolume_color_texture.sc"; sourceTree = "<group>"; };
+		0424594E2570B58A00DDA3B0 /* vs_shadowvolume_svback.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowvolume_svback.sc; path = "14-shadowvolumes/vs_shadowvolume_svback.sc"; sourceTree = "<group>"; };
+		0424594F2570B58A00DDA3B0 /* fs_shadowvolume_svsidecolor.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svsidecolor.sc; path = "14-shadowvolumes/fs_shadowvolume_svsidecolor.sc"; sourceTree = "<group>"; };
+		042459502570B58A00DDA3B0 /* fs_shadowvolume_svbacktex2.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svbacktex2.sc; path = "14-shadowvolumes/fs_shadowvolume_svbacktex2.sc"; sourceTree = "<group>"; };
+		042459512570B58A00DDA3B0 /* shadowvolumes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shadowvolumes.cpp; path = "14-shadowvolumes/shadowvolumes.cpp"; sourceTree = "<group>"; };
+		042459522570B58A00DDA3B0 /* vs_shadowvolume_svfront.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowvolume_svfront.sc; path = "14-shadowvolumes/vs_shadowvolume_svfront.sc"; sourceTree = "<group>"; };
+		042459532570B58A00DDA3B0 /* fs_shadowvolume_svbackcolor.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svbackcolor.sc; path = "14-shadowvolumes/fs_shadowvolume_svbackcolor.sc"; sourceTree = "<group>"; };
+		042459542570B58A00DDA3B0 /* fs_shadowvolume_svsidetex.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svsidetex.sc; path = "14-shadowvolumes/fs_shadowvolume_svsidetex.sc"; sourceTree = "<group>"; };
+		042459552570B58A00DDA3B0 /* fs_shadowvolume_color_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_color_lighting.sc; path = "14-shadowvolumes/fs_shadowvolume_color_lighting.sc"; sourceTree = "<group>"; };
+		042459562570B58A00DDA3B0 /* fs_shadowvolume_texture_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_texture_lighting.sc; path = "14-shadowvolumes/fs_shadowvolume_texture_lighting.sc"; sourceTree = "<group>"; };
+		042459572570B58A00DDA3B0 /* vs_shadowvolume_texture_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowvolume_texture_lighting.sc; path = "14-shadowvolumes/vs_shadowvolume_texture_lighting.sc"; sourceTree = "<group>"; };
+		042459582570B58A00DDA3B0 /* fs_shadowvolume_svbacktex1.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svbacktex1.sc; path = "14-shadowvolumes/fs_shadowvolume_svbacktex1.sc"; sourceTree = "<group>"; };
+		042459592570B58A00DDA3B0 /* fs_shadowvolume_svfrontcolor.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svfrontcolor.sc; path = "14-shadowvolumes/fs_shadowvolume_svfrontcolor.sc"; sourceTree = "<group>"; };
+		0424595A2570B58A00DDA3B0 /* vs_shadowvolume_color_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowvolume_color_lighting.sc; path = "14-shadowvolumes/vs_shadowvolume_color_lighting.sc"; sourceTree = "<group>"; };
+		0424595B2570B58A00DDA3B0 /* vs_shadowvolume_color_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowvolume_color_texture.sc; path = "14-shadowvolumes/vs_shadowvolume_color_texture.sc"; sourceTree = "<group>"; };
+		0424595C2570B58A00DDA3B0 /* fs_shadowvolume_svsideblank.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svsideblank.sc; path = "14-shadowvolumes/fs_shadowvolume_svsideblank.sc"; sourceTree = "<group>"; };
+		0424595D2570B58A00DDA3B0 /* fs_shadowvolume_svside.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowvolume_svside.sc; path = "14-shadowvolumes/fs_shadowvolume_svside.sc"; sourceTree = "<group>"; };
+		0424595E2570B58A00DDA3B0 /* vs_shadowvolume_svside.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowvolume_svside.sc; path = "14-shadowvolumes/vs_shadowvolume_svside.sc"; sourceTree = "<group>"; };
+		0424596A2570B69800DDA3B0 /* vs_shadowmaps_packdepth_linear.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_packdepth_linear.sc; path = "16-shadowmaps/vs_shadowmaps_packdepth_linear.sc"; sourceTree = "<group>"; };
+		0424596B2570B69800DDA3B0 /* vs_shadowmaps_texture_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_texture_lighting.sc; path = "16-shadowmaps/vs_shadowmaps_texture_lighting.sc"; sourceTree = "<group>"; };
+		0424596C2570B69900DDA3B0 /* fs_shadowmaps_color_lighting_hard.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_hard.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_hard.sc"; sourceTree = "<group>"; };
+		0424596D2570B69900DDA3B0 /* fs_shadowmaps_color_lighting_pcf_omni.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_pcf_omni.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_pcf_omni.sc"; sourceTree = "<group>"; };
+		0424596E2570B69900DDA3B0 /* fs_shadowmaps_color_lighting_esm_linear.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_esm_linear.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_esm_linear.sc"; sourceTree = "<group>"; };
+		0424596F2570B69900DDA3B0 /* fs_shadowmaps_color_lighting_main.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = fs_shadowmaps_color_lighting_main.sh; path = "16-shadowmaps/fs_shadowmaps_color_lighting_main.sh"; sourceTree = "<group>"; };
+		042459702570B69900DDA3B0 /* fs_shadowmaps_hblur_vsm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_hblur_vsm.sc; path = "16-shadowmaps/fs_shadowmaps_hblur_vsm.sc"; sourceTree = "<group>"; };
+		042459712570B69900DDA3B0 /* vs_shadowmaps_color_lighting_linear.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_color_lighting_linear.sc; path = "16-shadowmaps/vs_shadowmaps_color_lighting_linear.sc"; sourceTree = "<group>"; };
+		042459722570B69900DDA3B0 /* fs_shadowmaps_color_lighting_hard_csm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_hard_csm.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_hard_csm.sc"; sourceTree = "<group>"; };
+		042459732570B69900DDA3B0 /* fs_shadowmaps_color_lighting_pcf_linear_omni.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_pcf_linear_omni.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_pcf_linear_omni.sc"; sourceTree = "<group>"; };
+		042459742570B69900DDA3B0 /* fs_shadowmaps_vblur_vsm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_vblur_vsm.sc; path = "16-shadowmaps/fs_shadowmaps_vblur_vsm.sc"; sourceTree = "<group>"; };
+		042459752570B69900DDA3B0 /* fs_shadowmaps_color_lighting_pcf.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_pcf.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_pcf.sc"; sourceTree = "<group>"; };
+		042459762570B69900DDA3B0 /* vs_shadowmaps_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_texture.sc; path = "16-shadowmaps/vs_shadowmaps_texture.sc"; sourceTree = "<group>"; };
+		042459772570B69900DDA3B0 /* fs_shadowmaps_color_lighting_vsm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_vsm.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_vsm.sc"; sourceTree = "<group>"; };
+		042459782570B69900DDA3B0 /* fs_shadowmaps_unpackdepth_vsm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_unpackdepth_vsm.sc; path = "16-shadowmaps/fs_shadowmaps_unpackdepth_vsm.sc"; sourceTree = "<group>"; };
+		042459792570B69900DDA3B0 /* fs_shadowmaps_color_black.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_black.sc; path = "16-shadowmaps/fs_shadowmaps_color_black.sc"; sourceTree = "<group>"; };
+		0424597A2570B69900DDA3B0 /* common.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = common.sh; path = "16-shadowmaps/common.sh"; sourceTree = "<group>"; };
+		0424597B2570B69900DDA3B0 /* fs_shadowmaps_color_lighting_esm_csm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_esm_csm.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_esm_csm.sc"; sourceTree = "<group>"; };
+		0424597C2570B69900DDA3B0 /* fs_shadowmaps_color_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_texture.sc; path = "16-shadowmaps/fs_shadowmaps_color_texture.sc"; sourceTree = "<group>"; };
+		0424597D2570B69900DDA3B0 /* fs_shadowmaps_hblur.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_hblur.sc; path = "16-shadowmaps/fs_shadowmaps_hblur.sc"; sourceTree = "<group>"; };
+		0424597E2570B69900DDA3B0 /* vs_shadowmaps_color.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_color.sc; path = "16-shadowmaps/vs_shadowmaps_color.sc"; sourceTree = "<group>"; };
+		0424597F2570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_hard_linear_csm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_hard_linear_csm.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_hard_linear_csm.sc"; sourceTree = "<group>"; };
+		042459802570B69A00DDA3B0 /* vs_shadowmaps_hblur.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_hblur.sc; path = "16-shadowmaps/vs_shadowmaps_hblur.sc"; sourceTree = "<group>"; };
+		042459812570B69A00DDA3B0 /* vs_shadowmaps_unpackdepth.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_unpackdepth.sc; path = "16-shadowmaps/vs_shadowmaps_unpackdepth.sc"; sourceTree = "<group>"; };
+		042459822570B69A00DDA3B0 /* vs_shadowmaps_color_lighting_csm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_color_lighting_csm.sc; path = "16-shadowmaps/vs_shadowmaps_color_lighting_csm.sc"; sourceTree = "<group>"; };
+		042459832570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_pcf_csm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_pcf_csm.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_pcf_csm.sc"; sourceTree = "<group>"; };
+		042459842570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_hard_omni.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_hard_omni.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_hard_omni.sc"; sourceTree = "<group>"; };
+		042459852570B69A00DDA3B0 /* fs_shadowmaps_packdepth.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_packdepth.sc; path = "16-shadowmaps/fs_shadowmaps_packdepth.sc"; sourceTree = "<group>"; };
+		042459862570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_esm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_esm.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_esm.sc"; sourceTree = "<group>"; };
+		042459872570B69A00DDA3B0 /* vs_shadowmaps_color_lighting_linear_omni.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_color_lighting_linear_omni.sc; path = "16-shadowmaps/vs_shadowmaps_color_lighting_linear_omni.sc"; sourceTree = "<group>"; };
+		042459882570B69A00DDA3B0 /* vs_shadowmaps_color_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_color_lighting.sc; path = "16-shadowmaps/vs_shadowmaps_color_lighting.sc"; sourceTree = "<group>"; };
+		042459892570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_esm_linear_omni.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_esm_linear_omni.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_esm_linear_omni.sc"; sourceTree = "<group>"; };
+		0424598A2570B69A00DDA3B0 /* fs_shadowmaps_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_texture.sc; path = "16-shadowmaps/fs_shadowmaps_texture.sc"; sourceTree = "<group>"; };
+		0424598B2570B69A00DDA3B0 /* vs_shadowmaps_packdepth.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_packdepth.sc; path = "16-shadowmaps/vs_shadowmaps_packdepth.sc"; sourceTree = "<group>"; };
+		0424598C2570B69A00DDA3B0 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = "16-shadowmaps/varying.def.sc"; sourceTree = "<group>"; };
+		0424598D2570B69A00DDA3B0 /* fs_shadowmaps_packdepth_vsm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_packdepth_vsm.sc; path = "16-shadowmaps/fs_shadowmaps_packdepth_vsm.sc"; sourceTree = "<group>"; };
+		0424598E2570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_vsm_omni.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_vsm_omni.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_vsm_omni.sc"; sourceTree = "<group>"; };
+		0424598F2570B69A00DDA3B0 /* vs_shadowmaps_color_lighting_omni.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_color_lighting_omni.sc; path = "16-shadowmaps/vs_shadowmaps_color_lighting_omni.sc"; sourceTree = "<group>"; };
+		042459902570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_vsm_linear.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_vsm_linear.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_vsm_linear.sc"; sourceTree = "<group>"; };
+		042459912570B69A00DDA3B0 /* fs_shadowmaps_vblur.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_vblur.sc; path = "16-shadowmaps/fs_shadowmaps_vblur.sc"; sourceTree = "<group>"; };
+		042459922570B69B00DDA3B0 /* vs_shadowmaps_color_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_color_texture.sc; path = "16-shadowmaps/vs_shadowmaps_color_texture.sc"; sourceTree = "<group>"; };
+		042459932570B69B00DDA3B0 /* vs_shadowmaps_vblur.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_vblur.sc; path = "16-shadowmaps/vs_shadowmaps_vblur.sc"; sourceTree = "<group>"; };
+		042459942570B69B00DDA3B0 /* shadowmaps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shadowmaps.cpp; path = "16-shadowmaps/shadowmaps.cpp"; sourceTree = "<group>"; };
+		042459952570B69B00DDA3B0 /* fs_shadowmaps_unpackdepth.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_unpackdepth.sc; path = "16-shadowmaps/fs_shadowmaps_unpackdepth.sc"; sourceTree = "<group>"; };
+		042459962570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_esm_linear_csm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_esm_linear_csm.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_esm_linear_csm.sc"; sourceTree = "<group>"; };
+		042459972570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_pcf_linear.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_pcf_linear.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_pcf_linear.sc"; sourceTree = "<group>"; };
+		042459982570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_esm_omni.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_esm_omni.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_esm_omni.sc"; sourceTree = "<group>"; };
+		042459992570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_vsm_linear_omni.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_vsm_linear_omni.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_vsm_linear_omni.sc"; sourceTree = "<group>"; };
+		0424599A2570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_hard_linear.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_hard_linear.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_hard_linear.sc"; sourceTree = "<group>"; };
+		0424599B2570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_pcf_linear_csm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_pcf_linear_csm.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_pcf_linear_csm.sc"; sourceTree = "<group>"; };
+		0424599C2570B69B00DDA3B0 /* vs_shadowmaps_depth.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_depth.sc; path = "16-shadowmaps/vs_shadowmaps_depth.sc"; sourceTree = "<group>"; };
+		0424599D2570B69B00DDA3B0 /* vs_shadowmaps_color_lighting_linear_csm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_shadowmaps_color_lighting_linear_csm.sc; path = "16-shadowmaps/vs_shadowmaps_color_lighting_linear_csm.sc"; sourceTree = "<group>"; };
+		0424599E2570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_hard_linear_omni.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_hard_linear_omni.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_hard_linear_omni.sc"; sourceTree = "<group>"; };
+		0424599F2570B69B00DDA3B0 /* fs_shadowmaps_packdepth_vsm_linear.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_packdepth_vsm_linear.sc; path = "16-shadowmaps/fs_shadowmaps_packdepth_vsm_linear.sc"; sourceTree = "<group>"; };
+		042459A02570B69B00DDA3B0 /* fs_shadowmaps_color_lighting.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = fs_shadowmaps_color_lighting.sh; path = "16-shadowmaps/fs_shadowmaps_color_lighting.sh"; sourceTree = "<group>"; };
+		042459A12570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_vsm_linear_csm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_vsm_linear_csm.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_vsm_linear_csm.sc"; sourceTree = "<group>"; };
+		042459A22570B69B00DDA3B0 /* fs_shadowmaps_packdepth_linear.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_packdepth_linear.sc; path = "16-shadowmaps/fs_shadowmaps_packdepth_linear.sc"; sourceTree = "<group>"; };
+		042459A32570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_vsm_csm.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_shadowmaps_color_lighting_vsm_csm.sc; path = "16-shadowmaps/fs_shadowmaps_color_lighting_vsm_csm.sc"; sourceTree = "<group>"; };
 		0461C762256B67AD00980618 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bounds.cpp; path = common/bounds.cpp; sourceTree = "<group>"; };
 		0461C763256B67AD00980618 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = camera.h; path = common/camera.h; sourceTree = "<group>"; };
 		0461C764256B67AD00980618 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = common/common.h; sourceTree = "<group>"; };
@@ -1007,6 +1091,111 @@
 			name = font;
 			sourceTree = "<group>";
 		};
+		0424593C2570B48500DDA3B0 /* 11-fontsdf */ = {
+			isa = PBXGroup;
+			children = (
+				0424593D2570B48D00DDA3B0 /* fontsdf.cpp */,
+			);
+			name = "11-fontsdf";
+			sourceTree = "<group>";
+		};
+		042459432570B56D00DDA3B0 /* 14-shadowvolumes */ = {
+			isa = PBXGroup;
+			children = (
+				042459462570B58900DDA3B0 /* varying.def.sc */,
+				042459552570B58A00DDA3B0 /* fs_shadowvolume_color_lighting.sc */,
+				0424594D2570B58A00DDA3B0 /* fs_shadowvolume_color_texture.sc */,
+				0424594A2570B58A00DDA3B0 /* fs_shadowvolume_svbackblank.sc */,
+				042459532570B58A00DDA3B0 /* fs_shadowvolume_svbackcolor.sc */,
+				042459582570B58A00DDA3B0 /* fs_shadowvolume_svbacktex1.sc */,
+				042459502570B58A00DDA3B0 /* fs_shadowvolume_svbacktex2.sc */,
+				042459472570B58900DDA3B0 /* fs_shadowvolume_svfrontblank.sc */,
+				042459592570B58A00DDA3B0 /* fs_shadowvolume_svfrontcolor.sc */,
+				042459492570B58A00DDA3B0 /* fs_shadowvolume_svfronttex1.sc */,
+				0424594B2570B58A00DDA3B0 /* fs_shadowvolume_svfronttex2.sc */,
+				0424595D2570B58A00DDA3B0 /* fs_shadowvolume_svside.sc */,
+				0424595C2570B58A00DDA3B0 /* fs_shadowvolume_svsideblank.sc */,
+				0424594F2570B58A00DDA3B0 /* fs_shadowvolume_svsidecolor.sc */,
+				042459542570B58A00DDA3B0 /* fs_shadowvolume_svsidetex.sc */,
+				042459562570B58A00DDA3B0 /* fs_shadowvolume_texture_lighting.sc */,
+				042459482570B58A00DDA3B0 /* fs_shadowvolume_texture.sc */,
+				0424595A2570B58A00DDA3B0 /* vs_shadowvolume_color_lighting.sc */,
+				0424595B2570B58A00DDA3B0 /* vs_shadowvolume_color_texture.sc */,
+				0424594E2570B58A00DDA3B0 /* vs_shadowvolume_svback.sc */,
+				042459522570B58A00DDA3B0 /* vs_shadowvolume_svfront.sc */,
+				0424595E2570B58A00DDA3B0 /* vs_shadowvolume_svside.sc */,
+				042459572570B58A00DDA3B0 /* vs_shadowvolume_texture_lighting.sc */,
+				0424594C2570B58A00DDA3B0 /* vs_shadowvolume_texture.sc */,
+				042459512570B58A00DDA3B0 /* shadowvolumes.cpp */,
+			);
+			name = "14-shadowvolumes";
+			sourceTree = "<group>";
+		};
+		042459692570B66B00DDA3B0 /* 16-shadowmaps */ = {
+			isa = PBXGroup;
+			children = (
+				0424598C2570B69A00DDA3B0 /* varying.def.sc */,
+				0424597A2570B69900DDA3B0 /* common.sh */,
+				042459A02570B69B00DDA3B0 /* fs_shadowmaps_color_lighting.sh */,
+				0424596F2570B69900DDA3B0 /* fs_shadowmaps_color_lighting_main.sh */,
+				042459792570B69900DDA3B0 /* fs_shadowmaps_color_black.sc */,
+				0424597B2570B69900DDA3B0 /* fs_shadowmaps_color_lighting_esm_csm.sc */,
+				042459962570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_esm_linear_csm.sc */,
+				042459892570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_esm_linear_omni.sc */,
+				0424596E2570B69900DDA3B0 /* fs_shadowmaps_color_lighting_esm_linear.sc */,
+				042459982570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_esm_omni.sc */,
+				042459862570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_esm.sc */,
+				042459722570B69900DDA3B0 /* fs_shadowmaps_color_lighting_hard_csm.sc */,
+				0424597F2570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_hard_linear_csm.sc */,
+				0424599E2570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_hard_linear_omni.sc */,
+				0424599A2570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_hard_linear.sc */,
+				042459842570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_hard_omni.sc */,
+				0424596C2570B69900DDA3B0 /* fs_shadowmaps_color_lighting_hard.sc */,
+				042459832570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_pcf_csm.sc */,
+				0424599B2570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_pcf_linear_csm.sc */,
+				042459732570B69900DDA3B0 /* fs_shadowmaps_color_lighting_pcf_linear_omni.sc */,
+				042459972570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_pcf_linear.sc */,
+				0424596D2570B69900DDA3B0 /* fs_shadowmaps_color_lighting_pcf_omni.sc */,
+				042459752570B69900DDA3B0 /* fs_shadowmaps_color_lighting_pcf.sc */,
+				042459A32570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_vsm_csm.sc */,
+				042459A12570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_vsm_linear_csm.sc */,
+				042459992570B69B00DDA3B0 /* fs_shadowmaps_color_lighting_vsm_linear_omni.sc */,
+				042459902570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_vsm_linear.sc */,
+				0424598E2570B69A00DDA3B0 /* fs_shadowmaps_color_lighting_vsm_omni.sc */,
+				042459772570B69900DDA3B0 /* fs_shadowmaps_color_lighting_vsm.sc */,
+				0424597C2570B69900DDA3B0 /* fs_shadowmaps_color_texture.sc */,
+				042459702570B69900DDA3B0 /* fs_shadowmaps_hblur_vsm.sc */,
+				0424597D2570B69900DDA3B0 /* fs_shadowmaps_hblur.sc */,
+				042459A22570B69B00DDA3B0 /* fs_shadowmaps_packdepth_linear.sc */,
+				0424599F2570B69B00DDA3B0 /* fs_shadowmaps_packdepth_vsm_linear.sc */,
+				0424598D2570B69A00DDA3B0 /* fs_shadowmaps_packdepth_vsm.sc */,
+				042459852570B69A00DDA3B0 /* fs_shadowmaps_packdepth.sc */,
+				0424598A2570B69A00DDA3B0 /* fs_shadowmaps_texture.sc */,
+				042459782570B69900DDA3B0 /* fs_shadowmaps_unpackdepth_vsm.sc */,
+				042459952570B69B00DDA3B0 /* fs_shadowmaps_unpackdepth.sc */,
+				042459742570B69900DDA3B0 /* fs_shadowmaps_vblur_vsm.sc */,
+				042459912570B69A00DDA3B0 /* fs_shadowmaps_vblur.sc */,
+				042459822570B69A00DDA3B0 /* vs_shadowmaps_color_lighting_csm.sc */,
+				0424599D2570B69B00DDA3B0 /* vs_shadowmaps_color_lighting_linear_csm.sc */,
+				042459872570B69A00DDA3B0 /* vs_shadowmaps_color_lighting_linear_omni.sc */,
+				042459712570B69900DDA3B0 /* vs_shadowmaps_color_lighting_linear.sc */,
+				0424598F2570B69A00DDA3B0 /* vs_shadowmaps_color_lighting_omni.sc */,
+				042459882570B69A00DDA3B0 /* vs_shadowmaps_color_lighting.sc */,
+				042459922570B69B00DDA3B0 /* vs_shadowmaps_color_texture.sc */,
+				0424597E2570B69900DDA3B0 /* vs_shadowmaps_color.sc */,
+				0424599C2570B69B00DDA3B0 /* vs_shadowmaps_depth.sc */,
+				042459802570B69A00DDA3B0 /* vs_shadowmaps_hblur.sc */,
+				0424596A2570B69800DDA3B0 /* vs_shadowmaps_packdepth_linear.sc */,
+				0424598B2570B69A00DDA3B0 /* vs_shadowmaps_packdepth.sc */,
+				0424596B2570B69800DDA3B0 /* vs_shadowmaps_texture_lighting.sc */,
+				042459762570B69900DDA3B0 /* vs_shadowmaps_texture.sc */,
+				042459812570B69A00DDA3B0 /* vs_shadowmaps_unpackdepth.sc */,
+				042459932570B69B00DDA3B0 /* vs_shadowmaps_vblur.sc */,
+				042459942570B69B00DDA3B0 /* shadowmaps.cpp */,
+			);
+			name = "16-shadowmaps";
+			sourceTree = "<group>";
+		};
 		0461C761256B679800980618 /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1313,8 +1502,11 @@
 			isa = PBXGroup;
 			children = (
 				0461C7D9256B696A00980618 /* 18-ibl */,
+				042459692570B66B00DDA3B0 /* 16-shadowmaps */,
 				04DFB4B8256F38EF00E54C67 /* 15-shadowmaps-simple */,
+				042459432570B56D00DDA3B0 /* 14-shadowvolumes */,
 				04032339256CFEFE0078D5C4 /* 13-stencil */,
+				0424593C2570B48500DDA3B0 /* 11-fontsdf */,
 				0424591D2570B33700DDA3B0 /* 10-font */,
 				040322EB256CBD080078D5C4 /* 09-hdr */,
 				040322DE256CBCBA0078D5C4 /* 08-update */,
@@ -2013,6 +2205,7 @@
 				0461C7BA256B683400980618 /* overdrawanalyzer.cpp in Sources */,
 				0461C7C0256B683400980618 /* indexcodec.cpp in Sources */,
 				0461C771256B67AD00980618 /* cube_atlas.cpp in Sources */,
+				042459A42570B69B00DDA3B0 /* shadowmaps.cpp in Sources */,
 				0461C7BD256B683400980618 /* vfetchanalyzer.cpp in Sources */,
 				0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */,
 				0461C7BC256B683400980618 /* overdrawoptimizer.cpp in Sources */,
@@ -2021,7 +2214,6 @@
 				0461C772256B67AD00980618 /* bgfx_utils.cpp in Sources */,
 				042459352570B3B600DDA3B0 /* font_manager.cpp in Sources */,
 				0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */,
-				0424591F2570B34100DDA3B0 /* font.cpp in Sources */,
 				0461C778256B67CA00980618 /* imgui.cpp in Sources */,
 				0461C7BE256B683400980618 /* vcacheoptimizer.cpp in Sources */,
 				0461C7B8256B683400980618 /* vertexfilter.cpp in Sources */,

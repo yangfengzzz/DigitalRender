@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0424591F2570B34100DDA3B0 /* font.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424591E2570B34100DDA3B0 /* font.cpp */; };
+		042459342570B3B600DDA3B0 /* text_buffer_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 042459252570B3B500DDA3B0 /* text_buffer_manager.cpp */; };
+		042459352570B3B600DDA3B0 /* font_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592A2570B3B500DDA3B0 /* font_manager.cpp */; };
+		042459362570B3B600DDA3B0 /* text_metrics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592E2570B3B500DDA3B0 /* text_metrics.cpp */; };
+		042459372570B3B600DDA3B0 /* utf8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592F2570B3B500DDA3B0 /* utf8.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -81,7 +86,6 @@
 		0461C89D256B94F300980618 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C89A256B94F300980618 /* decode.h */; };
 		0461C89E256B94F300980618 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C89B256B94F300980618 /* encode.h */; };
 		0461C89F256B94F300980618 /* bimg.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C89C256B94F300980618 /* bimg.h */; };
-		04DFB4D1256F3F5700E54C67 /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DFB4CF256F3F5700E54C67 /* mesh.cpp */; };
 		04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CC9256AB173004BE0A6 /* shader_spirv.h */; };
 		04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */; };
 		04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCB256AB173004BE0A6 /* nvapi.h */; };
@@ -397,6 +401,22 @@
 		04032343256CFF140078D5C4 /* fs_stencil_color_lighting.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_stencil_color_lighting.sc; path = "13-stencil/fs_stencil_color_lighting.sc"; sourceTree = "<group>"; };
 		04032344256CFF140078D5C4 /* fs_stencil_texture.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_stencil_texture.sc; path = "13-stencil/fs_stencil_texture.sc"; sourceTree = "<group>"; };
 		04032345256CFF140078D5C4 /* stencil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = stencil.cpp; path = "13-stencil/stencil.cpp"; sourceTree = "<group>"; };
+		0424591E2570B34100DDA3B0 /* font.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = font.cpp; path = "10-font/font.cpp"; sourceTree = "<group>"; };
+		042459252570B3B500DDA3B0 /* text_buffer_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = text_buffer_manager.cpp; path = common/font/text_buffer_manager.cpp; sourceTree = "<group>"; };
+		042459262570B3B500DDA3B0 /* utf8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utf8.h; path = common/font/utf8.h; sourceTree = "<group>"; };
+		042459272570B3B500DDA3B0 /* vs_font_distance_field.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_font_distance_field.sc; path = common/font/vs_font_distance_field.sc; sourceTree = "<group>"; };
+		042459282570B3B500DDA3B0 /* font_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = font_manager.h; path = common/font/font_manager.h; sourceTree = "<group>"; };
+		042459292570B3B500DDA3B0 /* vs_font_basic.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_font_basic.sc; path = common/font/vs_font_basic.sc; sourceTree = "<group>"; };
+		0424592A2570B3B500DDA3B0 /* font_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = font_manager.cpp; path = common/font/font_manager.cpp; sourceTree = "<group>"; };
+		0424592B2570B3B500DDA3B0 /* text_metrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = text_metrics.h; path = common/font/text_metrics.h; sourceTree = "<group>"; };
+		0424592C2570B3B500DDA3B0 /* fs_font_distance_field.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_font_distance_field.sc; path = common/font/fs_font_distance_field.sc; sourceTree = "<group>"; };
+		0424592D2570B3B500DDA3B0 /* text_buffer_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = text_buffer_manager.h; path = common/font/text_buffer_manager.h; sourceTree = "<group>"; };
+		0424592E2570B3B500DDA3B0 /* text_metrics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = text_metrics.cpp; path = common/font/text_metrics.cpp; sourceTree = "<group>"; };
+		0424592F2570B3B500DDA3B0 /* utf8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = utf8.cpp; path = common/font/utf8.cpp; sourceTree = "<group>"; };
+		042459302570B3B500DDA3B0 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = varying.def.sc; path = common/font/varying.def.sc; sourceTree = "<group>"; };
+		042459312570B3B600DDA3B0 /* vs_font_distance_field_subpixel.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_font_distance_field_subpixel.sc; path = common/font/vs_font_distance_field_subpixel.sc; sourceTree = "<group>"; };
+		042459322570B3B600DDA3B0 /* fs_font_distance_field_subpixel.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_font_distance_field_subpixel.sc; path = common/font/fs_font_distance_field_subpixel.sc; sourceTree = "<group>"; };
+		042459332570B3B600DDA3B0 /* fs_font_basic.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_font_basic.sc; path = common/font/fs_font_basic.sc; sourceTree = "<group>"; };
 		0461C762256B67AD00980618 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bounds.cpp; path = common/bounds.cpp; sourceTree = "<group>"; };
 		0461C763256B67AD00980618 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = camera.h; path = common/camera.h; sourceTree = "<group>"; };
 		0461C764256B67AD00980618 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = common/common.h; sourceTree = "<group>"; };
@@ -908,20 +928,20 @@
 			children = (
 				040322F4256CBD190078D5C4 /* common.sh */,
 				040322EC256CBD190078D5C4 /* varying.def.sc */,
-				040322F1256CBD190078D5C4 /* fs_hdr_blur.sc */,
-				040322ED256CBD190078D5C4 /* fs_hdr_bright.sc */,
-				040322F0256CBD190078D5C4 /* fs_hdr_lum.sc */,
-				040322FB256CBD190078D5C4 /* fs_hdr_lumavg.sc */,
-				040322F5256CBD190078D5C4 /* fs_hdr_mesh.sc */,
-				040322F3256CBD190078D5C4 /* fs_hdr_skybox.sc */,
-				040322F6256CBD190078D5C4 /* fs_hdr_tonemap.sc */,
-				040322FA256CBD190078D5C4 /* vs_hdr_blur.sc */,
-				040322EF256CBD190078D5C4 /* vs_hdr_bright.sc */,
-				040322F7256CBD190078D5C4 /* vs_hdr_lum.sc */,
-				040322F9256CBD190078D5C4 /* vs_hdr_lumavg.sc */,
-				040322FC256CBD190078D5C4 /* vs_hdr_mesh.sc */,
 				040322F8256CBD190078D5C4 /* vs_hdr_skybox.sc */,
+				040322F3256CBD190078D5C4 /* fs_hdr_skybox.sc */,
+				040322FC256CBD190078D5C4 /* vs_hdr_mesh.sc */,
+				040322F5256CBD190078D5C4 /* fs_hdr_mesh.sc */,
+				040322F7256CBD190078D5C4 /* vs_hdr_lum.sc */,
+				040322F0256CBD190078D5C4 /* fs_hdr_lum.sc */,
+				040322F9256CBD190078D5C4 /* vs_hdr_lumavg.sc */,
+				040322FB256CBD190078D5C4 /* fs_hdr_lumavg.sc */,
+				040322EF256CBD190078D5C4 /* vs_hdr_bright.sc */,
+				040322ED256CBD190078D5C4 /* fs_hdr_bright.sc */,
+				040322FA256CBD190078D5C4 /* vs_hdr_blur.sc */,
+				040322F1256CBD190078D5C4 /* fs_hdr_blur.sc */,
 				040322F2256CBD190078D5C4 /* vs_hdr_tonemap.sc */,
+				040322F6256CBD190078D5C4 /* fs_hdr_tonemap.sc */,
 				040322EE256CBD190078D5C4 /* hdr.cpp */,
 			);
 			name = "09-hdr";
@@ -957,9 +977,40 @@
 			name = "13-stencil";
 			sourceTree = "<group>";
 		};
+		0424591D2570B33700DDA3B0 /* 10-font */ = {
+			isa = PBXGroup;
+			children = (
+				0424591E2570B34100DDA3B0 /* font.cpp */,
+			);
+			name = "10-font";
+			sourceTree = "<group>";
+		};
+		042459242570B39200DDA3B0 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				042459302570B3B500DDA3B0 /* varying.def.sc */,
+				042459332570B3B600DDA3B0 /* fs_font_basic.sc */,
+				0424592C2570B3B500DDA3B0 /* fs_font_distance_field.sc */,
+				042459322570B3B600DDA3B0 /* fs_font_distance_field_subpixel.sc */,
+				042459292570B3B500DDA3B0 /* vs_font_basic.sc */,
+				042459272570B3B500DDA3B0 /* vs_font_distance_field.sc */,
+				042459312570B3B600DDA3B0 /* vs_font_distance_field_subpixel.sc */,
+				042459262570B3B500DDA3B0 /* utf8.h */,
+				0424592F2570B3B500DDA3B0 /* utf8.cpp */,
+				042459282570B3B500DDA3B0 /* font_manager.h */,
+				0424592A2570B3B500DDA3B0 /* font_manager.cpp */,
+				0424592B2570B3B500DDA3B0 /* text_metrics.h */,
+				0424592E2570B3B500DDA3B0 /* text_metrics.cpp */,
+				0424592D2570B3B500DDA3B0 /* text_buffer_manager.h */,
+				042459252570B3B500DDA3B0 /* text_buffer_manager.cpp */,
+			);
+			name = font;
+			sourceTree = "<group>";
+		};
 		0461C761256B679800980618 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				042459242570B39200DDA3B0 /* font */,
 				0461C7E0256B699C00980618 /* nanovg */,
 				0461C77B256B67CC00980618 /* entry */,
 				0461C775256B67B100980618 /* imgui */,
@@ -1264,6 +1315,7 @@
 				0461C7D9256B696A00980618 /* 18-ibl */,
 				04DFB4B8256F38EF00E54C67 /* 15-shadowmaps-simple */,
 				04032339256CFEFE0078D5C4 /* 13-stencil */,
+				0424591D2570B33700DDA3B0 /* 10-font */,
 				040322EB256CBD080078D5C4 /* 09-hdr */,
 				040322DE256CBCBA0078D5C4 /* 08-update */,
 				040322D2256CBC7B0078D5C4 /* 07-callback */,
@@ -1950,6 +2002,7 @@
 				0461C7C3256B683400980618 /* clusterizer.cpp in Sources */,
 				0461C7B9256B683400980618 /* simplifier.cpp in Sources */,
 				0461C78D256B67F100980618 /* cmd.cpp in Sources */,
+				042459362570B3B600DDA3B0 /* text_metrics.cpp in Sources */,
 				0461C78C256B67F100980618 /* entry.cpp in Sources */,
 				0461C7C4256B683400980618 /* indexgenerator.cpp in Sources */,
 				0461C78E256B67F100980618 /* input.cpp in Sources */,
@@ -1957,7 +2010,6 @@
 				0461C7A0256B681300980618 /* imgui.cpp in Sources */,
 				0461C76E256B67AD00980618 /* bounds.cpp in Sources */,
 				0461C770256B67AD00980618 /* camera.cpp in Sources */,
-				04DFB4D1256F3F5700E54C67 /* mesh.cpp in Sources */,
 				0461C7BA256B683400980618 /* overdrawanalyzer.cpp in Sources */,
 				0461C7C0256B683400980618 /* indexcodec.cpp in Sources */,
 				0461C771256B67AD00980618 /* cube_atlas.cpp in Sources */,
@@ -1967,13 +2019,17 @@
 				0461C7B7256B683400980618 /* vertexcodec.cpp in Sources */,
 				0461C76F256B67AD00980618 /* example-glue.cpp in Sources */,
 				0461C772256B67AD00980618 /* bgfx_utils.cpp in Sources */,
+				042459352570B3B600DDA3B0 /* font_manager.cpp in Sources */,
 				0461C7C5256B683400980618 /* vfetchoptimizer.cpp in Sources */,
+				0424591F2570B34100DDA3B0 /* font.cpp in Sources */,
 				0461C778256B67CA00980618 /* imgui.cpp in Sources */,
 				0461C7BE256B683400980618 /* vcacheoptimizer.cpp in Sources */,
 				0461C7B8256B683400980618 /* vertexfilter.cpp in Sources */,
 				0461C789256B67F100980618 /* dialog.cpp in Sources */,
 				0461C7A1256B681300980618 /* imgui_widgets.cpp in Sources */,
 				0461C7C1256B683400980618 /* spatialorder.cpp in Sources */,
+				042459372570B3B600DDA3B0 /* utf8.cpp in Sources */,
+				042459342570B3B600DDA3B0 /* text_buffer_manager.cpp in Sources */,
 				0461C7C2256B683400980618 /* stripifier.cpp in Sources */,
 				0461C7BB256B683400980618 /* allocator.cpp in Sources */,
 				0461C7A2256B681300980618 /* imgui_demo.cpp in Sources */,

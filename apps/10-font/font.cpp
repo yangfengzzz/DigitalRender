@@ -10,16 +10,16 @@
 #include <bx/string.h>
 #include <bx/math.h>
 
-#include "font/font_manager.h"
-#include "font/text_buffer_manager.h"
-#include "entry/input.h"
+#include "common/font/font_manager.h"
+#include "common/font/text_buffer_manager.h"
+#include "common/entry/input.h"
 
 #include <iconfontheaders/icons_font_awesome.h>
 #include <iconfontheaders/icons_kenney.h>
 
 #include <wchar.h>
 
-#include "imgui/imgui.h"
+#include "common/imgui/imgui.h"
 
 namespace
 {
@@ -42,13 +42,13 @@ TrueTypeHandle loadTtf(FontManager* _fm, const char* _filePath)
 
 static const char* s_fontFilePath[] =
 {
-	"font/droidsans.ttf",
-	"font/chp-fire.ttf",
-	"font/bleeding_cowboys.ttf",
-	"font/mias_scribblings.ttf",
-	"font/ruritania.ttf",
-	"font/signika-regular.ttf",
-	"font/five_minutes.otf",
+	"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/droidsans.ttf",
+	"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/chp-fire.ttf",
+	"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/bleeding_cowboys.ttf",
+	"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/mias_scribblings.ttf",
+	"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/ruritania.ttf",
+	"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/signika-regular.ttf",
+	"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/five_minutes.otf",
 };
 
 class ExampleFont : public entry::AppI
@@ -111,15 +111,15 @@ public:
 			m_fontManager->destroyTtf(m_fontFiles[ii]);
 		}
 
-		m_fontAwesomeTtf = loadTtf(m_fontManager, "font/fontawesome-webfont.ttf");
-		m_fontKenneyTtf  = loadTtf(m_fontManager, "font/kenney-icon-font.ttf");
+		m_fontAwesomeTtf = loadTtf(m_fontManager, "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/fontawesome-webfont.ttf");
+		m_fontKenneyTtf  = loadTtf(m_fontManager, "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/kenney-icon-font.ttf");
 
 		// This font doesn't have any preloaded glyph's but the truetype file
 		// is loaded so glyph will be generated as needed.
 		m_fontAwesome72 = m_fontManager->createFontByPixelSize(m_fontAwesomeTtf, 0, 72);
 		m_fontKenney64  = m_fontManager->createFontByPixelSize(m_fontKenneyTtf,  0, 64);
 
-		m_visitorTtf = loadTtf(m_fontManager, "font/visitor1.ttf");
+		m_visitorTtf = loadTtf(m_fontManager, "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/visitor1.ttf");
 
 		// This font doesn't have any preloaded glyph's but the truetype file
 		// is loaded so glyph will be generated as needed.

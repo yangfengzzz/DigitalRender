@@ -267,31 +267,31 @@ public:
 		// Create vertex stream declaration.
 		PosTexcoordVertex::init();
 
-		m_textures[ 0] = loadTexture("textures/texture_compression_bc1.ktx", BGFX_SAMPLER_U_CLAMP | BGFX_SAMPLER_V_CLAMP);
-		m_textures[ 1] = loadTexture("textures/texture_compression_bc2.ktx", BGFX_SAMPLER_U_CLAMP);
-		m_textures[ 2] = loadTexture("textures/texture_compression_bc3.ktx", BGFX_SAMPLER_V_CLAMP);
-		m_textures[ 3] = loadTexture("textures/texture_compression_etc1.ktx", BGFX_SAMPLER_U_BORDER | BGFX_SAMPLER_V_BORDER | BGFX_SAMPLER_BORDER_COLOR(1));
-		m_textures[ 4] = loadTexture("textures/texture_compression_etc2.ktx");
-		m_textures[ 5] = loadTexture("textures/texture_compression_ptc12.pvr");
-		m_textures[ 6] = loadTexture("textures/texture_compression_ptc14.pvr");
-		m_textures[ 7] = loadTexture("textures/texture_compression_ptc22.pvr");
-		m_textures[ 8] = loadTexture("textures/texture_compression_ptc24.pvr");
-		m_textures[ 9] = loadTexture("textures/texture_compression_atc.dds");
-		m_textures[10] = loadTexture("textures/texture_compression_atci.dds");
-		m_textures[11] = loadTexture("textures/texture_compression_atce.dds");
+		m_textures[ 0] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_bc1.ktx", BGFX_SAMPLER_U_CLAMP | BGFX_SAMPLER_V_CLAMP);
+		m_textures[ 1] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_bc2.ktx", BGFX_SAMPLER_U_CLAMP);
+		m_textures[ 2] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_bc3.ktx", BGFX_SAMPLER_V_CLAMP);
+		m_textures[ 3] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_etc1.ktx", BGFX_SAMPLER_U_BORDER | BGFX_SAMPLER_V_BORDER | BGFX_SAMPLER_BORDER_COLOR(1));
+		m_textures[ 4] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_etc2.ktx");
+		m_textures[ 5] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_ptc12.pvr");
+		m_textures[ 6] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_ptc14.pvr");
+		m_textures[ 7] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_ptc22.pvr");
+		m_textures[ 8] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_ptc24.pvr");
+		m_textures[ 9] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_atc.dds");
+		m_textures[10] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_atci.dds");
+		m_textures[11] = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_atce.dds");
 
-		m_textures[12] = loadTextureWithUpdate("textures/texture_compression_bc1.ktx", BGFX_SAMPLER_U_CLAMP | BGFX_SAMPLER_V_CLAMP);
-		m_textures[13] = loadTextureWithUpdate("textures/texture_compression_bc2.ktx", BGFX_SAMPLER_U_CLAMP);
-		m_textures[14] = loadTextureWithUpdate("textures/texture_compression_bc3.ktx", BGFX_SAMPLER_V_CLAMP);
-		m_textures[15] = loadTextureWithUpdate("textures/texture_compression_etc1.ktx", BGFX_SAMPLER_U_BORDER | BGFX_SAMPLER_V_BORDER | BGFX_SAMPLER_BORDER_COLOR(1));
-		m_textures[16] = loadTextureWithUpdate("textures/texture_compression_etc2.ktx");
-		m_textures[17] = loadTextureWithUpdate("textures/texture_compression_ptc12.pvr");
-		m_textures[18] = loadTextureWithUpdate("textures/texture_compression_ptc14.pvr");
-		m_textures[19] = loadTextureWithUpdate("textures/texture_compression_ptc22.pvr");
-		m_textures[20] = loadTextureWithUpdate("textures/texture_compression_ptc24.pvr");
-		m_textures[21] = loadTextureWithUpdate("textures/texture_compression_atc.dds");
-		m_textures[22] = loadTextureWithUpdate("textures/texture_compression_atci.dds");
-		m_textures[23] = loadTextureWithUpdate("textures/texture_compression_atce.dds");
+		m_textures[12] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_bc1.ktx", BGFX_SAMPLER_U_CLAMP | BGFX_SAMPLER_V_CLAMP);
+		m_textures[13] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_bc2.ktx", BGFX_SAMPLER_U_CLAMP);
+		m_textures[14] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_bc3.ktx", BGFX_SAMPLER_V_CLAMP);
+		m_textures[15] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_etc1.ktx", BGFX_SAMPLER_U_BORDER | BGFX_SAMPLER_V_BORDER | BGFX_SAMPLER_BORDER_COLOR(1));
+		m_textures[16] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_etc2.ktx");
+		m_textures[17] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_ptc12.pvr");
+		m_textures[18] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_ptc14.pvr");
+		m_textures[19] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_ptc22.pvr");
+		m_textures[20] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_ptc24.pvr");
+		m_textures[21] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_atc.dds");
+		m_textures[22] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_atci.dds");
+		m_textures[23] = loadTextureWithUpdate("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/texture_compression_atce.dds");
 
 		BX_STATIC_ASSERT(24 == BX_COUNTOF(m_textures));
 
@@ -549,7 +549,7 @@ public:
 			}
 
 			ImGui::End();
-
+//MARK:- Update
 			float borderColor[4] =
 			{
 				float(m_rng.gen()%255)/255.0f,
@@ -674,7 +674,7 @@ public:
 					bgfx::updateTexture2D(m_texture2d, 0, 0, tx, ty, tw, th, mem, pitch);
 				}
 			}
-
+//MARK:- Prepare
 			const bx::Vec3 at  = { 0.0f, 0.0f,  0.0f };
 			const bx::Vec3 eye = { 0.0f, 0.0f, -5.0f };
 
@@ -720,7 +720,7 @@ public:
 
 				bgfx::touch(viewId);
 			}
-
+//MARK:- Submit
 			static const char* descTextureCube[BX_COUNTOF(m_textureCube)] =
 			{
 					"updateTextureCube",

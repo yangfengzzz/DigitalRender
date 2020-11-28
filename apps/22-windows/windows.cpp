@@ -5,9 +5,9 @@
 
 #include "common.h"
 #include "bgfx_utils.h"
-#include <entry/input.h>
+#include <common/entry/input.h>
 #include <bx/string.h>
-#include "imgui/imgui.h"
+#include "common/imgui/imgui.h"
 
 void cmdCreateWindow(const void* _userData);
 void cmdDestroyWindow(const void* _userData);

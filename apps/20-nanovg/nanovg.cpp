@@ -28,9 +28,9 @@
 #include <bx/timer.h>
 #include <bimg/decode.h>
 
-#include "entry/entry.h"
-#include "imgui/imgui.h"
-#include "nanovg/nanovg.h"
+#include "common/entry/entry.h"
+#include "common/imgui/imgui.h"
+#include "common/nanovg/nanovg.h"
 
 BX_PRAGMA_DIAGNOSTIC_PUSH();
 BX_PRAGMA_DIAGNOSTIC_IGNORED_CLANG_GCC("-Wunused-parameter");
@@ -1037,7 +1037,7 @@ int loadDemoData(struct NVGcontext* vg, struct DemoData* data)
 	for (i = 0; i < 12; i++)
 	{
 		char file[128];
-		bx::snprintf(file, 128, "images/image%d.jpg", i+1);
+		bx::snprintf(file, 128, "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/images/image%d.jpg", i+1);
 		data->images[i] = createImage(vg, file, 0);
 		if (data->images[i] == 0)
 		{
@@ -1048,28 +1048,28 @@ int loadDemoData(struct NVGcontext* vg, struct DemoData* data)
 
 	int32_t result = 0;
 
-	data->fontIcons = createFont(vg, "icons", "font/entypo.ttf");
+	data->fontIcons = createFont(vg, "icons", "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/entypo.ttf");
 	if (data->fontIcons == -1)
 	{
 		bx::debugPrintf("Could not add font icons.\n");
 		result = -1;
 	}
 
-	data->fontNormal = createFont(vg, "sans", "font/roboto-regular.ttf");
+	data->fontNormal = createFont(vg, "sans", "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/roboto-regular.ttf");
 	if (data->fontNormal == -1)
 	{
 		bx::debugPrintf("Could not add font italic.\n");
 		result = -1;
 	}
 
-	data->fontBold = createFont(vg, "sans-bold", "font/roboto-bold.ttf");
+	data->fontBold = createFont(vg, "sans-bold", "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/roboto-bold.ttf");
 	if (data->fontBold == -1)
 	{
 		bx::debugPrintf("Could not add font bold.\n");
 		result = -1;
 	}
 
-	data->fontEmoji = createFont(vg, "emoji", "font/NotoEmoji-Regular.ttf");
+	data->fontEmoji = createFont(vg, "emoji", "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/NotoEmoji-Regular.ttf");
 	if (data->fontEmoji == -1)
 	{
 		bx::debugPrintf("Could not add font emoji.\n");
@@ -1425,8 +1425,8 @@ public:
 
 		loadDemoData(m_nvg, &m_data);
 
-		bndSetFont(createFont(m_nvg, "droidsans", "font/droidsans.ttf") );
-		bndSetIconImage(createImage(m_nvg, "images/blender_icons16.png", 0) );
+		bndSetFont(createFont(m_nvg, "droidsans", "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/font/droidsans.ttf") );
+		bndSetIconImage(createImage(m_nvg, "/Users/yangfeng/Desktop/DigitalRender/apps/runtime/images/blender_icons16.png", 0) );
 
 		m_timeOffset = bx::getHPCounter();
 	}

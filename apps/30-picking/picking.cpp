@@ -5,7 +5,7 @@
 
 #include "common.h"
 #include "bgfx_utils.h"
-#include "imgui/imgui.h"
+#include "common/imgui/imgui.h"
 #include <bx/rng.h>
 #include <map>
 
@@ -72,12 +72,12 @@ public:
 
 		static const char* meshPaths[] =
 		{
-			"meshes/orb.bin",
-			"meshes/column.bin",
-			"meshes/bunny.bin",
-			"meshes/cube.bin",
-			"meshes/tree.bin",
-			"meshes/hollowcube.bin",
+			"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/orb.bin",
+			"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/column.bin",
+			"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/bunny.bin",
+			"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/cube.bin",
+			"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/tree.bin",
+			"/Users/yangfeng/Desktop/DigitalRender/apps/runtime/meshes/hollowcube.bin",
 		};
 
 		static const float meshScale[] =

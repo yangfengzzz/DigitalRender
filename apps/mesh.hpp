@@ -12,6 +12,7 @@
 #include <bgfx/bgfx.h>
 #include <vector>
 #include <string>
+#include "shader.hpp"
 
 namespace vox {
 struct Texture {
@@ -37,14 +38,14 @@ public:
     }
     
     // render the mesh
-    void Draw(bgfx::ProgramHandle &shader)
+    void Draw(Shader &shader)
     {
         // Set vertex and index buffer.
         bgfx::setVertexBuffer(0, m_vbh);
         bgfx::setIndexBuffer(m_ibh);
         
         // Submit primitive for rendering to view 0.
-        bgfx::submit(0, shader);
+        bgfx::submit(0, shader.m_program);
     }
     
 private:

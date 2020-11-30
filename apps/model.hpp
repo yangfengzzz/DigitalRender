@@ -19,11 +19,6 @@
 
 namespace vox {
 
-bgfx::TextureHandle loadTexture(const char* _name,
-                                uint64_t _flags = BGFX_TEXTURE_NONE|BGFX_SAMPLER_NONE,
-                                uint8_t _skip = 0, bgfx::TextureInfo* _info = NULL,
-                                bimg::Orientation::Enum* _orientation = NULL);
-
 class Model {
 public:
     Model(std::string path) {
@@ -31,7 +26,7 @@ public:
     }
     
     // draws the model, and thus all its meshes
-    void Draw(bgfx::ProgramHandle &shader)
+    void Draw(Shader &shader)
     {
         for(unsigned int i = 0; i < meshes.size(); i++)
         meshes[i].Draw(shader);

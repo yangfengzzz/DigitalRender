@@ -52,7 +52,9 @@ private:
     // checks all material textures of a given type and loads
     // the textures if they're not loaded yet.
     // the required info is returned as a Texture struct.
-    std::vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, std::string typeName);
+    std::vector<Texture> loadMaterialTextures(aiMaterial *mat,
+                                              aiTextureType type,
+                                              std::string typeName);
     
 public:
     std::string directory;

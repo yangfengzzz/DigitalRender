@@ -15,8 +15,10 @@
 namespace vox {
 class Shader {
 public:
-    Shader(std::string vertexFunctionName,
-           std::string fragmentFunctionName) {
+    Shader() {}
+    
+    void load(std::string vertexFunctionName,
+         std::string fragmentFunctionName) {
         // Create program from shaders.
         m_program = loadProgram(vertexFunctionName.c_str(),
                                 fragmentFunctionName.c_str());
@@ -32,6 +34,10 @@ public:
         | BGFX_STATE_MSAA
         | UINT64_C(0)
         ;
+    }
+    
+    ~Shader() {
+        bgfx::destroy(m_program);
     }
     
 public:

@@ -18,10 +18,7 @@ class ExampleMesh : public entry::AppI
 {
 public:
     ExampleMesh(const char* _name, const char* _description, const char* _url)
-    : entry::AppI(_name, _description, _url),
-    m_model("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/nanosuit.obj"),
-    m_shader("../../../hello_model2/vs_model",
-             "../../../hello_model2/fs_two")
+    : entry::AppI(_name, _description, _url)
     {
     }
     
@@ -55,6 +52,9 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
+        m_model.load("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/nanosuit.obj");
+        m_shader.load("../../../hello_model2/vs_model",
+                      "../../../hello_model2/fs_two");
         
         // Set view and projection matrices.
         cameraCreate();
@@ -75,9 +75,7 @@ public:
     {
         cameraDestroy();
         imguiDestroy();
-        
-        meshUnload(m_mesh);
-        
+                
         // Cleanup.
         bgfx::destroy(viewPos);
         bgfx::destroy(normal_matrix);
@@ -235,7 +233,7 @@ public:
             bgfx::setUniform(normal_matrix, &u_normal_matrix);
             
             m_model.setTransform(model);
-            m_model.Draw(m_shader);
+            m_model.draw(m_shader);
             
             // Advance to next frame. Rendering thread will be kicked to
             // process submitted rendering primitives.
@@ -258,59 +256,6 @@ public:
     vox::Model m_model;
     vox::Shader m_shader;
     
-    
-    
-    Mesh* m_mesh;
-    MeshState* m_state[6];
-    bgfx::ProgramHandle m_progArm;
-    bgfx::ProgramHandle m_progBody;
-    bgfx::ProgramHandle m_progGlass;
-    bgfx::ProgramHandle m_progHand;
-    bgfx::ProgramHandle m_progHelmet;
-    bgfx::ProgramHandle m_progLeg;
-    
-    bgfx::UniformHandle u_time;
-    
-    bgfx::UniformHandle s_arm_diff;
-    bgfx::TextureHandle m_arm_diff;
-    bgfx::UniformHandle s_arm_bump;
-    bgfx::TextureHandle m_arm_bump;
-    bgfx::UniformHandle s_arm_spec;
-    bgfx::TextureHandle m_arm_spec;
-    
-    bgfx::UniformHandle s_body_diff;
-    bgfx::TextureHandle m_body_diff;
-    bgfx::UniformHandle s_body_bump;
-    bgfx::TextureHandle m_body_bump;
-    bgfx::UniformHandle s_body_spec;
-    bgfx::TextureHandle m_body_spec;
-    
-    bgfx::UniformHandle s_glass_diff;
-    bgfx::TextureHandle m_glass_diff;
-    bgfx::UniformHandle s_glass_bump;
-    bgfx::TextureHandle m_glass_bump;
-    
-    bgfx::UniformHandle s_hand_diff;
-    bgfx::TextureHandle m_hand_diff;
-    bgfx::UniformHandle s_hand_bump;
-    bgfx::TextureHandle m_hand_bump;
-    bgfx::UniformHandle s_hand_spec;
-    bgfx::TextureHandle m_hand_spec;
-    
-    bgfx::UniformHandle s_helmet_diff;
-    bgfx::TextureHandle m_helmet_diff;
-    bgfx::UniformHandle s_helmet_bump;
-    bgfx::TextureHandle m_helmet_bump;
-    bgfx::UniformHandle s_helmet_spec;
-    bgfx::TextureHandle m_helmet_spec;
-    
-    bgfx::UniformHandle s_leg_diff;
-    bgfx::TextureHandle m_leg_diff;
-    bgfx::UniformHandle s_leg_bump;
-    bgfx::TextureHandle m_leg_bump;
-    bgfx::UniformHandle s_leg_spec;
-    bgfx::TextureHandle m_leg_spec;
-    
     int32_t m_lastScroll = 0;
     float fov   =  45.0f;
     void scroll_callback(double yoffset)
@@ -323,6 +268,7 @@ public:
             fov = 45.0f;
     }
     
+    bgfx::UniformHandle u_time;
     bgfx::UniformHandle viewPos;
     bgfx::UniformHandle normal_matrix;
     bgfx::UniformHandle spotLight;

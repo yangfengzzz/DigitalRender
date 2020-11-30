@@ -45,7 +45,7 @@ public:
     }
     
     // render the mesh
-    void Draw(Shader &shader)
+    void draw(Shader &shader)
     {
         if (textures.size() == 2) {
             return;

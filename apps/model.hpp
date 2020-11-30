@@ -23,18 +23,20 @@ namespace vox {
 
 class Model {
 public:
-    Model(std::string path) {
+    Model() {}
+    
+    void load(std::string path) {
         loadModel(path);
     }
     
     // draws the model, and thus all its meshes
-    void Draw(Shader &shader)
+    void draw(Shader &shader)
     {
         for(unsigned int i = 0; i < meshes.size(); i++) {
             // Set model matrix for rendering.
             bgfx::setTransform(glm::value_ptr(modelTransform));
             
-            meshes[i].Draw(shader);
+            meshes[i].draw(shader);
         }
     }
     

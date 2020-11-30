@@ -85,10 +85,10 @@
 		0461C89D256B94F300980618 /* decode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C89A256B94F300980618 /* decode.h */; };
 		0461C89E256B94F300980618 /* encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C89B256B94F300980618 /* encode.h */; };
 		0461C89F256B94F300980618 /* bimg.h in Headers */ = {isa = PBXBuildFile; fileRef = 0461C89C256B94F300980618 /* bimg.h */; };
-		047DDB2F257350060087C7D4 /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DFB4CF256F3F5700E54C67 /* mesh.cpp */; };
 		047DDB43257370940087C7D4 /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB41257370940087C7D4 /* mesh.cpp */; };
 		047DDB6E257493600087C7D4 /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB6C257493600087C7D4 /* model.cpp */; };
 		047DDB872574A5240087C7D4 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB852574A5240087C7D4 /* shader.cpp */; };
+		047DDB932574AE670087C7D4 /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB8E2574AE670087C7D4 /* nano.cpp */; };
 		04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CC9256AB173004BE0A6 /* shader_spirv.h */; };
 		04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */; };
 		04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCB256AB173004BE0A6 /* nvapi.h */; };
@@ -663,6 +663,11 @@
 		047DDB802574A1590087C7D4 /* apps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = apps.entitlements; sourceTree = "<group>"; };
 		047DDB852574A5240087C7D4 /* shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
 		047DDB862574A5240087C7D4 /* shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
+		047DDB8E2574AE670087C7D4 /* nano.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nano.cpp; sourceTree = "<group>"; };
+		047DDB8F2574AE670087C7D4 /* fs_one.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_one.sc; sourceTree = "<group>"; };
+		047DDB902574AE670087C7D4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
+		047DDB912574AE670087C7D4 /* fs_two.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_two.sc; sourceTree = "<group>"; };
+		047DDB922574AE670087C7D4 /* vs_model.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_model.sc; sourceTree = "<group>"; };
 		04C171A9256EBA7A00C07290 /* uniforms.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = uniforms.sh; path = "18-ibl/uniforms.sh"; sourceTree = "<group>"; };
 		04CE762D256DE82B0033C25A /* fs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_light.sc; sourceTree = "<group>"; };
 		04CE762E256DE82B0033C25A /* hello_light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hello_light.cpp; sourceTree = "<group>"; };
@@ -1481,6 +1486,18 @@
 			name = "30-picking";
 			sourceTree = "<group>";
 		};
+		047DDB8D2574ADAD0087C7D4 /* hello_model2 */ = {
+			isa = PBXGroup;
+			children = (
+				047DDB902574AE670087C7D4 /* varying.def.sc */,
+				047DDB8F2574AE670087C7D4 /* fs_one.sc */,
+				047DDB912574AE670087C7D4 /* fs_two.sc */,
+				047DDB922574AE670087C7D4 /* vs_model.sc */,
+				047DDB8E2574AE670087C7D4 /* nano.cpp */,
+			);
+			path = hello_model2;
+			sourceTree = "<group>";
+		};
 		04CE762C256DE7F40033C25A /* hello_light */ = {
 			isa = PBXGroup;
 			children = (
@@ -1575,6 +1592,7 @@
 				04CE762C256DE7F40033C25A /* hello_light */,
 				04DFB4CC256F3BD900E54C67 /* hello_model */,
 				047DDB802574A1590087C7D4 /* apps.entitlements */,
+				047DDB8D2574ADAD0087C7D4 /* hello_model2 */,
 				047DDB6D257493600087C7D4 /* model.hpp */,
 				047DDB6C257493600087C7D4 /* model.cpp */,
 				047DDB42257370940087C7D4 /* mesh.hpp */,
@@ -2265,6 +2283,7 @@
 				0461C771256B67AD00980618 /* cube_atlas.cpp in Sources */,
 				0461C7BD256B683400980618 /* vfetchanalyzer.cpp in Sources */,
 				0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */,
+				047DDB932574AE670087C7D4 /* nano.cpp in Sources */,
 				0461C7BC256B683400980618 /* overdrawoptimizer.cpp in Sources */,
 				0461C7B7256B683400980618 /* vertexcodec.cpp in Sources */,
 				0461C76F256B67AD00980618 /* example-glue.cpp in Sources */,
@@ -2279,7 +2298,6 @@
 				0461C7A1256B681300980618 /* imgui_widgets.cpp in Sources */,
 				0461C7C1256B683400980618 /* spatialorder.cpp in Sources */,
 				042459372570B3B600DDA3B0 /* utf8.cpp in Sources */,
-				047DDB2F257350060087C7D4 /* mesh.cpp in Sources */,
 				042459342570B3B600DDA3B0 /* text_buffer_manager.cpp in Sources */,
 				047DDB6E257493600087C7D4 /* model.cpp in Sources */,
 				0461C7C2256B683400980618 /* stripifier.cpp in Sources */,

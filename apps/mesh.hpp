@@ -47,6 +47,10 @@ public:
     // render the mesh
     void Draw(Shader &shader)
     {
+        if (textures.size() == 2) {
+            return;
+        }
+        
         // Set vertex and index buffer.
         bgfx::setVertexBuffer(0, m_vbh);
         bgfx::setIndexBuffer(m_ibh);

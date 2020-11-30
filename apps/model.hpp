@@ -15,6 +15,8 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 #include <bimg/bimg.h>
+#include <glm/gtc/type_ptr.hpp>
+
 #include "mesh.hpp"
 
 namespace vox {
@@ -28,8 +30,17 @@ public:
     // draws the model, and thus all its meshes
     void Draw(Shader &shader)
     {
-        for(unsigned int i = 0; i < meshes.size(); i++)
-        meshes[i].Draw(shader);
+        for(unsigned int i = 0; i < meshes.size(); i++) {
+            // Set model matrix for rendering.
+            bgfx::setTransform(glm::value_ptr(modelTransform));
+            
+            meshes[i].Draw(shader);
+        }
+    }
+    
+    void setTransform(glm::mat4 transform) {
+        this->modelTransform = transform;
+        
     }
     
 private:
@@ -57,6 +68,8 @@ public:
     // stores all the textures loaded so far,
     // optimization to make sure textures aren't loaded more than once.
     std::vector<Texture> textures_loaded;
+    
+    glm::mat4 modelTransform = glm::mat4(1.0f);
 };
 
 }

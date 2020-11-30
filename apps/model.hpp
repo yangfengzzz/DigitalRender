@@ -25,6 +25,17 @@ class Model {
 public:
     Model() {}
     
+    ~Model() {
+        for (size_t i = 0; i < meshes.size(); i++) {
+            bgfx::destroy(meshes[i].m_vbh);
+            bgfx::destroy(meshes[i].m_ibh);
+            for (size_t j = 0; j < meshes[i].samples.size(); j++) {
+                bgfx::destroy(meshes[i].samples[j]);
+                bgfx::destroy(meshes[i].textures[j].m_texture);
+            }
+        }
+    }
+    
     void load(std::string path) {
         loadModel(path);
     }

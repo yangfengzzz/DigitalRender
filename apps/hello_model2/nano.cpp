@@ -52,7 +52,7 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
-        m_model.load("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/nanosuit.obj");
+        m_model.load("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model2/nanosuit.obj");
         m_shader.addShader(3, "../../../hello_model2/vs_model",
                            "../../../hello_model2/fs_two");
         m_shader.addShader(2, "../../../hello_model2/vs_model",

@@ -35,6 +35,13 @@ public:
         
         // now that we have all the required data, set the vertex buffers and its attribute pointers.
         setupMesh();
+        samples.reserve(textures.size());
+        for (size_t i = 0; i < textures.size(); i++) {
+            std::string samples_name = "s_texColor" + std::to_string(i);
+            bgfx::UniformHandle s_texColor1  = bgfx::createUniform(samples_name.c_str(),
+                                                                   bgfx::UniformType::Sampler);
+            samples.push_back(s_texColor1);
+        }
     }
     
     // render the mesh
@@ -43,6 +50,14 @@ public:
         // Set vertex and index buffer.
         bgfx::setVertexBuffer(0, m_vbh);
         bgfx::setIndexBuffer(m_ibh);
+        
+        // Bind textures.
+        for (size_t i = 0; i < textures.size(); i++) {
+            bgfx::setTexture(i, samples[i], textures[i].m_texture);
+        }
+        
+        // Set render states.
+        bgfx::setState(shader.state);
         
         // Submit primitive for rendering to view 0.
         bgfx::submit(0, shader.m_program);
@@ -71,7 +86,8 @@ public:
     bgfx::VertexBufferHandle m_vbh;
     bgfx::IndexBufferHandle m_ibh;
     
-    std::vector<Texture>      textures;
+    std::vector<Texture> textures;
+    std::vector<bgfx::UniformHandle> samples;
 };
 
 }

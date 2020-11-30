@@ -88,7 +88,7 @@
 		047DDB43257370940087C7D4 /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB41257370940087C7D4 /* mesh.cpp */; };
 		047DDB6E257493600087C7D4 /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB6C257493600087C7D4 /* model.cpp */; };
 		047DDB872574A5240087C7D4 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB852574A5240087C7D4 /* shader.cpp */; };
-		047DDB932574AE670087C7D4 /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB8E2574AE670087C7D4 /* nano.cpp */; };
+		047DDBC92574D9470087C7D4 /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDBA32574CE7F0087C7D4 /* nano.cpp */; };
 		04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CC9256AB173004BE0A6 /* shader_spirv.h */; };
 		04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */; };
 		04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCB256AB173004BE0A6 /* nvapi.h */; };
@@ -668,6 +668,11 @@
 		047DDB902574AE670087C7D4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
 		047DDB912574AE670087C7D4 /* fs_two.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_two.sc; sourceTree = "<group>"; };
 		047DDB922574AE670087C7D4 /* vs_model.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_model.sc; sourceTree = "<group>"; };
+		047DDBA22574CE7F0087C7D4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
+		047DDBA32574CE7F0087C7D4 /* nano.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nano.cpp; sourceTree = "<group>"; };
+		047DDBA42574CE7F0087C7D4 /* fs_one.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_one.sc; sourceTree = "<group>"; };
+		047DDBA52574CE7F0087C7D4 /* fs_two.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_two.sc; sourceTree = "<group>"; };
+		047DDBA62574CE7F0087C7D4 /* vs_model.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_model.sc; sourceTree = "<group>"; };
 		04C171A9256EBA7A00C07290 /* uniforms.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = uniforms.sh; path = "18-ibl/uniforms.sh"; sourceTree = "<group>"; };
 		04CE762D256DE82B0033C25A /* fs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_light.sc; sourceTree = "<group>"; };
 		04CE762E256DE82B0033C25A /* hello_light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hello_light.cpp; sourceTree = "<group>"; };
@@ -1498,6 +1503,18 @@
 			path = hello_model2;
 			sourceTree = "<group>";
 		};
+		047DDBA12574CE540087C7D4 /* hello_instancing */ = {
+			isa = PBXGroup;
+			children = (
+				047DDBA22574CE7F0087C7D4 /* varying.def.sc */,
+				047DDBA42574CE7F0087C7D4 /* fs_one.sc */,
+				047DDBA52574CE7F0087C7D4 /* fs_two.sc */,
+				047DDBA62574CE7F0087C7D4 /* vs_model.sc */,
+				047DDBA32574CE7F0087C7D4 /* nano.cpp */,
+			);
+			path = hello_instancing;
+			sourceTree = "<group>";
+		};
 		04CE762C256DE7F40033C25A /* hello_light */ = {
 			isa = PBXGroup;
 			children = (
@@ -1593,6 +1610,7 @@
 				04DFB4CC256F3BD900E54C67 /* hello_model */,
 				047DDB802574A1590087C7D4 /* apps.entitlements */,
 				047DDB8D2574ADAD0087C7D4 /* hello_model2 */,
+				047DDBA12574CE540087C7D4 /* hello_instancing */,
 				047DDB6D257493600087C7D4 /* model.hpp */,
 				047DDB6C257493600087C7D4 /* model.cpp */,
 				047DDB42257370940087C7D4 /* mesh.hpp */,
@@ -2276,6 +2294,7 @@
 				0461C78B256B67F100980618 /* dialog_darwin.mm in Sources */,
 				0461C7A0256B681300980618 /* imgui.cpp in Sources */,
 				047DDB872574A5240087C7D4 /* shader.cpp in Sources */,
+				047DDBC92574D9470087C7D4 /* nano.cpp in Sources */,
 				0461C76E256B67AD00980618 /* bounds.cpp in Sources */,
 				0461C770256B67AD00980618 /* camera.cpp in Sources */,
 				0461C7BA256B683400980618 /* overdrawanalyzer.cpp in Sources */,
@@ -2283,7 +2302,6 @@
 				0461C771256B67AD00980618 /* cube_atlas.cpp in Sources */,
 				0461C7BD256B683400980618 /* vfetchanalyzer.cpp in Sources */,
 				0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */,
-				047DDB932574AE670087C7D4 /* nano.cpp in Sources */,
 				0461C7BC256B683400980618 /* overdrawoptimizer.cpp in Sources */,
 				0461C7B7256B683400980618 /* vertexcodec.cpp in Sources */,
 				0461C76F256B67AD00980618 /* example-glue.cpp in Sources */,

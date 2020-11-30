@@ -46,6 +46,8 @@ public:
         for(unsigned int i = 0; i < meshes.size(); i++) {
             // Set model matrix for rendering.
             bgfx::setTransform(glm::value_ptr(modelTransform));
+            // Set instance data buffer.
+            bgfx::setInstanceDataBuffer(&idb);
             
             meshes[i].draw(shader);
         }
@@ -83,6 +85,7 @@ public:
     std::vector<Texture> textures_loaded;
     
     glm::mat4 modelTransform = glm::mat4(1.0f);
+    bgfx::InstanceDataBuffer idb;
 };
 
 }

@@ -13,8 +13,8 @@ uniform vec4 viewPos;
 
 uniform vec4 u_time;
 SAMPLER2D(s_texColor0, 0);//diffusion
-SAMPLER2D(s_texColor1, 1);//bump
-SAMPLER2D(s_texColor2, 2);//specular
+SAMPLER2D(s_texColor1, 1);//specular
+SAMPLER2D(s_texColor2, 2);//bump
 
 uniform vec4 dirLight[4];
 #define dirLight_direction dirLight[0]
@@ -32,7 +32,7 @@ vec3 CalcDirLight(vec3 normal, vec3 viewDir, vec2 v_texcoord0)
     // 合并结果
     vec3 ambient  = dirLight_ambient.xyz  * vec3(texture2D(s_texColor0, v_texcoord0));
     vec3 diffuse  = dirLight_diffuse.xyz  * diff * vec3(texture2D(s_texColor0, v_texcoord0));
-    vec3 specular = dirLight_specular.xyz * spec * vec3(texture2D(s_texColor2, v_texcoord0));
+    vec3 specular = dirLight_specular.xyz * spec * vec3(texture2D(s_texColor1, v_texcoord0));
     return (ambient + diffuse + specular);
 }
 
@@ -65,7 +65,7 @@ vec3 CalcSpotLight(vec3 normal, vec3 fragPos, vec3 viewDir, vec2 v_texcoord0)
     // combine results
     vec3 ambient = spotLight_ambient.xyz * vec3(texture2D(s_texColor0, v_texcoord0));
     vec3 diffuse = spotLight_diffuse.xyz * diff * vec3(texture2D(s_texColor0, v_texcoord0));
-    vec3 specular = spotLight_specular.xyz * spec * vec3(texture2D(s_texColor2, v_texcoord0));
+    vec3 specular = spotLight_specular.xyz * spec * vec3(texture2D(s_texColor1, v_texcoord0));
     ambient *= attenuation * intensity;
     diffuse *= attenuation * intensity;
     specular *= attenuation * intensity;

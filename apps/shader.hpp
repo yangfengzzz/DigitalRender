@@ -9,20 +9,14 @@
 #define shader_hpp
 
 #include <string>
+#include <unordered_map>
 #include <bgfx/bgfx.h>
 #include "common/bgfx_utils.h"
 
 namespace vox {
 class Shader {
 public:
-    Shader() {}
-    
-    void load(std::string vertexFunctionName,
-         std::string fragmentFunctionName) {
-        // Create program from shaders.
-        m_program = loadProgram(vertexFunctionName.c_str(),
-                                fragmentFunctionName.c_str());
-        
+    Shader() {
         state = 0
         | BGFX_STATE_WRITE_R
         | BGFX_STATE_WRITE_G
@@ -36,12 +30,36 @@ public:
         ;
     }
     
-    ~Shader() {
-        bgfx::destroy(m_program);
+    void addShader(int index, std::string vertexFunctionName,
+                   std::string fragmentFunctionName) {
+        // Create program from shaders.
+        bgfx::ProgramHandle m_shader = loadProgram(vertexFunctionName.c_str(),
+                                                   fragmentFunctionName.c_str());
+        
+        programs.insert(std::unordered_map<int, bgfx::ProgramHandle>::value_type(index, m_shader));
     }
     
-public:
-    bgfx::ProgramHandle m_program;
+    uint64_t getState() {
+        return state;
+    }
+    
+    bgfx::ProgramHandle getProgram(int index) {
+        std::unordered_map<int, bgfx::ProgramHandle>::const_iterator it = programs.find(index);
+        if (it != programs.end()) {
+            return it->second;
+        } else {
+            return BGFX_INVALID_HANDLE;
+        }
+    }
+    
+    ~Shader() {
+        for (auto& shader : programs) {
+            bgfx::destroy(shader.second);
+        }
+    }
+    
+private:
+    std::unordered_map<int, bgfx::ProgramHandle> programs;
     uint64_t state = 0;
 };
 

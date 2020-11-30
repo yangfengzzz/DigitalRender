@@ -53,8 +53,10 @@ public:
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
         m_model.load("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model/nanosuit.obj");
-        m_shader.load("../../../hello_model2/vs_model",
-                      "../../../hello_model2/fs_two");
+        m_shader.addShader(3, "../../../hello_model2/vs_model",
+                           "../../../hello_model2/fs_two");
+        m_shader.addShader(2, "../../../hello_model2/vs_model",
+                           "../../../hello_model2/fs_one");
         
         // Set view and projection matrices.
         cameraCreate();
@@ -75,7 +77,7 @@ public:
     {
         cameraDestroy();
         imguiDestroy();
-                
+        
         // Cleanup.
         bgfx::destroy(viewPos);
         bgfx::destroy(normal_matrix);

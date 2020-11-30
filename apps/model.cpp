@@ -61,7 +61,7 @@ Mesh Model::processMesh(aiMesh *mesh, const aiScene *scene)
 {
     // data to fill
     std::vector<float> vertices;
-    std::vector<unsigned int> indices;
+    std::vector<uint16_t> indices;
     std::vector<Texture> textures;
     bgfx::VertexLayout ms_layout;
     

@@ -24,7 +24,7 @@ struct Texture {
 class Mesh {
 public:
     Mesh(std::vector<float> vertices,
-         std::vector<unsigned int> indices,
+         std::vector<uint16_t> indices,
          bgfx::VertexLayout ms_layout,
          std::vector<Texture> textures)
     {
@@ -47,10 +47,6 @@ public:
     // render the mesh
     void draw(Shader &shader)
     {
-        if (textures.size() == 2) {
-            return;
-        }
-        
         // Set vertex and index buffer.
         bgfx::setVertexBuffer(0, m_vbh);
         bgfx::setIndexBuffer(m_ibh);
@@ -61,10 +57,10 @@ public:
         }
         
         // Set render states.
-        bgfx::setState(shader.state);
+        bgfx::setState(shader.getState());
         
         // Submit primitive for rendering to view 0.
-        bgfx::submit(0, shader.m_program);
+        bgfx::submit(0, shader.getProgram(static_cast<int>(textures.size())));
     }
     
 private:
@@ -79,12 +75,12 @@ private:
         
         // Create static index buffer for triangle list rendering.
         m_ibh = bgfx::createIndexBuffer(bgfx::makeRef(&(indices[0]),
-                                                      sizeof(unsigned int) * static_cast<uint32_t>(indices.size()) ));
+                                                      sizeof(uint16_t) * static_cast<uint32_t>(indices.size()) ));
     }
     
 public:
     std::vector<float>        vertices;
-    std::vector<unsigned int> indices;
+    std::vector<uint16_t> indices;
     bgfx::VertexLayout ms_layout;
     
     bgfx::VertexBufferHandle m_vbh;

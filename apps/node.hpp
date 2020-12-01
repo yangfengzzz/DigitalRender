@@ -39,6 +39,7 @@ public:
     
 public:
     //MARK:- Instancing
+    bool isInstanceParent = false;
     uint32_t instanceCount = 1;
     uint16_t instanceStride = 0;
     bool allocInstanceData(uint32_t count, uint16_t stride) {
@@ -48,6 +49,7 @@ public:
         if (instanceCount == bgfx::getAvailInstanceDataBuffer(instanceCount, instanceStride) )
         {
             bgfx::allocInstanceDataBuffer(&idb, instanceCount, instanceStride);
+            isInstanceParent = true;
             return true;
         } else {
             return false;
@@ -55,7 +57,7 @@ public:
     }
     
     uint32_t getInstanceCount() {
-        if (parent == nullptr) {
+        if (parent == nullptr || isInstanceParent) {
             return instanceCount;
         }else {
             return parent->getInstanceCount();
@@ -64,7 +66,7 @@ public:
     
     bgfx::InstanceDataBuffer idb;
     bgfx::InstanceDataBuffer& getInstanceDataBuffer() {
-        if (parent == nullptr) {
+        if (parent == nullptr || isInstanceParent) {
             return idb;
         }else {
             return parent->getInstanceDataBuffer();

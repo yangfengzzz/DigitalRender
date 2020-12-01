@@ -54,17 +54,17 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
-        m_shader3.loadShader("../../../hello_model2/vs_model",
-                             "../../../hello_model2/fs_two");
-        m_shader2.loadShader("../../../hello_model2/vs_model",
-                             "../../../hello_model2/fs_one");
-        m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model2/nanosuit.obj", m_shader3);
+        m_shader3.loadShader("../../../hello_instancing/vs_model",
+                             "../../../hello_instancing/fs_two");
+        m_shader2.loadShader("../../../hello_instancing/vs_model",
+                             "../../../hello_instancing/fs_one");
+        m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_instancing/nanosuit.obj", m_shader3);
         auto result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Lights"));
         result->reloadShader(m_shader2);
         result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Visor"));
         result->reloadShader(m_shader2);
         
-//        m_scene.getRoot()->add(m_factory.createBox());
+        m_scene.getRoot()->add(m_factory.createBox());
         
         // Set view and projection matrices.
         cameraCreate();
@@ -236,9 +236,9 @@ public:
             const uint16_t instanceStride = 64;
             // 11x11 models
             const uint32_t numInstances   = 121;
-            if (m_scene.getRoot()->allocInstanceData(numInstances, instanceStride))
+            if (m_scene.getRoot()->childNodes[0]->allocInstanceData(numInstances, instanceStride))
             {
-                uint8_t* data = m_scene.getRoot()->idb.data;
+                uint8_t* data = m_scene.getRoot()->childNodes[0]->idb.data;
                 
                 // Write instance data for 11x11 cubes.
                 for (uint32_t yy = 0; yy < 11; ++yy)

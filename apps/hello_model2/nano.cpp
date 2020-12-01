@@ -131,7 +131,7 @@ public:
                 cameraGetViewMtx(m_view);
                 
                 glm::mat4 projection = glm::mat4(1.0f);
-                projection = glm::perspective(glm::radians(fov), float(m_width) / float(m_height), 0.1f, 100.0f);
+                projection = glm::perspective(glm::radians(fov), float(m_width) / float(m_height), 0.1f, 1000.0f);
                 
                 bgfx::setViewTransform(0, m_view, glm::value_ptr(projection));
                 

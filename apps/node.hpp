@@ -17,9 +17,25 @@
 namespace vox {
 class Node {
 public:
-    virtual void draw(Shader &shader) = 0;
+    Node(const Shader& shader) : shader(shader){}
+    
+    virtual void draw() = 0;
     
 public:
+    std::shared_ptr<Node> findNode(std::string m_name) {
+        for (size_t i = 0; i < childNodes.size(); i++) {
+            auto result = childNodes[i]->findNode(m_name);
+            if (result != nullptr) {
+                return result;
+            }
+        }
+        
+        return nullptr;
+    }
+    
+public:
+    std::string name = "";
+    
     Node* parent = nullptr;
     std::vector<std::shared_ptr<Node>> childNodes;
     
@@ -58,6 +74,11 @@ public:
         }else {
             return parent->getInstanceDataBuffer();
         }
+    }
+    
+    Shader shader;
+    void reloadShader(const Shader& m_shader) {
+        shader = m_shader;
     }
 };
 

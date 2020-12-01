@@ -24,14 +24,16 @@ namespace vox {
 
 class Model: public Node {
 public:
-    Model(std::string directory, aiNode *node, const aiScene *scene, Model* parent):
+    Model(std::string directory, aiNode *node, const aiScene *scene, Model* parent, const Shader& shader):
+    Node(shader),
     directory(directory),
     node(node),
     scene(scene) {
         this->parent = parent;
+        this->name = std::string(node->mName.C_Str());
         for(unsigned int i = 0; i < node->mNumChildren; i++)
         {
-            childNodes.push_back(std::make_shared<Model>(directory, node->mChildren[i], scene, this));
+            childNodes.push_back(std::make_shared<Model>(directory, node->mChildren[i], scene, this, shader));
         }
         
         processNode();
@@ -49,10 +51,10 @@ public:
     }
     
     // draws the model, and thus all its meshes
-    void draw(Shader &shader) override
+    void draw() override
     {
         for (size_t i = 0; i < childNodes.size(); i++) {
-            childNodes[i]->draw(shader);
+            childNodes[i]->draw();
         }
         
         update();
@@ -65,7 +67,7 @@ public:
                 bgfx::setInstanceDataBuffer(&getInstanceDataBuffer());
             }
             
-            meshes[i].draw(shader);
+            meshes[i].draw();
         }
     }
     

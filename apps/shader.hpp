@@ -14,7 +14,7 @@
 #include "common/bgfx_utils.h"
 
 namespace vox {
-class Shader {
+struct Shader {
 public:
     Shader() {
         state = 0
@@ -30,36 +30,17 @@ public:
         ;
     }
     
-    void addShader(int index, std::string vertexFunctionName,
-                   std::string fragmentFunctionName) {
-        // Create program from shaders.
-        bgfx::ProgramHandle m_shader = loadProgram(vertexFunctionName.c_str(),
-                                                   fragmentFunctionName.c_str());
-        
-        programs.insert(std::unordered_map<int, bgfx::ProgramHandle>::value_type(index, m_shader));
-    }
-    
-    uint64_t getState() {
-        return state;
-    }
-    
-    bgfx::ProgramHandle getProgram(int index) {
-        std::unordered_map<int, bgfx::ProgramHandle>::const_iterator it = programs.find(index);
-        if (it != programs.end()) {
-            return it->second;
-        } else {
-            return BGFX_INVALID_HANDLE;
-        }
+    void loadShader(std::string vertexFunctionName,
+                    std::string fragmentFunctionName) {
+        programs = loadProgram(vertexFunctionName.c_str(),
+                               fragmentFunctionName.c_str());
     }
     
     ~Shader() {
-        for (auto& shader : programs) {
-            bgfx::destroy(shader.second);
-        }
+        bgfx::destroy(programs);
     }
     
-private:
-    std::unordered_map<int, bgfx::ProgramHandle> programs;
+    bgfx::ProgramHandle programs = BGFX_INVALID_HANDLE;
     uint64_t state = 0;
 };
 

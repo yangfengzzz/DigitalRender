@@ -53,11 +53,15 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
-        m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model2/nanosuit.obj");
-        m_shader.addShader(3, "../../../hello_model2/vs_model",
-                           "../../../hello_model2/fs_two");
-        m_shader.addShader(2, "../../../hello_model2/vs_model",
-                           "../../../hello_model2/fs_one");
+        m_shader3.loadShader("../../../hello_model2/vs_model",
+                             "../../../hello_model2/fs_two");
+        m_shader2.loadShader("../../../hello_model2/vs_model",
+                             "../../../hello_model2/fs_one");
+        m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model2/nanosuit.obj", m_shader3);
+        auto result = m_scene.findNode("Lights");
+        result->reloadShader(m_shader2);
+        result = m_scene.findNode("Visor");
+        result->reloadShader(m_shader2);
         
         // Set view and projection matrices.
         cameraCreate();
@@ -236,7 +240,7 @@ public:
             bgfx::setUniform(normal_matrix, &u_normal_matrix);
             
             m_scene.setTransform(model);
-            m_scene.draw(m_shader);
+            m_scene.draw();
             
             // Advance to next frame. Rendering thread will be kicked to
             // process submitted rendering primitives.
@@ -257,7 +261,8 @@ public:
     
     int64_t m_timeOffset;
     vox::Scene m_scene;
-    vox::Shader m_shader;
+    vox::Shader m_shader3;
+    vox::Shader m_shader2;
     
     int32_t m_lastScroll = 0;
     float fov   =  45.0f;

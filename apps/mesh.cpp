@@ -169,4 +169,22 @@ void Mesh::setupMesh()
                                                   sizeof(uint16_t) * static_cast<uint32_t>(indices.size()) ));
 }
 
+void Mesh::draw()
+{
+    // Set vertex and index buffer.
+    bgfx::setVertexBuffer(0, m_vbh);
+    bgfx::setIndexBuffer(m_ibh);
+    
+    // Bind textures.
+    for (size_t i = 0; i < textures.size(); i++) {
+        bgfx::setTexture(i, samples[i], textures[i].m_texture);
+    }
+    
+    // Set render states.
+    bgfx::setState(parent->shader.state);
+    
+    // Submit primitive for rendering to view 0.
+    bgfx::submit(0, parent->shader.programs);
+}
+
 }

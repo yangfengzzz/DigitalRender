@@ -14,37 +14,17 @@
 #include <string>
 #include <assimp/scene.h>
 #include "shader.hpp"
+#include "texture.hpp"
 
 namespace vox {
 class Model;
-struct Texture {
-    bgfx::TextureHandle m_texture;
-    std::string type;
-    std::string path;
-};
 
 class Mesh {
 public:
     void load(aiMesh* mesh, aiMaterial* material, Model* parent);
     
     // render the mesh
-    void draw(Shader &shader)
-    {
-        // Set vertex and index buffer.
-        bgfx::setVertexBuffer(0, m_vbh);
-        bgfx::setIndexBuffer(m_ibh);
-        
-        // Bind textures.
-        for (size_t i = 0; i < textures.size(); i++) {
-            bgfx::setTexture(i, samples[i], textures[i].m_texture);
-        }
-        
-        // Set render states.
-        bgfx::setState(shader.getState());
-        
-        // Submit primitive for rendering to view 0.
-        bgfx::submit(0, shader.getProgram(static_cast<int>(textures.size())));
-    }
+    void draw();
     
 private:
     void processMesh();

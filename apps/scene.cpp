@@ -12,7 +12,7 @@
 #include "model.hpp"
 
 namespace vox {
-void Scene::loadAssimp(std::string const &path) {
+void Scene::loadAssimp(std::string const &path, const Shader& shader) {
     const aiScene* scene = importer.ReadFile(path,
                                              aiProcess_Triangulate |
                                              aiProcess_GenSmoothNormals |
@@ -27,7 +27,7 @@ void Scene::loadAssimp(std::string const &path) {
     // retrieve the directory path of the filepath
     std::string directory = path.substr(0, path.find_last_of('/'));
     
-    rootNode = std::make_shared<Model>(directory, scene->mRootNode, scene, nullptr);
+    rootNode = std::make_shared<Model>(directory, scene->mRootNode, scene, nullptr, shader);
 }
 
 }

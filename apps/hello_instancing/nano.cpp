@@ -54,9 +54,9 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
-        m_shader3.loadShader("../../../hello_instancing/vs_model",
+        m_shader3.loadShader("../../../hello_instancing/vs_instancing",
                              "../../../hello_instancing/fs_two");
-        m_shader2.loadShader("../../../hello_instancing/vs_model",
+        m_shader2.loadShader("../../../hello_instancing/vs_instancing",
                              "../../../hello_instancing/fs_one");
         m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_instancing/nanosuit.obj", m_shader3);
         auto result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Lights"));

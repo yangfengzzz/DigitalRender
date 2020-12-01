@@ -54,8 +54,8 @@ public:
                                   bgfx::makeRef(s_cubeTriList, sizeof(s_cubeTriList) )
                                   );
         
-        shader.loadShader("../../../hello_model2/vs_model",
-                          "../../../hello_model2/fs_basic");
+        shader.loadShader("../../../hello_instancing/vs_model",
+                          "../../../hello_instancing/fs_blinn");
         
         std::shared_ptr<SimpleModel> box = std::make_shared<SimpleModel>(ms_layout, m_vbh, m_ibh, shader);
         bgfx::TextureHandle m_diffuse = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/Models/Textures/wood.png");

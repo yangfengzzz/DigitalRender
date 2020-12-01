@@ -13,7 +13,6 @@
 		042459372570B3B600DDA3B0 /* utf8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592F2570B3B500DDA3B0 /* utf8.cpp */; };
 		044967032575F12000F262BE /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044967002575F12000F262BE /* node.cpp */; };
 		044967042575F12000F262BE /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044967022575F12000F262BE /* scene.cpp */; };
-		044967092575F14A00F262BE /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDBA32574CE7F0087C7D4 /* nano.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -91,6 +90,7 @@
 		047DDB43257370940087C7D4 /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB41257370940087C7D4 /* mesh.cpp */; };
 		047DDB6E257493600087C7D4 /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB6C257493600087C7D4 /* model.cpp */; };
 		047DDB872574A5240087C7D4 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB852574A5240087C7D4 /* shader.cpp */; };
+		04D8A3EB2575F82F004A1ECE /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDBA32574CE7F0087C7D4 /* nano.cpp */; };
 		04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CC9256AB173004BE0A6 /* shader_spirv.h */; };
 		04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */; };
 		04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCB256AB173004BE0A6 /* nvapi.h */; };
@@ -2326,7 +2326,7 @@
 				0461C789256B67F100980618 /* dialog.cpp in Sources */,
 				0461C7A1256B681300980618 /* imgui_widgets.cpp in Sources */,
 				0461C7C1256B683400980618 /* spatialorder.cpp in Sources */,
-				044967092575F14A00F262BE /* nano.cpp in Sources */,
+				04D8A3EB2575F82F004A1ECE /* nano.cpp in Sources */,
 				042459372570B3B600DDA3B0 /* utf8.cpp in Sources */,
 				042459342570B3B600DDA3B0 /* text_buffer_manager.cpp in Sources */,
 				047DDB6E257493600087C7D4 /* model.cpp in Sources */,

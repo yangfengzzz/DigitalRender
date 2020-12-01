@@ -228,10 +228,8 @@ public:
             const uint16_t instanceStride = 64;
             // 11x11 models
             const uint32_t numInstances   = 121;
-            if (numInstances == bgfx::getAvailInstanceDataBuffer(numInstances, instanceStride) )
+            if (m_scene.getRoot()->allocInstanceData(numInstances, instanceStride))
             {
-                bgfx::allocInstanceDataBuffer(&m_scene.getRoot()->idb, numInstances, instanceStride);
-                
                 uint8_t* data = m_scene.getRoot()->idb.data;
                 
                 // Write instance data for 11x11 cubes.

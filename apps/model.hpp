@@ -61,7 +61,9 @@ public:
             // Set model matrix for rendering.
             bgfx::setTransform(glm::value_ptr(modelTransform));
             // Set instance data buffer.
-            bgfx::setInstanceDataBuffer(&getInstanceDataBuffer());
+            if (getInstanceCount() != 1) {
+                bgfx::setInstanceDataBuffer(&getInstanceDataBuffer());
+            }
             
             meshes[i].draw(shader);
         }

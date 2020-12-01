@@ -21,7 +21,8 @@ public:
         rootNode = std::make_shared<Node>();
     }
     
-    void loadAssimp(std::string const &path, const Shader& shader);
+    void loadAssimp(std::string const &path,
+                    const Shader& shader);
     
     // draws the model, and thus all its meshes
     void draw()
@@ -39,33 +40,7 @@ public:
     }
     
     std::shared_ptr<Node> findNode(std::string name,
-                                   std::shared_ptr<Node> starter = nullptr) {
-        if (starter == nullptr) {
-            starter = rootNode;
-        }
-        
-        //check self
-        if (starter->name == name) {
-            return starter;
-        }
-        
-        //check childNode
-        for (int i = 0; i < starter->childNodes.size(); i++) {
-            if (starter->childNodes[i]->name == name) {
-                return starter->childNodes[i];
-            }
-        }
-        
-        //check subchild
-        for (int i = 0; i < starter->childNodes.size(); i++) {
-            auto result = starter->childNodes[i]->findNode(name);
-            if (result != nullptr) {
-                return result;
-            }
-        }
-        
-        return nullptr;
-    }
+                                   std::shared_ptr<Node> starter = nullptr);
     
 private:
     std::shared_ptr<Node> rootNode;

@@ -18,26 +18,6 @@
 namespace vox {
 class Node {
 public:
-    std::shared_ptr<Node> findNode(std::string m_name) {
-        //check childNode
-        for (int i = 0; i < childNodes.size(); i++) {
-            if (childNodes[i]->name == m_name) {
-                return childNodes[i];
-            }
-        }
-        
-        //check subchild
-        for (size_t i = 0; i < childNodes.size(); i++) {
-            auto result = childNodes[i]->findNode(m_name);
-            if (result != nullptr) {
-                return result;
-            }
-        }
-        
-        return nullptr;
-    }
-    
-public:
     std::string name = "";
     
     Node* parent = nullptr;
@@ -49,6 +29,8 @@ public:
     }
     glm::mat4 modelTransform = glm::mat4(1.0f);
     
+public:
+    //MARK:- Instancing
     uint32_t instanceCount = 1;
     uint16_t instanceStride = 0;
     bool allocInstanceData(uint32_t count, uint16_t stride) {
@@ -63,6 +45,7 @@ public:
             return false;
         }
     }
+    
     uint32_t getInstanceCount() {
         if (parent == nullptr) {
             return instanceCount;
@@ -80,6 +63,8 @@ public:
         }
     }
     
+public:
+    //MARK:- Renderable
     Renderable* renderable = nullptr;
     void draw() {
         if (renderable != nullptr) {
@@ -91,21 +76,13 @@ public:
         }
     }
     
+public:
     //MARK:- Modify Methods
-    void add(std::shared_ptr<Node> node) {
-        childNodes.push_back(node);
-    }
+    std::shared_ptr<Node> findNode(std::string m_name);
     
-    void remove(std::shared_ptr<Node> node) {
-        auto result = std::find(childNodes.begin(), childNodes.end(), node);
-        if (result != childNodes.end()) {
-            childNodes.erase(result);
-        }
-        
-        for (int i = 0; i < node->childNodes.size(); i++) {
-            childNodes.push_back(node->childNodes[i]);
-        }
-    }
+    void add(std::shared_ptr<Node> node);
+    
+    void remove(std::shared_ptr<Node> node);
 };
 
 }

@@ -27,7 +27,37 @@ void Scene::loadAssimp(std::string const &path, const Shader& shader) {
     // retrieve the directory path of the filepath
     std::string directory = path.substr(0, path.find_last_of('/'));
     
-    rootNode->add(std::make_shared<Model>(directory, scene->mRootNode, scene, nullptr, shader));
+    rootNode->add(std::make_shared<Model>(directory, scene->mRootNode,
+                                          scene, nullptr, shader));
+}
+
+std::shared_ptr<Node> Scene::findNode(std::string name,
+                                      std::shared_ptr<Node> starter) {
+    if (starter == nullptr) {
+        starter = rootNode;
+    }
+    
+    //check self
+    if (starter->name == name) {
+        return starter;
+    }
+    
+    //check childNode
+    for (int i = 0; i < starter->childNodes.size(); i++) {
+        if (starter->childNodes[i]->name == name) {
+            return starter->childNodes[i];
+        }
+    }
+    
+    //check subchild
+    for (int i = 0; i < starter->childNodes.size(); i++) {
+        auto result = starter->childNodes[i]->findNode(name);
+        if (result != nullptr) {
+            return result;
+        }
+    }
+    
+    return nullptr;
 }
 
 }

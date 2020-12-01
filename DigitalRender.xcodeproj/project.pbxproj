@@ -11,6 +11,9 @@
 		042459352570B3B600DDA3B0 /* font_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592A2570B3B500DDA3B0 /* font_manager.cpp */; };
 		042459362570B3B600DDA3B0 /* text_metrics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592E2570B3B500DDA3B0 /* text_metrics.cpp */; };
 		042459372570B3B600DDA3B0 /* utf8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592F2570B3B500DDA3B0 /* utf8.cpp */; };
+		044967032575F12000F262BE /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044967002575F12000F262BE /* node.cpp */; };
+		044967042575F12000F262BE /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044967022575F12000F262BE /* scene.cpp */; };
+		044967092575F14A00F262BE /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDBA32574CE7F0087C7D4 /* nano.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -88,7 +91,6 @@
 		047DDB43257370940087C7D4 /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB41257370940087C7D4 /* mesh.cpp */; };
 		047DDB6E257493600087C7D4 /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB6C257493600087C7D4 /* model.cpp */; };
 		047DDB872574A5240087C7D4 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB852574A5240087C7D4 /* shader.cpp */; };
-		047DDBC92574D9470087C7D4 /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDBA32574CE7F0087C7D4 /* nano.cpp */; };
 		04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CC9256AB173004BE0A6 /* shader_spirv.h */; };
 		04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */; };
 		04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCB256AB173004BE0A6 /* nvapi.h */; };
@@ -507,6 +509,10 @@
 		042459AC2570B81000DDA3B0 /* blendish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = blendish.h; path = "20-nanovg/blendish.h"; sourceTree = "<group>"; };
 		042459AD2570B81100DDA3B0 /* nanovg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = nanovg.cpp; path = "20-nanovg/nanovg.cpp"; sourceTree = "<group>"; };
 		042459B42570BB8500DDA3B0 /* windows.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = windows.cpp; path = "22-windows/windows.cpp"; sourceTree = "<group>"; };
+		044966FF2575F12000F262BE /* node.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = node.hpp; sourceTree = "<group>"; };
+		044967002575F12000F262BE /* node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = node.cpp; sourceTree = "<group>"; };
+		044967012575F12000F262BE /* scene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = scene.hpp; sourceTree = "<group>"; };
+		044967022575F12000F262BE /* scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scene.cpp; sourceTree = "<group>"; };
 		0461C762256B67AD00980618 /* bounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bounds.cpp; path = common/bounds.cpp; sourceTree = "<group>"; };
 		0461C763256B67AD00980618 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = camera.h; path = common/camera.h; sourceTree = "<group>"; };
 		0461C764256B67AD00980618 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = common/common.h; sourceTree = "<group>"; };
@@ -1611,6 +1617,10 @@
 				047DDB802574A1590087C7D4 /* apps.entitlements */,
 				047DDB8D2574ADAD0087C7D4 /* hello_model2 */,
 				047DDBA12574CE540087C7D4 /* hello_instancing */,
+				044967012575F12000F262BE /* scene.hpp */,
+				044967022575F12000F262BE /* scene.cpp */,
+				044966FF2575F12000F262BE /* node.hpp */,
+				044967002575F12000F262BE /* node.cpp */,
 				047DDB6D257493600087C7D4 /* model.hpp */,
 				047DDB6C257493600087C7D4 /* model.cpp */,
 				047DDB42257370940087C7D4 /* mesh.hpp */,
@@ -2292,13 +2302,14 @@
 				0461C7C4256B683400980618 /* indexgenerator.cpp in Sources */,
 				0461C78E256B67F100980618 /* input.cpp in Sources */,
 				0461C78B256B67F100980618 /* dialog_darwin.mm in Sources */,
+				044967032575F12000F262BE /* node.cpp in Sources */,
 				0461C7A0256B681300980618 /* imgui.cpp in Sources */,
 				047DDB872574A5240087C7D4 /* shader.cpp in Sources */,
-				047DDBC92574D9470087C7D4 /* nano.cpp in Sources */,
 				0461C76E256B67AD00980618 /* bounds.cpp in Sources */,
 				0461C770256B67AD00980618 /* camera.cpp in Sources */,
 				0461C7BA256B683400980618 /* overdrawanalyzer.cpp in Sources */,
 				0461C7C0256B683400980618 /* indexcodec.cpp in Sources */,
+				044967042575F12000F262BE /* scene.cpp in Sources */,
 				0461C771256B67AD00980618 /* cube_atlas.cpp in Sources */,
 				0461C7BD256B683400980618 /* vfetchanalyzer.cpp in Sources */,
 				0461C7E6256B69B000980618 /* nanovg_bgfx.cpp in Sources */,
@@ -2315,6 +2326,7 @@
 				0461C789256B67F100980618 /* dialog.cpp in Sources */,
 				0461C7A1256B681300980618 /* imgui_widgets.cpp in Sources */,
 				0461C7C1256B683400980618 /* spatialorder.cpp in Sources */,
+				044967092575F14A00F262BE /* nano.cpp in Sources */,
 				042459372570B3B600DDA3B0 /* utf8.cpp in Sources */,
 				042459342570B3B600DDA3B0 /* text_buffer_manager.cpp in Sources */,
 				047DDB6E257493600087C7D4 /* model.cpp in Sources */,

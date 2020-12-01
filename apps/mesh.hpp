@@ -12,9 +12,11 @@
 #include <bgfx/bgfx.h>
 #include <vector>
 #include <string>
+#include <assimp/scene.h>
 #include "shader.hpp"
 
 namespace vox {
+class Model;
 struct Texture {
     bgfx::TextureHandle m_texture;
     std::string type;
@@ -23,26 +25,7 @@ struct Texture {
 
 class Mesh {
 public:
-    Mesh(std::vector<float> vertices,
-         std::vector<uint16_t> indices,
-         bgfx::VertexLayout ms_layout,
-         std::vector<Texture> textures)
-    {
-        this->vertices = vertices;
-        this->indices = indices;
-        this->ms_layout = ms_layout;
-        this->textures = textures;
-        
-        // now that we have all the required data, set the vertex buffers and its attribute pointers.
-        setupMesh();
-        samples.reserve(textures.size());
-        for (size_t i = 0; i < textures.size(); i++) {
-            std::string samples_name = "s_texColor" + std::to_string(i);
-            bgfx::UniformHandle s_texColor1  = bgfx::createUniform(samples_name.c_str(),
-                                                                   bgfx::UniformType::Sampler);
-            samples.push_back(s_texColor1);
-        }
-    }
+    void load(aiMesh* mesh, aiMaterial* material, Model* parent);
     
     // render the mesh
     void draw(Shader &shader)
@@ -64,22 +47,25 @@ public:
     }
     
 private:
+    void processMesh();
+    
+    // checks all material textures of a given type and loads
+    // the textures if they're not loaded yet.
+    // the required info is returned as a Texture struct.
+    std::vector<Texture> loadMaterialTextures(aiMaterial *mat,
+                                              aiTextureType type,
+                                              std::string typeName);
+    
     // initializes all the buffer objects/arrays
     // Static data can be passed with bgfx::makeRef
-    void setupMesh()
-    {
-        // Create static vertex buffer.
-        m_vbh = bgfx::createVertexBuffer(bgfx::makeRef(&(vertices[0]),
-                                                       sizeof(float) * static_cast<uint32_t>(vertices.size()) )
-                                         , ms_layout);
-        
-        // Create static index buffer for triangle list rendering.
-        m_ibh = bgfx::createIndexBuffer(bgfx::makeRef(&(indices[0]),
-                                                      sizeof(uint16_t) * static_cast<uint32_t>(indices.size()) ));
-    }
+    void setupMesh();
     
 public:
-    std::vector<float>        vertices;
+    aiMesh* mesh;
+    aiMaterial* material;
+    Model* parent;
+    
+    std::vector<float> vertices;
     std::vector<uint16_t> indices;
     bgfx::VertexLayout ms_layout;
     

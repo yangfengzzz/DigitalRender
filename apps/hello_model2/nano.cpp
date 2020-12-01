@@ -5,7 +5,8 @@
 
 #include "common.h"
 #include "camera.h"
-#include "model.hpp"
+#include "scene.hpp"
+#include "shader.hpp"
 #include "common/imgui/imgui.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -52,7 +53,7 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
-        m_model.load("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model2/nanosuit.obj");
+        m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model2/nanosuit.obj");
         m_shader.addShader(3, "../../../hello_model2/vs_model",
                            "../../../hello_model2/fs_two");
         m_shader.addShader(2, "../../../hello_model2/vs_model",
@@ -234,8 +235,8 @@ public:
             glm::mat4 u_normal_matrix = glm::transpose(glm::inverse(model));
             bgfx::setUniform(normal_matrix, &u_normal_matrix);
             
-            m_model.setTransform(model);
-            m_model.draw(m_shader);
+            m_scene.setTransform(model);
+            m_scene.draw(m_shader);
             
             // Advance to next frame. Rendering thread will be kicked to
             // process submitted rendering primitives.
@@ -255,7 +256,7 @@ public:
     uint32_t m_reset;
     
     int64_t m_timeOffset;
-    vox::Model m_model;
+    vox::Scene m_scene;
     vox::Shader m_shader;
     
     int32_t m_lastScroll = 0;

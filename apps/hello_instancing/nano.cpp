@@ -5,7 +5,7 @@
 
 #include "common.h"
 #include "camera.h"
-#include "model.hpp"
+#include "scene.hpp"
 #include "common/imgui/imgui.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -52,7 +52,7 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
-        m_model.load("/Users/yangfeng/Desktop/DigitalRender/apps/hello_instancing/nanosuit.obj");
+        m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_instancing/nanosuit.obj");
         m_shader.addShader(3, "../../../hello_instancing/vs_model",
                            "../../../hello_instancing/fs_two");
         m_shader.addShader(2, "../../../hello_instancing/vs_model",
@@ -230,9 +230,9 @@ public:
             const uint32_t numInstances   = 121;
             if (numInstances == bgfx::getAvailInstanceDataBuffer(numInstances, instanceStride) )
             {
-                bgfx::allocInstanceDataBuffer(&m_model.idb, numInstances, instanceStride);
+                bgfx::allocInstanceDataBuffer(&m_scene.getRoot()->idb, numInstances, instanceStride);
                 
-                uint8_t* data = m_model.idb.data;
+                uint8_t* data = m_scene.getRoot()->idb.data;
                 
                 // Write instance data for 11x11 cubes.
                 for (uint32_t yy = 0; yy < 11; ++yy)
@@ -248,7 +248,7 @@ public:
                         data += instanceStride;
                     }
                 }
-                m_model.draw(m_shader);
+                m_scene.draw(m_shader);
             }
             
             // Advance to next frame. Rendering thread will be kicked to
@@ -269,7 +269,7 @@ public:
     uint32_t m_reset;
     
     int64_t m_timeOffset;
-    vox::Model m_model;
+    vox::Scene m_scene;
     vox::Shader m_shader;
     
     int32_t m_lastScroll = 0;

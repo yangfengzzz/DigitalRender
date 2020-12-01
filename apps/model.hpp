@@ -17,13 +17,25 @@
 #include <bimg/bimg.h>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "node.hpp"
 #include "mesh.hpp"
 
 namespace vox {
 
-class Model {
+class Model: public Node {
 public:
-    Model() {}
+    Model(std::string directory, aiNode *node, const aiScene *scene, Model* parent):
+    directory(directory),
+    node(node),
+    scene(scene) {
+        this->parent = parent;
+        for(unsigned int i = 0; i < node->mNumChildren; i++)
+        {
+            childNodes.push_back(std::make_shared<Model>(directory, node->mChildren[i], scene, this));
+        }
+        
+        processNode();
+    }
     
     ~Model() {
         for (size_t i = 0; i < meshes.size(); i++) {
@@ -36,56 +48,48 @@ public:
         }
     }
     
-    void load(std::string path) {
-        loadModel(path);
-    }
-    
     // draws the model, and thus all its meshes
-    void draw(Shader &shader)
+    void draw(Shader &shader) override
     {
+        for (size_t i = 0; i < childNodes.size(); i++) {
+            childNodes[i]->draw(shader);
+        }
+        
+        update();
+        
         for(unsigned int i = 0; i < meshes.size(); i++) {
             // Set model matrix for rendering.
             bgfx::setTransform(glm::value_ptr(modelTransform));
             // Set instance data buffer.
-            bgfx::setInstanceDataBuffer(&idb);
+            bgfx::setInstanceDataBuffer(&getInstanceDataBuffer());
             
             meshes[i].draw(shader);
         }
     }
     
-    void setTransform(glm::mat4 transform) {
-        this->modelTransform = transform;
-        
+    void update() {
+        if (parent != nullptr) {
+            modelTransform = modelTransform * localTransform;
+        } else {
+            modelTransform = localTransform;
+        }
     }
     
 private:
-    // loads a model with supported ASSIMP extensions from file
-    // and stores the resulting meshes in the meshes vector.
-    void loadModel(std::string const &path);
-    
     // processes a node in a recursive fashion.
     // Processes each individual mesh located at the node
     // and repeats this process on its children nodes (if any).
-    void processNode(aiNode *node, const aiScene *scene);
-    
-    Mesh processMesh(aiMesh *mesh, const aiScene *scene);
-    
-    // checks all material textures of a given type and loads
-    // the textures if they're not loaded yet.
-    // the required info is returned as a Texture struct.
-    std::vector<Texture> loadMaterialTextures(aiMaterial *mat,
-                                              aiTextureType type,
-                                              std::string typeName);
+    void processNode();
     
 public:
     std::string directory;
+    aiNode *node;
+    const aiScene *scene;
+    
     std::vector<Mesh> meshes;
     // stores all the textures loaded so far,
     // optimization to make sure textures aren't loaded more than once.
     std::vector<Texture> textures_loaded;
-    
-    glm::mat4 modelTransform = glm::mat4(1.0f);
-    bgfx::InstanceDataBuffer idb;
 };
 
 }

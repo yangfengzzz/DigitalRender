@@ -8,6 +8,7 @@
 #include "scene.hpp"
 #include "shader.hpp"
 #include "model.hpp"
+#include "nodeFactory.hpp"
 #include "common/imgui/imgui.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -63,6 +64,8 @@ public:
         result->reloadShader(m_shader2);
         result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Visor"));
         result->reloadShader(m_shader2);
+        
+        m_scene.getRoot()->add(m_factory.createBox());
         
         // Set view and projection matrices.
         cameraCreate();
@@ -264,6 +267,7 @@ public:
     vox::Scene m_scene;
     vox::Shader m_shader3;
     vox::Shader m_shader2;
+    vox::NodeFactory m_factory;
     
     int32_t m_lastScroll = 0;
     float fov   =  45.0f;

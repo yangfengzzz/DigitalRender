@@ -7,6 +7,7 @@
 #include "camera.h"
 #include "scene.hpp"
 #include "shader.hpp"
+#include "model.hpp"
 #include "common/imgui/imgui.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -58,9 +59,9 @@ public:
         m_shader2.loadShader("../../../hello_model2/vs_model",
                              "../../../hello_model2/fs_one");
         m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model2/nanosuit.obj", m_shader3);
-        auto result = m_scene.findNode("Lights");
+        auto result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Lights"));
         result->reloadShader(m_shader2);
-        result = m_scene.findNode("Visor");
+        result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Visor"));
         result->reloadShader(m_shader2);
         
         // Set view and projection matrices.

@@ -18,19 +18,21 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "node.hpp"
+#include "renderable.hpp"
 #include "mesh.hpp"
 
 namespace vox {
 
-class Model: public Node {
+class Model: public Node, public Renderable {
 public:
     Model(std::string directory, aiNode *node, const aiScene *scene, Model* parent, const Shader& shader):
-    Node(shader),
+    Renderable(shader),
     directory(directory),
     node(node),
     scene(scene) {
         this->parent = parent;
         this->name = std::string(node->mName.C_Str());
+        this->renderable = this;
         for(unsigned int i = 0; i < node->mNumChildren; i++)
         {
             childNodes.push_back(std::make_shared<Model>(directory, node->mChildren[i], scene, this, shader));
@@ -54,7 +56,9 @@ public:
     void draw() override
     {
         for (size_t i = 0; i < childNodes.size(); i++) {
-            childNodes[i]->draw();
+            if (childNodes[i]->renderable != nullptr) {
+                childNodes[i]->renderable->draw();
+            }
         }
         
         update();

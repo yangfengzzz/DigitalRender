@@ -11,11 +11,16 @@
 #include <assimp/Importer.hpp>
 #include <iostream>
 #include "node.hpp"
+#include "renderable.hpp"
 #include "shader.hpp"
 
 namespace vox {
 class Scene {
 public:
+    Scene() {
+        rootNode = std::make_shared<Node>();
+    }
+    
     void loadAssimp(std::string const &path, const Shader& shader);
     
     // draws the model, and thus all its meshes

@@ -13,14 +13,10 @@
 #include <assimp/scene.h>
 #include <vector>
 #include "shader.hpp"
+#include "renderable.hpp"
 
 namespace vox {
 class Node {
-public:
-    Node(const Shader& shader) : shader(shader){}
-    
-    virtual void draw() = 0;
-    
 public:
     std::shared_ptr<Node> findNode(std::string m_name) {
         for (size_t i = 0; i < childNodes.size(); i++) {
@@ -76,10 +72,19 @@ public:
         }
     }
     
-    Shader shader;
-    void reloadShader(const Shader& m_shader) {
-        shader = m_shader;
+    Renderable* renderable = nullptr;
+    void draw() {
+        if (renderable != nullptr) {
+            renderable->draw();
+        }
+        
+        for (size_t i = 0; i < childNodes.size(); i++) {
+            childNodes[i]->draw();
+        }
     }
+    
+    //MARK:- Modify Methods
+    
 };
 
 }

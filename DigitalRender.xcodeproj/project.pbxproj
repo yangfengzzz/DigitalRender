@@ -93,6 +93,8 @@
 		04D8A3EE257621CE004A1ECE /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB8E2574AE670087C7D4 /* nano.cpp */; };
 		04D8A3F825762EED004A1ECE /* simple_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A3F625762EED004A1ECE /* simple_model.cpp */; };
 		04D8A3FD25762F66004A1ECE /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A3FB25762F66004A1ECE /* texture.cpp */; };
+		04D8A40625763CEB004A1ECE /* nodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A40425763CEB004A1ECE /* nodeFactory.cpp */; };
+		04D8A40D257640C4004A1ECE /* renderable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A40B257640C4004A1ECE /* renderable.cpp */; };
 		04EB7D1E256AB174004BE0A6 /* shader_spirv.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CC9256AB173004BE0A6 /* shader_spirv.h */; };
 		04EB7D1F256AB174004BE0A6 /* glcontext_egl.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCA256AB173004BE0A6 /* glcontext_egl.h */; };
 		04EB7D20256AB174004BE0A6 /* nvapi.h in Headers */ = {isa = PBXBuildFile; fileRef = 04EB7CCB256AB173004BE0A6 /* nvapi.h */; };
@@ -697,6 +699,10 @@
 		04D8A3F725762EED004A1ECE /* simple_model.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = simple_model.hpp; sourceTree = "<group>"; };
 		04D8A3FB25762F66004A1ECE /* texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = texture.cpp; sourceTree = "<group>"; };
 		04D8A3FC25762F66004A1ECE /* texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = texture.hpp; sourceTree = "<group>"; };
+		04D8A40425763CEB004A1ECE /* nodeFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = nodeFactory.cpp; sourceTree = "<group>"; };
+		04D8A40525763CEB004A1ECE /* nodeFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = nodeFactory.hpp; sourceTree = "<group>"; };
+		04D8A40B257640C4004A1ECE /* renderable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = renderable.cpp; sourceTree = "<group>"; };
+		04D8A40C257640C4004A1ECE /* renderable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = renderable.hpp; sourceTree = "<group>"; };
 		04DFB4B9256F38FF00E54C67 /* shadowmaps_simple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shadowmaps_simple.cpp; path = "15-shadowmaps-simple/shadowmaps_simple.cpp"; sourceTree = "<group>"; };
 		04DFB4BA256F38FF00E54C67 /* fs_sms_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_sms_mesh.sc; path = "15-shadowmaps-simple/fs_sms_mesh.sc"; sourceTree = "<group>"; };
 		04DFB4BB256F38FF00E54C67 /* vs_sms_mesh.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_sms_mesh.sc; path = "15-shadowmaps-simple/vs_sms_mesh.sc"; sourceTree = "<group>"; };
@@ -1513,6 +1519,8 @@
 				047DDB912574AE670087C7D4 /* fs_two.sc */,
 				047DDB922574AE670087C7D4 /* vs_model.sc */,
 				047DDB8E2574AE670087C7D4 /* nano.cpp */,
+				04D8A40525763CEB004A1ECE /* nodeFactory.hpp */,
+				04D8A40425763CEB004A1ECE /* nodeFactory.cpp */,
 			);
 			path = hello_model2;
 			sourceTree = "<group>";
@@ -1639,6 +1647,8 @@
 				047DDB852574A5240087C7D4 /* shader.cpp */,
 				04D8A3FC25762F66004A1ECE /* texture.hpp */,
 				04D8A3FB25762F66004A1ECE /* texture.cpp */,
+				04D8A40C257640C4004A1ECE /* renderable.hpp */,
+				04D8A40B257640C4004A1ECE /* renderable.cpp */,
 			);
 			path = apps;
 			sourceTree = "<group>";
@@ -2345,7 +2355,9 @@
 				04D8A3FD25762F66004A1ECE /* texture.cpp in Sources */,
 				047DDB6E257493600087C7D4 /* model.cpp in Sources */,
 				0461C7C2256B683400980618 /* stripifier.cpp in Sources */,
+				04D8A40625763CEB004A1ECE /* nodeFactory.cpp in Sources */,
 				0461C7BB256B683400980618 /* allocator.cpp in Sources */,
+				04D8A40D257640C4004A1ECE /* renderable.cpp in Sources */,
 				0461C7A2256B681300980618 /* imgui_demo.cpp in Sources */,
 				0461C78A256B67F100980618 /* entry_osx.mm in Sources */,
 			);

@@ -9,19 +9,21 @@
 #define simple_model_hpp
 
 #include "node.hpp"
+#include "renderable.hpp"
 #include "texture.hpp"
 
 namespace vox {
-class SimpleModel : public Node {
+class SimpleModel : public Node, public Renderable {
 public:
     SimpleModel(bgfx::VertexLayout ms_layout,
                 bgfx::VertexBufferHandle m_vbh,
                 bgfx::IndexBufferHandle m_ibh,
                 const Shader& shader):
-    Node(shader),
+    Renderable(shader),
     ms_layout(ms_layout),
     m_vbh(m_vbh),
     m_ibh(m_ibh) {
+        this->renderable = this;
     }
     
     void addTexture(bgfx::TextureHandle texture) {

@@ -26,7 +26,7 @@ namespace vox {
 class Model: public Node, public Renderable {
 public:
     Model(std::string directory, aiNode *node, const aiScene *scene,
-          Model* parent, const Shader& shader);
+          Node* parent, const Shader& shader);
     
     ~Model();
     

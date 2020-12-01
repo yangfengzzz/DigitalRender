@@ -17,7 +17,7 @@
 
 namespace vox {
 Model::Model(std::string directory, aiNode *node, const aiScene *scene,
-             Model* parent, const Shader& shader):
+             Node* parent, const Shader& shader):
 Renderable(shader),
 directory(directory),
 node(node),
@@ -47,13 +47,7 @@ Model::~Model() {
 
 // draws the model, and thus all its meshes
 void Model::draw()
-{
-    for (size_t i = 0; i < childNodes.size(); i++) {
-        if (childNodes[i]->renderable != nullptr) {
-            childNodes[i]->renderable->draw();
-        }
-    }
-        
+{        
     for(unsigned int i = 0; i < meshes.size(); i++) {
         // Set model matrix for rendering.
         bgfx::setTransform(glm::value_ptr(modelTransform));

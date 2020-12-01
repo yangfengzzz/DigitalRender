@@ -60,6 +60,10 @@ public:
         std::shared_ptr<SimpleModel> box = std::make_shared<SimpleModel>(ms_layout, m_vbh, m_ibh, shader);
         bgfx::TextureHandle m_diffuse = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/Models/Textures/wood.png");
         box->addTexture(m_diffuse);
+        
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
+        box->setTransform(model);
         return box;
     }
     

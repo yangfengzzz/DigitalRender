@@ -90,7 +90,7 @@
 		047DDB43257370940087C7D4 /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB41257370940087C7D4 /* mesh.cpp */; };
 		047DDB6E257493600087C7D4 /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB6C257493600087C7D4 /* model.cpp */; };
 		047DDB872574A5240087C7D4 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB852574A5240087C7D4 /* shader.cpp */; };
-		04D8A3EE257621CE004A1ECE /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB8E2574AE670087C7D4 /* nano.cpp */; };
+		04C0AB952576953A00A50D30 /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDBA32574CE7F0087C7D4 /* nano.cpp */; };
 		04D8A3F825762EED004A1ECE /* simple_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A3F625762EED004A1ECE /* simple_model.cpp */; };
 		04D8A3FD25762F66004A1ECE /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A3FB25762F66004A1ECE /* texture.cpp */; };
 		04D8A40625763CEB004A1ECE /* nodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A40425763CEB004A1ECE /* nodeFactory.cpp */; };
@@ -683,6 +683,7 @@
 		047DDBA42574CE7F0087C7D4 /* fs_one.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_one.sc; sourceTree = "<group>"; };
 		047DDBA52574CE7F0087C7D4 /* fs_two.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_two.sc; sourceTree = "<group>"; };
 		047DDBA62574CE7F0087C7D4 /* vs_model.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_model.sc; sourceTree = "<group>"; };
+		04C0AB832576900800A50D30 /* fs_basic.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_basic.sc; sourceTree = "<group>"; };
 		04C171A9256EBA7A00C07290 /* uniforms.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = uniforms.sh; path = "18-ibl/uniforms.sh"; sourceTree = "<group>"; };
 		04CE762D256DE82B0033C25A /* fs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_light.sc; sourceTree = "<group>"; };
 		04CE762E256DE82B0033C25A /* hello_light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hello_light.cpp; sourceTree = "<group>"; };
@@ -1519,8 +1520,6 @@
 				047DDB912574AE670087C7D4 /* fs_two.sc */,
 				047DDB922574AE670087C7D4 /* vs_model.sc */,
 				047DDB8E2574AE670087C7D4 /* nano.cpp */,
-				04D8A40525763CEB004A1ECE /* nodeFactory.hpp */,
-				04D8A40425763CEB004A1ECE /* nodeFactory.cpp */,
 			);
 			path = hello_model2;
 			sourceTree = "<group>";
@@ -1528,6 +1527,7 @@
 		047DDBA12574CE540087C7D4 /* hello_instancing */ = {
 			isa = PBXGroup;
 			children = (
+				04C0AB832576900800A50D30 /* fs_basic.sc */,
 				047DDBA22574CE7F0087C7D4 /* varying.def.sc */,
 				047DDBA42574CE7F0087C7D4 /* fs_one.sc */,
 				047DDBA52574CE7F0087C7D4 /* fs_two.sc */,
@@ -1633,6 +1633,8 @@
 				047DDB802574A1590087C7D4 /* apps.entitlements */,
 				047DDB8D2574ADAD0087C7D4 /* hello_model2 */,
 				047DDBA12574CE540087C7D4 /* hello_instancing */,
+				04D8A40525763CEB004A1ECE /* nodeFactory.hpp */,
+				04D8A40425763CEB004A1ECE /* nodeFactory.cpp */,
 				044967012575F12000F262BE /* scene.hpp */,
 				044967022575F12000F262BE /* scene.cpp */,
 				044966FF2575F12000F262BE /* node.hpp */,
@@ -2318,7 +2320,7 @@
 				0461C7E7256B69B000980618 /* nanovg.cpp in Sources */,
 				0461C7C3256B683400980618 /* clusterizer.cpp in Sources */,
 				0461C7B9256B683400980618 /* simplifier.cpp in Sources */,
-				04D8A3EE257621CE004A1ECE /* nano.cpp in Sources */,
+				04C0AB952576953A00A50D30 /* nano.cpp in Sources */,
 				0461C78D256B67F100980618 /* cmd.cpp in Sources */,
 				042459362570B3B600DDA3B0 /* text_metrics.cpp in Sources */,
 				0461C78C256B67F100980618 /* entry.cpp in Sources */,

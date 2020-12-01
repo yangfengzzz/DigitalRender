@@ -28,7 +28,7 @@ void Scene::loadAssimp(std::string const &path, const Shader& shader) {
     std::string directory = path.substr(0, path.find_last_of('/'));
     
     rootNode->add(std::make_shared<Model>(directory, scene->mRootNode,
-                                          scene, nullptr, shader));
+                                          scene, rootNode.get(), shader));
 }
 
 std::shared_ptr<Node> Scene::findNode(std::string name,

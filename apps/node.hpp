@@ -29,6 +29,14 @@ public:
     }
     glm::mat4 modelTransform = glm::mat4(1.0f);
     
+    void update() {
+        if (parent != nullptr) {
+            modelTransform = parent->modelTransform * localTransform;
+        } else {
+            modelTransform = localTransform;
+        }
+    }
+    
 public:
     //MARK:- Instancing
     uint32_t instanceCount = 1;
@@ -66,13 +74,14 @@ public:
 public:
     //MARK:- Renderable
     Renderable* renderable = nullptr;
-    void draw() {
+    void render() {
+        update();
         if (renderable != nullptr) {
             renderable->draw();
         }
         
         for (size_t i = 0; i < childNodes.size(); i++) {
-            childNodes[i]->draw();
+            childNodes[i]->render();
         }
     }
     

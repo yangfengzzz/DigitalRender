@@ -27,7 +27,7 @@ public:
     // draws the model, and thus all its meshes
     void draw()
     {
-        rootNode->draw();
+        rootNode->render();
     }
     
     void setTransform(glm::mat4 transform) {

@@ -231,19 +231,16 @@ public:
             // This dummy draw call is here to make sure that view 0 is cleared
             // if no other draw calls are submitted to view 0.
             bgfx::touch(0);
-            
-            float time = (float)( (bx::getHPCounter()-m_timeOffset)/double(bx::getHPFrequency() ) );
-            bgfx::setUniform(u_time, &time);
-            
-            glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-            model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));    // it's a bit too big for our scene, so scale it down
-            model = glm::rotate(model, time*0.37f, glm::vec3(0.0f, 1.0f, 0.0f) );
-            
-            glm::mat4 u_normal_matrix = glm::transpose(glm::inverse(model));
-            bgfx::setUniform(normal_matrix, &u_normal_matrix);
-            
-            m_scene.setTransform(model);
+            {
+                float time = (float)( (bx::getHPCounter()-m_timeOffset)/double(bx::getHPFrequency() ) );
+                bgfx::setUniform(u_time, &time);
+                
+                glm::mat4 model = glm::mat4(1.0f);
+                model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
+                model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));    // it's a bit too big for our scene, so scale it down
+                model = glm::rotate(model, time*0.37f, glm::vec3(0.0f, 1.0f, 0.0f) );
+                m_scene.getRoot()->childNodes[0]->setTransform(model);
+            }
             m_scene.draw();
             
             // Advance to next frame. Rendering thread will be kicked to

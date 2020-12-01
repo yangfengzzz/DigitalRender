@@ -33,8 +33,6 @@ public:
     // draws the model, and thus all its meshes
     void draw() override;
     
-    void update();
-    
 private:
     // processes a node in a recursive fashion.
     // Processes each individual mesh located at the node

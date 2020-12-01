@@ -53,9 +53,7 @@ void Model::draw()
             childNodes[i]->renderable->draw();
         }
     }
-    
-    update();
-    
+        
     for(unsigned int i = 0; i < meshes.size(); i++) {
         // Set model matrix for rendering.
         bgfx::setTransform(glm::value_ptr(modelTransform));
@@ -65,14 +63,6 @@ void Model::draw()
         }
         
         meshes[i].draw();
-    }
-}
-
-void Model::update() {
-    if (parent != nullptr) {
-        modelTransform = modelTransform * localTransform;
-    } else {
-        modelTransform = localTransform;
     }
 }
 

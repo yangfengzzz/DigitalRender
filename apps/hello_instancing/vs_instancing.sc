@@ -18,9 +18,8 @@ void main()
     
     vec4 worldPos = instMul(model, vec4(a_position, 1.0) );
     gl_Position = mul(u_viewProj, worldPos);
-    v_FragPos = mul(model, vec4(a_position, 1.0) ).xyz;
+    v_FragPos = worldPos.xyz;
     
-    vec3 normal = a_normal * 2.0 - 1.0;
-    v_normal = mul(model, normal);
+    v_normal = mul(model, a_normal);
     v_texcoord0 = a_texcoord0;
 }

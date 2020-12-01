@@ -15,7 +15,6 @@ void main()
     gl_Position = mul(u_modelViewProj, vec4(a_position, 1.0) );
     v_FragPos = mul(u_model[0], vec4(a_position, 1.0) ).xyz;
     
-    vec3 normal = a_normal * 2.0 - 1.0;
-    v_normal = mul(normal_matrix, normal);
+    v_normal = mul(u_model[0], a_normal);
     v_texcoord0 = a_texcoord0;
 }

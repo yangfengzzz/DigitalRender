@@ -47,10 +47,12 @@ Model::~Model() {
 
 // draws the model, and thus all its meshes
 void Model::draw()
-{        
+{
+    glm::mat4 modelMatrix = worldTransform() * localTransform;
+    
     for(unsigned int i = 0; i < meshes.size(); i++) {
         // Set model matrix for rendering.
-        bgfx::setTransform(glm::value_ptr(modelTransform));
+        bgfx::setTransform(glm::value_ptr(modelMatrix));
         // Set instance data buffer.
         if (getInstanceCount() != 1) {
             bgfx::setInstanceDataBuffer(&getInstanceDataBuffer());

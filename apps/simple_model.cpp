@@ -10,8 +10,10 @@
 
 namespace vox {
 void SimpleModel::draw() {
+    glm::mat4 modelMatrix = worldTransform() * localTransform;
+    
     // Set model matrix for rendering.
-    bgfx::setTransform(glm::value_ptr(modelTransform));
+    bgfx::setTransform(glm::value_ptr(modelMatrix));
     // Set instance data buffer.
     if (getInstanceCount() != 1) {
         bgfx::setInstanceDataBuffer(&getInstanceDataBuffer());

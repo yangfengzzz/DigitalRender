@@ -13,7 +13,6 @@
 		042459372570B3B600DDA3B0 /* utf8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0424592F2570B3B500DDA3B0 /* utf8.cpp */; };
 		044967032575F12000F262BE /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044967002575F12000F262BE /* node.cpp */; };
 		044967042575F12000F262BE /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 044967022575F12000F262BE /* scene.cpp */; };
-		0459B37F2576ABED00FC7E68 /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDBA32574CE7F0087C7D4 /* nano.cpp */; };
 		0461C76E256B67AD00980618 /* bounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C762256B67AD00980618 /* bounds.cpp */; };
 		0461C76F256B67AD00980618 /* example-glue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C767256B67AD00980618 /* example-glue.cpp */; };
 		0461C770256B67AD00980618 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0461C768256B67AD00980618 /* camera.cpp */; };
@@ -92,6 +91,7 @@
 		047DDB6E257493600087C7D4 /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB6C257493600087C7D4 /* model.cpp */; };
 		047DDB872574A5240087C7D4 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB852574A5240087C7D4 /* shader.cpp */; };
 		04C7397D2577696800138A7B /* transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7397B2577696800138A7B /* transform.cpp */; };
+		04C739872577897F00138A7B /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDBA32574CE7F0087C7D4 /* nano.cpp */; };
 		04D8A3F825762EED004A1ECE /* simple_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A3F625762EED004A1ECE /* simple_model.cpp */; };
 		04D8A3FD25762F66004A1ECE /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A3FB25762F66004A1ECE /* texture.cpp */; };
 		04D8A40625763CEB004A1ECE /* nodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A40425763CEB004A1ECE /* nodeFactory.cpp */; };
@@ -2327,7 +2327,6 @@
 				0461C7E7256B69B000980618 /* nanovg.cpp in Sources */,
 				0461C7C3256B683400980618 /* clusterizer.cpp in Sources */,
 				0461C7B9256B683400980618 /* simplifier.cpp in Sources */,
-				0459B37F2576ABED00FC7E68 /* nano.cpp in Sources */,
 				0461C78D256B67F100980618 /* cmd.cpp in Sources */,
 				042459362570B3B600DDA3B0 /* text_metrics.cpp in Sources */,
 				0461C78C256B67F100980618 /* entry.cpp in Sources */,
@@ -2363,6 +2362,7 @@
 				042459372570B3B600DDA3B0 /* utf8.cpp in Sources */,
 				042459342570B3B600DDA3B0 /* text_buffer_manager.cpp in Sources */,
 				04D8A3FD25762F66004A1ECE /* texture.cpp in Sources */,
+				04C739872577897F00138A7B /* nano.cpp in Sources */,
 				047DDB6E257493600087C7D4 /* model.cpp in Sources */,
 				0461C7C2256B683400980618 /* stripifier.cpp in Sources */,
 				04D8A40625763CEB004A1ECE /* nodeFactory.cpp in Sources */,

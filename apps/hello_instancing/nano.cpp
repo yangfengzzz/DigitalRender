@@ -7,7 +7,7 @@
 #include "camera.h"
 #include "scene.hpp"
 #include "model.hpp"
-#include "nodeFactory.hpp"
+#include "../hello_instancing/nodeFactory.hpp"
 #include "common/imgui/imgui.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

@@ -10,6 +10,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
 #include <assimp/scene.h>
 #include <vector>
 #include "shader.hpp"
@@ -18,24 +19,40 @@
 namespace vox {
 class Node {
 public:
-    std::string name = "";
+    //MARK:- Node Transform
+    std::string name = "untitled";
+    glm::vec3 position = glm::vec3(0.0);
+    glm::quat quaternion = glm::quat(0.0, 0.0, 0.0, 0.0);
+    glm::vec3 scale = glm::vec3(1.0f);
+    void setEulerAngle(glm::vec3 eulerAngle) {
+        quaternion = glm::quat(eulerAngle);
+    }
     
-    Node* parent = nullptr;
-    std::vector<std::shared_ptr<Node>> childNodes;
+    /// User setting transform
+    glm::mat4 modelMatrix() {
+        glm::mat4 model = glm::mat4(1.0);
+        model = glm::translate(model, position);
+        model = glm::scale(model, scale);
+        model = glm::mat4_cast(quaternion) * model;
+        return model;
+    }
     
+    /// Accumulate user setting trasform
+    glm::mat4 worldTransform() {
+        if (parent != nullptr) {
+            return parent->worldTransform() * modelMatrix();
+        }
+        return modelMatrix();
+    }
+    
+    /// model internal transform
     glm::mat4 localTransform = glm::mat4(1.0f);
     void setTransform(glm::mat4 transform) {
         this->localTransform = transform;
     }
-    glm::mat4 modelTransform = glm::mat4(1.0f);
     
-    void update() {
-        if (parent != nullptr) {
-            modelTransform = parent->modelTransform * localTransform;
-        } else {
-            modelTransform = localTransform;
-        }
-    }
+    Node* parent = nullptr;
+    std::vector<std::shared_ptr<Node>> childNodes;
     
 public:
     //MARK:- Instancing
@@ -77,7 +94,6 @@ public:
     //MARK:- Renderable
     Renderable* renderable = nullptr;
     void render() {
-        update();
         if (renderable != nullptr) {
             renderable->draw();
         }

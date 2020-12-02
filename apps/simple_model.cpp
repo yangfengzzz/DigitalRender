@@ -15,9 +15,7 @@ void SimpleModel::draw() {
     // Set model matrix for rendering.
     bgfx::setTransform(glm::value_ptr(modelMatrix));
     // Set instance data buffer.
-    if (getInstanceCount() != 1) {
-        bgfx::setInstanceDataBuffer(&getInstanceDataBuffer());
-    }
+    bgfx::setInstanceDataBuffer(&getInstanceDataBuffer());
     
     // Set vertex and index buffer.
     bgfx::setVertexBuffer(0, m_vbh);

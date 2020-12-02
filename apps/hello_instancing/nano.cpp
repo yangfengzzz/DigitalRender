@@ -7,6 +7,7 @@
 #include "camera.h"
 #include "scene.hpp"
 #include "model.hpp"
+#include "transform.hpp"
 #include "../hello_instancing/nodeFactory.hpp"
 #include "common/imgui/imgui.h"
 #include <glm/glm.hpp>
@@ -54,6 +55,7 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
+        m_scene.allocRoot();
         m_shader3.loadShader("../../../hello_instancing/vs_instancing",
                              "../../../hello_instancing/fs_two");
         m_shader2.loadShader("../../../hello_instancing/vs_instancing",
@@ -64,7 +66,7 @@ public:
         result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Visor"));
         result->reloadShader(m_shader2);
         
-        m_scene.getRoot()->add(m_factory.createBox());
+        m_scene.getRoot()->add(m_factory.createBox(m_scene.getRoot().get()));
         
         // Set view and projection matrices.
         cameraCreate();
@@ -232,26 +234,22 @@ public:
             float time = (float)( (bx::getHPCounter()-m_timeOffset)/double(bx::getHPFrequency() ) );
             bgfx::setUniform(u_time, &time);
             
-            // 64 bytes for 4x4 matrix.
-            const uint16_t instanceStride = 64;
             // 11x11 models
             const uint32_t numInstances   = 121;
-            if (m_scene.getRoot()->childNodes[0]->allocInstanceData(numInstances, instanceStride))
+            if (m_scene.getRoot()->childNodes[0]->allocInstanceData(numInstances))
             {
-                uint8_t* data = m_scene.getRoot()->childNodes[0]->idb.data;
-                
                 // Write instance data for 11x11 cubes.
+                uint32_t index = 0;
                 for (uint32_t yy = 0; yy < 11; ++yy)
                 {
                     for (uint32_t xx = 0; xx < 11; ++xx)
                     {
-                        float* mtx = (float*)data;
-                        bx::mtxRotateY(mtx, time*0.37f);
-                        mtx[12] = -15.0f + float(xx)*10.0f;
-                        mtx[13] = 0.0f;
-                        mtx[14] = -15.0f + float(yy)*10.0f;
-                        
-                        data += instanceStride;
+                        vox::Transform transform;
+                        transform.position = glm::vec3(-15.0f + float(xx)*10.0f,
+                                                       0.0f, -15.0f + float(yy)*10.0f);
+                        transform.eulerAngle = glm::vec3(0.0f, time*0.37f, 0.0f);
+                        m_scene.getRoot()->childNodes[0]->updateBuffer(index, transform);
+                        index++;
                     }
                 }
             }

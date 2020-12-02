@@ -16,9 +16,12 @@
 
 namespace vox {
 class Scene {
-public:
-    Scene() {
+public:    
+    void allocRoot() {
         rootNode = std::make_shared<Node>();
+        rootNode->name = "RootNode";
+        rootNode->allocInstanceData(1);
+        rootNode->updateBuffer(0, Transform());
     }
     
     void loadAssimp(std::string const &path,

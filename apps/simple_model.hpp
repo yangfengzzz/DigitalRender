@@ -18,11 +18,13 @@ public:
     SimpleModel(bgfx::VertexLayout ms_layout,
                 bgfx::VertexBufferHandle m_vbh,
                 bgfx::IndexBufferHandle m_ibh,
+                Node* parent,
                 const Shader& shader):
     Renderable(shader),
     ms_layout(ms_layout),
     m_vbh(m_vbh),
     m_ibh(m_ibh) {
+        this->parent = parent;
         this->renderable = this;
     }
     

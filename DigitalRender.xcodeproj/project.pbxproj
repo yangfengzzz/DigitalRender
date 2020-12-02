@@ -667,7 +667,6 @@
 		04673BC02572349400115592 /* vs_picking_shaded.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = vs_picking_shaded.sc; path = "30-picking/vs_picking_shaded.sc"; sourceTree = "<group>"; };
 		04673BC12572349400115592 /* picking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = picking.cpp; path = "30-picking/picking.cpp"; sourceTree = "<group>"; };
 		04673BC22572349400115592 /* fs_picking_id.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fs_picking_id.sc; path = "30-picking/fs_picking_id.sc"; sourceTree = "<group>"; };
-		0467B5EF2576EDF800BE8F1F /* vs_model.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_model.sc; sourceTree = "<group>"; };
 		0467B5F22576EE9400BE8F1F /* fs_blinn.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_blinn.sc; sourceTree = "<group>"; };
 		047DDB41257370940087C7D4 /* mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mesh.cpp; sourceTree = "<group>"; };
 		047DDB42257370940087C7D4 /* mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mesh.hpp; sourceTree = "<group>"; };
@@ -1535,7 +1534,6 @@
 				0467B5F22576EE9400BE8F1F /* fs_blinn.sc */,
 				047DDBA42574CE7F0087C7D4 /* fs_one.sc */,
 				047DDBA52574CE7F0087C7D4 /* fs_two.sc */,
-				0467B5EF2576EDF800BE8F1F /* vs_model.sc */,
 				047DDBA62574CE7F0087C7D4 /* vs_instancing.sc */,
 				047DDBA32574CE7F0087C7D4 /* nano.cpp */,
 				04D8A40525763CEB004A1ECE /* nodeFactory.hpp */,

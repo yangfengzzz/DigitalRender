@@ -31,7 +31,7 @@ static const uint16_t s_cubeTriList[] =
 
 class NodeFactory {
 public:
-    std::shared_ptr<Node> createBox(){
+    std::shared_ptr<Node> createBox(Node* parent){
         bgfx::VertexLayout ms_layout;
         ms_layout.begin()
         .add(bgfx::Attrib::Position, 3, bgfx::AttribType::Float)
@@ -54,16 +54,15 @@ public:
                                   bgfx::makeRef(s_cubeTriList, sizeof(s_cubeTriList) )
                                   );
         
-        shader.loadShader("../../../hello_instancing/vs_model",
+        shader.loadShader("../../../hello_instancing/vs_instancing",
                           "../../../hello_instancing/fs_blinn");
         
-        std::shared_ptr<SimpleModel> box = std::make_shared<SimpleModel>(ms_layout, m_vbh, m_ibh, shader);
+        std::shared_ptr<SimpleModel> box = std::make_shared<SimpleModel>(ms_layout, m_vbh, m_ibh,
+                                                                         parent, shader);
         bgfx::TextureHandle m_diffuse = loadTexture("/Users/yangfeng/Desktop/DigitalRender/apps/Models/Textures/wood.png");
         box->addTexture(m_diffuse);
         
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
-        box->setTransform(model);
+        box->scale = glm::vec3(10.0f, 10.0f, 10.0f);
         return box;
     }
     

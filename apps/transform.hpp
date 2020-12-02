@@ -19,8 +19,8 @@ struct Transform {
     glm::vec3 scale = glm::vec3(1.0);
     
 public:
-    glm::mat4 modelMatrix();
-    glm::mat3 normalMatrix();
+    glm::mat4 modelMatrix() const;
+    glm::mat3 normalMatrix() const;
 };
 
 }

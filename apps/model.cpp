@@ -54,9 +54,7 @@ void Model::draw()
         // Set model matrix for rendering.
         bgfx::setTransform(glm::value_ptr(modelMatrix));
         // Set instance data buffer.
-        if (getInstanceCount() != 1) {
-            bgfx::setInstanceDataBuffer(&getInstanceDataBuffer());
-        }
+        bgfx::setInstanceDataBuffer(&getInstanceDataBuffer());
         
         meshes[i].draw();
     }

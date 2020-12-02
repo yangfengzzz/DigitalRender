@@ -15,6 +15,7 @@
 #include <vector>
 #include "shader.hpp"
 #include "renderable.hpp"
+#include "transform.hpp"
 
 namespace vox {
 class Node {
@@ -30,11 +31,11 @@ public:
     
     /// User setting transform
     glm::mat4 modelMatrix() {
-        glm::mat4 model = glm::mat4(1.0);
-        model = glm::translate(model, position);
-        model = glm::scale(model, scale);
-        model = glm::mat4_cast(quaternion) * model;
-        return model;
+        glm::mat4 identity = glm::mat4(1.0);
+        glm::mat4 translate_mat = glm::translate(identity, position);
+        glm::mat4 rotation_mat = glm::mat4_cast(quaternion);
+        glm::mat4 scale_mat = glm::scale(identity, scale);
+        return translate_mat * rotation_mat * scale_mat;
     }
     
     /// Accumulate user setting trasform
@@ -56,16 +57,17 @@ public:
     
 public:
     //MARK:- Instancing
-    bool isInstanceParent = false;
+    /// 64 bytes for 4x4 model matrix.
+    static constexpr uint16_t instanceStride = 4*(4*4);
+    bgfx::InstanceDataBuffer idb;
     uint32_t instanceCount = 1;
-    uint16_t instanceStride = 0;
-    bool allocInstanceData(uint32_t count, uint16_t stride) {
-        instanceCount = count;
-        instanceStride = stride;
-        
-        if (instanceCount == bgfx::getAvailInstanceDataBuffer(instanceCount, instanceStride) )
+    bool isInstanceParent = false;
+    
+    bool allocInstanceData(uint32_t count) {
+        if (count == bgfx::getAvailInstanceDataBuffer(count, instanceStride) )
         {
-            bgfx::allocInstanceDataBuffer(&idb, instanceCount, instanceStride);
+            bgfx::allocInstanceDataBuffer(&idb, count, instanceStride);
+            instanceCount = count;
             isInstanceParent = true;
             return true;
         } else {
@@ -73,15 +75,23 @@ public:
         }
     }
     
-    uint32_t getInstanceCount() {
-        if (parent == nullptr || isInstanceParent) {
-            return instanceCount;
-        }else {
-            return parent->getInstanceCount();
+    void updateBuffer(int instance, const Transform& transform) {
+        if (isInstanceParent == false) {
+            assert("must call allocInstanceData first!");
+        }
+        
+        uint8_t* data = idb.data;
+        data += instance * instanceStride;
+        float* mtx = (float*)data;
+        glm::mat4 model = transform.modelMatrix();
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                *mtx = model[i][j];
+                mtx++;
+            }
         }
     }
     
-    bgfx::InstanceDataBuffer idb;
     bgfx::InstanceDataBuffer& getInstanceDataBuffer() {
         if (parent == nullptr || isInstanceParent) {
             return idb;

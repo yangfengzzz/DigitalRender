@@ -16,12 +16,10 @@
 
 namespace vox {
 class Scene {
-public:    
-    void allocRoot() {
+public:
+    Scene() {
         rootNode = std::make_shared<Node>();
         rootNode->name = "RootNode";
-        rootNode->allocInstanceData(1);
-        rootNode->updateBuffer(0, Transform());
     }
     
     void loadAssimp(std::string const &path,
@@ -30,6 +28,10 @@ public:
     // draws the model, and thus all its meshes
     void draw()
     {
+        //for non-instancing nodes
+        rootNode->allocInstanceData(1);
+        rootNode->updateBuffer(0, vox::Transform());
+        
         rootNode->render();
     }
     

@@ -91,7 +91,7 @@
 		047DDB6E257493600087C7D4 /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB6C257493600087C7D4 /* model.cpp */; };
 		047DDB872574A5240087C7D4 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB852574A5240087C7D4 /* shader.cpp */; };
 		04C7397D2577696800138A7B /* transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7397B2577696800138A7B /* transform.cpp */; };
-		04C739872577897F00138A7B /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDBA32574CE7F0087C7D4 /* nano.cpp */; };
+		04C739962577AE8A00138A7B /* nano.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDBA32574CE7F0087C7D4 /* nano.cpp */; };
 		04D8A3F825762EED004A1ECE /* simple_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A3F625762EED004A1ECE /* simple_model.cpp */; };
 		04D8A3FD25762F66004A1ECE /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A3FB25762F66004A1ECE /* texture.cpp */; };
 		04D8A40625763CEB004A1ECE /* nodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A40425763CEB004A1ECE /* nodeFactory.cpp */; };
@@ -679,7 +679,6 @@
 		047DDB8F2574AE670087C7D4 /* fs_one.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_one.sc; sourceTree = "<group>"; };
 		047DDB902574AE670087C7D4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
 		047DDB912574AE670087C7D4 /* fs_two.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_two.sc; sourceTree = "<group>"; };
-		047DDB922574AE670087C7D4 /* vs_model.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_model.sc; sourceTree = "<group>"; };
 		047DDBA22574CE7F0087C7D4 /* varying.def.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = varying.def.sc; sourceTree = "<group>"; };
 		047DDBA32574CE7F0087C7D4 /* nano.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nano.cpp; sourceTree = "<group>"; };
 		047DDBA42574CE7F0087C7D4 /* fs_one.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_one.sc; sourceTree = "<group>"; };
@@ -688,6 +687,7 @@
 		04C171A9256EBA7A00C07290 /* uniforms.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = uniforms.sh; path = "18-ibl/uniforms.sh"; sourceTree = "<group>"; };
 		04C7397B2577696800138A7B /* transform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = transform.cpp; sourceTree = "<group>"; };
 		04C7397C2577696800138A7B /* transform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = transform.hpp; sourceTree = "<group>"; };
+		04C7398E2577A68C00138A7B /* vs_instancing.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_instancing.sc; sourceTree = "<group>"; };
 		04CE762D256DE82B0033C25A /* fs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_light.sc; sourceTree = "<group>"; };
 		04CE762E256DE82B0033C25A /* hello_light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hello_light.cpp; sourceTree = "<group>"; };
 		04CE762F256DE82B0033C25A /* vs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_light.sc; sourceTree = "<group>"; };
@@ -1517,11 +1517,11 @@
 		047DDB8D2574ADAD0087C7D4 /* hello_model2 */ = {
 			isa = PBXGroup;
 			children = (
-				04D8A3F325762708004A1ECE /* fs_basic.sc */,
 				047DDB902574AE670087C7D4 /* varying.def.sc */,
+				04D8A3F325762708004A1ECE /* fs_basic.sc */,
 				047DDB8F2574AE670087C7D4 /* fs_one.sc */,
 				047DDB912574AE670087C7D4 /* fs_two.sc */,
-				047DDB922574AE670087C7D4 /* vs_model.sc */,
+				04C7398E2577A68C00138A7B /* vs_instancing.sc */,
 				047DDB8E2574AE670087C7D4 /* nano.cpp */,
 			);
 			path = hello_model2;
@@ -2325,6 +2325,7 @@
 				0461C7E7256B69B000980618 /* nanovg.cpp in Sources */,
 				0461C7C3256B683400980618 /* clusterizer.cpp in Sources */,
 				0461C7B9256B683400980618 /* simplifier.cpp in Sources */,
+				04C739962577AE8A00138A7B /* nano.cpp in Sources */,
 				0461C78D256B67F100980618 /* cmd.cpp in Sources */,
 				042459362570B3B600DDA3B0 /* text_metrics.cpp in Sources */,
 				0461C78C256B67F100980618 /* entry.cpp in Sources */,
@@ -2360,7 +2361,6 @@
 				042459372570B3B600DDA3B0 /* utf8.cpp in Sources */,
 				042459342570B3B600DDA3B0 /* text_buffer_manager.cpp in Sources */,
 				04D8A3FD25762F66004A1ECE /* texture.cpp in Sources */,
-				04C739872577897F00138A7B /* nano.cpp in Sources */,
 				047DDB6E257493600087C7D4 /* model.cpp in Sources */,
 				0461C7C2256B683400980618 /* stripifier.cpp in Sources */,
 				04D8A40625763CEB004A1ECE /* nodeFactory.cpp in Sources */,

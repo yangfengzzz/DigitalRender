@@ -55,7 +55,6 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
-        m_scene.allocRoot();
         m_shader3.loadShader("../../../hello_instancing/vs_instancing",
                              "../../../hello_instancing/fs_two");
         m_shader2.loadShader("../../../hello_instancing/vs_instancing",

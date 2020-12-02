@@ -8,6 +8,7 @@
 #include "scene.hpp"
 #include "shader.hpp"
 #include "model.hpp"
+#include "transform.hpp"
 #include "nodeFactory.hpp"
 #include "common/imgui/imgui.h"
 #include <glm/glm.hpp>
@@ -55,9 +56,9 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
-        m_shader3.loadShader("../../../hello_model2/vs_model",
+        m_shader3.loadShader("../../../hello_model2/vs_instancing",
                              "../../../hello_model2/fs_two");
-        m_shader2.loadShader("../../../hello_model2/vs_model",
+        m_shader2.loadShader("../../../hello_model2/vs_instancing",
                              "../../../hello_model2/fs_one");
         m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model2/nanosuit.obj", m_shader3);
         auto result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Lights"));
@@ -65,7 +66,7 @@ public:
         result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Visor"));
         result->reloadShader(m_shader2);
         
-        m_scene.getRoot()->add(m_factory.createBox());
+        m_scene.getRoot()->add(m_factory.createBox(m_scene.getRoot().get()));
         
         // Set view and projection matrices.
         cameraCreate();

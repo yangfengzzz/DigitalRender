@@ -91,6 +91,7 @@
 		047DDB43257370940087C7D4 /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB41257370940087C7D4 /* mesh.cpp */; };
 		047DDB6E257493600087C7D4 /* model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB6C257493600087C7D4 /* model.cpp */; };
 		047DDB872574A5240087C7D4 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 047DDB852574A5240087C7D4 /* shader.cpp */; };
+		04C7397D2577696800138A7B /* transform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C7397B2577696800138A7B /* transform.cpp */; };
 		04D8A3F825762EED004A1ECE /* simple_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A3F625762EED004A1ECE /* simple_model.cpp */; };
 		04D8A3FD25762F66004A1ECE /* texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A3FB25762F66004A1ECE /* texture.cpp */; };
 		04D8A40625763CEB004A1ECE /* nodeFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A40425763CEB004A1ECE /* nodeFactory.cpp */; };
@@ -686,6 +687,8 @@
 		047DDBA52574CE7F0087C7D4 /* fs_two.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_two.sc; sourceTree = "<group>"; };
 		047DDBA62574CE7F0087C7D4 /* vs_instancing.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_instancing.sc; sourceTree = "<group>"; };
 		04C171A9256EBA7A00C07290 /* uniforms.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = uniforms.sh; path = "18-ibl/uniforms.sh"; sourceTree = "<group>"; };
+		04C7397B2577696800138A7B /* transform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = transform.cpp; sourceTree = "<group>"; };
+		04C7397C2577696800138A7B /* transform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = transform.hpp; sourceTree = "<group>"; };
 		04CE762D256DE82B0033C25A /* fs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs_light.sc; sourceTree = "<group>"; };
 		04CE762E256DE82B0033C25A /* hello_light.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hello_light.cpp; sourceTree = "<group>"; };
 		04CE762F256DE82B0033C25A /* vs_light.sc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs_light.sc; sourceTree = "<group>"; };
@@ -1653,6 +1656,8 @@
 				04D8A3FB25762F66004A1ECE /* texture.cpp */,
 				04D8A40C257640C4004A1ECE /* renderable.hpp */,
 				04D8A40B257640C4004A1ECE /* renderable.cpp */,
+				04C7397C2577696800138A7B /* transform.hpp */,
+				04C7397B2577696800138A7B /* transform.cpp */,
 			);
 			path = apps;
 			sourceTree = "<group>";
@@ -2343,6 +2348,7 @@
 				0461C7BC256B683400980618 /* overdrawoptimizer.cpp in Sources */,
 				0461C7B7256B683400980618 /* vertexcodec.cpp in Sources */,
 				0461C76F256B67AD00980618 /* example-glue.cpp in Sources */,
+				04C7397D2577696800138A7B /* transform.cpp in Sources */,
 				0461C772256B67AD00980618 /* bgfx_utils.cpp in Sources */,
 				047DDB43257370940087C7D4 /* mesh.cpp in Sources */,
 				042459352570B3B600DDA3B0 /* font_manager.cpp in Sources */,

@@ -55,16 +55,36 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
-        m_shader3.loadShader("../../../hello_instancing/vs_instancing",
-                             "../../../hello_instancing/fs_two");
-        m_shader2.loadShader("../../../hello_instancing/vs_instancing",
-                             "../../../hello_instancing/fs_one");
-        m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_instancing/nanosuit.obj", m_shader3);
-        auto result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Lights"));
-        result->reloadShader(m_shader2);
-        result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Visor"));
-        result->reloadShader(m_shader2);
+        //model
+        {
+            m_shader3.loadShader("../../../hello_instancing/vs_instancing",
+                                 "../../../hello_instancing/fs_two");
+            m_shader2.loadShader("../../../hello_instancing/vs_instancing",
+                                 "../../../hello_instancing/fs_one");
+            auto model = m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_instancing/nanosuit.obj",
+                                            m_shader3);
+            auto result = std::static_pointer_cast<vox::Model>(model->findNode("Lights"));
+            result->reloadShader(m_shader2);
+            result = std::static_pointer_cast<vox::Model>(model->findNode("Visor"));
+            result->reloadShader(m_shader2);
+            // Alloc instance buffer
+            const uint32_t numInstances   = 121;
+            model->setInstanceCount(numInstances);
+            // Write instance data for 11x11 cubes.
+            uint32_t index = 0;
+            for (uint32_t yy = 0; yy < 11; ++yy)
+            {
+                for (uint32_t xx = 0; xx < 11; ++xx)
+                {
+                    model->transforms[index].position = glm::vec3(-15.0f + float(xx)*10.0f,
+                                                                  0.0f, -15.0f + float(yy)*10.0f);
+                    index++;
+                }
+            }
+            m_scene.getRoot()->add(model);
+        }
         
+        //floor
         m_scene.getRoot()->add(m_factory.createBox(m_scene.getRoot().get()));
         
         // Set view and projection matrices.
@@ -233,25 +253,12 @@ public:
             float time = (float)( (bx::getHPCounter()-m_timeOffset)/double(bx::getHPFrequency() ) );
             bgfx::setUniform(u_time, &time);
             
-            // 11x11 models
-            const uint32_t numInstances   = 121;
-            if (m_scene.getRoot()->childNodes[0]->allocInstanceData(numInstances))
-            {
-                // Write instance data for 11x11 cubes.
-                uint32_t index = 0;
-                for (uint32_t yy = 0; yy < 11; ++yy)
-                {
-                    for (uint32_t xx = 0; xx < 11; ++xx)
-                    {
-                        vox::Transform transform;
-                        transform.position = glm::vec3(-15.0f + float(xx)*10.0f,
-                                                       0.0f, -15.0f + float(yy)*10.0f);
-                        transform.eulerAngle = glm::vec3(0.0f, time*0.37f, 0.0f);
-                        m_scene.getRoot()->childNodes[0]->updateBuffer(index, transform);
-                        index++;
-                    }
-                }
+            // update instance transform and upload to GPU
+            for (auto& transform: m_scene.getRoot()->childNodes[0]->transforms) {
+                transform.eulerAngle = glm::vec3(0.0f, time*0.37f, 0.0f);
             }
+            m_scene.getRoot()->childNodes[0]->updateInstanceBuffer();
+            
             m_scene.draw();
             
             // Advance to next frame. Rendering thread will be kicked to

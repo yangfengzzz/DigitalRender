@@ -15,29 +15,26 @@
 #include "shader.hpp"
 
 namespace vox {
+class Model;
+
 class Scene {
 public:
     Scene() {
         rootNode = std::make_shared<Node>();
         rootNode->name = "RootNode";
+        rootNode->setInstanceCount(1);
+        rootNode->transforms[0] = Transform();
     }
     
-    void loadAssimp(std::string const &path,
-                    const Shader& shader);
+    std::shared_ptr<Model> loadAssimp(std::string const &path,
+                                      const Shader& shader);
     
     // draws the model, and thus all its meshes
-    void draw()
-    {
+    void draw() {
         //for non-instancing nodes
-        rootNode->allocInstanceData(1);
-        rootNode->updateBuffer(0, vox::Transform());
+        rootNode->updateInstanceBuffer();
         
         rootNode->render();
-    }
-    
-    void setTransform(glm::mat4 transform) {
-        rootNode->localTransform = transform;
-        
     }
     
     std::shared_ptr<Node> getRoot(){

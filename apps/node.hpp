@@ -59,15 +59,19 @@ public:
     //MARK:- Instancing
     /// 64 bytes for 4x4 model matrix.
     static constexpr uint16_t instanceStride = 4*(4*4);
-    bgfx::InstanceDataBuffer idb;
-    uint32_t instanceCount = 1;
-    bool isInstanceParent = false;
+    uint32_t instanceCount = 0;
+    std::vector<Transform> transforms;
+    void setInstanceCount(uint32_t count) {
+        instanceCount = count;
+        transforms = std::vector<Transform>(count);
+    }
     
-    bool allocInstanceData(uint32_t count) {
-        if (count == bgfx::getAvailInstanceDataBuffer(count, instanceStride) )
+    bgfx::InstanceDataBuffer idb;
+    bool isInstanceParent = false;
+    bool allocInstanceData() {
+        if (instanceCount == bgfx::getAvailInstanceDataBuffer(instanceCount, instanceStride) )
         {
-            bgfx::allocInstanceDataBuffer(&idb, count, instanceStride);
-            instanceCount = count;
+            bgfx::allocInstanceDataBuffer(&idb, instanceCount, instanceStride);
             isInstanceParent = true;
             return true;
         } else {
@@ -75,20 +79,20 @@ public:
         }
     }
     
-    void updateBuffer(int instance, const Transform& transform) {
-        if (isInstanceParent == false) {
-            assert("must call allocInstanceData first!");
-        }
+    void updateInstanceBuffer() {
+        allocInstanceData();
         
         uint8_t* data = idb.data;
-        data += instance * instanceStride;
-        float* mtx = (float*)data;
-        glm::mat4 model = transform.modelMatrix();
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                *mtx = model[i][j];
-                mtx++;
+        for (size_t t = 0; t < instanceCount; t++) {
+            float* mtx = (float*)data;
+            glm::mat4 model = transforms[t].modelMatrix();
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    *mtx = model[i][j];
+                    mtx++;
+                }
             }
+            data += instanceStride;
         }
     }
     

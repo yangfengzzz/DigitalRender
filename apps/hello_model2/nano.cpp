@@ -56,16 +56,23 @@ public:
         
         u_time = bgfx::createUniform("u_time", bgfx::UniformType::Vec4);
         
-        m_shader3.loadShader("../../../hello_model2/vs_instancing",
-                             "../../../hello_model2/fs_two");
-        m_shader2.loadShader("../../../hello_model2/vs_instancing",
-                             "../../../hello_model2/fs_one");
-        m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model2/nanosuit.obj", m_shader3);
-        auto result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Lights"));
-        result->reloadShader(m_shader2);
-        result = std::static_pointer_cast<vox::Model>(m_scene.findNode("Visor"));
-        result->reloadShader(m_shader2);
+        //model
+        {
+            m_shader3.loadShader("../../../hello_model2/vs_instancing",
+                                 "../../../hello_model2/fs_two");
+            m_shader2.loadShader("../../../hello_model2/vs_instancing",
+                                 "../../../hello_model2/fs_one");
+            auto model = m_scene.loadAssimp("/Users/yangfeng/Desktop/DigitalRender/apps/hello_model2/nanosuit.obj", m_shader3);
+            auto result = std::static_pointer_cast<vox::Model>(model->findNode("Lights"));
+            result->reloadShader(m_shader2);
+            result = std::static_pointer_cast<vox::Model>(model->findNode("Visor"));
+            result->reloadShader(m_shader2);
+            model->position = glm::vec3(0.0f, 0.0f, 0.0f);
+            model->scale = glm::vec3(1.0f, 1.0f, 1.0f);
+            m_scene.getRoot()->add(model);
+        }
         
+        //floor
         m_scene.getRoot()->add(m_factory.createBox(m_scene.getRoot().get()));
         
         // Set view and projection matrices.
@@ -236,8 +243,6 @@ public:
                 float time = (float)( (bx::getHPCounter()-m_timeOffset)/double(bx::getHPFrequency() ) );
                 bgfx::setUniform(u_time, &time);
                 
-                m_scene.getRoot()->childNodes[0]->position = glm::vec3(0.0f, 0.0f, 0.0f);
-                m_scene.getRoot()->childNodes[0]->scale = glm::vec3(1.0f, 1.0f, 1.0f);
                 m_scene.getRoot()->childNodes[0]->setEulerAngle(glm::vec3(0.0f, time*0.37f, 0.0f));
             }
             m_scene.draw();

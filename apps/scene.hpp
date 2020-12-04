@@ -13,6 +13,7 @@
 #include "node.hpp"
 #include "renderable.hpp"
 #include "shader.hpp"
+#include "skybox.hpp"
 
 namespace vox {
 class Model;
@@ -35,6 +36,10 @@ public:
         rootNode->updateInstanceBuffer();
         
         rootNode->render();
+        
+        if (isSkyboxloaded) {
+            skybox.draw();
+        }
     }
     
     std::shared_ptr<Node> getRoot(){
@@ -44,9 +49,17 @@ public:
     std::shared_ptr<Node> findNode(std::string name,
                                    std::shared_ptr<Node> starter = nullptr);
     
+    void loadSkybox(std::string textureName) {
+        skybox.init(textureName);
+        isSkyboxloaded = true;
+    }
+    
 private:
     std::shared_ptr<Node> rootNode;
     Assimp::Importer importer;
+    
+    Skybox skybox;
+    bool isSkyboxloaded = false;
 };
 
 }

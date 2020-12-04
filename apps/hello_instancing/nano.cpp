@@ -87,6 +87,9 @@ public:
         //floor
         m_scene.getRoot()->add(m_factory.createPlane(m_scene.getRoot().get()));
         
+        //skybox
+        m_scene.loadSkybox("/Users/yangfeng/Desktop/DigitalRender/apps/runtime/textures/uffizi.ktx");
+        
         // Set view and projection matrices.
         cameraCreate();
         cameraSetPosition({ 0.0f, 0.0f,  3.0f });

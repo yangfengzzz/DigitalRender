@@ -11,7 +11,11 @@ $output v_view
 void main()
 {
     v_view = a_position;
-    
-    vec4 pos = mul(u_viewProj, vec4(a_position, 1.0));
+    mat4 view = u_view;
+    view[0][3] = 0;
+    view[1][3] = 0;
+    view[2][3] = 0;
+    view[3][3] = 1;
+    vec4 pos = mul(u_proj, mul(view, vec4(a_position, 1.0)));
     gl_Position = pos.xyww;
 }

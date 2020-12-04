@@ -73,7 +73,7 @@ public:
         }
         
         //floor
-        m_scene.getRoot()->add(m_factory.createBox(m_scene.getRoot().get()));
+        m_scene.getRoot()->add(m_factory.createPlane(m_scene.getRoot().get()));
         
         // Set view and projection matrices.
         cameraCreate();

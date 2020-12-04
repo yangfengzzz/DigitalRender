@@ -8,7 +8,7 @@
 #include "scene.hpp"
 #include "model.hpp"
 #include "transform.hpp"
-#include "../hello_instancing/nodeFactory.hpp"
+#include "nodeFactory.hpp"
 #include "common/imgui/imgui.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -85,7 +85,7 @@ public:
         }
         
         //floor
-        m_scene.getRoot()->add(m_factory.createBox(m_scene.getRoot().get()));
+        m_scene.getRoot()->add(m_factory.createPlane(m_scene.getRoot().get()));
         
         // Set view and projection matrices.
         cameraCreate();

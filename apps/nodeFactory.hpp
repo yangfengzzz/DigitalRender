@@ -10,28 +10,12 @@
 
 #include "node.hpp"
 #include "simple_model.hpp"
+#include "simple_mesh.hpp"
 
 namespace vox {
-static float planeVertices[] = {
-    // positions            // normals         // texcoords
-    10.0f, -0.5f,  10.0f,  0.0f, 1.0f, 0.0f,  10.0f,  0.0f,
-    -10.0f, -0.5f,  10.0f,  0.0f, 1.0f, 0.0f,   0.0f,  0.0f,
-    -10.0f, -0.5f, -10.0f,  0.0f, 1.0f, 0.0f,   0.0f, 10.0f,
-    
-    10.0f, -0.5f,  10.0f,  0.0f, 1.0f, 0.0f,  10.0f,  0.0f,
-    -10.0f, -0.5f, -10.0f,  0.0f, 1.0f, 0.0f,   0.0f, 10.0f,
-    10.0f, -0.5f, -10.0f,  0.0f, 1.0f, 0.0f,  10.0f, 10.0f
-};
-
-static const uint16_t s_cubeTriList[] =
-{
-    2,  1,  0,
-    5,  4,  3,
-};
-
 class NodeFactory {
 public:
-    std::shared_ptr<Node> createBox(Node* parent){
+    std::shared_ptr<Node> createPlane(Node* parent){
         bgfx::VertexLayout ms_layout;
         ms_layout.begin()
         .add(bgfx::Attrib::Position, 3, bgfx::AttribType::Float)
@@ -51,7 +35,7 @@ public:
         bgfx::IndexBufferHandle m_ibh
         = bgfx::createIndexBuffer(
                                   // Static data can be passed with bgfx::makeRef
-                                  bgfx::makeRef(s_cubeTriList, sizeof(s_cubeTriList) )
+                                  bgfx::makeRef(s_planeTriList, sizeof(s_planeTriList) )
                                   );
         
         shader.loadShader("../../../hello_instancing/vs_instancing",
